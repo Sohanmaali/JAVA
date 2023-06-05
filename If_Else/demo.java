@@ -1,0 +1,119 @@
+import java.util.Scanner;
+class CheckChar
+{
+public static void main(String[]args)                                  
+{
+	char ch;
+  	Scanner sc = new Scanner(System.in);
+	
+	System.out.println("Enter any Char ");
+  	 ch = sc.next().charAt(0);
+	 int num = (int)ch;
+	 
+	 if(ch>=48==ch<=57)
+	 {
+		System.out.println("Enter charector "+ch+" is Digit "+num);	
+	 }
+		if(ch<=65==ch>=90)
+		{
+			if(ch==65)
+			{
+				System.out.println("Enter charector "+ch+" is upper case Vowel "+num);	
+			}
+			else 
+			{
+				if(ch==69)
+				{
+					System.out.println("Enter charector "+ch+" is upper case Vowel "+num);
+				}
+				else
+				{
+					if(ch==73)
+					{
+						System.out.println("Enter charector "+ch+" is upper case Vowel "+num);	
+					}
+					else
+					{
+						if(ch==79)
+						{
+							System.out.println("Enter charector "+ch+" is upper case Vowel "+num);	
+						}
+						else
+						{
+							if(ch==85)
+							{
+								System.out.println("Enter charector "+ch+" is upper case Vowel "+num);	
+							}
+							else
+							{
+								System.out.println("Enter charector "+ch+" is upper case Consonent "+num);	
+							}
+						}
+					}
+					
+				}
+			}	
+		}
+		else
+		{
+			if(ch>=122==ch<=97)
+			{
+				if(ch==97)
+				{
+					System.out.println("Enter charector "+ch+" is lower case Vowel "+num);	
+				}
+				else 
+				{
+					if(ch==101)
+					{
+						System.out.println("Enter charector "+ch+" is lower case Vowel "+num);	
+					}
+					else
+					{
+						if(ch==105)
+						{
+							System.out.println("Enter charector "+ch+" is lower case Vowel "+num);	
+						}
+						else
+						{
+							if(ch==111)
+							{
+								System.out.println("Enter charector "+ch+" is lower case Vowel "+num);	
+							}
+							else
+							{
+								if(ch==117)
+								{
+									System.out.println("Enter charector "+ch+" is lower case Vowel "+num);	
+								}
+								else
+								{
+									System.out.println("Enter charector is "+ch+" Lower case Consonent "+num);	
+								}
+							}
+						}
+					}
+				}
+			} 
+		}
+		if(ch<47==ch>=0)
+		{
+			System.out.println("Enter charector "+ch+" is Special Charectore");	
+		}
+		else
+		{
+			if(ch<65==ch>57)
+			{
+				System.out.println("Enter charector "+ch+" is Special Charectore");
+			}
+			if(ch<97==ch>90)
+			{
+				System.out.println("Enter charector "+ch+" is Special Charectore");
+			}
+			if(ch<=255==ch>122)
+			{
+				System.out.println("Enter charector "+ch+" is Special Charectore");
+			}
+		}
+	}
+}
