@@ -7,7 +7,8 @@ class Test
 		Scanner sc = new Scanner (System.in);
 		System.out.println("Adition = "+(x+y));
 		return x+y;
-		/* System.out.println("Do you want to parform more operation");
+		/* 
+		System.out.println("Do you want to parform more operation");
 		char ch = sc.next().charAt(0);
 		if(ch=='y') this.sub(x,y);
 		*/
