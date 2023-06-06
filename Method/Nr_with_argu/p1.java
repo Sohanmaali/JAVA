@@ -7,20 +7,33 @@ class Test
 		Scanner sc = new Scanner (System.in);
 		System.out.println("Adition = "+(x+y));
 		return x+y;
-		/* 
-		System.out.println("Do you want to parform more operation");
-		char ch = sc.next().charAt(0);
-		if(ch=='y') this.sub(x,y);
-		*/
 	}
-	public void sub(int a,int b)
+	public int sub(int x,int y)
 	{
-		System.out.println("Subtraction = "+(a-b));
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Subtraction = "+(x+y));
+		return x-y;
+	}
+	public int multi(int x,int y)
+	{
+		Scanner sc = new Scanner (System.in);
+		System.out.println("multiplaction = "+(x+y));
+		return x*y;
 	}
 	public static void main(String args[])
 	{
 		Test ob = new Test();
-		//int x=0;
+		do
+		{
+			switch ()
+			{
+				case 1:
+				switch ()
+				{
+					
+				}
+			}
+		}
 		int x = ob.add(4,3);
 		System.out.println("Addition = "+x);
 	}
