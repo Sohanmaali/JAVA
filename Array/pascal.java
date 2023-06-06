@@ -9,13 +9,48 @@ class Pascal
 		
 		System.out.println("How many element you want to enter");
 		int n = sc.nextInt();
-		
-		for(int i=0;i<n;i++)
+		int l=n;
+		/* for(int i=0;i<n;i++)
 		{
-			for(int j=0;j<n;j++)
+			a[n-i]=1;
+			for(int j=0;j<=n;j++)
 			{
-				a[i]*=(i-j)/(j+1);
+				if(j>=n-i&&j<=n)
+				{
+					
+					System.out.print(a[j]+" ");
+					a[j]*=(i-j)/(j+1);
+				}
+				else
+				{
+					System.out.print(" ");
+				}
 			}
+			System.out.println("");
+		} */
+		/* for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<=i;j++)
+			{
+				System.out.print(a[i][j]+" ");
+			}
+			System.out.println("");
+		} */
+		
+		for(int i=1;i<=n;i++)
+		{
+			for(int j=1;j<=(n<<i)-1;j++)
+			{
+				if((i<=n&&(j>n-i&&j<=(n<<1)-l)))
+				{
+					System.out.print("* ");
+				}
+				else
+				{
+					System.out.print("  ");
+				}
+			}
+			System.out.println("");
 		}
 	}
 }

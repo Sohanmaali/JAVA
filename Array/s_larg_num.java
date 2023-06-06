@@ -13,19 +13,15 @@ class Slarg
 		for(int i = 0; i<n; a[i]= sc.nextInt(),i++);
 		
 		max = a[0];
-		min = a[0];
 		for(int i=0;i<n;i++)
 		{
 			if(max<a[i])
 			{
 				max=a[i];
 			}
-			else
-			{
-				min=a[i];
-			}
 		}
-		slarg = min;
+		
+		slarg = 0;
 		for(int i=0;i<n;i++)
 		{
 			if (a[i] > slarg && a[i] < max)
