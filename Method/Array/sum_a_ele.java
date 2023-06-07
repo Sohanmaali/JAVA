@@ -31,6 +31,5 @@ class ElementSum
 	{
 		ElementSum ob = new ElementSum();
 		System.out.println("\nsum = "+ob.takeElement(ob));
-		
 	}
 }

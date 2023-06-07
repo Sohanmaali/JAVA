@@ -1,8 +1,8 @@
 import java.util.Scanner; 
 
-class DeleteEle
+class Frequency
 {
-	public void takeElement(DeleteEle k)
+	public void takeElement(Frequency k)
 	{
 		Scanner sc = new Scanner (System.in);
 		int a[] = new int [10];
@@ -15,41 +15,33 @@ class DeleteEle
 		{
 			a[i] = sc.nextInt();
 		}
-		
+		System.out.println("eneter frequency element");
+		int x = sc.nextInt();
 		System.out.println("Actual array Element are ");
 		for(int i = 0; i<n;i++)
 		{
 			System.out.print(a[i]+" ");
 		}
-		k.deleteEle(a,n);
+		k.frequ(a,n,x);
 	}
-	public void deleteEle(int a[],int n)
+	public void frequ(int a[],int n,int x)
 	{
-		int x=0;
+		int count =1;
 		for(int i = 0;i<n;i++)
 		{
 			if(a[i]!=-1)
-			{
 				for(int j=i+1;j<n;j++)
-				{
-					if(a[i]==a[j])
-					{
-						a[j] = -1;
-					}
-				}
-				a[x]=a[i];
-				x++;
+			if(a[i]==a[j])
+			{
+				count++;
+				a[i+1]=-1;
 			}
 		}
-		System.out.println("\nAfter delete duplicate element");
-		for(int i = 0; i<x;i++)
-		{
-			System.out.print(a[i]+" ");
-		}
+		System.out.println("\nFrequency of "+x+" = "+count);
 	}
 	public static void main(String args[])
 	{
-		DeleteEle ob = new DeleteEle();
+		Frequency ob = new Frequency();
 		ob.takeElement(ob);
 	}
 }
