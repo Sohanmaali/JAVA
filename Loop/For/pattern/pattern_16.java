@@ -22,7 +22,7 @@ class Pattern_16
 			{
 				System.out.print(j+" ");
 			}
-			System.out.println("");q
+			System.out.println("");
 		}
 	}
 }

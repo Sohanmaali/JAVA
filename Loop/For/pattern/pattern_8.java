@@ -5,7 +5,7 @@
   * * * *
 * * * * *
 */
-//not  complide
+
 import java.util.Scanner;
 class Pattern_8
 {
@@ -20,7 +20,7 @@ class Pattern_8
 		{
 			for(j=1;j<=row;j++)
 			{
-				if(j>=row-i+1&&j<=row)
+				if(j>row-i&&j<=row)
 				{
 					System.out.print("* ");
 				}

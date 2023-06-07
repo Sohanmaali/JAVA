@@ -17,8 +17,7 @@ class Pattern_36
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter any num");
 		int row = sc.nextInt();
-		int k = row-1;
-		int l=1;int x=3;
+		int l=n-1,k=1,x=1;
 	/*for(int i=1;i<=(row<<1)-1;i++)
 		{
 			if(i<=row)
@@ -55,11 +54,11 @@ class Pattern_36
 			}
 		}*/
 	
-		for(int i=1;i<=(row<<1)-1;i++)
+		for(int i=1;i<=(n<<1)-1;i++)
 		{
-			for(int j=1;j<=(row<<1);j++)
+			for(int j=1;j<=(n<<1);j++)
 			{
-				if(((i<=row)&&(j>row-i+1&&j<=(row<<1)-k))||((i>row)&&(j>=x&&j<=(row<<1)-l)))
+				if(((i<=n)&&(j>n-i+1&&j<=(n<<1)-l))||((i>n)&&(j>k+1&&j<=(n<<1)-x)))
 				{
 					System.out.print("* ");
 				}
@@ -68,14 +67,13 @@ class Pattern_36
 					System.out.print("  ");
 				}
 			}
-			if(i>row)
+			l--;
+			if(i>n)
 			{
+				k++;
 				x++;
-				l++;
 			}
-			else
-				k--;
-			System.out.print("\n");
-		}	
+			System.out.println("");
+		}
 	}
 }

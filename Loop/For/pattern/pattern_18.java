@@ -16,16 +16,18 @@ class Pattern_18
 		System.out.println("Enter any number");
 		int row = sc.nextInt();
 		
-		for(int i=1;i<=row;i++)
+		 for(int i=1;i<=row;i++)
 		{
-			for(int j=1;j<i;j++)
+			for(int k=1;k<=row;k++) 
 			{
-				System.out.print("  ");
-			}
-			
-			for(int k=i;k<=row;k++)
-			{
-				System.out.print(k+" ");
+				if(k>=i && k<=row)
+				{
+					System.out.print(k+" ");
+				}
+				else
+				{
+					System.out.print("  ");
+				}
 			}
 			System.out.println("");
 		}

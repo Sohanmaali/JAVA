@@ -4,6 +4,8 @@
     3 2 1
 	  2 1
 	    1
+		
+
 */
 
 import java.util.Scanner;
@@ -16,17 +18,21 @@ class Pattern_17
 		System.out.println("Enter any number");
 		int row = sc.nextInt();
 		
-		for(int i=1;i<=row;i++)
+		for(int i=1;i<=row;i++)  //right
 		{
-			for(int j=1;j<i;j++)
+			for(int k=1,x = row;k<=row;k++)
 			{
-				System.out.print("  ");
+				if(k>=i && k<=row)
+				{
+					System.out.print(x+" ");
+					x--;
+				}
+				else
+				{
+					System.out.print("  ");
+				}
 			}
 			
-			for(int k=row-i+1;k>=1;k--)
-			{
-				System.out.print(k+" ");
-			}
 			System.out.println("");
 		}
 	}
