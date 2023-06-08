@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class DeleteEle
 {
-	public void takeElement(DeleteEle k)
+	public void takeElement()
 	{
 		Scanner sc = new Scanner (System.in);
 		int a[] = new int [10];
@@ -21,7 +21,7 @@ class DeleteEle
 		{
 			System.out.print(a[i]+" ");
 		}
-		k.deleteEle(a,n);
+		deleteEle(a,n);
 	}
 	public void deleteEle(int a[],int n)
 	{
@@ -50,6 +50,6 @@ class DeleteEle
 	public static void main(String args[])
 	{
 		DeleteEle ob = new DeleteEle();
-		ob.takeElement(ob);
+		ob.takeElement();
 	}
 }
