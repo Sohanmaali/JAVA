@@ -36,7 +36,18 @@ class AscengingOrder
 		}
 		choice(a,n,m);
 	}
-	public void rowAscending(int a[][],int n,int m)
+	public void print(int a[][],int n,int m)
+	{
+		for(int i=0;i<n;i++)
+		{
+			for(int j = 0;j <m;j++)
+			{
+				System.out.print(a[i][j]+" ");
+			}
+			System.out.println("");
+		}
+	}
+	public int[][] rowAscending(int a[][],int n,int m)
 	{
 		for(int i=0;i<n;i++)
 		{
@@ -53,8 +64,9 @@ class AscengingOrder
 				}
 			}
 		}
+		return a;
 	}
-	public void colomAscending(int a[][],int n,int m)
+	public int[][] colomAscending(int a[][],int n,int m)
 	{
 		for(int i=0;i<n;i++)
 		{
@@ -71,34 +83,66 @@ class AscengingOrder
 				}
 			}
 		}
+		return a;
+	}
+	public int[][] rcAscending(int a[][],int n,int m)
+	{
+		rowAscending(a,n,m);
+		System.out.println("Row Ascending Order");
+		
+		print(a,n,m);
+		
+		colomAscending(a,n,m);
+		System.out.println("Row and colom Ascending Order");
+		print(a,n,m);
+		return a;
+	}
+	public int [][] rowDiscending(int a[][],int n,int m)
+	{
 		for(int i=0;i<n;i++)
 		{
-			for(int j = 0;j <m;j++)
+			for(int j = 0;j < m;j++)
 			{
-				System.out.print(a[i][j]+" ");
+				int min = a[i][j];
+				int pos = j;
+				for(int k = j+1;k<m;k++)		//Selection sort
+				{
+					if(min<a[j][k])
+					{
+						min=a[j][k];
+						pos = k;
+					}
+				}
+				a[i][pos]=a[i][j];
+				a[i][j] = min;
 			}
-			System.out.println("");
 		}
-	}
-	public void rcAscending(int a[][],int n,int m)
-	{
-		
+		print(a,n,m);
+		return a;
 	}
 	public void choice(int a[][],int n,int m)
 	{
 		Scanner sc = new Scanner (System.in);
-		System.out.println("\n\t1 For Row Ascending Order\n\t2 For Colom Ascending Order\n\t3 For Row Ascending colom Discending\n\t4 For colom Ascenging row Discending");
+		System.out.println("\n\t1 For Row Ascending Order\n\t2 For Colom Ascending Order\n\t3 For Row And colom Ascending\n\t4 For Row And colom Discending");
 		int choice = sc.nextInt();
 		switch (choice)
 		{
 			case 1:
-				rowAscending(a,n,m);
+				a = rowAscending(a,n,m);
+				System.out.println("Row Ascending Order");
+				print(a,n,m);
 				break;
 			case 2:
-				colomAscending(a,n,m);
+				a = colomAscending(a,n,m);
+				System.out.println("colom Ascending Order");
+				print(a,n,m);
 				break;
 			case 3 :
-				rcAscending(a,n,m);
+				a = rcAscending(a,n,m);
+				break;		
+			case 4 :
+				a = rowDiscending(a,n,m);
+				
 				break;			
 		}
 	}

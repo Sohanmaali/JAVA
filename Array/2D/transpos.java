@@ -30,9 +30,18 @@ class Transpos
 			}
 			System.out.println();
 		}
-		for(int i=0; i<m; i++)
+		int r;
+		if(n>m)
 		{
-			for(int j = i+1; j<m; j++)
+			r=n;
+		}
+		else
+		{
+			r=m;
+		}
+		for(int i=0; i<n; i++)
+		{
+			for(int j = i; j<r; j++)
 			{
 				int temp = a[i][j];
 				a[i][j] = a[j][i];
