@@ -51,7 +51,7 @@ class AscengingOrder
 	{
 		for(int i=0;i<n;i++)
 		{
-			for(int j = 0;j < m-1;j++)
+			for(int j = 0;j < m;j++)
 			{
 				for(int k = 0;k<m-i-1;k++)		//bubble sort
 				{
@@ -97,7 +97,7 @@ class AscengingOrder
 		print(a,n,m);
 		return a;
 	}
-	public int [][] rowDiscending(int a[][],int n,int m)
+	public int[][] rowDiscending(int a[][],int n,int m)
 	{
 		for(int i=0;i<n;i++)
 		{
@@ -117,13 +117,34 @@ class AscengingOrder
 				a[i][j] = min;
 			}
 		}
-		print(a,n,m);
+		return a;
+	}
+	public int[][] coloDiscending(int a[][],int n,int m)
+	{
+		for(int i=0;i<n;i++)
+		{
+			for(int j = 0;j < m;j++)
+			{
+				int min = a[i][j];
+				int pos = j;
+				for(int k = j+1;k<m;k++)		//Selection sort
+				{
+					if(min<a[k][n])
+					{
+						min=a[k][j];
+						pos = j;
+					}
+				}
+				a[pos][i]=a[j][i];
+				a[j][i] = min;
+			}
+		}
 		return a;
 	}
 	public void choice(int a[][],int n,int m)
 	{
 		Scanner sc = new Scanner (System.in);
-		System.out.println("\n\t1 For Row Ascending Order\n\t2 For Colom Ascending Order\n\t3 For Row And colom Ascending\n\t4 For Row And colom Discending");
+		System.out.println("\n\t1 For Row Ascending Order\n\t2 For Colom Ascending Order\n\t3 For Row And colom Ascending\n\t4 For Row Discendingn\n\t5 For colom Discending");
 		int choice = sc.nextInt();
 		switch (choice)
 		{
@@ -138,11 +159,14 @@ class AscengingOrder
 				print(a,n,m);
 				break;
 			case 3 :
-				a = rcAscending(a,n,m);
+				a = rowDiscending(a,n,m);
+				System.out.println("Row Discending Order");
+				print(a,n,m);
 				break;		
 			case 4 :
-				a = rowDiscending(a,n,m);
-				
+				a = coloDiscending(a,n,m);
+				System.out.println("colom Discending Order");
+				print(a,n,m);
 				break;			
 		}
 	}
