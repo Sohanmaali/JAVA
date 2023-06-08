@@ -49,14 +49,14 @@ class AscendingOrder
 		//Bubble sort start
 		for(int i=0; i<n; i++) //right
 		{
-			for(int j = 0; j<n; j++)
+			for(int j = 0;j < m-1;j++)
 			{
-				for(int k=1; k<m;k++)
+				for(int k = 0;k<m-i-1;k++)
 				{
-					if(a[j][k-1]>a[j][k])
+					if(a[j][k]>a[j][k+1])
 					{
-						int temp = a[j][k-1];
-						a[j][k-1] = a[j][k];
+						int temp = a[j][k+1];
+						a[j][k+1]=a[j][k];
 						a[j][k] = temp;
 					}
 				}

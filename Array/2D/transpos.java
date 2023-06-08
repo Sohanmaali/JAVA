@@ -32,7 +32,7 @@ class Transpos
 		}
 		for(int i=0; i<m; i++)
 		{
-			for(int j = i+1; j<=n; j++)
+			for(int j = i+1; j<m; j++)
 			{
 				int temp = a[i][j];
 				a[i][j] = a[j][i];

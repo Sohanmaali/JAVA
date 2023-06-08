@@ -61,7 +61,6 @@ class Sort
 		{
 			System.out.print(a[i]+" ");
 		}
-		
 	}
 	public void takeElement()
 	{
