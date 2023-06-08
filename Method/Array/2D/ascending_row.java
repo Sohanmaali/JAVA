@@ -125,8 +125,8 @@ class AscengingOrder
 		{
 			for(int j = 0;j < m;j++)
 			{
-				int min = a[i][j];
-				int pos = j;
+				int min = a[j][i];
+				int pos = i;
 				for(int k = j+1;k<m;k++)		//Selection sort
 				{
 					if(min<a[k][n])
@@ -144,7 +144,7 @@ class AscengingOrder
 	public void choice(int a[][],int n,int m)
 	{
 		Scanner sc = new Scanner (System.in);
-		System.out.println("\n\t1 For Row Ascending Order\n\t2 For Colom Ascending Order\n\t3 For Row And colom Ascending\n\t4 For Row Discendingn\n\t5 For colom Discending");
+		System.out.println("\n\t1 For Row Ascending Order\n\t2 For Colom Ascending Order\n\t3 For Row  Discending\n\t4 For Colom Discendingn");
 		int choice = sc.nextInt();
 		switch (choice)
 		{
