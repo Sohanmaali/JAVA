@@ -2,14 +2,18 @@ import java.util.Scanner;
 
 class First
 {
-	public void first()
+	public int first(int n)
 	{
-		Scanner sc = new Scanner (System.in);
-		
+		if(n<=1)
+		{
+			return 1;
+		}
+		return n*first(n-1);
 	}
 	public static void main(String args[])
 	{
+		Scanner sc = new Scanner (System.in);
 		First ob = new First();
-		ob.first();
+		System.out.println(ob.first(5));
 	}
-}
+}0

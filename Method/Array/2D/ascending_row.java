@@ -93,8 +93,6 @@ class AscengingOrder
 		print(a,n,m);
 		
 		colomAscending(a,n,m);
-		System.out.println("Row and colom Ascending Order");
-		print(a,n,m);
 		return a;
 	}
 	public int[][] rowDiscending(int a[][],int n,int m)
@@ -105,15 +103,15 @@ class AscengingOrder
 			{
 				int min = a[i][j];
 				int pos = j;
-				for(int k = j+1;k<m;k++)		//Selection sort
+				for(int k = j+1;k < m;k++)		//Selection sort
 				{
-					if(min<a[j][k])
+					if(min < a[i][k])
 					{
-						min=a[j][k];
+						min = a[i][k];
 						pos = k;
 					}
 				}
-				a[i][pos]=a[i][j];
+				a[i][pos] = a[i][j];
 				a[i][j] = min;
 			}
 		}
@@ -123,16 +121,16 @@ class AscengingOrder
 	{
 		for(int i=0;i<n;i++)
 		{
-			for(int j = 0;j < m;j++)
+			for(int j = 0;j < n;j++)
 			{
 				int min = a[j][i];
-				int pos = i;
-				for(int k = j+1;k<m;k++)		//Selection sort
+				int pos = j;
+				for(int k = j+1;k<n;k++)		//Selection sort
 				{
-					if(min<a[k][j])
+					if(min<a[k][i])
 					{
-						min=a[k][j];
-						pos = j;
+						min=a[k][i];
+						pos = k;
 					}
 				}
 				a[pos][i]=a[j][i];
@@ -144,7 +142,7 @@ class AscengingOrder
 	public void choice(int a[][],int n,int m)
 	{
 		Scanner sc = new Scanner (System.in);
-		System.out.println("\n\t1 For Row Ascending Order\n\t2 For Colom Ascending Order\n\t3 For Row  Discending\n\t4 For Colom Discendingn");
+		System.out.println("\n\t1 For Row Ascending Order\n\t2 For Colom Ascending Order\n\t3 For Row  Discending\n\t4 For Colom Discendingn\n\t5 For Row Colom Asecendingn");
 		int choice = sc.nextInt();
 		switch (choice)
 		{
@@ -167,8 +165,12 @@ class AscengingOrder
 				a = coloDiscending(a,n,m);
 				System.out.println("colom Discending Order");
 				print(a,n,m);
+				break;		
+			case 5 :
+				a = rcAscending(a,n,m);
+				System.out.println("Row colom Ascending Order");
+				print(a,n,m);
 				break;			
 		}
 	}
-	
 }
