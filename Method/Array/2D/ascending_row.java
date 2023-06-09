@@ -129,7 +129,7 @@ class AscengingOrder
 				int pos = i;
 				for(int k = j+1;k<m;k++)		//Selection sort
 				{
-					if(min<a[k][n])
+					if(min<a[k][j])
 					{
 						min=a[k][j];
 						pos = j;
@@ -139,7 +139,7 @@ class AscengingOrder
 				a[j][i] = min;
 			}
 		}
-		return a;
+		return a; 
 	}
 	public void choice(int a[][],int n,int m)
 	{

@@ -4,34 +4,34 @@ class DeletDuplicate
 	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
-		int a[] = new int[10];
+		int a[] = new int[20];
 		
 		System.out.println("How many element you want to enter");
 		int n = sc.nextInt();
 		
-		int j,i,x;
-		
 		System.out.println("Enter element of array");
 		
-		for( i = 0; i<n; a[i]= sc.nextInt(),i++);
-		
-		for(i=0,x=0;i<n;i++)
+		for(int i = 0; i<n; i++) a[i] = sc.nextInt();
+	
+		for(int i=0; i<n; i++)
 		{
-			if (a[i] != -1)
+			for (int j = i + 1; j < n; j++)
 			{
-				for (j = i + 1; j < n; j++)
+				if (a[i] == a[j])
 				{
-					if (a[i] == a[j])
+					for(int k = j; k<n-1; k++)
 					{
-						a[j] = -1;
+						a[k] = a[k+1];
 					}
+					n--;
+					j--;
 				}
-				a[x] = a[i];
-				x++;
 			}
 		}
-		
 		System.out.println("New value of array");
-		for( i = 0; i<x;System.out.println(i+" "+a[i]),i++);
+		for(int i = 0; i<n; i++)
+		{
+			System.out.println(a[i]+" ");
+		}
 	}
 }

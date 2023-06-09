@@ -5,8 +5,8 @@ class FreqencyArry
 	{
 		Scanner sc = new Scanner(System.in);
 		
-		int a[] = new int[10];
-		int b[] = new int[10];
+		int a[] = new int[20];
+		int b[] = new int[20];
 		
 		System.out.println("How many element you want to enter");
 		int n = sc.nextInt();
@@ -14,20 +14,22 @@ class FreqencyArry
 		int count;
 		System.out.println("Enter element of array");
 		
-		for(int i = 0; i<n; a[i]= sc.nextInt(),i++);
+		for(int i = 0; i<n; i++) a[i]= sc.nextInt();
 		
 		for(int i=0;i<n;i++)
 		{
-			count=1;
-			if(a[i]!=-1)
+			count=1;			
+			for(int j=i+1;j<n;j++)
 			{
-				for(int j=i+1;j<n;j++)
+				if(a[i]==a[j])
 				{
-					if(a[i]==a[j])
+					for(int k = j;k<n-1;k++)
 					{
-						a[j]=-1;
-						count++;
+						a[k]= a[k+1];
 					}
+					n--;
+					j--;
+					count++;
 				}
 			}
 			b[i]=count;
@@ -36,10 +38,7 @@ class FreqencyArry
 		
 		for(int i = 0; i<n;i++)
 		{
-			if(a[i]!=-1)
-			{
-				System.out.println(a[i]+" = "+b[i]);
-			}
+			System.out.println(a[i]+" = "+b[i]);
 		}
 		
 	}
