@@ -11,7 +11,7 @@ class DiagonalMatrixSum
 		
 		System.out.println("Enter size of First Metrix Colom");
 		int m = sc.nextInt();
-			
+		
 		System.out.println("Enter Element of First Metrix : ");
 		
 		for(int i=0; i<n; i++)

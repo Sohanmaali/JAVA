@@ -7,7 +7,7 @@ class InsetionSort
 		int a[]= new int[20];
 		System.out.println("Enter size of array");
 		int n = sc.nextInt();
-			
+		
 		System.out.println("Enter Element of array : ");
 		
 		for(int i=0;i<n;i++)
