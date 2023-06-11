@@ -30,7 +30,7 @@ class Calculater
 	//sub Four num
 	public int sub(int a,int b,int c,int d)
 	{
-		return this.sub(a,b,c)+d;
+		return this.sub(a,b,c)-d;
 	}
 	//Multiplaction two num
 	public int multi(int a,int b)
@@ -58,7 +58,7 @@ class Calculater
 		return this.division(a,b)/c;
 	}
 	//Division Four numpublic 
-	int division(int a,int b,int c,int d)
+	public int division(int a,int b,int c,int d)
 	{
 		return this.division(a,b,c)/d;
 	}
@@ -74,7 +74,7 @@ class Calculater
 				break;
 			case 2:
 				takeElement2(sc);
-			break;
+				break;
 			case 3:
 				takeElement3(sc);
 				break;
@@ -128,19 +128,19 @@ class Calculater
 		switch(choice)
 		{
 			case 1:
-				 x = add(a,b,c);
+				x = add(a,b,c);
 				System.out.println("Addition = "+x);
 				break;
 			case 2:
-				 x = sub(a,b,c);
+				x = sub(a,b,c);
 				System.out.println("Subtraction = "+x);
 				break;
 			case 3:
-				 x = multi(a,b,c);
+				x = multi(a,b,c);
 				System.out.println("Multiplaction = "+x);
 				break;
 			case 5:
-				 x = division(a,b,c);
+				x = division(a,b,c);
 				System.out.println("Division = "+x);
 			default :
 				System.out.println("Invalide Input");

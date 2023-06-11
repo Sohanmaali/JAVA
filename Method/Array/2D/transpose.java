@@ -29,13 +29,21 @@ class Transpose
 			}
 			System.out.println(" ");
 		}
-		for(int i=0;i<n;i++)
+		if(m>n)
 		{
-			for(int j=i+1;j<m;j++)
+			r=m;
+		}
+		else
+		{
+			r=n;
+		}
+		for(int i=0;i<m;i++)
+		{
+			for(int j=i;j<r;j++)
 			{
-				int temp = a[i][j];
-				a[i][j] = a[j][i];
-				a[j][i] =temp;
+				int temp=a[i][j];
+				a[i][j]=a[j][i];
+				a[j][i]=temp;
 			}
 		}
 		System.out.println("Transpose of metrix");

@@ -18,12 +18,18 @@ class Dice
 		{
 			do
 			{
-				System.out.println("\tTurm of "+name1+" \n\t");
+				
+				System.out.println("\tTurm of "+name1+" \n\tcontinue for 1 Exit For e");
 				turm = sc.next().charAt(0);
+				if(turm=='e'||turm=='E')
+				{
+					System.exit(0);
+				}
 				if(turm!='1')
 				{
 					System.out.println("\tNot your turm");
-				}
+				}				
+				
 			}while(turm!='1');
 			
 			switch(turm)
@@ -50,11 +56,18 @@ class Dice
 					break;
 				}
 				do
-				{	
-					System.out.println("\tTurm of "+name2+"\n\t");
+				{
+					System.out.println("\tTurm of "+name2+"\n\tcontinue for 2 Exit For e");
+					
 					turm = sc.next().charAt(0);
+					if(turm=='e'||turm=='E')
+					{
+						System.exit(0);
+					}
+					
 					if(turm!='2')
 					System.out.println("\tNot your turm");
+					
 				}while(turm!='2');
 		
 				case '2':
