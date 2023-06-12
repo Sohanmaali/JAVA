@@ -8,7 +8,7 @@ class MultiMetrix
 		int a[][] = new int[20][20];
 		int b[][] = new int[20][20];
 		int x[][] = new int[20][20],k;
-			
+		
 		System.out.println("Enter size of First Metrix row");
 		int r = sc.nextInt();
 
