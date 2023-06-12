@@ -2,34 +2,33 @@
 import java.util.Scanner; 
 class Convert
 { 
- public static int convertBainari(int a)
- {
-	 int rem,bai=0,i=1;
-	 while(a>0)
-	 {
-		rem = a%2;
-		bai=bai+rem*i;
-		i*=10;
-		a/=2;
-	 }
-	 return bai;
- }
- public static int convertOctal(int a)
- {
-	 int rem,oct=0,i=1;
-	 while(a>0)
+	public static int convertBainari(int a)
 	{
-		rem = a%8;
-		oct=oct+rem*i;
-		i*=10;
-		a/=8;
+		int rem,bai=0,i=1;
+		while(a>0)
+		{
+			rem = a%2;
+			bai=bai+rem*i;
+			i*=10;
+			a/=2;
+		}
+		return bai;
 	}
-	return oct;
- }
+	public static int convertOctal(int a)
+	{
+		int rem,oct=0,i=1;
+		while(a>0)
+		{
+			rem = a%8;
+			oct=oct+rem*i;
+			i*=10;
+			a/=8;
+		}
+		return oct;
+	}	
 
 	public static void main(String[]args)
 	{
-	
 		int con,a,choice;
 		Scanner sc = new Scanner(System.in);
 		
@@ -42,7 +41,7 @@ class Convert
 				a = sc.nextInt();  
 				con = convertBainari(a);
 				System.out.println("Decimal to bainari = "+con);	
-			break;
+				break;
 			case 2:
 				System.out.println("Enter any number ");
 				a = sc.nextInt();  

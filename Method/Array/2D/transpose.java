@@ -29,6 +29,7 @@ class Transpose
 			}
 			System.out.println(" ");
 		}
+		int r;
 		if(m>n)
 		{
 			r=m;

@@ -26,7 +26,6 @@ class Overrinding
 	{
 		return this.multi(a,b,c)*d;
 	}
-	
 	public static void main(String args[])
 	{
 		Overrinding ob = new Overrinding();

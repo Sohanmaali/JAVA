@@ -43,47 +43,56 @@ class Calculater
 		return this.multi(a,b)*c;
 	}
 	//Multiplaction Four numpublic 
-	int multi(int a,int b,int c,int d)
+	public int multi(int a,int b,int c,int d)
 	{
 		return this.multi(a,b,c)*d;
 	}
 	//Division two num
-	public int division(int a,int b)
+	public double division(int a,int b)
 	{
 		return a/b;
 	}
 	//Division Three num
-	public int division(int a,int b,int c)
+	public double division(int a,int b,int c)
 	{
 		return this.division(a,b)/c;
 	}
 	//Division Four numpublic 
-	public int division(int a,int b,int c,int d)
+	public double division(int a,int b,int c,int d)
 	{
 		return this.division(a,b,c)/d;
 	}
 	public int operation()
 	{
 		Scanner sc = new Scanner(System.in);
-		System.out.println("\t1 For 2 Numbers operation\n\t2 For 3 Numbers operation\n\t3 For 4 Numbers operation");
-		int choice = sc.nextInt();
-		switch (choice)
-		{
-			case 1:
-				takeElement1(sc);
-				break;
-			case 2:
-				takeElement2(sc);
-				break;
-			case 3:
-				takeElement3(sc);
-				break;
-			default :
-				System.out.println("Invalide Input");
-		}
+		char ch ;
+		do{
+			System.out.println("\t1 For 2 Numbers operation\n\t2 For 3 Numbers operation\n\t3 For 4 Numbers operation");
+			int choice = sc.nextInt();
+			double x;
+			switch (choice)
+			{
+				case 1:
+					x = takeElement1(sc);
+					System.out.println(x);
+					break;
+				case 2:
+					x = takeElement2(sc);
+					System.out.println(x);
+					break;
+				case 3:
+					x = takeElement3(sc);
+					System.out.println(x);
+					break;
+				default :
+					System.out.println("Invalide Input");
+			}
+			System.out.println("Do you want to parform more operation");
+			ch = sc.next().charAt(0);
+		}while(ch == 'y');
 		return 0;
 	}
-	public void takeElement1(Scanner sc)
+	public double takeElement1(Scanner sc)
 	{
 		System.out.println("First number");
 		int a = sc.nextInt();
@@ -91,30 +100,26 @@ class Calculater
 		int b = sc.nextInt();
 		System.out.println("\t1 For Addition\n\t2 For Subtraction\n\t3 For Multiplaction\n\t4 For Division");
 		int choice = sc.nextInt();
-		int x;
+		//int x;
 		switch(choice)
 		{
 			case 1:
-				x = add(a,b);
-				System.out.println("Addition = "+x);
-				break;
+				return add(a,b);
 			case 2:
-				x = sub(a,b);
-				System.out.println("Subtraction = "+x);
-				break;
+				return sub(a,b);
+				
 			case 3:
-				x = multi(a,b);
-				System.out.println("Multiplaction = "+x);
-				break;
-			case 5:
-				x = division(a,b);
-				System.out.println("Division = "+x);
-				break;
+				return multi(a,b);
+				
+			case 4:
+				return division(a,b);
+				
 			default :
 				System.out.println("Invalide Input");
+				return 0;
 		}
 	}
-	public void takeElement2(Scanner sc)
+	public double takeElement2(Scanner sc)
 	{
 		System.out.println("First number");
 		int a = sc.nextInt();
@@ -124,29 +129,26 @@ class Calculater
 		int c = sc.nextInt();
 		System.out.println("\t1 For Addition\n\t2 For Subtraction\n\t3 For Multiplaction\n\t4 For Division");
 		int choice = sc.nextInt();
-		int x;
 		switch(choice)
 		{
 			case 1:
-				x = add(a,b,c);
-				System.out.println("Addition = "+x);
-				break;
+				return add(a,b,c);
+				
 			case 2:
-				x = sub(a,b,c);
-				System.out.println("Subtraction = "+x);
-				break;
+				return sub(a,b,c);
+				
 			case 3:
-				x = multi(a,b,c);
-				System.out.println("Multiplaction = "+x);
-				break;
-			case 5:
-				x = division(a,b,c);
-				System.out.println("Division = "+x);
+				return multi(a,b,c);
+				
+			case 4:
+				return division(a,b,c);
+				
 			default :
 				System.out.println("Invalide Input");
 		}
+		return 0;
 	}
-	public void takeElement3(Scanner sc)
+	public double takeElement3(Scanner sc)
 	{
 		System.out.println("First number");
 		int a = sc.nextInt();
@@ -162,24 +164,21 @@ class Calculater
 		switch(choice)
 		{
 			case 1:
-				 x = add(a,b,c,d);
-				System.out.println("Addition = "+x);
-				break;
+				return add(a,b,c,d);
+				
 			case 2:
-				 x = sub(a,b,c,d);
-				System.out.println("Subtraction = "+x);
-				break;
+				return sub(a,b,c,d);
+				
 			case 3:
-				 x = multi(a,b,c,d);
-				System.out.println("Multiplaction = "+x);
-				break;
+				 return multi(a,b,c,d);
+				
 			case 4:
-				 x = division(a,b,c,d);
-				System.out.println("Division = "+x);
-				break;
+				 return division(a,b,c,d);
+				
 			default :
 				System.out.println("Invalide Input");
 		}
+		return 0;
 	}
 	public static void main(String args[])
 	{
