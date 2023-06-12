@@ -42,7 +42,7 @@ class Calculater
 	{
 		return this.multi(a,b)*c;
 	}
-	//Multiplaction Four numpublic 
+	//Multiplaction Four num 
 	public int multi(int a,int b,int c,int d)
 	{
 		return this.multi(a,b,c)*d;
@@ -57,7 +57,7 @@ class Calculater
 	{
 		return this.division(a,b)/c;
 	}
-	//Division Four numpublic 
+	//Division Four num 
 	public double division(int a,int b,int c,int d)
 	{
 		return this.division(a,b,c)/d;
