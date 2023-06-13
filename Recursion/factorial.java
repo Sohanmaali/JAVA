@@ -13,9 +13,12 @@ class Factorial
 	public static void main(String args[])
 	{
 		Scanner sc = new Scanner (System.in);
+		
 		Factorial ob = new Factorial();
+		
 		System.out.println("Enter any num");
 		int n = sc.nextInt();
+		
 		System.out.println("Factorial of given number = "+ob.factorial(n));
 	}
 }
