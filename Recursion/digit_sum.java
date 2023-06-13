@@ -11,7 +11,7 @@ class DigitSum
 		}
 		return sum;
 	}
-  public static void main(String[]args)
+	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
 		
@@ -21,6 +21,6 @@ class DigitSum
 		
 		DigitSum ob = new DigitSum();
 		
-		System.out.println(ob.digiSum(n));
+		System.out.println("sum of Input digit number = "+ob.digiSum(n));
 	}
 }		

@@ -15,7 +15,7 @@ class SumNumber
 		}
 		return sum;
 	}
-  public static void main(String[]args)
+	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
 		
@@ -25,6 +25,6 @@ class SumNumber
 		
 		SumNumber ob = new SumNumber();
 		
-		System.out.println(ob.sum(n));
+		System.out.println("sum of N numbers = "+ob.sum(n));
 	}
 }		
