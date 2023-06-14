@@ -18,7 +18,6 @@ class Armstrong
 	}
 	public  int armstrong(int n,int m)
 	{
-		
 		if(n>0)
 		{
 			sum += power(rem(n),m);
@@ -39,16 +38,14 @@ class Armstrong
 		}
 		return c;
 	}
-	public static void main(String args[])
+	public void checkArmstrong()
 	{
 		Scanner sc = new Scanner (System.in);
-		
-		Armstrong ob = new Armstrong();
 		
 		System.out.println("Enter any number ");
 		int n = sc.nextInt();
 		
-		int x = ob.armstrong(n,ob.count(n));
+		int x = this.armstrong(n,this.count(n));
 		if(x==n)
 		{
 			System.out.println("Armstrong number");
@@ -58,5 +55,10 @@ class Armstrong
 			System.out.println("Not Armstrong number");
 		}
 		
+	}
+	public static void main(String args[])
+	{
+		Armstrong ob = new Armstrong();
+		ob.checkArmstrong();
 	}
 }

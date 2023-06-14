@@ -1,44 +1,48 @@
 
 import java.util.Scanner;
-class maximum
+class DeleteDupli
 {
-	public int max(int a[],int n)
+	int a[] = new int [20];
+	int j=0;
+	public void delete(int a[],int n)
 	{
-		int max=0;
-		if(n==1)
+		if(n>=1)
 		{
-			return a[0];
-		}
-		else 
-		{
-			max = this.max(a,n-1);
-			if (max>a[n-1])
-				return max;
-			else
-				return a[n-1];
+			delete(a,n-1);
+			if(a[j]==a[n-1])
+			{
+				for(int i=0;i<n;i++)
+				{
+					a[j]=a[j-1];
+				}
+				j--;
+			}
 		}
 	}
 	public void takeElement()
 	{
 		Scanner sc = new Scanner (System.in);
-		int a[] = new int [20];
 		
 		System.out.println("How many element you want to eneter");
 		int n = sc.nextInt();
-		
+		j=n-1;
 		System.out.println("Enter element of array");
 		for(int i = 0; i<n;i++)
 		{
 			a[i] = sc.nextInt();
 		}
-		System.out.println("maximum element of array "+this.max(a,n-1));
+		this.delete(a,n-1);
+		
+		for(int i=0;i<n;i++)
+		{
+			System.out.print(a[i]+" ");
+		}
 	}
-	
 	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
 		
-		maximum ob = new maximum();
+		DeleteDupli ob = new DeleteDupli();
 		ob.takeElement();	
 	}
 }		

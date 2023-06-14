@@ -28,7 +28,7 @@ class Prime
 		int n = sc.nextInt();
 		
 		int x = this.prime(n,n/2);
-		if(x==0)
+		if(n>1&&x==0)
 		{
 			System.out.println("Enter number is prime number"+x);
 		}
