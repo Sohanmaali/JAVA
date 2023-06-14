@@ -2,7 +2,7 @@
 import java.util.Scanner;
 class Mark
 {
-  public static void main(String[]args)
+	public static void main(String[]args)
 	{
 		int total,roll,year,n,i=0;
 		double per;
@@ -32,12 +32,11 @@ class Mark
 			do
 			{
 				System.out.println("Enter roll number ");
-				roll = sc.nextInt();
-				roll1[i]=roll;
+				roll[i] = sc.nextInt();
 				flag = false;
-				for(int j = 0;j<i;j++)
+				for(int j = 0;i>0j<i;j++)
 				{
-					if(roll==roll1[j])
+					if(roll[j]==roll[i])
 					{
 						System.out.println("Duplicate Element");
 						flag = true;
@@ -52,7 +51,7 @@ class Mark
 
 			System.out.println("Enter Your Year");
 			year = sc.nextInt();
-					
+			
 			do
 			{
 				System.out.println("Enter marks of phycics");

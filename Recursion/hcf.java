@@ -18,7 +18,7 @@ class Hcf
 			}
 			else
 			{
-				ans=m-hcf(n-m,m);
+				ans=m-hcf(n,m-n);
 			}
 		}
 		return ans;
