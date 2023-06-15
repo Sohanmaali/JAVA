@@ -1,6 +1,6 @@
-
+import java.util.Scanner;
+import java.lang.*;
 class OuterClass 
-
 {
 	public int outer_x = 10;
 	int outer_y = 20;
