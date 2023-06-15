@@ -1,5 +1,6 @@
 
 import java.util.Scanner;
+
 class DigitSum
 {
 	public int digiSum(int n)

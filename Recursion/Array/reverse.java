@@ -18,7 +18,6 @@ class Reverse
 	{
 		Scanner sc = new Scanner (System.in);
 		
-		
 		System.out.println("How many element you want to eneter");
 		int n = sc.nextInt();
 		//j=n;
@@ -35,7 +34,6 @@ class Reverse
 		{
 			System.out.print(a[i]+" ");
 		}
-		
 	}
 	
 	public static void main(String[]args)
