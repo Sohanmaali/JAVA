@@ -16,6 +16,7 @@ class DeleteDupli
 					a[j]=a[j-1];
 				}
 				j--;
+				n--;
 			}
 		}
 	}
@@ -41,7 +42,6 @@ class DeleteDupli
 	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
-		
 		DeleteDupli ob = new DeleteDupli();
 		ob.takeElement();	
 	}
