@@ -1,8 +1,7 @@
-import java.util.Scanner; 
+nimport java.util.Scanner; 
 
 class Pattern
 {
-	int rev = 0;
 	public void pattern(int n)
 	{ 
 		if(n>0)
