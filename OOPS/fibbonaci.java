@@ -3,21 +3,22 @@
 import java.util.Scanner;
 class DataClass
 {
-	int a=-1,b=1,sum=0,n;
+	int a=-1,b=1,n;
 	
 	public int  fibbonacci()
 	{
-		this.sum = this.a+this.b;
+		int sum;
+		sum = this.a+this.b;
 		
-		this.a=this.b;
-		this.b=this.sum;
+		this.a = this.b;
+		this.b = sum;
 		return sum;
 	}
 	
 }
 class Fibbonaci
 {
-	public void fibbo()
+	public void run()
 	{
 		DataClass ob1 = new DataClass();
 		Scanner sc = new Scanner(System.in);
@@ -33,6 +34,6 @@ class Fibbonaci
 	public static void main(String[]args)
 	{
 		Fibbonaci ob = new Fibbonaci();
-		ob.fibbo();
+		ob.run();
 	}
 }		

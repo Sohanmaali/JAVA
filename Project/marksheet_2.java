@@ -4,7 +4,7 @@ class Mark
 {
 	public static void main(String[]args)
 	{
-		int total,roll,year,n,i=0;
+		int total,year,n,i=0;
 		double per;
 		boolean flag;
 		String corse, name, sem, fname, mname, branch;
@@ -12,8 +12,8 @@ class Mark
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter number of student");
 		n = sc.nextInt();
-		int mark[] = new int[5];
-		int roll1[] = new int [n];
+		int mark[][] = new int[10][10];
+		int roll[] = new int [n];
 		sc.nextLine();
 		while(i<n)
 		{
@@ -34,11 +34,11 @@ class Mark
 				System.out.println("Enter roll number ");
 				roll[i] = sc.nextInt();
 				flag = false;
-				for(int j = 0;i>0j<i;j++)
+				for(int j = 0;i>0&&j<i;j++)
 				{
 					if(roll[j]==roll[i])
 					{
-						System.out.println("Duplicate Element");
+						System.out.println("Duplicate Roll Number");
 						flag = true;
 					}
 				}				
@@ -55,7 +55,7 @@ class Mark
 			do
 			{
 				System.out.println("Enter marks of phycics");
-				mark[0] = sc.nextInt();
+				mark[0][] = sc.nextInt();
 				if(mark[0]<0||mark[0]>100)
 				{
 				System.out.println("Invalide marks of phycics !");
@@ -108,7 +108,7 @@ class Mark
 				System.out.println("   |\tName  : " + name + "\t\t\t\t\tBranch : " + branch + "   "            );
 				System.out.println("   |\tFName : " + fname + "\t\t\t\t\tSem    : " + sem + "      "        );
 				System.out.println(  "   |\tMName : " + mname + "\t\t\t\t\tYear   : " + year  );
-				System.out.println("   |\tRoll  : " + roll1[i] + "\t\t\t\t\tCourse : " + corse +  "   \n   |"  );
+				System.out.println("   |\tRoll  : " + roll[i] + "\t\t\t\t\tCourse : " + corse +  "   \n   |"  );
 				System.out.println( "   |\tSubCode      SubName       MaxMarks      MinMarks      ObtMark" );
 				System.out.println( "   |\tBCA100       Physics        100            33            " + mark[0] );
 				System.out.println( "   |\tBCA101       chemistry      100            33            " + mark[1] );

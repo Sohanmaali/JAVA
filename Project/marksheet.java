@@ -38,7 +38,7 @@ class Marksheet
 
 			System.out.println("Enter Your Year");
 			year = sc.nextInt();
-					
+			
 			do
 			{
 				System.out.println("Enter marks of phycics");

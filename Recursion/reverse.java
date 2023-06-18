@@ -4,7 +4,7 @@ class Reverse
 {
 	int rev = 0;
 	public int reverse(int n)
-	{
+	{ 
 		if(n>0)
 		{
 			rev = (rev*10)+(n%10);

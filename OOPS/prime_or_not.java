@@ -1,35 +1,48 @@
 // Prime
 
 import java.util.Scanner;
-import java.lang.Math;
+
 class DataClass
 {
-	int n,c;
+	private int n,c=0;
 	
-	public void Prime(int n)
+	public void setData(int x)
+	{
+		this.n = x;
+	}
+	public int getData()
+	{
+		return this.n;
+	}
+	public int prime(int n)
 	{
 		if(n>1)
 		{
 			if(this.n%n==0)
 			{
 				c++;
-				break;
+				return c;
 			}
-			this.Prime(n-1)
+			this.prime(n-1);
 		}
+		return c;
 	}
 }
+
 class Prime
 {
-	public void prime1()
+	public void run()
 	{
 		DataClass ob1 = new DataClass();
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Enter any num");
-		ob1.n = sc.nextInt();
-		ob1.armstrong(ob1.n/2);
-		if(ob1.c == 0)
+		int x = sc.nextInt();
+		
+		ob1.setData(x);
+		
+		//System.out.println(ob1.getData());
+		if(ob1.prime((ob1.getData())/2) == 0)
 		{
 			System.out.println("Enter Number is Prime");
 		}
@@ -41,6 +54,6 @@ class Prime
 	public static void main(String[]args)
 	{
 		Prime ob = new Prime();
-		ob.prime1();
+		ob.run();
 	}
 }		
