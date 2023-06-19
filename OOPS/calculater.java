@@ -4,10 +4,10 @@ class DataClass
 {
 	private double a,b;
 	
-	public void setData(double x,double y)
+	public void setData(double a,double b)
 	{
-		this.a = x;
-		this.b = y;
+		this.a = a;
+		this.b = b;
 	}
 	public double add()
 	{
@@ -34,6 +34,19 @@ class DataClass
 		}
 		return ans;
 	}
+	public double mod()
+	{
+		double ans = 0;
+		if(this.b==0)
+		{
+			System.out.println("Can not be Find Modul by 0 ");
+		}
+		else
+		{
+			ans = this.a%this.b;
+		}
+		return ans;
+	}
 }
 
 class Calculater
@@ -42,39 +55,72 @@ class Calculater
 	{
 		DataClass ob = new DataClass();
 		Scanner sc = new Scanner(System.in);
-		char ch;
+		int choice;
+		double x,y;
 		do
 		{
-			System.out.println("Enter First num ");
-			double x = sc.nextDouble();
-			System.out.println("Enter Second num ");
-			double y = sc.nextDouble();
-			ob.setData(x,y);
+			System.out.println("\n\tYour choices are");
+			System.out.println("\t1 For Addition\n\t2 For Subtraction");
+			System.out.println("\t3 For Multiplaction\n\t4 For Division");
+			System.out.println("\t5 For Modulas\n\t6 For Exit");
 			
-			System.out.println("\t1 For Addition");
-			System.out.println("\t2 For Subtraction");
-			System.out.println("\t3 For Multiplaction");
-			System.out.println("\t4 For Division");
 			System.out.println("Enter Your choice ");
-			int choice = sc.nextInt();
+			choice = sc.nextInt();
+			
 			switch(choice)
 			{
 				case 1:
+					System.out.println("Enter First num ");
+					x = sc.nextDouble();
+			
+					System.out.println("Enter Second num ");
+					y = sc.nextDouble();
+					
+					ob.setData(x,y);
 					System.out.println("Addition = "+ob.add());
 					break;
 				case 2:
+					System.out.println("Enter First num ");
+					x = sc.nextDouble();
+			
+					System.out.println("Enter Second num ");
+					y = sc.nextDouble();
+					
+					ob.setData(x,y);
 					System.out.println("Subtraction = "+ob.sub());
 					break;
 				case 3:
+					System.out.println("Enter First num ");
+					x = sc.nextDouble();
+			
+					System.out.println("Enter Second num ");
+					y = sc.nextDouble();
+					
+					ob.setData(x,y);
 					System.out.println("Multiplaction = "+ob.multi());
 					break;
 				case 4:
+					System.out.println("Enter First num ");
+					x = sc.nextDouble();
+			
+					System.out.println("Enter Second num ");
+					y = sc.nextDouble();
+					
+					ob.setData(x,y);
 					System.out.println("Division = "+ob.div());
 					break;
+				case 5:
+					System.out.println("Enter First num ");
+					x = sc.nextDouble();
+			
+					System.out.println("Enter Second num ");
+					y = sc.nextDouble();
+					
+					ob.setData(x,y);
+					System.out.println("Modulas = "+ob.mod());
+					break;
 			}
-			System.out.println("Do you want to purform more operation y/n");
-			ch = sc.next().charAt(0);
-		}while(ch=='y');
+		}while(choice!=6);
 	}
 	public static void main(String args[])
 	{

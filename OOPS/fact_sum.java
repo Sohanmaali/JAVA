@@ -1,6 +1,6 @@
 /*product/factorial*/
 import java.util.Scanner;
-class FactSum
+class DataClass
 {
 	private int n;
 	public void setData(int n)
@@ -20,7 +20,7 @@ class FactSum
 			sum+=pro;		
 			if(i<n)
 			{
-			System.out.print(pro+"+");
+			System.out.print(pro+" + ");
 			}
 			i++;
 		}
@@ -28,14 +28,14 @@ class FactSum
 	}
 }
 
-class Test
+class FactSum
 {
 	public static void main(String []args)
 	{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter any number:   ");
 		int n = sc.nextInt();
-		FactSum ob = new FactSum();
+		DataClass ob = new DataClass();
 		ob.setData(n);
 		ob.factSum();
 	}		

@@ -12,7 +12,7 @@ class CheckAge
 		ob.age();
 	}
 }
-class Age
+class DataClass
 {
 	private int age;
 	public void setData(int age)

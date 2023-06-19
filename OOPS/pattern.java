@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Pattern
+class DataClass
 {
 	private int n;
 	public void setData(int n)
@@ -19,16 +19,15 @@ class Pattern
 	}
 	public void triangle2()
 	{
-		for(int i=n; i>=1; i--)
+		for(int i=1; i<=this.n; i++)
 		{
-			for(int j=1; j<=i; j++)
+			for(int j=1; j<=this.n-i+1; j++)
 			{
 				System.out.print("*"+" ");
 			}
 			System.out.println("");
 		}
 	}
-	
 	public void triangle3()
 	{
 		for(int i=n; i>=1; i--)
@@ -56,22 +55,20 @@ class Pattern
 			
 			System.out.println("");
 		}
-	}
-	
-	
+	}	
 }
-class Test
+class Pattern
 {
 	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a range");
 		int n = sc.nextInt();
-		Pattern ob = new Pattern();
+		DataClass ob = new DataClass();
 		ob.setData(n);
-		//ob.triangle1();
-		// ob.triangle2();
-		// ob.triangle3();
+		ob.triangle1();
+		ob.triangle2();
+		ob.triangle3();
 		ob.triangle4();
 	}
 }

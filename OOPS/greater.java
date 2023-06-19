@@ -1,46 +1,40 @@
 //uncomplet
 import java.util.Scanner;
-class Greater
+class DataClass
 {
-	private int num,num2,num3;
+	private int n1,n2,n3;
 	
-	public void setData(int n)
+	public void setData(int n1,int n2,int n3)
 	{
-		this.num = n1;
-		this.num = n2;
-		this.num = n3;
+		this.n1 = n1;
+		this.n2 = n2;
+		this.n3 = n3;
 	}
-	// public int getData()
-	// {
-		// return this.num;
-	// }
-	checkMax()
+	public void checkMax()
 	{
-		if(n1==n2 && n2==n3)
-			System.out.println("all numbe are equal");
-		
-		else if(n1==n2 || n1==n3 || n2==n3)
-			System.out.println("two numbe rare equal");
-		
+		if(this.n1==this.n2 && this.n2==this.n3)
+			System.out.println("all number are equal");
+		else if(this.n1==this.n2 || this.n1==this.n3 || this.n2==this.n3)
+			System.out.println("two number are equal");
 		else if(this.n1>this.n2 && this.n1>this.n3)
-			return n1;
-		else if(this.n2>this.n1 && this.n2>this.n3)
-			return n2;
-		else if(this.n3>this.n1 && this.n3>this.n2)
-			return n3;		
-	return 0;
+			System.out.println("Number 1 is Greater...........");
+		else if(this.n2>this.n3)
+			System.out.println("Number 2 is Greater...........");
+		else 
+			System.out.println("Number 3 is Greater...........");
 	}	
 }
-class Test
+class Greater
 {
-	public static void main(string []args)
+	public static void main(String []args)
 	{
-		Greater ob = new Greater();
+		DataClass ob = new DataClass();
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter 3 number ");
 		int n1 = sc.nextInt();
 		int n2 = sc.nextInt();
 		int n3 = sc.nextInt();
-		ob.setDat(n1,n2,n3);
-		
+		ob.setData(n1,n2,n3);
+		ob.checkMax();
 	}
-}
+}                

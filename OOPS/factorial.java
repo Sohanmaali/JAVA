@@ -7,14 +7,24 @@ class DataClass
 	{
 		this.a = n;
 	}
-	public int fatorial()
+	public int getData()
+	{
+		return this.a;
+	}
+	/* public int fatorial()
 	{
 		int fact = 1;
-		for(int i =1;i<=this.a;i++)
-		{
-			fact*=i;
-		}
+		for(int i =1;i<=this.a;fact*=i,i++);
 		return fact;
+	} */
+	public int fatorial(int n)
+	{
+		if(n==1)
+		{
+			return 1;
+		}
+		else 
+		return n*fatorial(n-1);
 	}
 }
 
@@ -27,7 +37,7 @@ class Factorial
 		System.out.println("Enter Any num ");
 		int a = sc.nextInt();
 		ob.setData(a);
-		System.out.println("Factorial of given num = "+ob.fatorial());
+		System.out.println("Factorial of given num = "+ob.fatorial(ob.getData()));
 	}
 	public static void main(String args[])
 	{

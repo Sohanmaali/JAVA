@@ -14,7 +14,6 @@ class DataClass
 		this.b = sum;
 		return sum;
 	}
-	
 }
 class Fibbonaci
 {
