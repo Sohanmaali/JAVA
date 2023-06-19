@@ -5,7 +5,6 @@ class Largest
 	
 	public void setData(int n1,int n2)
 	{
-		
 		this.n1=n1;
 		this.n2=n2;
 	}
@@ -28,13 +27,11 @@ class Largest
 			System.out.println("n1="+this.n1+" n2="+this.n2);
 			return n2;
 		}
-		
-			
 	}
 }
 class Test
 {
-	public static void main(String srgs[])
+	public void run()
 	{
 		Largest ob=new Largest();
 		Scanner sc=new Scanner(System.in);
@@ -42,9 +39,12 @@ class Test
 		int n1=sc.nextInt();
 		int n2=sc.nextInt();
 		ob.setData(n1,n2);
-		ob.getData();
-		int res=ob.greater();
-		System.out.println("Greater="+res);
+		//ob.getData();
+		System.out.println("Greater="+ob.greater());
 	}
-
+	public static void main(String srgs[])
+	{
+		Test ob=new Test();
+		ob.run();
+	}
 }

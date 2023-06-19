@@ -25,9 +25,8 @@ class Alpha
 		}
 		return this.ch;
 	}
-
 }
-class Test
+class Upper
 {
 	public static void main(String args[])
 	{

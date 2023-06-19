@@ -29,14 +29,18 @@ class FiboSum
 }
 class Test
 {
-	public static void main(String []args)
+	public void run()
 	{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a term: ");
 		int n = sc.nextInt();
-		FiboSum ob = new FiboSum();
+		
 		ob.setData(n);
 		ob.fiboSum();
 	}
-	
+	public static void main(String []args)
+	{
+		Test ob = new Test();
+		ob.run();
+	}
 }

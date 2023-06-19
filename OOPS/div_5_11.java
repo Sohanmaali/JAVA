@@ -16,10 +16,9 @@ class Div
 		{
 			System.out.println(" Invalid number");
 		}
-		
-	   else if(n%5==0 && n%11==0)
+		else if(n%5==0 && n%11==0)
 		{ 
-			System.out.println(n+"  is divisible by 5 and 11");
+			System.out.println(n+" is divisible by 5 and 11");
 		}
 		else 
 		{ 
@@ -28,7 +27,7 @@ class Div
 	}
 }
 
-class Test
+class Divisival
 {
 	public static void main(String []arg)
 	{
