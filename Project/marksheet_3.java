@@ -8,97 +8,38 @@ class DataClass
 	private String sem;
 	private String branch;
 	private int year;
-	private String corse;
-	private static int roll[]= new int [100];
-	
 	private int total;
-	private static int mark[][] = new int [100][5];
+	private double per;
+	private String corse;
+	private static int roll;	
+	private int phycics;
+	private int chemistry;
+	private int math;
+	private int hindi;
+	private int english;
 	
-	public static void takeRoll(int i)
+	public DataClass(int roll,String name,String fname,String mname,String corse,String branch,String sem,int year,int phycics,int chemistry,int math,int hindi,int english)
 	{
-		Scanner sc = new Scanner(System.in);
-
-		boolean flag;
-		do
-		{
-			roll[i] = sc.nextInt();
-			flag = false;
-			for(int j = 0;i>0&&j<i;j++)
-			{
-				if(roll[j]==roll[i])
-				{
-					System.out.println("Duplicate Roll Number");
-					flag = true;
-				}
-			}				
-		}while(flag);
-	}	
-	public DataClass(String name,String fname,String mname,String corse,String branch,String sem,int year)
-	{
-		this.name= name;
-		this.fname= fname;
-		this.mname= mname;
-		this.corse =corse;	
-		this.branch= branch;
-		this.sem= sem;
-		this.year = year;
+		this.name  = name;
+		this.fname = fname;
+		this.mname = mname;
+		this.sem   = sem;	
+		this.branch = branch;
+		this.year  = year;
+		this.corse = corse;
+		this.roll  = roll;
+		this.phycics = phycics;
+		this.chemistry = chemistry;
+		this.math = math;
+		this.hindi = hindi;
+		this.english = english;		
 	}
-	
-	public static void takeMark(int i)
+	public static int getRollNumber()
 	{
-		Scanner sc = new Scanner(System.in);
-		do
-		{
-			System.out.println("Enter marks of phycics");
-			mark[i][0] = sc.nextInt();
-			if(mark[i][0]<0||mark[i][0]>100)
-			{
-				System.out.println("Invalide marks of phycics !");
-			}
-		}while (mark[i][0]<0||mark[i][0]>100);  
-		do
-		{
-			System.out.println("Enter marks of chemistry");
-			mark[i][1] = sc.nextInt();
-			if(mark[i][1]<0||mark[i][1]>100)
-			{
-				System.out.println("Invalide marks of chemistry !");
-			}
-		}while (mark[i][1]<0||mark[i][1]>100);
-		do
-		{
-		
-			System.out.println("Enter marks of math");
-			mark[i][2] = sc.nextInt();
-			if(mark[i][2]<0||mark[i][2]>100)
-			{
-			System.out.println("Invalide marks of math !");
-			}
-		}while (mark[i][2]<0||mark[i][2]>100);
-		do
-		{
-		
-			System.out.println("Enter marks of hindi");
-			mark[i][3] = sc.nextInt();
-			if(mark[i][3]<0||mark[i][3]>100)
-			{
-				System.out.println("Invalide marks of hindi !");
-			}	
-		}while (mark[i][3]<0||mark[i][3]>100);
-		do
-		{
-			
-			System.out.println("Enter marks of english");
-			mark[i][4] = sc.nextInt();
-			if(mark[i][4]<0||mark[i][4]>100)
-			{
-				System.out.println("Invalide marks of english !");
-			}	
-		}while (mark[i][4]<0||mark[i][4]>100);
+		return roll;
 	}
-	public void printMarksheet(int i)
+	public void printMarksheet()
 	{
-		int mark = 5;
 		System.out.println("    _______________________________________________________________________");
 		System.out.println("   |");
 
@@ -108,189 +49,13 @@ class DataClass
 		System.out.println(  "   |\tMName : " + this.mname + "\t\t\t\t\tYear   : " + this.year);
 		System.out.println("   |\tRoll  : " + this.roll + "\t\t\t\t\tCourse : " + corse + "\n");
 		System.out.println( "   |\tSubCode      SubName       MaxMarks      MinMarks      ObtMark" );
-		System.out.println( "   |\tBCA100       Physics        100            33            " + this.mark[i][0] );
-		System.out.println( "   |\tBCA101       chemistry      100            33            " + this.mark[i][1] );
-		System.out.println( "   |\tBCA102       math           100            33            " + this.mark[i][2]);
-		System.out.println( "   |\tBCA103       hindi          100            33            " + this.mark[i][3] );
-		System.out.println( "   |\tBCA104       english        100            33            " + this.mark[i][4] +"\n   |\n   |\n   |" );
-		//System.out.println("   |\tTotal      : " + total);
-	}
-
-	public static void division(int i)
-	{
-		if (physics < 33 && chemistry < 33 &&math < 33 &&hindi < 33 &&english < 33) 
-		{
-			System.out.println("   |\tFail in All sub");
-		} 
-			else if ((physics < 33 && chemistry < 33 && math < 33 && hindi < 33) ||(physics < 33 && chemistry < 33 && math < 33 & english < 33) ||(physics < 33 && math < 33 && hindi < 33 && english < 33) ||(physics < 33 && chemistry < 33 && hindi < 33 && english < 33) ||(chemistry < 33 && math < 33 && hindi < 33 && english < 33))
-			{
-				System.out.println("   |\tStatus     : Fail");
-			if (physics < 33 && chemistry < 33 && math < 33 && hindi < 33) 
-			{
-				System.out.println("   |\tFail in phycics,chemistry,mathes,Hindi");
-			} 
-			else if (physics < 33 && chemistry < 33 && math < 33 & english < 33)
-			{
-				System.out.println("   |\tFail in phycics,chemistry,mathes,enlish");
-			} 
-			else if (physics < 33 && math < 33 && hindi < 33 && english < 33)
-			{
-				System.out.println("   |\tFail in phycics,mathes,hindi,enlish");
-			} 
-			else if (physics < 33 && chemistry < 33 && hindi < 33 && english < 33)
-			{
-				System.out.println("   |\tFail in phycics,chemistry,hindi,enlish");
-			}
-			else if (chemistry < 33 && math < 33 && hindi < 33 && english < 33)
-			{
-				System.out.println("   |\tFail in chemistry,mathes,hindi,enlish");
-			}
-		}
-		else if ((physics < 33 && chemistry < 33 && math < 33) ||
-			(physics < 33 && chemistry < 33 && hindi < 33) ||
-			(physics < 33 && math < 33 && hindi < 33) ||
-			(chemistry < 33 && math < 33 && hindi < 33) ||
-			(physics < 33 && chemistry < 33 && english < 33) ||
-			(math < 33 && hindi < 33 && english < 33) ||
-			(chemistry < 33 && hindi < 33 && english < 33) ||
-			(physics < 33 && hindi < 33 && english < 33) ||
-			(english < 33 && math < 33 && chemistry < 33) ||
-			(physics < 33 && math < 33 && english < 33))
-		{
-			System.out.println("   |\tStatus     : Fail");
-			if (physics < 33 && chemistry < 33 && math < 33) 
-			{
-				System.out.println("   |\tFail in physics,chemistry,mathes");
-			}
-			else if (physics < 33 && chemistry < 33 && hindi < 33) 
-			{
-				System.out.println("   |\tFail in physics,chemistry,Hindi");
-			}
-			else if (physics < 33 && math < 33 && hindi < 33) 
-			{
-				System.out.println("   |\tFail in physics,mathes,hindi");
-			} 
-			else if (chemistry < 33 && math < 33 && hindi < 33)
-			{
-				System.out.println("   |\tFail in chemistry,mathes,hindi");
-			}
-			else if (physics < 33 && chemistry < 33 && english < 33) 
-			{
-				System.out.println("   |\tFail in physics,chemistry,enlish");
-			}
-			else if (chemistry < 33 && hindi < 33 && english < 33)
-			{
-				System.out.println("   |\tFail in chemistry,Hindi,enlish");
-			}
-			else if (math < 33 && hindi < 33 && english < 33)
-				{
-				System.out.println("   |\tFail in mathes,Hindi,enlish");
-			} 
-			else if (physics < 33 && hindi < 33 && english < 33)
-			{
-				System.out.println("   |\tFail in physics,Hindi,english");
-			}
-			else if (chemistry < 33 && math < 33 && english < 33)
-			{
-				System.out.println("   |\tFail in chemistry,mathes,enlish");
-			}
-			else if (physics < 33 && math < 33 && english < 33) 
-			{
-				System.out.println("   |\tFail in physics,mathes,enlish");
-			}
-		}
-		else if ((physics < 33 && chemistry < 33) ||(physics < 33 && math < 33) ||
-			(physics < 33 && hindi < 33) ||(physics < 33 && english < 33) ||
-			(chemistry < 33 && math < 33) ||(chemistry < 33 && hindi < 33) ||
-			(chemistry < 33 && english < 33) ||(math < 33 && english < 33) ||
-			(math < 33 && hindi < 33) ||(hindi < 33 && english < 33))
-		{
-			System.out.println("   |\tStatus     : Supply in two Subject");
-			if (physics < 33 && chemistry < 33)
-			{
-			System.out.println("   |\tFail in physics,chemistry");
-			}
-			else if (physics < 33 && math < 33)
-			{
-				System.out.println("   |\tFail in physics,mathes");
-			} 
-			else if (physics < 33 && hindi < 33) 
-			{
-			System.out.println("   |\tFail in physics,Hindi");
-			} 
-			else if (physics < 33 && english < 33)
-			{
-				System.out.println("   |\tFail in physics,english");
-			}
-			else if (chemistry < 33 && math < 33) 
-			{
-				System.out.println("   |\tFail in chemistry,mathes");
-			}
-			else if (chemistry < 33 && hindi < 33) 
-			{
-				System.out.println("   |\tFail in chemistry,Hindi");
-			}
-			else if (chemistry < 33 && english < 33)
-			{
-				System.out.println("   |\tFail in chemistry,english");
-			}
-			else if (math < 33 && english < 33) 
-			{
-				System.out.println("   |\tFail in Mathes,English");
-			} 
-			else if (math < 33 && hindi < 33)
-			{
-				System.out.println("   |\tFail in Mathes,Hindi");
-			} 
-			else if (hindi < 33 && english < 33)
-			{
-				System.out.println("   |\tFail in Hindi,English");
-			}
-		}
-		else if (physics < 33 ||chemistry < 33 ||math < 33 ||hindi < 33 ||english < 33 )
-		{
-			System.out.println("   |\tStatus     : Supply in Subject");
-			if (physics < 33) 
-			{
-				System.out.println("   |\tFail in physics");
-			} 
-			else if (chemistry < 33)
-				{
-				System.out.println("   |\tFail in chemistry");
-			} 
-			else if (math < 33)
-				{
-				System.out.println("   |\tFail in mathes");
-			}
-			else if (hindi < 33) 
-				{
-				System.out.println("   |\tFail in hindi");
-			} else if (english < 33) 
-			{
-				System.out.println("   |\tFail in English");
-			}
-		} 
-		else 
-		{
-			per = total / 5.0;
-			//System.out.println("   |Total = "+total);
-			System.out.println("   |\tPercentage : " + per);
-			if (per >= 60) 
-			{
-				System.out.println("   |\tStatuse    : Pass");
-				System.out.println("   |\tPass in first division");
-			} 
-			else if (per >= 45) 
-			{
-				System.out.println("   |\tStatuse : Pass");
-				System.out.println("   |\tPass in Second division");
-			}
-			else 
-			{
-				System.out.println("   |\tStatuse : Pass");
-				System.out.println("   |\tPass in Third division");
-			}
-		}
+		System.out.println( "   |\tBCA100       Physics        100            33            " + this.phycics );
+		System.out.println( "   |\tBCA101       chemistry      100            33            " + this.chemistry );
+		System.out.println( "   |\tBCA102       math           100            33            " + this.math);
+		System.out.println( "   |\tBCA103       hindi          100            33            " + this.hindi );
+		System.out.println( "   |\tBCA104       english        100            33            " + this.english +"\n   |\n   |\n   |" );
+		
+		
 	}
 }
 
@@ -299,14 +64,37 @@ class Mark
 	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
+		
 		String corse, name, sem, fname, mname, branch;
-		int year,roll,n,i=0;
+		
+		int physics,chemistry,math,hindi,english,year,roll,n,i=0,choice;
+		
+		DataClass []student = new DataClass[100];
+		
 		System.out.println("Enter number of student");
+		
 		n = sc.nextInt();
-		DataClass []student = new DataClass[n];
+		
 		sc.nextLine();
+		
 		while(i<n)
 		{
+			System.out.println("Enter Roll number");
+			boolean flag;
+			do
+			{
+				roll= sc.nextInt();
+				flag = false;
+				for(int j = 0;i>0&&j<i;j++)
+				{
+					if(student[j].getRollNumber()==roll)
+					{
+						System.out.println("Duplicate Roll Number");
+						flag = true;
+					}
+				}				
+			}while(flag);
+			
 			System.out.println("Enter Your name");
 			name = sc.nextLine();
 
@@ -315,12 +103,9 @@ class Mark
 
 			System.out.println("Enter Your Mother Name");
 			mname = sc.nextLine();
-
+			
 			System.out.println("Enter Course name");
 			corse = sc.next();
-
-			System.out.println("Enter Roll number");
-			DataClass.takeRoll(i);
 
 			System.out.println("Enter Your Branch name");
 			branch = sc.next();
@@ -331,12 +116,84 @@ class Mark
 			System.out.println("Enter Your year");
 			year = sc.nextInt();
 			
-			student[i] = new DataClass(name,fname,mname,corse,branch,sem,year);
-	
-			DataClass.takeMark(i);
-			student[i].printMarksheet(i);
+			do
+			{
+				System.out.println("Enter marks of phycics");
+				physics = sc.nextInt();
+				if(physics<0||physics>100)
+				{
+					System.out.println("Invalide marks of phycics !");
+				}
+			}while (physics<0||physics>100);  
+			do
+			{
+				System.out.println("Enter marks of chemistry");
+				chemistry = sc.nextInt();
+				if(chemistry<0||chemistry>100)
+				{
+					System.out.println("Invalide marks of chemistry !");
+				}
+			}while (chemistry<0||chemistry>100);
+			do
+			{
+				System.out.println("Enter marks of mathes");
+				math = sc.nextInt();
+				if(math<0||math>100)
+				{
+					System.out.println("Invalide marks of mathes !");
+				}
+			}while (math<0||math>100);
+			do
+			{
+				System.out.println("Enter marks of Hindi");
+				hindi = sc.nextInt();
+				if(hindi<0||hindi>100)
+				{
+					System.out.println("Invalide marks of Hindi !");
+				}	
+			}while (hindi<0||hindi>100);
+			do
+			{
+				System.out.println("Enter marks of English");
+				english = sc.nextInt();
+				if(english<0||english>100)
+				{
+					System.out.println("Invalide marks of English !");
+				}	
+			}while (english<0||english>100);
+			
+			student[i] = new DataClass(roll,name,fname,mname,corse,branch,sem,year,physics,chemistry,math,hindi,english);
 			i++;
 			sc.nextLine();
+		}
+		int serchRoll,count =0;
+		String serchName;
+		System.out.println("Your choices are");
+		System.out.println("\t1 For Search by Roll Number");
+		System.out.println("\t2 For Search by Name");
+		System.out.println("\t3 For Search by Topper");
+		System.out.println("\tEnter Your choice");
+		choice = sc.nextInt();
+		switch(choice)
+		{
+			case 1:
+				System.out.println("Enter your Roll Number");
+				serchRoll = sc.nextInt();
+				for(int x=0;x<n;x++)
+				{
+					if(student[x].getRollNumber()==serchRoll)
+					{
+						System.out.println("HYYYYY");
+						
+						count++;
+						student[x].printMarksheet();
+					}
+				}
+				if(count==0)
+				{
+					System.out.println("Roll Number Not Exist");
+				}
+			break;
 		}
 	}
 }
