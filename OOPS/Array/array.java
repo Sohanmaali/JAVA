@@ -5,7 +5,6 @@ class DataClass
 	private int a[];
 	private int length;
 	private int element;
-	
 	public void setData(int length,int element)
 	{
 		//DataClass ob = new DataClass();
@@ -55,8 +54,8 @@ class DataClass
 	}
 	public int sMinArray()
 	{
-		int smin=this.max();
-		int min=this.min();
+		int smin=this.maxArray();
+		int min=this.minArray();
 		for(int i=0;i<this.element;i++)
 		{
 			if(min<a[i]&&smin>a[i])
@@ -68,7 +67,7 @@ class DataClass
 	}
 	public int sMaxArray()
 	{
-		int smax=0,max=this.max();
+		int smax=0,max=this.maxArray();
 		for(int i=0;i<this.element;i++)
 		{
 			if(max>a[i]&&smax<a[i])
@@ -105,6 +104,26 @@ class DataClass
 			a[this.element-i-1]=temp;
 		}
 	}
+	public void evenElement()
+	{
+		for(int i=0;i<this.element;i++)
+		{
+			if(i%2==0)
+			{
+				System.out.println(i+" ");
+			}
+		}
+	}
+	public void oddElement()
+	{
+		for(int i=0;i<this.element;i++)
+		{
+			if(i%2!=0)
+			{
+				System.out.println(i+" ");
+			}
+		}
+	}
 }
 
 class Array
@@ -119,16 +138,16 @@ class Array
 		
 		System.out.println("How many element you want to enter");
 		int n = sc.nextInt();
-		
+		int choice;
 		ob.setData(l,n);
 		
 		System.out.println("your choice are");
 		do
 		{
 			System.out.println("\t1 For min\n\t2 For Max\n\t3 For Second Min\n\t4 For Second Max");
-			System.out.println("\t5 For Delete duplicate\n\t6 For Reverse of array\n\t7 For Exit");
+			System.out.println("\t5 For Delete duplicate\n\t6 For Reverse of array\n\t7 For print even odd element of array\n\t8 For Exit");
 	
-			int choice = sc.nextInt();
+			choice = sc.nextInt();
 			switch(choice)
 			{
 				case 1:
@@ -165,7 +184,20 @@ class Array
 					System.out.println("\nAfter Reverse array");
 					ob.printElement();
 					break;
+				case 7:
+					System.out.println("\ta For even Element \n\t2 For Odd Element");
+	
+					choice = sc.nextInt();
+					switch(choice)
+					{
+						case 1:
+							ob.evenElement();
+							break;
+						case 2:
+							ob.oddElement();
+					}
+					break;
 			}
-		}while(choice!=7);
+		}while(choice!=8);
 	}
 }
