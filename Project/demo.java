@@ -1,5 +1,6 @@
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 class DataClass
 {
 	private String name;
@@ -401,13 +402,26 @@ class Mark
 		
 		String corse, name, sem, fname, mname, branch;
 		
-		int physics,chemistry,math,hindi,english,year,roll,n;
+		int physics,chemistry,math,hindi,english,year,roll,n=0;
 		
 		DataClass []student = new DataClass[100];
-		
-		System.out.println("Enter number of student");
-		
-		n = sc.nextInt();
+
+		boolean valid = false;
+		while (!valid)
+		{
+			try 
+			{
+				System.out.println("Enter number of student");
+				n = sc.nextInt();
+				valid = true;
+			}
+			catch (InputMismatchException e)
+			{
+				System.out.println("Invalid input. Please enter an integer.");
+				sc.next(); // discard the invalid token
+			}
+		}
+		System.out.println("You entered: " + n);
 		
 		for(int i=0;i<n;i++)
 		{
@@ -418,6 +432,36 @@ class Mark
 			
 			System.out.println("Enter Your name");
 			name = sc.nextLine();
+
+			valid = false;
+			while (!valid)
+			{
+				try 
+				{
+					System.out.println("Enter number of student");
+					n = sc.nextInt();
+					valid = true;
+				}
+				catch (InputMismatchException e)
+				{
+					System.out.println("Invalid input. Please enter an integer.");
+					sc.next(); // discard the invalid token
+				}
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			System.out.println("Enter Your Father name");
 			fname = sc.nextLine();
