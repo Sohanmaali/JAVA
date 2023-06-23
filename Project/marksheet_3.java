@@ -1,6 +1,8 @@
 
 import java.util.Scanner;
-class DataClass
+
+//POJO Play in old java object
+class DataClass         //BL
 {
 	private String name;
 	private String fname;
