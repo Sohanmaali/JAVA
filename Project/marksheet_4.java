@@ -1,8 +1,8 @@
 
 import java.util.Scanner;
 
-//POJO Play in old java object
-class DataClass         //POJO
+//POJO Playin old java object
+class DataClass      //POJO Class
 {
 	private String name;
 	private String fname;
@@ -20,24 +20,6 @@ class DataClass         //POJO
 	private int hindi;
 	private int english;
 	
-	public void DataClass(int roll,String name,String fname,String mname,String corse,String branch,String sem,int year,int physics,int chemistry,int math,int hindi,int english)
-	{
-		this.name  = name;
-		this.fname = fname;
-		this.mname = mname;
-		this.sem   = sem;	
-		this.branch = branch;
-		this.year  = year;
-		this.corse = corse;
-		this.roll  = roll;
-		this.physics = physics;
-		this.chemistry = chemistry;
-		this.math = math;
-		this.hindi = hindi;
-		this.english = english;	
-		this.total =	this.physics+this.chemistry+this.math+this.hindi+this.english;
-		this.per = total/5.0;
-	}
 	public void setRoll(int roll)
 	{
 		this.roll = roll;
@@ -46,55 +28,58 @@ class DataClass         //POJO
 	{
 		this.name = name;
 	}
-	public void setRoll(String fname)
+	public void setFatherName(String fname)
 	{
 		this.fname = fname;
-	}public void setRoll(String mname)
+	}
+	public void setMotherName(String mname)
 	{
 		this.mname = mname;
-	}public void setRoll(String corse)
+	}
+	public void setCorse(String corse)
 	{
 		this.corse = corse;
-	}public void setRoll(String branch)
+	}
+	public void setBranch(String branch)
 	{
 		this.branch = branch;
-	}public void setRoll(String sem)
+	}
+	public void setSem(String sem)
 	{
 		this.sem = sem;
-	}public void setRoll(int year)
+	}
+	public void setYear(int year)
 	{
 		this.year = year;
-	}public void setRoll(int physics)
+	}
+	public void setPhysics(int physics)
 	{
 		this.physics = physics;
-	}public void setRoll(int chemistry)
+	}
+	public void setChemistry(int chemistry)
 	{
 		this.chemistry = chemistry;
-	}public void setRoll(int math)
+	}
+	public void setMath(int math)
 	{
 		this.math = math;
-	}public void setRoll(int hindi)
+	}
+	public void setHindi(int hindi)
 	{
 		this.hindi = hindi;
-	}public void setRoll(int english)
+	}
+	public void setEnglish(int english)
 	{
 		this.english = english;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void setTotel()
+	{
+		this.total = getphysics()+getchemistry()+getmath()+gethindi()+getenglish();
+	}
+	public void setPer()
+	{
+		this.per = getTotal()/5.0;
+	}
 	public int getRollNumber()
 	{
 		return this.roll;
@@ -151,14 +136,139 @@ class DataClass         //POJO
 	{
 		return this.per;
 	}
+	public int getTotal()
+	{
+		return this.total;
+	}
 	
 }
-class Operation         //BL
+class Operation     //BL Class
 {
+	public void choice(DataClass student[],int n,Operation ob2)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		int choice,searchRoll;
+		boolean flag;
+		String searchName;
+		do
+		{
+			flag = true;
+			System.out.println("Your choices are");
+			System.out.println("\t1 For Search by Roll Number");
+			System.out.println("\t2 For Search by Name");
+			System.out.println("\t3 For Search by Division");
+			System.out.println("\t4 For All MarkSheet");
+			System.out.println("\t5 For Exit");
+			System.out.print("\tEnter Your choice : ");
+			choice = sc.nextInt();
+			sc.nextLine();
+			switch(choice)
+			{
+				case 1:
+					System.out.print("Enter Your Roll Number : ");
+					searchRoll = sc.nextInt();
+					for(int i=0;i<n;i++)
+					{
+						if(student[i].getRollNumber()==searchRoll)
+						{
+							ob2.printMarksheet(student,i);
+							flag = false;
+							break;
+						}
+					}
+					if(flag)
+					{
+						System.out.print("Enter Roll Number Is Not exist : ");
+					}
+					break; 
+				case 2:
+					System.out.print("Enter Your Name : ");
+					searchName = sc.nextLine();
+					
+					for(int i=0;i<n;i++)
+					{
+						if(student[i].getName().equals(searchName))
+						{
+							ob2.printMarksheet(student,i);
+							flag = false;
+						}
+					}
+					if(flag)
+					{
+						System.out.print("Enter Name Is Not exist : ");
+					}
+					break;
+				case 3:
+					do
+					{
+						flag = true;
+						System.out.println("Your choices are");
+						System.out.println("\t1 For First Division");
+						System.out.println("\t2 For Second Division");
+						System.out.println("\t3 For Third Division");
+						System.out.println("\t6 For Back");
+						System.out.print("\tEnter Your choice : ");
+						choice = sc.nextInt();
+						switch(choice)
+						{
+							case 1:
+								for(int i=0;i<n;i++)
+								{
+									if(student[i].getPer()>=60&&student[i].getPer()<=100&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
+									{
+										ob2.printMarksheet(student,i);
+										flag = false;
+									}
+								}
+								if(flag)
+								{
+									System.out.println("First Division student Not aveleval");
+								}
+								break;
+							case 2:
+								for(int i=0;i<n;i++)
+								{
+									if(student[i].getPer()>=45&&student[i].getPer()<60&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
+									{
+										ob2.printMarksheet(student,i);
+										flag = false;
+									}
+								}
+								if(flag)
+								{
+									System.out.println("Second Division student Not aveleval");
+								}
+								break;
+							case 3:
+								for(int i=0;i<n;i++)
+								{
+									if(student[i].getPer()>=33&&student[i].getPer()<45&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
+									{
+										ob2.printMarksheet(student,i);
+										flag = false;
+									}
+								}
+								if(flag)
+								{
+									System.out.println("Third Division student Not aveleval");
+								}
+						}
+					}while(choice!=6);
+				case 4:
+					for(int i=0;i<n;i++)
+					{
+						ob2.printMarksheet(student,i);
+					}
+					break;
+			}
+		}while(choice!=5);	
+	}
+	
 	public void printMarksheet(DataClass ref[],int i)
 	{	
 		Operation ob = new Operation();
-		System.out.println("_______________________________________________________________________");
+		System.out.println("   --------------------------------------------------------------------");
 		System.out.println("   |");
 
 		System.out.println("   |\t\t\t\tBU BHOPAL   \n   |                                                   ");
@@ -166,15 +276,23 @@ class Operation         //BL
 		System.out.println("   |\tFName : " + ref[i].getFName() + "\t\t\t\t\tSem    : " + ref[i].getSem());
 		System.out.println(  "   |\tMName : " + ref[i].getMName() + "\t\t\t\t\tYear   : " + ref[i].getYear());
 		System.out.println("   |\tRoll  : " + ref[i].getRollNumber() + "\t\t\t\t\tCourse : " + ref[i].getCorse() + "\n");
+		System.out.println("   --------------------------------------------------------------------");
 		System.out.println( "   |\tSubCode      SubName       MaxMarks      MinMarks      ObtMark" );
+		System.out.println("   --------------------------------------------------------------------");
 		System.out.println( "   |\tBCA100       Physics        100            33            " + ref[i].getphysics() );
+		System.out.println("   --------------------------------------------------------------------");
 		System.out.println( "   |\tBCA101       chemistry      100            33            " + ref[i].getchemistry() );
+		System.out.println("   --------------------------------------------------------------------");
 		System.out.println( "   |\tBCA102       math           100            33            " + ref[i].getmath());
+		System.out.println("   --------------------------------------------------------------------");
 		System.out.println( "   |\tBCA103       hindi          100            33            " + ref[i].gethindi() );
-		System.out.println( "   |\tBCA104       english        100            33            " + ref[i].getenglish() +"\n   |\n   |" );
+		System.out.println("   --------------------------------------------------------------------");
+		System.out.println( "   |\tBCA104       english        100            33            " + ref[i].getenglish());
+		System.out.println("   --------------------------------------------------------------------");
+		System.out.println( "   |\n   |" );
 		ob.division(ref,i);
 		System.out.println("\n");
-		System.out.println(" _______________________________________________________________________");
+		System.out.println(" --------------------------------------------------------------------");
 		
 	}
 	public void division(DataClass ref[],int i)
@@ -333,7 +451,6 @@ class Operation         //BL
 		} 
 		else 
 		{
-			//System.out.println("   |Total = "+total);
 			System.out.println("   |\tPercentage : " + ref[i].getPer());
 			if (ref[i].getPer() >= 60) 
 			{
@@ -351,12 +468,10 @@ class Operation         //BL
 				System.out.println("   |\tPass in Third division");
 			}
 		}
-	}	
-
+	}
 }
-
-class Mark
-{ 
+class Mark         //Clinte Class
+{
 	public int takeRoll(DataClass student[],int i)
 	{
 		Scanner sc = new Scanner(System.in);
@@ -391,186 +506,71 @@ class Mark
 		}while (mark<0||mark>100);
 		return mark;
 	}
-	public void choice(DataClass student[],int n,Operation ob2,DataClass ob3)
-	{
-		Scanner sc = new Scanner(System.in);
-		
-		int choice,searchRoll,count;
-		String searchName;
-		do
-		{
-			count = 0;
-			System.out.println("Your choices are");
-			System.out.println("\t1 For Search by Roll Number");
-			System.out.println("\t2 For Search by Name");
-			System.out.println("\t3 For Search by Division");
-			System.out.println("\t4 For Back");
-			System.out.print("\tEnter Your choice : ");
-			choice = sc.nextInt();
-			sc.nextLine();
-			switch(choice)
-			{
-				case 1:
-					System.out.print("Enter Your Roll Number : ");
-					searchRoll = sc.nextInt();
-					for(int i=0;i<n;i++)
-					{
-						if(student[i].getRollNumber()==searchRoll)
-						{
-							ob2.printMarksheet(student,i);
-							count++;
-							break;
-						}
-					}
-					if(count==0)
-					{
-						System.out.print("Enter Roll Number Is Not exist : ");
-					}
-					break; 
-				case 2:
-					System.out.print("Enter Your Name : ");
-					searchName = sc.nextLine();
-					
-					for(int i=0;i<n;i++)
-					{
-						if(student[i].getName().equals(searchName))
-						{
-							ob2.printMarksheet(student,i);
-							count++;
-						}
-					}
-					if(count==0)
-					{
-						System.out.print("Enter Name Is Not exist : ");
-					}
-					break;
-				case 3:
-					do
-					{
-						count = 0;
-						System.out.println("Your choices are");
-						System.out.println("\t1 For First Division");
-						System.out.println("\t2 For Second Division");
-						System.out.println("\t3 For Third Division");
-						System.out.println("\t5 For Back");
-						System.out.print("\tEnter Your choice : ");
-						choice = sc.nextInt();
-						switch(choice)
-						{
-							case 1:
-								for(int i=0;i<n;i++)
-								{
-									if(student[i].getPer()>=60&&student[i].getPer()<=100&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
-									{
-										ob2.printMarksheet(student,i);
-										count++;
-									}
-								}
-								if(count==0)
-								{
-									System.out.println("First Division student Not aveleval");
-								}
-								break;
-							case 2:
-								for(int i=0;i<n;i++)
-								{
-									if(student[i].getPer()>=45&&student[i].getPer()<60&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
-									{
-										ob2.printMarksheet(student,i);
-										count++;
-									}
-								}
-								if(count==0)
-								{
-									System.out.println("Second Division student Not aveleval");
-								}
-								break;
-							case 3:
-								for(int i=0;i<n;i++)
-								{
-									if(student[i].getPer()>=33&&student[i].getPer()<45&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
-									{
-										ob2.printMarksheet(student,i);
-										count++;
-									}
-								}
-								if(count==0)
-								{
-									System.out.println("Third Division student Not aveleval");
-								}
-						}
-					}while(choice!=5);
-			}
-		}while(choice!=4);	
-	}
-
 	public void run()
 	{
 		Scanner sc = new Scanner(System.in);
 		Mark ob = new Mark();
 		Operation ob1 = new Operation();
-		DataClass ob2 = new DataClass();
-		String corse, name, sem, fname, mname, branch;
+		//String corse, name, sem, fname, mname, branch;
 		
-		int physics,chemistry,math,hindi,english,year,roll,n;
-		
+		//int physics,chemistry,math,hindi,english,year,roll;
+		int n;
 		DataClass []student = new DataClass[100];
 		
 		System.out.print("\nEnter number of student : ");
 		
 		n = sc.nextInt();
 		
-		
 		for(int i=0;i<n;i++)
 		{
 			student[i] = new DataClass();
 			
 			System.out.print("\nEnter Roll number : ");
-			roll = ob.takeRoll(student,i);
-			
+			student[i].setRoll(ob.takeRoll(student,i));
 			sc.nextLine();
 			
 			System.out.print("\nEnter Your name : ");
-			name = sc.nextLine();
-
+			student[i].setName(sc.nextLine());
+			
 			System.out.print("\nEnter Your Father name : ");
-			fname = sc.nextLine();
+			student[i].setFatherName(sc.nextLine());
 
 			System.out.print("\nEnter Your Mother Name : ");
-			mname = sc.nextLine();
+			student[i].setMotherName(sc.nextLine());
 			
 			System.out.print("\nEnter Course name : ");
-			corse = sc.next();
+			student[i].setCorse(sc.nextLine());
 
 			System.out.print("\nEnter Your Branch name : ");
-			branch = sc.next();
+			student[i].setBranch(sc.nextLine());
 
 			System.out.print("\nEnter Your Sem : ");
-			sem = sc.next();
+			student[i].setSem(sc.nextLine());
 			
 			System.out.print("\nEnter Your year : ");
-			year = sc.nextInt();
+			student[i].setYear(sc.nextInt());
 			
 			System.out.print("\nEnter marks of phycics : ");
-			physics = ob.takeMark();
+			student[i].setPhysics(ob.takeMark());
 			
 			System.out.print("\nEnter marks of chemistry : ");
-			chemistry = ob.takeMark();
+			student[i].setChemistry(ob.takeMark());
 			
 			System.out.print("\nEnter marks of mathes : ");
-			math = ob.takeMark();
+			student[i].setMath(ob.takeMark());
 			
 			System.out.print("\nEnter marks of Hindi : ");
-			hindi = ob.takeMark();
+			student[i].setHindi(ob.takeMark());
 			
 			System.out.print("\nEnter marks of English : ");
-			english = ob.takeMark();
+			student[i].setEnglish(ob.takeMark());
+			student[i].setTotel();
+			student[i].setPer();
 			
-			student[i].DataClass(roll,name,fname,mname,corse,branch,sem,year,physics,chemistry,math,hindi,english);
 			System.out.println(" _______________________________________________________________________");
 			
 		}
-		ob.choice(student,n,ob1,ob2);
+		ob1.choice(student,n,ob1);
 	}
 	public static void main(String[]args)
 	{
