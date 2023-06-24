@@ -1,6 +1,5 @@
 
 import java.util.Scanner;
-
 //POJO Playin old java object
 class DataClass      //POJO Class
 {
@@ -200,62 +199,9 @@ class Operation     //BL Class
 					}
 					break;
 				case 3:
-					do
-					{
-						flag = true;
-						System.out.println("Your choices are");
-						System.out.println("\t1 For First Division");
-						System.out.println("\t2 For Second Division");
-						System.out.println("\t3 For Third Division");
-						System.out.println("\t6 For Back");
-						System.out.print("\tEnter Your choice : ");
-						choice = sc.nextInt();
-						switch(choice)
-						{
-							case 1:
-								for(int i=0;i<n;i++)
-								{
-									if(student[i].getPer()>=60&&student[i].getPer()<=100&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
-									{
-										ob2.printMarksheet(student,i);
-										flag = false;
-									}
-								}
-								if(flag)
-								{
-									System.out.println("First Division student Not aveleval");
-								}
-								break;
-							case 2:
-								for(int i=0;i<n;i++)
-								{
-									if(student[i].getPer()>=45&&student[i].getPer()<60&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
-									{
-										ob2.printMarksheet(student,i);
-										flag = false;
-									}
-								}
-								if(flag)
-								{
-									System.out.println("Second Division student Not aveleval");
-								}
-								break;
-							case 3:
-								for(int i=0;i<n;i++)
-								{
-									if(student[i].getPer()>=33&&student[i].getPer()<45&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
-									{
-										ob2.printMarksheet(student,i);
-										flag = false;
-									}
-								}
-								if(flag)
-								{
-									System.out.println("Third Division student Not aveleval");
-								}
-						}
-					}while(choice!=6);
-				case 4:
+					ob2.searchDivision(student,n,ob2);
+					break;
+					case 4:
 					for(int i=0;i<n;i++)
 					{
 						ob2.printMarksheet(student,i);
@@ -263,6 +209,67 @@ class Operation     //BL Class
 					break;
 			}
 		}while(choice!=5);	
+	}
+	public void searchDivision(DataClass student[],int n,Operation ob2)
+	{
+		Scanner sc = new Scanner(System.in);
+		boolean flag;
+		int choice;
+		do
+		{
+			flag = true;
+			System.out.println("Your choices are");
+			System.out.println("\t1 For First Division");
+			System.out.println("\t2 For Second Division");
+			System.out.println("\t3 For Third Division");
+			System.out.println("\t6 For Back");
+			System.out.print("\tEnter Your choice : ");
+			choice = sc.nextInt();
+			switch(choice)
+			{
+				case 1:
+					for(int i=0;i<n;i++)
+					{
+						if(student[i].getPer()>=60&&student[i].getPer()<=100&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
+						{
+							ob2.printMarksheet(student,i);
+							flag = false;
+						}
+					}
+					if(flag)
+					{
+						System.out.println("First Division student Not aveleval");
+					}
+					break;
+				case 2:
+					for(int i=0;i<n;i++)
+					{
+						if(student[i].getPer()>=45&&student[i].getPer()<60&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
+						{
+							ob2.printMarksheet(student,i);
+							flag = false;
+						}
+					}
+					if(flag)
+					{
+						System.out.println("Second Division student Not aveleval");
+					}
+					break;
+				case 3:
+					for(int i=0;i<n;i++)
+					{
+						if(student[i].getPer()>=33&&student[i].getPer()<45&&student[i].getphysics()>33&&student[i].getchemistry()>33&&student[i].getmath()>33&&student[i].gethindi()>33&&student[i].getenglish()>33)
+						{
+							ob2.printMarksheet(student,i);
+							flag = false;
+						}
+					}
+					if(flag)
+					{
+						System.out.println("Third Division student Not aveleval");
+					}
+			}
+		}while(choice!=6);
 	}
 	
 	public void printMarksheet(DataClass ref[],int i)

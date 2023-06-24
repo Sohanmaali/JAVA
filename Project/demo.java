@@ -448,7 +448,6 @@ class Mark
 					sc.next(); // discard the invalid token
 				}
 			}
-			
 			System.out.println("Enter Your Father name");
 			fname = sc.nextLine();
 
