@@ -479,7 +479,7 @@ class Operation     //BL Class
 }
 class Mark         //Clinte Class
 {
-	static int i=0,n=-1;
+	static int i=0,n=0;
 	public int takeRoll(DataClass student[],int i)
 	{
 		Scanner sc = new Scanner(System.in);
@@ -577,7 +577,7 @@ class Mark         //Clinte Class
 		Mark ob = new Mark();
 		Operation ob1 = new Operation();
 		DataClass []student = new DataClass[100];
-		int choice;
+		int choice,num = 0;
 		do
 		{
 			System.out.println("\tYour Choice are ");
@@ -591,15 +591,32 @@ class Mark         //Clinte Class
 			switch(choice)
 			{
 				case 1:
-					System.out.print("\nEnter number of student : ");
-					n = sc.nextInt();
-					ob.takeInput(ob1,n,student);
+					if(i==0)
+					{
+						System.out.print("\nEnter number of student : ");
+						n = sc.nextInt();
+						ob.takeInput(ob1,n,student);
+					}
+					else
+					{
+						System.out.print("\nSum student Data allreday exisit please choose Update Record choices : ");
+					}
 					break;
 				case 2:
 					ob1.choice(student,n,ob1);
 					break;
 				case 3:
-					//ob1.choice(student,ob1);
+					if(i!=0)
+					{
+						System.out.print("\nHow many student data enter");
+						num = sc.nextInt();
+						n+=num;
+						ob.takeInput(ob1,n,student);
+					}
+					else
+					{
+						System.out.print("\nplease enter sum student data then you can update the record : ");
+					}
 					break;
 				case 50:
 					System.exit(0);
