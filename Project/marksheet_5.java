@@ -640,74 +640,89 @@ class Mark         //Clinte Class
 		Operation ob1 = new Operation();
 		DataClass []student = new DataClass[100];
 		int choice,num = 0;
+		String id,pass;
 		do
 		{
-			System.out.println("\n\t\t\t\t\t     Your Choice are ");
-			System.out.print("\t\t-----------------------");
-			System.out.println("\t\t\t\t-----------------------");
-			System.out.print("\t\t 1 For Insart Data");
-			
-			System.out.println("\t\t\t\t 2 For Search Record");
-			System.out.print("\t\t-----------------------");
-			System.out.println("\t\t\t\t-----------------------\n\n");
-			System.out.print("\t\t-----------------------");
-			System.out.println("\t\t\t\t-----------------------");
-			System.out.print("\t\t 3 For Update Record");
-			System.out.println("\t\t\t\t 50 For Home Screen");
-			System.out.print("\t\t-----------------------");
-			System.out.println("\t\t\t\t-----------------------\n\n");
-			System.out.println("\n\t\t\t\t\t     Enter Your Choice");
-			choice = sc.nextInt();
-			System.out.println(" ____________________________________________________________________________________________________________________");
-			switch(choice)
+			System.out.print("Enter User id : ");
+			id = sc.nextLine();
+			System.out.print("Enter Password : ");
+			pass = sc.nextLine();
+			if(id.equals("Sohan") && pass.equals("2002"))
 			{
-				case 1:
-					if(i==0)
-					{
-						System.out.println("\t\t-------------------------------");
-						System.out.print("\t\t  Enter number of student : ");
-						n = sc.nextInt();
-						System.out.println("\t\t-------------------------------");
-						ob.takeInput(ob1,n,student);
-					}
-					else
-					{
-						System.out.println(color+"\t\t  --------------------------------------------------------------------");
-						System.out.println("\t\t      Sum student Data allreday exisit please choose Update Record choices : ");
-						System.out.println("\t\t  --------------------------------------------------------------------"+resetColor);
-					}
-					break;
-				case 2:
-				if(i!=0)
+				do
 				{
-					ob1.choice(student,n,ob1);
-				}
-				else
-				{
-					System.out.println(color+"\t\t  --------------------------------------------------------------------");
-					System.out.println("\t\t      Student data not aveleval please  insert sum student data");
-					System.out.println("\t\t  --------------------------------------------------------------------"+ resetColor);
+					System.out.println("\n\t\t\t\t\t     Your Choice are ");
+					System.out.print("\t\t-----------------------");
+					System.out.println("\t\t\t\t-----------------------");
+					System.out.print("\t\t 1 For Insart Data");
 					
-				}	
-					break;
-				case 3:
-					if(i!=0)
+					System.out.println("\t\t\t\t 2 For Search Record");
+					System.out.print("\t\t-----------------------");
+					System.out.println("\t\t\t\t-----------------------\n\n");
+					System.out.print("\t\t-----------------------");
+					System.out.println("\t\t\t\t-----------------------");
+					System.out.print("\t\t 3 For Update Record");
+					System.out.println("\t\t\t\t 50 For Home Screen");
+					System.out.print("\t\t-----------------------");
+					System.out.println("\t\t\t\t-----------------------\n\n");
+					System.out.println("\n\t\t\t\t\t     Enter Your Choice");
+					choice = sc.nextInt();
+					System.out.println(" ____________________________________________________________________________________________________________________");
+					switch(choice)
 					{
-						System.out.print("\nHow many student data enter");
-						num = sc.nextInt();
-						n+=num;
-						ob.takeInput(ob1,n,student);
+						case 1:
+							if(i==0)
+							{
+								System.out.println("\t\t-------------------------------");
+								System.out.print("\t\t  Enter number of student : ");
+								n = sc.nextInt();
+								System.out.println("\t\t-------------------------------");
+								ob.takeInput(ob1,n,student);
+							}
+							else
+							{
+								System.out.println(color+"\t\t  --------------------------------------------------------------------");
+								System.out.println("\t\t      Sum student Data allreday exisit please choose Update Record choices : ");
+								System.out.println("\t\t  --------------------------------------------------------------------"+resetColor);
+							}
+							break;
+						case 2:
+						if(i!=0)
+						{
+							ob1.choice(student,n,ob1);
+						}
+						else
+						{
+							System.out.println(color+"\t\t  --------------------------------------------------------------------");
+							System.out.println("\t\t      Student data not aveleval please  insert sum student data");
+							System.out.println("\t\t  --------------------------------------------------------------------"+ resetColor);
+							
+						}	
+							break;
+						case 3:
+							if(i!=0)
+							{
+								System.out.print("\nHow many student data enter");
+								num = sc.nextInt();
+								n+=num;
+								ob.takeInput(ob1,n,student);
+							}
+							else
+							{
+								System.out.println(color+"\t\t  --------------------------------------------------------------------");
+								System.out.print("\t\t      please enter sum student data then you can update the record : \n");
+								System.out.println("\t\t  --------------------------------------------------------------------"+ resetColor);
+							}
+							break;
+						case 50:
+							System.exit(0);
 					}
-					else
-					{
-						System.out.println(color+"\t\t  --------------------------------------------------------------------");
-						System.out.print("\t\t      please enter sum student data then you can update the record : \n");
-						System.out.println("\t\t  --------------------------------------------------------------------"+ resetColor);
-					}
-					break;
-				case 50:
-					System.exit(0);
+				}while(choice!=50);
 			}
-		}while(choice!=50);
+			else
+			{
+				System.out.println("Please enter valide id password");
+			}
+		}while(id!="Admin" && pass!="2002" );
 	}
 }
