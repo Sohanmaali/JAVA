@@ -1,4 +1,4 @@
-
+import java.io.*;
 import java.util.Scanner;
 //POJO Playin old java object
 class DataClass      //POJO Class
@@ -9,7 +9,6 @@ class DataClass      //POJO Class
 	private String sem;
 	private String branch;
 	private String corse;
-	private double per;
 	private int year;
 	private int total;
 	private int roll;	
@@ -18,6 +17,7 @@ class DataClass      //POJO Class
 	private int math;
 	private int hindi;
 	private int english;
+	private double per;
 	
 	public void setRoll(int roll)
 	{
@@ -146,27 +146,41 @@ class Operation     //BL Class
 	public void choice(DataClass student[],int n,Operation ob2)
 	{
 		Scanner sc = new Scanner(System.in);
-		
+		String resetColor = "\u001B[0m";
+		String color = "\u001B[31m";
 		int choice,searchRoll;
 		boolean flag;
 		String searchName;
 		do
 		{
 			flag = true;
-			System.out.println("Your choices are");
-			System.out.println("\t1 For Search by Roll Number");
-			System.out.println("\t2 For Search by Name");
-			System.out.println("\t3 For Search by Division");
-			System.out.println("\t4 For All MarkSheet");
-			System.out.println("\t5 For Exit");
-			System.out.print("\tEnter Your choice : ");
+			System.out.println("\n\t\t\t\t\t     Your Choice are ");
+			System.out.print("\t\t-------------------------------");
+			System.out.println("\t\t\t\t-------------------------------");
+			System.out.print("\t\t 1 For Search by Roll Number");
+			System.out.println("\t\t\t\t 2 For Search by Name");
+			System.out.print("\t\t-------------------------------");
+			System.out.println("\t\t\t\t-------------------------------");
+			System.out.print("\n\n\t\t-------------------------------");
+			System.out.println("\t\t\t\t-------------------------------");
+			System.out.print("\t\t 3 For Search by Division");
+			System.out.println("\t\t\t\t 4 For All MarkSheet");
+			System.out.print("\t\t-------------------------------");
+			System.out.println("\t\t\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.println("\t\t 5 For Exit");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\n\t\t\t\t\t     Enter Your Choice");
 			choice = sc.nextInt();
 			sc.nextLine();
+			System.out.println(" ____________________________________________________________________________________________________________________");
 			switch(choice)
 			{
 				case 1:
-					System.out.print("Enter Your Roll Number : ");
+					System.out.println("\t\t---------------------------");
+					System.out.print("\t\t  Enter Roll number : ");
 					searchRoll = sc.nextInt();
+					System.out.println("\t\t---------------------------");
 					for(int i=0;i<n;i++)
 					{
 						if(student[i].getRollNumber()==searchRoll)
@@ -178,12 +192,16 @@ class Operation     //BL Class
 					}
 					if(flag)
 					{
-						System.out.print("Enter Roll Number Is Not exist : ");
+						System.out.println(color+"\t\t  --------------------------------------------------------------------");
+						System.out.println("\t\t\t\t      Enter Roll Number Is Not exist : ");
+						System.out.println("\t\t  --------------------------------------------------------------------"+resetColor);
 					}
 					break; 
 				case 2:
-					System.out.print("Enter Your Name : ");
+					System.out.println("\t\t---------------------------");
+					System.out.print("\t\t  Enter Your Name : ");
 					searchName = sc.nextLine();
+					System.out.println("\t\t---------------------------");
 					
 					for(int i=0;i<n;i++)
 					{
@@ -195,7 +213,9 @@ class Operation     //BL Class
 					}
 					if(flag)
 					{
-						System.out.print("Enter Name Is Not exist : ");
+						System.out.println(color+"\t\t  --------------------------------------------------------------------");
+						System.out.println("\t\t\t\t      Enter Name Is Not exist : ");
+						System.out.println("\t\t  --------------------------------------------------------------------"+resetColor);
 					}
 					break;
 				case 3:
@@ -214,17 +234,28 @@ class Operation     //BL Class
 	{
 		Scanner sc = new Scanner(System.in);
 		boolean flag;
+		String resetColor = "\u001B[0m";
+		String color = "\u001B[31m";
 		int choice;
 		do
 		{
 			flag = true;
-			System.out.println("Your choices are");
-			System.out.println("\t1 For First Division");
-			System.out.println("\t2 For Second Division");
-			System.out.println("\t3 For Third Division");
-			System.out.println("\t6 For Back");
-			System.out.print("\tEnter Your choice : ");
+			System.out.println("\n\t\t\t\t\t     Your Choice are ");
+			System.out.print("\t\t-------------------------------");
+			System.out.println("\t\t\t\t-------------------------------");
+			System.out.print("\t\t 1 For First Division");
+			System.out.println("\t\t\t\t\t 2 For Second Division");
+			System.out.print("\t\t-------------------------------");
+			System.out.println("\t\t\t\t-------------------------------");
+			System.out.print("\n\n\t\t-------------------------------");
+			System.out.println("\t\t\t\t-------------------------------");
+			System.out.print("\t\t 3 For Third Division");
+			System.out.println("\t\t\t\t\t 6 For Back");
+			System.out.print("\t\t-------------------------------");
+			System.out.println("\t\t\t\t-------------------------------");
+			System.out.println("\n\n\t\t\t\t\t     Enter Your Choice");
 			choice = sc.nextInt();
+			System.out.println(" ____________________________________________________________________________________________________________________");
 			switch(choice)
 			{
 				case 1:
@@ -238,7 +269,9 @@ class Operation     //BL Class
 					}
 					if(flag)
 					{
-						System.out.println("First Division student Not aveleval");
+						System.out.println(color+"\t\t  --------------------------------------------------------------------");
+						System.out.println("\t\t\t\t      First Division student Not aveleval");
+						System.out.println("\t\t  --------------------------------------------------------------------"+resetColor);
 					}
 					break;
 				case 2:
@@ -252,7 +285,9 @@ class Operation     //BL Class
 					}
 					if(flag)
 					{
-						System.out.println("Second Division student Not aveleval");
+						System.out.println(color+"\t\t  --------------------------------------------------------------------");
+						System.out.println("\t\t\t\t      Second Division student Not aveleval");
+						System.out.println("\t\t  --------------------------------------------------------------------"+resetColor);
 					}
 					break;
 				case 3:
@@ -266,70 +301,72 @@ class Operation     //BL Class
 					}
 					if(flag)
 					{
-						System.out.println("Third Division student Not aveleval");
+						System.out.println(color+"\t\t  --------------------------------------------------------------------");
+						System.out.println("\t\t\t\t      Third Division student Not aveleval");
+						System.out.println(color+"\t\t  --------------------------------------------------------------------"+resetColor);
 					}
 			}
 		}while(choice!=6);
 	}
 	
 	public void printMarksheet(DataClass ref[],int i)
-	{	
+	{
 		Operation ob = new Operation();
-		System.out.println("   --------------------------------------------------------------------");
-		System.out.println("   |");
+		System.out.println("\t\t   --------------------------------------------------------------------");
+		System.out.println("\t\t   |");
 
-		System.out.println("   |\t\t\t\tBU BHOPAL   \n   |                                                   ");
-		System.out.println("   |\tName  : " + ref[i].getName() + "\t\t\t\t\tBranch : " + ref[i].getBranch());
-		System.out.println("   |\tFName : " + ref[i].getFName() + "\t\t\t\t\tSem    : " + ref[i].getSem());
-		System.out.println(  "   |\tMName : " + ref[i].getMName() + "\t\t\t\t\tYear   : " + ref[i].getYear());
-		System.out.println("   |\tRoll  : " + ref[i].getRollNumber() + "\t\t\t\t\tCourse : " + ref[i].getCorse() + "\n");
-		System.out.println("   --------------------------------------------------------------------");
-		System.out.println( "   |\tSubCode      SubName       MaxMarks      MinMarks      ObtMark" );
-		System.out.println("   --------------------------------------------------------------------");
-		System.out.println( "   |\tBCA100       Physics        100            33            " + ref[i].getphysics() );
-		System.out.println("   --------------------------------------------------------------------");
-		System.out.println( "   |\tBCA101       chemistry      100            33            " + ref[i].getchemistry() );
-		System.out.println("   --------------------------------------------------------------------");
-		System.out.println( "   |\tBCA102       math           100            33            " + ref[i].getmath());
-		System.out.println("   --------------------------------------------------------------------");
-		System.out.println( "   |\tBCA103       hindi          100            33            " + ref[i].gethindi() );
-		System.out.println("   --------------------------------------------------------------------");
-		System.out.println( "   |\tBCA104       english        100            33            " + ref[i].getenglish());
-		System.out.println("   --------------------------------------------------------------------");
-		System.out.println( "   |\n   |" );
+		System.out.println("\t\t   |\t\t\t\tBU BHOPAL   \n\t\t   |                                                   ");
+		System.out.println("\t\t   |\tName  : " + ref[i].getName() + "\t\t\t\t\tBranch : " + ref[i].getBranch());
+		System.out.println("\t\t   |\tFName : " + ref[i].getFName() + "\t\t\t\t\tSem    : " + ref[i].getSem());
+		System.out.println(  "\t\t   |\tMName : " + ref[i].getMName() + "\t\t\t\t\tYear   : " + ref[i].getYear());
+		System.out.println("\t\t   |\tRoll  : " + ref[i].getRollNumber() + "\t\t\t\t\tCourse : " + ref[i].getCorse() + "\n");
+		System.out.println("\t\t   --------------------------------------------------------------------");
+		System.out.println( "\t\t   |\tSubCode      SubName       MaxMarks      MinMarks      ObtMark" );
+		System.out.println("\t\t   --------------------------------------------------------------------");
+		System.out.println( "\t\t   |\tBCA100       Physics        100            33            " + ref[i].getphysics() );
+		System.out.println("\t\t   --------------------------------------------------------------------");
+		System.out.println( "\t\t   |\tBCA101       Chemistry      100            33            " + ref[i].getchemistry() );
+		System.out.println("\t\t   --------------------------------------------------------------------");
+		System.out.println( "\t\t   |\tBCA102       Math           100            33            " + ref[i].getmath());
+		System.out.println("\t\t   --------------------------------------------------------------------");
+		System.out.println( "\t\t   |\tBCA103       Hindi          100            33            " + ref[i].gethindi() );
+		System.out.println("\t\t   --------------------------------------------------------------------");
+		System.out.println( "\t\t   |\tBCA104       English        100            33            " + ref[i].getenglish());
+		System.out.println("\t\t   --------------------------------------------------------------------");
+		System.out.println( "\t\t   |\n\t\t   |" );
 		ob.division(ref,i);
 		System.out.println("\n");
-		System.out.println(" --------------------------------------------------------------------");
-		
+		System.out.println("\t\t   --------------------------------------------------------------------");
+		System.out.println(" ____________________________________________________________________________________________________________________");
 	}
 	public void division(DataClass ref[],int i)
 	{
 		if (ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 &&ref[i].getmath() < 33 &&ref[i].gethindi() < 33 &&ref[i].getenglish() < 33) 
 		{
-			System.out.println("   |\tFail in All sub");
+			System.out.println("   \t\t   |\tFail in All sub");
 		} 
 		else if ((ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 && ref[i].getmath() < 33 && ref[i].gethindi() < 33) ||(ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 && ref[i].getmath() < 33 & ref[i].getenglish() < 33) ||(ref[i].getphysics() < 33 && ref[i].getmath() < 33 && ref[i].gethindi() < 33 && ref[i].getenglish() < 33) ||(ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 && ref[i].gethindi() < 33 && ref[i].getenglish() < 33) ||(ref[i].getchemistry() < 33 && ref[i].getmath() < 33 && ref[i].gethindi() < 33 && ref[i].getenglish() < 33))
 		{
-			System.out.println("   |\tStatus     : Fail");
+			System.out.println("   \t\t   |\tStatus     : Fail");
 			if (ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 && ref[i].getmath() < 33 && ref[i].gethindi() < 33) 
 			{
-				System.out.println("   |\tFail in phycics,getchemistry(),mathes,Hindi");
+				System.out.println("   \t\t   |\tFail in phycics,getchemistry(),mathes,Hindi");
 			} 
 			else if (ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 && ref[i].getmath() < 33 & ref[i].getenglish() < 33)
 			{
-				System.out.println("   |\tFail in phycics,chemistry,mathes,enlish");
+				System.out.println("   \t\t   |\tFail in phycics,chemistry,mathes,enlish");
 			} 
 			else if (ref[i].getphysics() < 33 && ref[i].getmath() < 33 && ref[i].gethindi() < 33 && ref[i].getenglish() < 33)
 			{
-				System.out.println("   |\tFail in phycics,mathes,hindi,enlish");
+				System.out.println("   \t\t   |\tFail in phycics,mathes,hindi,enlish");
 			} 	
 			else if (ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 && ref[i].gethindi() < 33 && ref[i].getenglish() < 33)
 			{
-				System.out.println("   |\tFail in phycics,chemistry,hindi,enlish");
+				System.out.println("   \t\t   |\tFail in phycics,chemistry,hindi,enlish");
 			}
 			else if (ref[i].getchemistry() < 33 && ref[i].getmath() < 33 && ref[i].gethindi() < 33 && ref[i].getenglish() < 33)
 			{
-				System.out.println("   |\tFail in chemistry,mathes,hindi,enlish");
+				System.out.println("   \t\t   |\tFail in chemistry,mathes,hindi,enlish");
 			}
 		}
 		else if ((ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 && ref[i].getmath() < 33) ||
@@ -343,46 +380,46 @@ class Operation     //BL Class
 			(ref[i].getenglish() < 33 && ref[i].getmath() < 33 && ref[i].getchemistry() < 33) ||
 			(ref[i].getphysics() < 33 && ref[i].getmath() < 33 && ref[i].getenglish() < 33))
 		{
-			System.out.println("   |\tStatus     : Fail");
+			System.out.println("   \t\t   |\tStatus     : Fail");
 			if (ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 && ref[i].getmath() < 33) 
 			{
-				System.out.println("   |\tFail in physics,chemistry,mathes");
+				System.out.println("   \t\t   |\tFail in physics,chemistry,mathes");
 			}
 			else if (ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 && ref[i].gethindi() < 33) 
 			{
-				System.out.println("   |\tFail in physics,chemistry,Hindi");
+				System.out.println("   \t\t   |\tFail in physics,chemistry,Hindi");
 			}
 			else if (ref[i].getphysics() < 33 && ref[i].getmath() < 33 && ref[i].gethindi() < 33) 
 			{
-				System.out.println("   |\tFail in physics,mathes,hindi");
+				System.out.println("   \t\t   |\tFail in physics,mathes,hindi");
 			} 
 			else if (ref[i].getchemistry() < 33 && ref[i].getmath() < 33 && ref[i].gethindi() < 33)
 			{
-				System.out.println("   |\tFail in chemistry,mathes,hindi");
+				System.out.println("   \t\t   |\tFail in chemistry,mathes,hindi");
 			}
 			else if (ref[i].getphysics() < 33 && ref[i].getchemistry() < 33 && ref[i].getenglish() < 33) 
 			{
-				System.out.println("   |\tFail in physics,chemistry,enlish");
+				System.out.println("   \t\t   |\tFail in physics,chemistry,enlish");
 			}
 			else if (ref[i].getchemistry() < 33 && ref[i].gethindi() < 33 && ref[i].getenglish() < 33)
 			{
-				System.out.println("   |\tFail in chemistry,Hindi,enlish");
+				System.out.println("   \t\t   |\tFail in chemistry,Hindi,enlish");
 			}
 			else if (ref[i].getmath() < 33 && ref[i].gethindi() < 33 && ref[i].getenglish() < 33)
 				{
-				System.out.println("   |\tFail in mathes,Hindi,enlish");
+				System.out.println("   \t\t   |\tFail in mathes,Hindi,enlish");
 			} 
 			else if (ref[i].getphysics() < 33 && ref[i].gethindi() < 33 && ref[i].getenglish() < 33)
 			{
-				System.out.println("   |\tFail in physics,Hindi,english");
+				System.out.println("   \t\t   |\tFail in physics,Hindi,english");
 			}
 			else if (ref[i].getchemistry() < 33 && ref[i].getmath() < 33 && ref[i].getenglish() < 33)
 			{
-				System.out.println("   |\tFail in chemistry,mathes,enlish");
+				System.out.println("   \t\t   |\tFail in chemistry,mathes,enlish");
 			}
 			else if (ref[i].getphysics() < 33 && ref[i].getmath() < 33 && ref[i].getenglish() < 33) 
 			{
-				System.out.println("   |\tFail in physics,mathes,enlish");
+				System.out.println("   \t\t   |\tFail in physics,mathes,enlish");
 			}
 		}
 		else if ((ref[i].getphysics() < 33 && ref[i].getchemistry() < 33) ||(ref[i].getphysics() < 33 && ref[i].getmath() < 33) ||
@@ -391,88 +428,88 @@ class Operation     //BL Class
 			(ref[i].getchemistry() < 33 && ref[i].getenglish() < 33) ||(ref[i].getmath() < 33 && ref[i].getenglish() < 33) ||
 			(ref[i].getmath() < 33 && ref[i].gethindi() < 33) ||(ref[i].gethindi() < 33 && ref[i].getenglish() < 33))
 		{
-			System.out.println("   |\tStatus     : Supply in two Subject");
+			System.out.println("   \t\t   |\tStatus     : Supply in two Subject");
 			if (ref[i].getphysics() < 33 && ref[i].getchemistry() < 33)
 			{
-				System.out.println("   |\tFail in physics,chemistry");
+				System.out.println("   \t\t   |\tFail in physics,chemistry");
 			}
 			else if (ref[i].getphysics() < 33 && ref[i].getmath() < 33)
 			{
-				System.out.println("   |\tFail in physics,getmath()es");
+				System.out.println("   \t\t   |\tFail in physics,getmath()es");
 			} 
 			else if (ref[i].getphysics() < 33 && ref[i].gethindi() < 33) 
 			{
-				System.out.println("   |\tFail in physics,gethindi()");
+				System.out.println("   \t\t   |\tFail in physics,gethindi()");
 			} 
 			else if (ref[i].getphysics() < 33 && ref[i].getenglish() < 33)
 			{
-				System.out.println("   |\tFail in physics,english");
+				System.out.println("   \t\t   |\tFail in physics,english");
 			}
 			else if (ref[i].getchemistry() < 33 && ref[i].getmath() < 33) 
 			{
-				System.out.println("   |\tFail in chemistry,getmath()es");
+				System.out.println("   \t\t   |\tFail in chemistry,getmath()es");
 			}
 			else if (ref[i].getchemistry() < 33 && ref[i].gethindi() < 33) 
 			{
-				System.out.println("   |\tFail in chemistry,Hindi");
+				System.out.println("   \t\t   |\tFail in chemistry,Hindi");
 			}
 			else if (ref[i].getchemistry() < 33 && ref[i].getenglish() < 33)
 			{
-				System.out.println("   |\tFail in chemistry,english");
+				System.out.println("   \t\t   |\tFail in chemistry,english");
 			}
 			else if (ref[i].getmath() < 33 && ref[i].getenglish() < 33) 
 			{
-				System.out.println("   |\tFail in Mathes,English");
+				System.out.println("   \t\t   |\tFail in Mathes,English");
 			} 
 			else if (ref[i].getmath() < 33 && ref[i].gethindi() < 33)
 			{
-				System.out.println("   |\tFail in Mathes,Hindi");
+				System.out.println("   \t\t   |\tFail in Mathes,Hindi");
 			} 
 			else if (ref[i].gethindi() < 33 && ref[i].getenglish() < 33)
 			{
-				System.out.println("   |\tFail in Hindi,English");
+				System.out.println("   \t\t   |\tFail in Hindi,English");
 			}
 		}
 		else if (ref[i].getphysics() < 33 ||ref[i].getchemistry() < 33 ||ref[i].getmath() < 33 ||ref[i].gethindi() < 33 ||ref[i].getenglish() < 33 )
 		{
-			System.out.println("   |\tStatus     : Supply in Subject");
+			System.out.println("   \t\t   |\tStatus     : Supply in a Subject");
 			if (ref[i].getphysics() < 33) 
 			{
-				System.out.println("   |\tFail in physics");
+				System.out.println("   \t\t   |\tFail in physics");
 			} 
 			else if (ref[i].getchemistry() < 33)
 				{
-				System.out.println("   |\tFail in chemistry");
+				System.out.println("   \t\t   |\tFail in chemistry");
 			} 
 			else if (ref[i].getmath() < 33)
 				{
-				System.out.println("   |\tFail in mathes");
+				System.out.println("   \t\t   |\tFail in mathes");
 			}
 			else if (ref[i].gethindi() < 33) 
 				{
-				System.out.println("   |\tFail in hindi");
+				System.out.println("   \t\t   |\tFail in hindi");
 			} else if (ref[i].getenglish() < 33) 
 			{
-				System.out.println("   |\tFail in English");
+				System.out.println("   \t\t|\tFail in English");
 			}
 		} 
 		else 
 		{
-			System.out.println("   |\tPercentage : " + ref[i].getPer());
+			System.out.println("   \t\t   |\tPercentage : " + ref[i].getPer());
 			if (ref[i].getPer() >= 60) 
 			{
-				System.out.println("   |\tStatuse    : Pass");
-				System.out.println("   |\tPass in first division");
+				System.out.println("   \t\t   |\tStatuse    : Pass");
+				System.out.println("   \t\t   |\tPass in first division");
 			} 
 			else if (ref[i].getPer() >= 45) 
 			{
-				System.out.println("   |\tStatuse : Pass");
-				System.out.println("   |\tPass in Second division");
+				System.out.println("   \t\t   |\tStatuse : Pass");
+				System.out.println("   \t\t   |\tPass in Second division");
 			}
 			else 
 			{
-				System.out.println("   |\tStatuse : Pass");
-				System.out.println("   |\tPass in Third division");
+				System.out.println("   \t\t   |\tStatuse : Pass");
+				System.out.println("   \t\t   |\tPass in Third division");
 			}
 		}
 	}
@@ -485,6 +522,8 @@ class Mark         //Clinte Class
 		Scanner sc = new Scanner(System.in);
 		boolean flag;
 		int roll;
+		String resetColor = "\u001B[0m";
+		String color = "\u001B[31m";
 		do
 		{
 			roll= sc.nextInt();
@@ -493,7 +532,10 @@ class Mark         //Clinte Class
 			{
 				if(student[j].getRollNumber()==roll)
 				{
-					System.out.println("Duplicate Roll Number Please Enter agen roll number");
+					System.out.println(color+"\t\t  --------------------------------------------------------------------");
+					System.out.println("\t\t      Duplicate Roll Number ");
+					System.out.println("\t\t  --------------------------------------------------------------------"+resetColor);
+					System.out.print("\t\t  Enter Agean Roll number : ");
 					flag = true;
 				}
 			}				
@@ -502,6 +544,8 @@ class Mark         //Clinte Class
 	}
 	public int takeMark()
 	{
+		String resetColor = "\u001B[0m";
+		String color = "\u001B[31m";
 		Scanner sc = new Scanner(System.in);
 		int mark;
 		do
@@ -509,13 +553,17 @@ class Mark         //Clinte Class
 			mark = sc.nextInt();
 			if(mark<0||mark>100)
 			{
-				System.out.println("Invalide marks of Please enter Agen mark!");
+				System.out.println(color+"\t\t  --------------------------------------------------------------------");
+				System.out.println("\t\t      Invalide marks of Please enter Agen mark!");
+				System.out.println("\t\t  --------------------------------------------------------------------"+resetColor);
 			}
 		}while (mark<0||mark>100);
 		return mark;
 	}
 	public void takeInput(Operation ob1,int n,DataClass student[])
 	{
+		String resetColor = "\u001B[0m";
+		String color = "\u001B[31m";
 		Scanner sc = new Scanner(System.in);
 		Mark ob = new Mark();
 		//String corse, name, sem, fname, mname, branch;
@@ -525,85 +573,122 @@ class Mark         //Clinte Class
 		for(;i<n;i++)
 		{
 			student[i] = new DataClass();
-			
-			System.out.print("\nEnter Roll number : ");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter Roll number : ");
 			student[i].setRoll(ob.takeRoll(student,i));
-			sc.nextLine();
-			
-			System.out.print("\nEnter Your name : ");
+			System.out.println("\t\t-------------------------------");
+			//sc.nextLine();
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter Your name : ");
 			student[i].setName(sc.nextLine());
-			
-			System.out.print("\nEnter Your Father name : ");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter Your Father name : ");
 			student[i].setFatherName(sc.nextLine());
-
-			System.out.print("\nEnter Your Mother Name : ");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter Your Mother Name : ");
 			student[i].setMotherName(sc.nextLine());
-			
-			System.out.print("\nEnter Course name : ");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter Course name : ");
 			student[i].setCorse(sc.nextLine());
-
-			System.out.print("\nEnter Your Branch name : ");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter Your Branch name : ");
 			student[i].setBranch(sc.nextLine());
-
-			System.out.print("\nEnter Your Sem : ");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter Your Sem : ");
 			student[i].setSem(sc.nextLine());
-			
-			System.out.print("\nEnter Your year : ");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter Your year : ");
 			student[i].setYear(sc.nextInt());
-			
-			System.out.print("\nEnter marks of phycics : ");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter marks of phycics : ");
 			student[i].setPhysics(ob.takeMark());
-			
-			System.out.print("\nEnter marks of chemistry : ");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter marks of chemistry : ");
 			student[i].setChemistry(ob.takeMark());
-			
-			System.out.print("\nEnter marks of mathes : ");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter marks of mathes : ");
 			student[i].setMath(ob.takeMark());
-			
-			System.out.print("\nEnter marks of Hindi : ");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter marks of Hindi : ");
 			student[i].setHindi(ob.takeMark());
-			
-			System.out.print("\nEnter marks of English : ");
+			System.out.println("\t\t-------------------------------");
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter marks of English : ");
 			student[i].setEnglish(ob.takeMark());
+			System.out.println("\t\t-------------------------------");
 			student[i].setTotel();
 			student[i].setPer();
 			
-			System.out.println(" _______________________________________________________________________");
+			System.out.println(" ____________________________________________________________________________________________________________________");
 		}
 	}
 	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
 		Mark ob = new Mark();
+		String resetColor = "\u001B[0m";
+		String color = "\u001B[31m";
 		Operation ob1 = new Operation();
 		DataClass []student = new DataClass[100];
 		int choice,num = 0;
 		do
 		{
-			System.out.println("\tYour Choice are ");
-			System.out.println("\t 1 For Insart Data");
-			System.out.println("\t 2 For Search Record");
-			System.out.println("\t 3 For Update Record");
-			System.out.println("\t 50 For Exit Home Screen");
-			System.out.println("\t Enter Your Choice");
+			System.out.println("\n\t\t\t\t\t     Your Choice are ");
+			System.out.print("\t\t-----------------------");
+			System.out.println("\t\t\t\t-----------------------");
+			System.out.print("\t\t 1 For Insart Data");
+			
+			System.out.println("\t\t\t\t 2 For Search Record");
+			System.out.print("\t\t-----------------------");
+			System.out.println("\t\t\t\t-----------------------\n\n");
+			System.out.print("\t\t-----------------------");
+			System.out.println("\t\t\t\t-----------------------");
+			System.out.print("\t\t 3 For Update Record");
+			System.out.println("\t\t\t\t 50 For Home Screen");
+			System.out.print("\t\t-----------------------");
+			System.out.println("\t\t\t\t-----------------------\n\n");
+			System.out.println("\n\t\t\t\t\t     Enter Your Choice");
 			choice = sc.nextInt();
-		
+			System.out.println(" ____________________________________________________________________________________________________________________");
 			switch(choice)
 			{
 				case 1:
 					if(i==0)
 					{
-						System.out.print("\nEnter number of student : ");
+						System.out.println("\t\t-------------------------------");
+						System.out.print("\t\t  Enter number of student : ");
 						n = sc.nextInt();
+						System.out.println("\t\t-------------------------------");
 						ob.takeInput(ob1,n,student);
 					}
 					else
 					{
-						System.out.print("\nSum student Data allreday exisit please choose Update Record choices : ");
+						System.out.println(color+"\t\t  --------------------------------------------------------------------");
+						System.out.println("\t\t      Sum student Data allreday exisit please choose Update Record choices : ");
+						System.out.println("\t\t  --------------------------------------------------------------------"+resetColor);
 					}
 					break;
 				case 2:
+				if(i!=0)
+				{
 					ob1.choice(student,n,ob1);
+				}
+				else
+				{
+					System.out.println(color+"\t\t  --------------------------------------------------------------------");
+					System.out.println("\t\t      Student data not aveleval please  insert sum student data");
+					System.out.println("\t\t  --------------------------------------------------------------------"+ resetColor);
+					
+				}	
 					break;
 				case 3:
 					if(i!=0)
@@ -615,13 +700,14 @@ class Mark         //Clinte Class
 					}
 					else
 					{
-						System.out.print("\nplease enter sum student data then you can update the record : ");
+						System.out.println(color+"\t\t  --------------------------------------------------------------------");
+						System.out.print("\t\t      please enter sum student data then you can update the record : \n");
+						System.out.println("\t\t  --------------------------------------------------------------------"+ resetColor);
 					}
 					break;
 				case 50:
 					System.exit(0);
 			}
 		}while(choice!=50);
-		
 	}
 }
