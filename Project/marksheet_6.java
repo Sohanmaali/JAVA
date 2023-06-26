@@ -661,10 +661,11 @@ class Mark           // Clinte Class
 	{
 		Scanner sc = new Scanner(System.in);
 		Mark ob = new Mark();
-		String resetColor = "\u001B[0m";
-		String color = "\u001B[31m";
+		
 		Operation ob1 = new Operation();
 		DataClass []student = new DataClass[100];
+		String resetColor = "\u001B[0m";
+		String color = "\u001B[31m";
 		int choice,num = 0;
 		String id,pass;
 		do
