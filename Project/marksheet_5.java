@@ -335,7 +335,7 @@ class Operation     //BL Class
 		System.out.println("\t\t   --------------------------------------------------------------------");
 		System.out.println( "\t\t   |\n\t\t   |" );
 		ob.division(ref,i);
-		System.out.println("\n");
+		System.out.println("\t\t   |\n\t\t   |\n\t\t   |\n\t\t   |");
 		System.out.println("\t\t   --------------------------------------------------------------------");
 		System.out.println(" ____________________________________________________________________________________________________________________");
 	}
