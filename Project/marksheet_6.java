@@ -1,6 +1,6 @@
 import java.util.Scanner;
 //POJO Playin old java object
-class DataClass      //POJO Class
+class DataClass      // POJO Class
 {
 	private String name;
 	private String fname;
@@ -18,6 +18,23 @@ class DataClass      //POJO Class
 	private int english;
 	private double per;
 	
+	public DataClass(String name,String fname, String mname, String sem, String branch, String corse, int year, int roll, int physics, int chemistry, int math, int hindi, int english)
+	{
+		this.name = name;
+		this.fname = fname;
+		this.mname = mname;
+		this.sem = sem;
+		this.branch = branch;
+		this.corse = corse;
+		this.year = year;
+		this.total = total;
+		this.roll = roll;	
+		this.physics = physics;
+		this.chemistry = chemistry;
+		this.math = math;
+		this.hindi = hindi;
+		this.english = english;		
+	}
 	public void setRoll(int roll)
 	{
 		this.roll = roll;
@@ -140,7 +157,7 @@ class DataClass      //POJO Class
 	}
 	
 }
-class Operation     //BL Class
+class Operation      // BL Class
 {
 	public void choice(DataClass student[],int n,Operation ob2)
 	{
@@ -564,7 +581,7 @@ class Operation     //BL Class
 		}
 	} */
 }
-class Mark         //Clinte Class
+class Mark           // Clinte Class
 {
 	static int i=0,n=0;
 	public void takeInput(Operation ob1,int n,DataClass student[],Operation ob2)
@@ -573,65 +590,67 @@ class Mark         //Clinte Class
 		String color = "\u001B[31m";
 		Scanner sc = new Scanner(System.in);
 		Mark ob = new Mark();
-		//String corse, name, sem, fname, mname, branch;
+		String corse, name, sem, fname, mname, branch;
 		
-		//int physics,chemistry,math,hindi,english,year,roll;
+		int physics,chemistry,math,hindi,english,year,roll;
 		
 		for(;i<n;i++)
 		{
-			student[i] = new DataClass();
+			//student[i] = new DataClass();
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Roll number : ");
-			student[i].setRoll(ob2.takeRoll(student,i,ob2));
+			roll = ob2.takeRoll(student,i,ob2);
+			
 			System.out.println("\t\t-------------------------------");
 			//sc.nextLine();
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Your name : ");
-			student[i].setName(sc.nextLine());
+			name = sc.nextLine();
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Your Father name : ");
-			student[i].setFatherName(sc.nextLine());
+			fname= sc.nextLine();
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Your Mother Name : ");
-			student[i].setMotherName(sc.nextLine());
+			mname = sc.nextLine();
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Course name : ");
-			student[i].setCorse(sc.nextLine());
+			corse = sc.nextLine();
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Your Branch name : ");
-			student[i].setBranch(sc.nextLine());
+			branch = sc.nextLine();
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Your Sem : ");
-			student[i].setSem(sc.nextLine());
+			sem = sc.nextLine();
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Your year : ");
-			student[i].setYear(sc.nextInt());
+			year = sc.nextInt();
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter marks of phycics : ");
-			student[i].setPhysics(ob2.takeMark());
+			physics = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter marks of chemistry : ");
-			student[i].setChemistry(ob2.takeMark());
+			chemistry = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter marks of mathes : ");
-			student[i].setMath(ob2.takeMark());
+			math = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter marks of Hindi : ");
-			student[i].setHindi(ob2.takeMark());
+			hindi = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter marks of English : ");
-			student[i].setEnglish(ob2.takeMark());
+			english = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
+			student[i] = new DataClass(name, fname,  mname,  sem,  branch,  corse,  year,  roll,  physics, chemistry,  math,  hindi,  english); 
 			student[i].setTotel();
 			student[i].setPer();
 			
