@@ -584,7 +584,7 @@ class Operation      // BL Class
 class Mark           // Clinte Class
 {
 	static int i=0,n=0;
-	public void takeInput(Operation ob1,int n,DataClass student[],Operation ob2)
+	public void takeInput(int n,DataClass student[],Operation ob2)
 	{
 		String resetColor = "\u001B[0m";
 		String color = "\u001B[31m";
@@ -660,6 +660,7 @@ class Mark           // Clinte Class
 	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
+		
 		Mark ob = new Mark();
 		
 		Operation ob1 = new Operation();
@@ -704,7 +705,7 @@ class Mark           // Clinte Class
 								System.out.print("\t\t  Enter number of student : ");
 								n = sc.nextInt();
 								System.out.println("\t\t-------------------------------");
-								ob.takeInput(ob1,n,student,ob1);
+								ob.takeInput(n,student,ob1);
 							}
 							else
 							{

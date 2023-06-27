@@ -1,6 +1,6 @@
 import java.util.Scanner; 
 
-class DataClass
+class DataClass //POJOCLASS
 {
 	private int feet;
 	private int inch;
@@ -9,26 +9,27 @@ class DataClass
 	{
 		this.feet = feet;
 		this.inch = inch;
-		
 	}
-	public void Print()
+	public int getFeet()
 	{
-		System.out.println("Feet = "+this.feet+"\nInch = "+this.inch);
+		return this.feet ;
 	}
-	public void sum(DataClass ob,DataClass ob1)
+	public int getinch()
 	{
-		this.feet = ob.feet+ob1.feet;
-		this.inch = ob.inch+ob1.inch;
-		
-		if(this.inch>=12)
-		{
-			this.feet += this.inch/12;
-			this.inch = this.inch%12;
-		}
+		return this.inch ;
+	}
+}
+class operation //BL
+{
+	public void Print(DataClass ob,DataClass ob1)
+	{
+		int feet = ob.getFeet()+ob1.getFeet();
+		int inch = ob.getinch()+ob1.getinch();
+		System.out.println("Feet = "+feet+"\nInch = "+inch);
 	}
 }
 
-class Hight
+class Hight   //Main class OR Cilnt Class
 {
 	public static void main(String args[])
 	{
@@ -47,8 +48,8 @@ class Hight
 		inch = sc.nextInt();
 		ob1.setData(feet,inch);
 		
-		DataClass ob2 = new DataClass();
-		ob2.sum(ob,ob1);
-		ob2.Print();
+		operation ob2 = new operation();
+	
+		ob2.Print(ob,ob1);
 	}
 }
