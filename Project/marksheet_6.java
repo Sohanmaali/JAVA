@@ -733,7 +733,7 @@ class Mark           // Clinte Class
 								System.out.print("\nHow many student data enter");
 								num = sc.nextInt();
 								n+=num;
-								ob.takeInput(ob1,n,student,ob1);
+								ob.takeInput(n,student,ob1);
 							}
 							else
 							{

@@ -12,7 +12,9 @@ class Between2
 		System.out.println("Enter element of array");
 		
 		for(int i = 0; i<n; i++)
+		{
 			a[i]= sc.nextInt();
+		}
 		
 		System.out.println("Array element greater then 100");
 		

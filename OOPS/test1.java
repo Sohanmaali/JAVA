@@ -2,16 +2,18 @@ import java.util.Scanner;
 
 class DataClass
 {
-	int feet; 
-	
+	// private static int feet,inch; 
+	private static DataClass ob;
+	//ob = new DataClass();
 	private DataClass()
 	{
-		this.feet = 25;
+		
 	}
-	static DataClass ob = new DataClass();
 	
 	public static DataClass getData()
 	{
+		if(ob==null)
+			ob	= new DataClass(); 
 		return ob;
 	}
 }
@@ -23,6 +25,9 @@ class Test
 		Scanner sc = new Scanner(System.in);
 		
 		DataClass  ob = DataClass.getData();
-		System.out.println(ob.feet);	
+		DataClass  ob1 = DataClass.getData();
+		
+		System.out.println(ob.hashCode());
+		System.out.println(ob1.hashCode());
 	}
-} 
+}
