@@ -2,18 +2,14 @@ import java.util.Scanner;
 
 class DataClass
 {
-	// private static int feet,inch; 
-	private static DataClass ob;
-	//ob = new DataClass();
+	private static DataClass ob = new DataClass();
 	private DataClass()
 	{
-		
+		System.out.println("hello Sohan");
 	}
 	
-	public static DataClass getData()
+	public static DataClass getInstance()
 	{
-		if(ob==null)
-			ob	= new DataClass(); 
 		return ob;
 	}
 }
