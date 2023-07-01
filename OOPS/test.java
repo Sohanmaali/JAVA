@@ -1,9 +1,8 @@
 import java.util.Scanner; 
 
-class DataClass
+/* class DataClass
 {
 	private int feet;
-	
 	
 	public void setData(int feet)
 	{
@@ -13,7 +12,6 @@ class DataClass
 	{
 		return this.feet;
 	}
-	
 }
 
 class Hight
@@ -29,4 +27,32 @@ class Hight
 		
 		System.out.println(ob.getData());	
 	}
-} 
+}*/
+
+class SuperClass
+{
+    public SuperClass()
+    { 
+        System.out.println("SuperClass constructor.");
+    } 
+
+    public void show()
+    { 
+        System.out.println("SuperClass method.");
+    } 
+}
+
+class Test extends SuperClass
+{
+	public Test()
+    {
+        System.out.println("Main Class");
+    }
+    public static void main(String[] args)
+    {
+		Test object1 = new Test(); 			// allowed 
+        object1.show(); 					// allowed
+       // object1.SuperClass(); 			// not allowed
+       // Test object2 = new SuperClass();  // not allowed 
+	}
+}

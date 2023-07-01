@@ -342,7 +342,7 @@ class Operation      // BL Class
 		System.out.println("\t\t   --------------------------------------------------------------------");
 		System.out.println( "\t\t   |\tSubCode      SubName       MaxMarks      MinMarks      ObtMark" );
 		System.out.println("\t\t   --------------------------------------------------------------------");
-		System.out.println( "\t\t   |\tBCA100       Physics        100            33            " + ref[i].sk[1][0].getMark() );
+		System.out.println( "\t\t   |\tBCA100       Physics        100            33            " + ref[i]```.sk[1][0].getMark() );
 		System.out.println("\t\t   --------------------------------------------------------------------");
 		System.out.println( "\t\t   |\tBCA101       Chemistry      100            33            " + this.sk[1][1].getMark() );
 		System.out.println("\t\t   --------------------------------------------------------------------");

@@ -2,7 +2,7 @@
 import java.util.Scanner;
 class Marksheet
 {
-  public static void main(String[]args)
+	public static void main(String[]args)
 	{
 		int physics,chemistry,math,hindi,english,total,year,roll,n,i=1;
 		double per;
