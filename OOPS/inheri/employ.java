@@ -39,7 +39,7 @@ class Employee extends Person
 
     public String getLastName()
 	{
-        return super.getLastName() + ", " + jobTitle;
+        return getLastName();
     }
 }
 
