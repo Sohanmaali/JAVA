@@ -33,16 +33,18 @@ class Person
     }
 }
 
-class Employee extends Person 
+class Professor extends Person 
 {
     private int employeeId;
-    private String jobTitle;
+    private String sub;
+    private float salary;
 
-    public void setData(String firstName, String lastName,float hight, int age, int employeeId, String jobTitle) 
+    public void setData(String firstName, String lastName,float hight, int age, int employeeId, String sub,float salary) 
 	{
         this.setData(firstName, lastName,hight,age);
         this.employeeId = employeeId;
-        this.jobTitle = jobTitle;
+        this.sub = sub;
+		this.salary = salary;
     }
 
     public int getEmployeeId()
@@ -50,20 +52,26 @@ class Employee extends Person
         return employeeId;
     }
 
-    public String getjobTitle()
+    public String getSub()
 	{
-        return jobTitle;
+        return sub;
+    }
+	public float getSalaray()
+	{
+        return this.salary;
     }
 }
 
 class Main 
 {
-    public static void main(String[] args)
+	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		Employee ob = new Employee();
-		String firstName,lastName,title;
+		Professor ob = new Professor();
+		
+		String firstName,lastName,sub;
 		float hight;
+		
 		System.out.println("Enter Employee firstName");
 		firstName = sc.nextLine();
 		
@@ -79,10 +87,14 @@ class Main
 		System.out.println("Enter employee Id");
 		int id = sc.nextInt();
 		sc.nextLine();
-		System.out.println("Enter job Title");
-		title = sc.nextLine();
+		
+		System.out.println("Enter job Readed sub");
+		sub = sc.nextLine();
+		
+		System.out.println("Enter Salary");
+		float salary = sc.nextFloat();
 	
-		ob.setData(firstName,lastName,hight,age,id,title);
-		System.out.println("Name = "+ob.getFirstName()+"\nLast Name = "+ob.getLastName()+"\nHight = "+ob.getHight()+"\nAge = "+ob.getAge()+"\nEmployee Id = "+ob.getEmployeeId()+"\nJob Title = "+ob.getjobTitle());
+		ob.setData(firstName,lastName,hight,age,id,sub,salary);
+		System.out.println("Name = "+ob.getFirstName()+"\nLast Name = "+ob.getLastName()+"\nHight = "+ob.getHight()+"\nAge = "+ob.getAge()+"\nEmployee Id = "+ob.getEmployeeId()+"\nJob Title = "+ob.getSub());
     }
 }
