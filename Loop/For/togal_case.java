@@ -35,7 +35,6 @@ class Togal
 				}
 				else
 				{
-					
 					System.out.print(n+" ");
 				}
 			}

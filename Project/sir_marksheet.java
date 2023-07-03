@@ -12,14 +12,14 @@ class DataClass      // POJO Class
 	private int per;
 	private int total;
 	private int roll;	
-	private int mark[][] = new int[100][5];
+	
 	private int physics;
 	private	int chemistry ;
 	private	int math;
 	private	int hindi;
 	private	int english;		
 	
-	public DataClass(String name,String fname, String mname, String sem, String branch, String corse, int year, int roll,int mark[][])
+	public DataClass(String name,String fname, String mname, String sem, String branch, String corse, int year, int roll,int mark[])
 	{
 		this.name = name;
 		this.fname = fname;
@@ -64,34 +64,7 @@ class DataClass      // POJO Class
 	{
 		this.year = year;
 	}
-	/* public void setPhysics(int physics)
-	{
-		this.physics = physics;
-	}
-	public void setChemistry(int chemistry)
-	{
-		this.chemistry = chemistry;
-	}
-	public void setMath(int math)
-	{
-		this.math = math;
-	}
-	public void setHindi(int hindi)
-	{
-		this.hindi = hindi;
-	}
-	public void setEnglish(int english)
-	{
-		this.english = english;
-	} */
-	/* public void setTotel()
-	{
-		this.total = getphysics()+getchemistry()+getmath()+gethindi()+getenglish();
-	} */
-	/* public void setPer()
-	{
-		this.per = getTotal()/5.0;
-	} */
+	
 	public int getRollNumber()
 	{
 		return this.roll;
