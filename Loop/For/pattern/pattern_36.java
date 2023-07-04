@@ -7,7 +7,7 @@
     * * * * * * *
       * * * * *
         * * *
-          *
+		  *
 */
 import java.util.Scanner;
 class Pattern_36

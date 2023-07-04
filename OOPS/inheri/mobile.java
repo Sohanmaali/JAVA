@@ -86,7 +86,7 @@ class Main
 		Android ob = new Android ();
 		
 		ob.setPrice(25000);
-		ob.setBrand("Semsung");
+		ob.setBrand("Samsung");
 		ob.setLength(6);
 		ob.setWeight(400);
 		ob.setColor("White");

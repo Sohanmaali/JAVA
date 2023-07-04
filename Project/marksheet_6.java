@@ -5,7 +5,7 @@ class DataClass      // POJO Class
 	private String name;
 	private String fname;
 	private String mname;
-	private String sem;
+	private int sem;
 	private String branch;
 	private String corse;
 	private int year;
@@ -18,7 +18,7 @@ class DataClass      // POJO Class
 	private int english;
 	private double per;
 	
-	public DataClass(String name,String fname, String mname, String sem, String branch, String corse, int year, int roll, int physics, int chemistry, int math, int hindi, int english)
+	public DataClass(String name,String fname, String mname, int sem, String branch, String corse, int year, int roll, int physics, int chemistry, int math, int hindi, int english)
 	{
 		this.name = name;
 		this.fname = fname;
@@ -59,7 +59,7 @@ class DataClass      // POJO Class
 	{
 		this.branch = branch;
 	}
-	public void setSem(String sem)
+	public void setSem(int sem)
 	{
 		this.sem = sem;
 	}
@@ -119,7 +119,7 @@ class DataClass      // POJO Class
 	{
 		return this.branch;
 	}
-	public String getSem()
+	public int getSem()
 	{
 		return this.sem;
 	}
@@ -157,6 +157,7 @@ class DataClass      // POJO Class
 	}
 	
 }
+
 class Operation      // BL Class
 {
 	public void choice(DataClass student[],int n,Operation ob2)
@@ -333,7 +334,7 @@ class Operation      // BL Class
 
 		System.out.println("\t\t   |\t\t\t\tBU BHOPAL   \n\t\t   |                                                   ");
 		System.out.println("\t\t   |\tName  : " + ref[i].getName() + "\t\t\t\t\tBranch : " + ref[i].getBranch());
-		System.out.println("\t\t   |\tFName : " + ref[i].getFName() + "\t\t\t\t\tSem    : " + ref[i].getSem());
+		System.out.println("\t\t   |\tFName : " + ref[i].getFName() + "\t\t\t\t\tSem    : " + ref[i].getSem()+"th");
 		System.out.println(  "\t\t   |\tMName : " + ref[i].getMName() + "\t\t\t\t\tYear   : " + ref[i].getYear());
 		System.out.println("\t\t   |\tRoll  : " + ref[i].getRollNumber() + "\t\t\t\t\tCourse : " + ref[i].getCorse() + "\n");
 		System.out.println("\t\t   --------------------------------------------------------------------");
@@ -572,15 +573,70 @@ class Operation      // BL Class
 		}while (mark<0||mark>100);
 		return mark;
 	}
-	/* public int takeYear()
+	public int takeYear()
 	{
-		int year 
-		if(year)
+		Scanner sc = new Scanner(System.in);
+		int year;
+		do
 		{
-			
+			year = sc.nextInt();
+			if(year <= 0 || year >= 5)
+			{
+				System.out.println("\t\t      Please Enter Valide Year");
+			}
+		}while(year <= 0 || year >= 5);
+		return year;
+	}
+	public int takeSem(int year)
+	{
+		Scanner sc = new Scanner(System.in);
+		int sem = 0;
+		switch(year)
+		{
+			case 1:
+				do
+				{
+					sem = sc.nextInt();
+					if(sem!=1&&sem!=2)
+					{
+						System.out.println("\t\t      Please Enter Valide Sem");
+					}
+				}while(sem!=1&&sem!=2);
+				break;
+			case 2:
+				do
+				{
+					sem = sc.nextInt();
+					if(sem!=3&&sem!=4)
+					{
+						System.out.println("\t\t      Please Enter Valide Sem");
+					}
+				}while(sem!=3&&sem!=4);
+				break;
+			case 3:
+				do
+				{
+					sem = sc.nextInt();
+					if(sem!=5&&sem!=6)
+					{
+						System.out.println("\t\t      Please Enter Valide Sem");
+					}
+				}while(sem!=5&&sem!=6);
+				break;
+			case 4:
+				do
+				{
+					sem = sc.nextInt();
+					if(sem!=7&&sem!=8)
+					{
+						System.out.println("\t\t      Please Enter Valide Sem");
+					}
+				}while(sem!=7&&sem!=8);
 		}
-	} */
+		return sem;
+	}
 }
+
 class Mark           // Clinte Class
 {
 	static int i=0,n=0;
@@ -590,9 +646,9 @@ class Mark           // Clinte Class
 		String color = "\u001B[31m";
 		Scanner sc = new Scanner(System.in);
 		Mark ob = new Mark();
-		String corse, name, sem, fname, mname, branch;
+		String corse, name, fname, mname, branch;
 		
-		int physics,chemistry,math,hindi,english,year,roll;
+		int physics,chemistry,math,hindi,english,year,roll,sem;
 		
 		for(;i<n;i++)
 		{
@@ -600,36 +656,45 @@ class Mark           // Clinte Class
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Roll number : ");
 			roll = ob2.takeRoll(student,i,ob2);
-			
 			System.out.println("\t\t-------------------------------");
+			
 			//sc.nextLine();
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Your name : ");
 			name = sc.nextLine();
 			System.out.println("\t\t-------------------------------");
+			
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Your Father name : ");
 			fname= sc.nextLine();
+			System.out.println("\t\t-------------------------------");
+			
 			System.out.println("\n\t\t-------------------------------");
+			
 			System.out.print("\t\t  Enter Your Mother Name : ");
 			mname = sc.nextLine();
 			System.out.println("\t\t-------------------------------");
+			
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Course name : ");
 			corse = sc.nextLine();
 			System.out.println("\t\t-------------------------------");
+			
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Your Branch name : ");
 			branch = sc.nextLine();
 			System.out.println("\t\t-------------------------------");
-			System.out.println("\n\t\t-------------------------------");
-			System.out.print("\t\t  Enter Your Sem : ");
-			sem = sc.nextLine();
-			System.out.println("\t\t-------------------------------");
+			
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Your year : ");
-			year = sc.nextInt();
+			year = ob2.takeYear();
 			System.out.println("\t\t-------------------------------");
+			
+			System.out.println("\n\t\t-------------------------------");
+			System.out.print("\t\t  Enter Your Sem : ");
+			sem = ob2.takeSem(year);
+			System.out.println("\t\t-------------------------------");
+			
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter marks of phycics : ");
 			physics = ob2.takeMark();
@@ -638,19 +703,23 @@ class Mark           // Clinte Class
 			System.out.print("\t\t  Enter marks of chemistry : ");
 			chemistry = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
+			
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter marks of mathes : ");
 			math = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
+
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter marks of Hindi : ");
 			hindi = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
+			
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter marks of English : ");
 			english = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
-			student[i] = new DataClass(name, fname,  mname,  sem,  branch,  corse,  year,  roll,  physics, chemistry,  math,  hindi,  english); 
+			
+			student[i] = new DataClass(name, fname,  mname,  sem,  branch,  corse,  year,  roll,  physics, chemistry,  math,  hindi,  english);
 			student[i].setTotel();
 			student[i].setPer();
 			
@@ -726,7 +795,7 @@ class Mark           // Clinte Class
 							System.out.println("\t\t  --------------------------------------------------------------------"+ resetColor);
 							
 						}	
-							break;
+						break;
 						case 3:
 							if(i!=0)
 							{

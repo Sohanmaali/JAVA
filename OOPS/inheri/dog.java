@@ -66,7 +66,7 @@ class Main
 		float hight;
 		int age,weight;
 		
-		System.out.println("Enter Dods Eating");
+		System.out.println("Enter Dog Eating");
 		eat = sc.nextLine();
 		
 		System.out.println("Enter Dog tail");
