@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Scanner; 
 class Area 
 {
@@ -54,9 +55,10 @@ class Test
 		ob.setData(5,3,2);
 		System.out.println("Area = "+ob.a()); */
 		ob.setData(7,4,6,497.5);
+		DecimalFormat round = new DecimalFormat("#.###");
 		
-		System.out.format("Volume = %.3f",ob.m());
+		System.out.printf("Volume = %.4f",ob.m());
 		
-		System.out.println("\nVolume = "+ob.m());
+		System.out.println("\nVolume = "+round.format(ob.m()));
 	}
 }
