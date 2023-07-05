@@ -1,8 +1,10 @@
 import java.util.Scanner; 
 class Area 
 {
-	int l;
-	int b;
+	static int count = 0;
+	private int l;
+	private int b;
+
 	public void setData(int l,int b)	
 	{
 		this.l = l;
@@ -12,10 +14,12 @@ class Area
 	{
 		return this.l*this.b;    
 	}
-}    
+}
+
 class Volume extends Area
 {
 	private int h;
+	
 	public void setData(int l,int b,int h)	
 	{
 		this.setData(l,b);    
@@ -27,14 +31,32 @@ class Volume extends Area
 	}
 }
 
+class Density extends Volume
+{
+	double m;
+	public void setData(int l,int b,int h,double m)	
+	{
+		this.setData(l,b,h);
+		this.m = m;    
+	}
+	public double m()
+	{
+		return this.m / this.volume(); 
+	}
+}
+
 class Test
 {
 	public static void main(String t[])
 	{	
-		Volume ob = new Volume();
-		//ob.setData(5,3);
+		Density ob = new Density();
+		/* ob.setData(5,3);
 		ob.setData(5,3,2);
-		System.out.println("Area = "+ob.a());
-		System.out.println("Volume = "+ob.volume());
+		System.out.println("Area = "+ob.a()); */
+		ob.setData(7,4,6,497.5);
+		
+		System.out.format("Volume = %.3f",ob.m());
+		
+		System.out.println("\nVolume = "+ob.m());
 	}
 }
