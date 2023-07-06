@@ -1,5 +1,4 @@
-
-class  Box 
+class Box 
 {
 	private  double width;
 	private  double height;

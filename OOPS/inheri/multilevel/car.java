@@ -10,6 +10,7 @@ class Car
 		System.out.println("Vehicle Type: Car");
 	}
 }
+
 class Maruti extends Car
 {
 	public Maruti()
@@ -27,6 +28,7 @@ class Maruti extends Car
 		System.out.println("Max: 90Kmph");
 	}
 }
+
 class Maruti800 extends Maruti
 {
 
@@ -48,3 +50,4 @@ class Maruti800 extends Maruti
 		obj.speed();
 	}
 }
+

@@ -8,11 +8,11 @@ class Mobile
 	
 	public void setBrand(String brand)
 	{
-		this.brand = brand;
+		this.brand = rand;
 	}
-	public String getBrand()
+	public String getrand()
 	{
-		return this.brand;
+		return this.rand;
 	}
 	
 	public void setPrice (double price)
