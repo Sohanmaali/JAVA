@@ -5,7 +5,6 @@ IN
 IND
 INDI
 INDIA
-INDIA
 INDI
 IND
 IN
@@ -20,11 +19,11 @@ class Pattern_29
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Enter any number");
-		int row = sc.nextInt();
 		char ind[] = {'I','N','D','I','A'};
+		int x=5;
 		for(int i=0;i<=5<<1;i++)
 		{
-			if(i<=4)
+			if(i<4)
 			{
 				for(int k=0;k<=i;k++)
 				{
@@ -34,10 +33,12 @@ class Pattern_29
 			}
 			else
 			{
-				for(int k=0;k<=;k++)
+				for(int k=0;k<x;k++)
 				{
 					System.out.print(ind[k]);
 				}
+				System.out.println("");
+				x--;
 			}
 		}
 	}
