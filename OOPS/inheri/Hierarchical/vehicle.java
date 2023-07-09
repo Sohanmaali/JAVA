@@ -1,16 +1,16 @@
-class Vehical {
+class vehicle {
     int capacity;
-    public Vehical() {
+    public vehicle() {
         this.capacity = 0;
     }
-    public Vehical(int capacity) {
+    public vehicle(int capacity) {
         this.capacity = capacity;
     }
     public void show() {
         System.out.println("Capcity = "+this.capacity);
     }
 }
-class Car extends Vehical {
+class Car extends vehicle {
     int wheels;
     int get;
     public Car() {
@@ -29,7 +29,7 @@ class Car extends Vehical {
         System.out.println("Car gets = "+this.get);
     }
 }
-class Ship extends Vehical {
+class Ship extends vehicle {
 
     public Ship() {
         super();

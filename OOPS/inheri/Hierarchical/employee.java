@@ -53,7 +53,7 @@ class Main
 	public static void main(String[] args) 
 	{
 		FullTimeEmployee emp1 = new FullTimeEmployee(50000000,"SOHAN",6f);
-		HuffTimeEmployee emp2 = new HuffTimeEmployee(5000,"KPL",6f);
+		HuffTimeEmployee emp2 = new HuffTimeEmployee(5000,"KPL",2f);
 		System.out.println("Salary of a full-time employee before incrementing:");
 		emp1.showFull();
 		System.out.println("\nSalary of an intern before incrementing:");
