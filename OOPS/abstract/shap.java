@@ -94,7 +94,6 @@ class Isosceles extends Trangel {
 
 	public Isosceles(double x, double y) {
 		super(x, y);
-
 	}
 
 	public void area() {
@@ -112,9 +111,9 @@ class Scalene extends Trangel {
 	}
 }
 
-// class Rectangle extends TwoD {
+/* class Rectangle extends TwoD {
 
-// }
+} */
 
 // Main Class or Clinte Class
 class Main {

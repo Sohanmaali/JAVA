@@ -92,6 +92,7 @@ class Test
 		String st = sc.nextLine();
 		
 		Person p=new Person(name,age,ad,ifscCode,account_nu,hn,city,st);
-		p.displayPerson();		
+		p.displayPerson();	
+		sc.close();	
 	}
 }

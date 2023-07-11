@@ -1,10 +1,20 @@
 class A
 {
 	int i=2,j=4;
-	
+	public A(int i,int j)
+	{
+		this.i = 0;
+		this.j = 0;
+	}
+	public A(int i,int j)
+	{
+		this.i = i;
+		this.j = j;
+	}
 	public void show()
 	{
-		System.out.println("this is a super class");
+		System.out.println("A = "+this.i);
+		System.out.println("B = "+this.j);
 	}
 }
 class B extends A
@@ -13,7 +23,7 @@ class B extends A
 
 	public void sum()
 	{
-		sum = this.i+this.j;
+		sum = super.i+super.j;
 		System.out.println("sum = "+sum);
 	}
 }
@@ -29,7 +39,7 @@ class Main
 {
 	public static void main(String args[])
 	{
-		C obj = new C();
+		C obj = new C(10,25);
 		obj.show();
 		obj.sum();
 		obj.display();

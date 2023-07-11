@@ -1,4 +1,4 @@
-import java.util.Scanner; 
+import java.util.Scanner;
 
 /* class DataClass
 {
@@ -29,7 +29,7 @@ class Hight
 	}
 }*/
 
-class SuperClass
+/* class SuperClass
 {
     public SuperClass()
     { 
@@ -52,7 +52,39 @@ class Test extends SuperClass
     {
 		Test object1 = new Test(); 			// allowed 
         object1.show(); 					// allowed
-       // object1.SuperClass(); 			// not allowed
-       // Test object2 = new SuperClass();  // not allowed 
+       object1.SuperClass(); 			// not allowed
+       Test object2 = new SuperClass();  // not allowed 
+	}
+}
+*/
+class Javatpoint {
+	private int i;
+
+	Javatpoint() {
+	}
+
+	Javatpoint(int i) {
+		this.i = i;
+	}
+
+	public int getValue() {
+		return i;
+	}
+
+	public void setValue(int i) {
+		this.i = i;
+	}
+
+	//@Override
+	public String toString() {
+		return Integer.toString(i);
+	}
+}
+
+// Testing the custom wrapper class
+class TestJavatpoint {
+	public static void main(String[] args) {
+		Javatpoint j = new Javatpoint(10);
+		System.out.println(j);
 	}
 }

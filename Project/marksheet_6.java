@@ -20,7 +20,7 @@ class DataClass // POJO Class
 	private double per;
 
 	public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int roll,
-			int physics, int chemistry, int math, int hindi, int english) {
+		int physics, int chemistry, int math, int hindi, int english) {
 		this.name = name;
 		this.fname = fname;
 		this.mname = mname;
@@ -657,8 +657,7 @@ class Mark // Clinte Class
 			english = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
 
-			student[i] = new DataClass(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math,
-					hindi, english);
+			student[i] = new DataClass(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math,hindi, english);
 			student[i].setTotel();
 			student[i].setPer();
 

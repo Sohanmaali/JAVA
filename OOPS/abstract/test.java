@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Student {
+/* class Student {
     String name, roll_no;
     Address add;
 
@@ -36,4 +36,24 @@ class TestMain {
         Student ob = new Student("Kapil", "420", 57, "MP", "indore");
         ob.details();
     }
+} */
+
+class Student {
+   
+    public void show()
+    {
+        System.out.println("hy i am studen");
+    }
 }
+class Test extends Student {
+    public int display()
+    {
+        return 1000;
+    }
+}
+
+class TestMain {
+    public static void main(String args[]) {
+        Test ob = new Test();
+      ob.show();
+    }

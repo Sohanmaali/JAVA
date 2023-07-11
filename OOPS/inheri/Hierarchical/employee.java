@@ -47,16 +47,16 @@ class HuffTimeEmployee extends Employee
 	}
 }
 
-
 class Main 
 {
 	public static void main(String[] args) 
 	{
 		FullTimeEmployee emp1 = new FullTimeEmployee(50000000,"SOHAN",6f);
 		HuffTimeEmployee emp2 = new HuffTimeEmployee(5000,"KPL",2f);
-		System.out.println("Salary of a full-time employee before incrementing:");
+		
+		System.out.println("FULL TIME EMPLOYEE");
 		emp1.showFull();
-		System.out.println("\nSalary of an intern before incrementing:");
+		System.out.println("\nPART TIME EMPLOYEE");
 		emp2.showFull();		
 	}
 }

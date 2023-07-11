@@ -1,5 +1,6 @@
-class vehicle {
-    int capacity;
+class vehicle{
+   
+   int capacity;
     public vehicle() {
         this.capacity = 0;
     }
@@ -10,6 +11,7 @@ class vehicle {
         System.out.println("Capcity = "+this.capacity);
     }
 }
+
 class Car extends vehicle {
     int wheels;
     int get;
@@ -43,9 +45,9 @@ class Ship extends vehicle {
         super.show();
         System.out.println("Ship run on Wather");
     }
-    
 }
-class MoveClass{
+
+class MainClass{
     public static void main(String[] args) {
         Car ob = new Car(4,4,4);
         ob.show();
