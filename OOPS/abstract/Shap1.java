@@ -41,7 +41,7 @@ abstract class TwoD extends Shape {
 }
 
 abstract class OneSide extends TwoD {
-	// public abstract void perimeter();
+	
 	public OneSide(double side1, String name) {
 		super(side1, name);
 	}
@@ -49,7 +49,6 @@ abstract class OneSide extends TwoD {
 	public OneSide() {
 		super();
 	}
-	// public abstract void area();
 }
 
 class Circle extends OneSide {
@@ -63,7 +62,7 @@ class Circle extends OneSide {
 
 	public void area() {
 		super.show();
-		System.out.println(3.14 * super.getSide1() * super.getSide1());
+		System.out.println(3.14 * Math.pow(super.getSide1(),2));
 	}
 
 	public void perimeter() {
@@ -101,7 +100,7 @@ class Square extends OneSide {
 
 	public void area() {
 		super.show();
-		System.out.println(super.getSide1() * super.getSide1());
+		System.out.println(Math.pow(super.getSide1(),2));
 	}
 
 	public void perimeter() {
@@ -129,7 +128,7 @@ class Hexagon extends OneSide {
 }
 
 abstract class TwoSide extends TwoD {
-	// public abstract void perimeter();
+
 	double side2;
 
 	public TwoSide(double side1, Double side2, String name) {
@@ -248,7 +247,7 @@ class Rhombus extends TwoSide {
 }
 
 abstract class ThreeSide extends TwoD {
-	// public abstract void perimeter();
+	
 	double side2;
 	double side3;
 
@@ -357,12 +356,12 @@ class Cube extends OneSideOne {
 
 	public void cSAarea() {
 		super.show();
-		System.out.println(6 * (super.getSide1() * getSide1()));
+		System.out.println(4 * Math.pow(super.getSide1(),2));
 	}
 
 	public void volume() {
 
-		System.out.println(Math.pow(super.getSide1(), 3d));
+		System.out.println(Math.pow(super.getSide1(), 3));
 	}
 
 }
@@ -378,9 +377,12 @@ class Sphere extends OneSideOne {
 
 	public void area() {
 		super.show();
-		System.out.println(4 * 3.14 * Math.pow(super.getSide1(), 2d));
+		System.out.println(4 * 3.14 * Math.pow(super.getSide1(), 2));
 	}
-
+	public void cSAarea() {
+		System.out.println(4 * 3.14 * Math.pow(super.getSide1(), 2));
+	}
+	
 	public void volume() {
 
 		System.out.println(4 / 3 * 3.14 * (Math.pow(super.getSide1(), 3d)));

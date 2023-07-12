@@ -20,7 +20,7 @@ class DataClass // POJO Class
 	private double per;
 
 	public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int roll,
-		int physics, int chemistry, int math, int hindi, int english) {
+			int physics, int chemistry, int math, int hindi, int english) {
 		this.name = name;
 		this.fname = fname;
 		this.mname = mname;
@@ -161,6 +161,8 @@ class DataClass // POJO Class
 
 class Operation // BL Class
 {
+	int i, n;
+
 	public void choice(DataClass student[], int n, Operation ob2) {
 		Scanner sc = new Scanner(System.in);
 		String resetColor = "\u001B[0m";
@@ -574,11 +576,6 @@ class Operation // BL Class
 		}
 		return sem;
 	}
-}
-
-class Mark // Clinte Class
-{
-	static int i = 0, n = 0;
 
 	public void takeInput(int n, DataClass student[], Operation ob2) {
 		String resetColor = "\u001B[0m";
@@ -657,7 +654,8 @@ class Mark // Clinte Class
 			english = ob2.takeMark();
 			System.out.println("\t\t-------------------------------");
 
-			student[i] = new DataClass(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math,hindi, english);
+			student[i] = new DataClass(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math,
+					hindi, english);
 			student[i].setTotel();
 			student[i].setPer();
 
@@ -666,15 +664,14 @@ class Mark // Clinte Class
 		}
 	}
 
-	public static void main(String[] args) {
+	public void opChoice(Operation ob) {
 		Scanner sc = new Scanner(System.in);
-
-		Mark ob = new Mark();
+		String resetColor = "\u001B[0m";
+		String color = "\u001B[31m";
 
 		Operation ob1 = new Operation();
 		DataClass[] student = new DataClass[100];
-		String resetColor = "\u001B[0m";
-		String color = "\u001B[31m";
+
 		int choice, num = 0;
 		String id, pass;
 		do {
@@ -758,5 +755,17 @@ class Mark // Clinte Class
 				System.out.println("Please enter valide id password");
 			}
 		} while (id != "Sohan" && pass != "2002");
+
+	}
+}
+
+class Mark // Clinte Class
+{
+	static int i = 0, n = 0;
+
+	public static void main(String[] args) {
+
+		Operation ob = new Operation();
+		ob.opChoice(ob);
 	}
 }
