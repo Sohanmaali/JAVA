@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class Pojo {
-	double a, b, c, d;
+	private double a, b, c, d;
 	public Pojo()
 	{
 	}
@@ -53,15 +53,21 @@ class Pojo {
 	}
 }
 
+interface OneNumber
+{
+	public abstract double operation(double a);
+}
 interface DataClass {
 
 	public abstract double operation(double a, double b);
 	
 }
-interface OneNumber
-{
-	public abstract double operation(double a);
+interface ThreeNumber {
+
+	public abstract double operation(double a, double b, double c);
+	
 }
+
 class Operation {
 	
 	DataClass add = new DataClass() {
@@ -117,6 +123,13 @@ class Operation {
 			return a*a*a;
 		}
 	};
+	ThreeNumber add1 = new ThreeNumber() {
+		@Override
+		public double operation(double a,double b,double c) {
+			return a+b+c;
+		}
+	};
+	
 }
 
 public class Calculator1 {
@@ -228,3 +241,8 @@ public class Calculator1 {
 		cl.choice();
 	}
 }
+
+
+
+
+
