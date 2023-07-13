@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 //POJO Playin old java object
@@ -18,7 +19,12 @@ class DataClass // POJO Class
 	private int hindi;
 	private int english;
 	private double per;
-
+	
+	public DataClass()
+	{
+		
+	}
+	
 	public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int roll,
 			int physics, int chemistry, int math, int hindi, int english) {
 		this.name = name;
