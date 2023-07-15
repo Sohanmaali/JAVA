@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class Pojo {
-	private double a, b, c, d;
+	double a, b, c, d;
 	public Pojo()
 	{
 	}
@@ -53,18 +53,9 @@ class Pojo {
 	}
 }
 
-interface OneNumber
-{
-	public abstract double operation(double a);
-}
 interface DataClass {
 
 	public abstract double operation(double a, double b);
-	
-}
-interface ThreeNumber {
-
-	public abstract double operation(double a, double b, double c);
 	
 }
 
@@ -111,24 +102,6 @@ class Operation {
 			return Math.pow(a,b);
 		}
 	};
-	OneNumber squr = new OneNumber(){
-		@Override
-		public double operation(double a) {
-			return a*a;
-		}
-	};
-	OneNumber qube = new OneNumber(){
-		@Override
-		public double operation(double a) {
-			return a*a*a;
-		}
-	};
-	ThreeNumber add1 = new ThreeNumber() {
-		@Override
-		public double operation(double a,double b,double c) {
-			return a+b+c;
-		}
-	};
 }
 
 public class Calculator1 {
@@ -147,9 +120,7 @@ public class Calculator1 {
 			System.out.println("\t 4 For Division");
 			System.out.println("\t 5 For Moduls");
 			System.out.println("\t 6 For Power");
-			System.out.println("\t 7 For Square");
-			System.out.println("\t 8 For Qube");
-			System.out.println("\t 9 For Exit");
+			System.out.println("\t 7 For Exit");
 			System.out.println("Enter your choice ");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -170,7 +141,7 @@ public class Calculator1 {
 					b = sc.nextDouble();
 					 pojo = new Pojo(a,b);
 					res = op.sub.operation(pojo.getA(),pojo.getB());
-				System.out.println("Subtraction = "+res);
+					System.out.println("Subtraction = "+res);
 					break;
 				case 3:
 					
@@ -179,7 +150,7 @@ public class Calculator1 {
 					b = sc.nextDouble();
 					 pojo = new Pojo(a,b);
 					res = op.multi.operation(pojo.getA(),pojo.getB());
-				System.out.println("Multiplaction = "+res);
+					System.out.println("Multiplaction = "+res);
 					break;
 					
 				case 4:
@@ -188,7 +159,7 @@ public class Calculator1 {
 					b = sc.nextDouble();
 					 pojo = new Pojo(a,b);
 					res = op.div.operation(pojo.getA(),pojo.getB());
-				System.out.println("Division = "+res);
+					System.out.println("Division = "+res);
 					break;
 					
 				case 5:
@@ -197,10 +168,11 @@ public class Calculator1 {
 					a = sc.nextDouble();
 					b = sc.nextDouble();
 					
-					 pojo = new Pojo(a,b);
+					pojo = new Pojo(a,b);
 					res = op.mod.operation(pojo.getA(),pojo.getB());
-				System.out.println("Moduls = "+res);
+					System.out.println("Moduls = "+res);
 					break;
+					
 				case 6:
 					System.out.println("Enter two Number");
 					a = sc.nextDouble();
@@ -210,28 +182,9 @@ public class Calculator1 {
 					//Pojo pojo = new Pojo(a,b);
 					res = op.pow1.operation(pojo.getA(),pojo.getB());
 					System.out.println("Power = "+res);
-					break;			
-				case 7:
-					System.out.println("Enter any Number");
-					a = sc.nextDouble();
-		
-					pojo = new Pojo(a);
-					
-					//Pojo pojo = new Pojo(a,b);
-					res = op.squr.operation(pojo.getA());
-					System.out.println("Square = "+res);
-					break;		
-				case 8:
-					System.out.println("Enter two Number");
-					a = sc.nextDouble();
-					pojo = new Pojo(a);
-					
-					//Pojo pojo = new Pojo(a,b);
-					res = op.qube.operation(pojo.getA());
-					System.out.println("Qube = "+res);
 					break;					
 			}
-		} while (choice != 9);
+		} while (choice != 7);
 	}
 
 	public static void main(String[] args) {
@@ -240,8 +193,3 @@ public class Calculator1 {
 		cl.choice();
 	}
 }
-
-
-
-
-

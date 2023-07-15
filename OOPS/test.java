@@ -57,7 +57,7 @@ class Test extends SuperClass
 	}
 }
 */
-class Javatpoint {
+/* class Javatpoint {
 	private int i;
 
 	Javatpoint() {
@@ -87,4 +87,38 @@ class TestJavatpoint {
 		Javatpoint j = new Javatpoint(10);
 		System.out.println(j);
 	}
+} */
+
+/* class Outer 
+{
+	int a = 30;
+	static class Inner 
+	{
+		static int b = 5;
+		void display()
+		{
+			Outer ob = new Outer();
+			System.out.println(a +" "+b);	
+		}
+	}
+	public static void main(String args [])
+	{
+		Inner inner = new Inner();
+		inner.display();
+	}
+}  */
+
+class TestOuter1{  
+	static int data=30;  
+	static class Inner{ 
+	
+		void msg(){
+			System.out.println("data is "+data);
+		}  
+	}  
+	public static void main(String args[]){  
+	
+		Inner obj = new TestOuter1.Inner();  
+		obj.msg();  
+	}  
 }
