@@ -82,7 +82,7 @@ class Operation {
 	
 	DataClass multi =(double a,double b)-> a*b;
 
-	DataClass div = (double a,double b) -> a/b;
+	DataClass div = (double a,double b) -> a/b;;
 	
 	DataClass mod = (double a,double b) -> a%b;
 	
@@ -170,11 +170,5 @@ public class Calculator {
 					break;					
 			}
 		} while (choice != 7);
-	}
-
-	public static void main(String[] args) {
-		
-		Calculator cl = new Calculator();
-		cl.choice();
 	}
 }
