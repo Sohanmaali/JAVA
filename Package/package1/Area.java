@@ -1,10 +1,20 @@
 package package1;
 
 public class Area {
-	
-	public double rectangleArea(double side1, double side2)
+	double side1,side2;
+	public Area()
 	{
-		return side1*side2;
+		
+	}
+	public Area(double side1, double side2)
+	{
+		this.side1 = side1;
+		this.side2 = side2;
+	}
+	
+	public double rectangleArea()
+	{
+		return this.side1*this.side2;
 	}
 
 	/*
