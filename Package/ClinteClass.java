@@ -1,4 +1,3 @@
-import com.JAVA.Package.Density;
 import package3.Density;
 import java.util.Scanner;
 

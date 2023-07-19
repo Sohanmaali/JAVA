@@ -72,6 +72,4 @@ public class Volume extends Area {
 	{
 		this.side4 = side4;
 	}
-
-	
 }
