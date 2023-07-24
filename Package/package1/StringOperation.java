@@ -2,7 +2,7 @@ package package1;
 
 public class StringOperation
 {
-	public boolean equal(String str, String str1) 
+	public boolean equal(String str, String str1)   //check Equal or not
 	{
 		if (str.length() != str1.length())
 		{
@@ -20,7 +20,8 @@ public class StringOperation
 		}
 		return true;
 	}
-	public int length1(String str)
+	
+	public int length1(String str)  //length of string
 	{
 		int s=0;
 		char st[] = str.toCharArray();
@@ -31,4 +32,16 @@ public class StringOperation
 		return s;
 	}
 	
+	public void toCharArray(String str)   //string to char arr
+	{
+		char arr[] =new char [10];
+		for(int i=0; i<this.length1(str); i++)
+		{
+			arr[i]=str.charAt(i);
+		}
+		for(char x :arr){
+			System.out.print(x +" ");
+		}
+	}	
+
 }

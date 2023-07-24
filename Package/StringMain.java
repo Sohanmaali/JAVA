@@ -9,8 +9,8 @@ class StringMain
 		System.out.println("Enter any String");
 		String str = sc.nextLine();
 		
-		System.out.println("Enter 2 String");
-		String str1 = sc.nextLine();
+		/* System.out.println("Enter 2 String");
+		String str1 = sc.nextLine(); */
 	
 		StringOperation ob = new StringOperation();
 		
@@ -23,6 +23,8 @@ class StringMain
 			System.out.println("both are differante");
 		} */
 		
-		System.out.println(ob.length1(str));
+		// System.out.println(ob.length1(str));
+		ob.toCharArray(str);
+		
 	}
 }
