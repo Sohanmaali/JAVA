@@ -9,12 +9,10 @@ import java.util.regex.*;
 public class Test {
 
     public static void main(String[] args) {
-		 Scanner in = new Scanner(System.in);
-       char a[] = {'s','o','h','a','n'}
-	   String s = "";
-        for(char i:a){
-           s+=i;
-        }
+	 Scanner in = new Scanner(System.in);
+    	int a=10;
+	int b=12;
+	    int c = ++b *a/b+b;
         in.close();
     }
 }
