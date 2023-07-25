@@ -1,14 +1,14 @@
-package package1;
+// package package1;
 
 public class StringOperation
 {
 	public boolean equal(String str, String str1)   //check Equal or not
 	{
-		if (str.length() != str1.length())
+		if (str.length1() != str1.length1())
 		{
 			return false;
 		}
-		for (int i = 0; i < str.length(); i++) 
+		for (int i = 0; i < str.length1(); i++) 
 		{
 			char a = str.charAt(i);
 			char b = str1.charAt(i);

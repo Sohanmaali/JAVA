@@ -167,7 +167,7 @@ class DataClass // POJO Class
 
 class Operation // BL Class
 {
-	int i, n;
+	int i=0, n;
 
 	public void choice(DataClass student[], int n, Operation ob2) {
 		Scanner sc = new Scanner(System.in);

@@ -1,19 +1,35 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
 
-public class Test {
+abstract class A {
+	int a =10;
 
-    public static void main(String[] args) {
-	 Scanner in = new Scanner(System.in);
-    	int a=10;
-	int b=12;
-	    int c = ++b *a/b+b;
-        in.close();
-    }
+	public A(int a) {
+		this.a = a;
+	}
 }
 
+class B extends A {
+	public B(int a) {
+		super(a);
+	}
+	public void c()
+	{
+		System.out.println(this.a);
+	}
+}
+class C extends B
+{
+	public C(int a) {
+		super(a);
+	}
+	public void d()
+	{
+		System.out.println(super.a);
+	}
+}
+class Test {
+
+	public static void main(String[] args) {
+		C ob =new C();
+		ob.d();
+	}
+}
