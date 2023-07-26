@@ -1,13 +1,10 @@
 /*
-
-A B C D E D C B A
-  A B C D C B A
-    A B C B A
-      A B A
-        A
- 
+		1
+	  1 2
+    1 2 3
+  1 2 3 4
+1 2 3 4 5
 */
-
 import java.util.Scanner;
 class Pattern_12
 {
@@ -16,24 +13,21 @@ class Pattern_12
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter any num");
 		int row = sc.nextInt();
-		int a=1;
+		
 		for(int i=1;i<=row;i++)
 		{
-			char x = 'A';
-			for(int j=1;j<=(row<<1);j++)
+			int a=1;
+			for(int j=1;j<=row;j++)
 			{
-				if(j>=a && j<=(row<<1)-a)
+				if(j>=row-i+1)
 				{
-					System.out.print(x+" ");
-					x = (j<row?++x:--x);
+					System.out.print(a);
+					a++;
 				}
 				else
-				{
-					System.out.print("  ");
-				}
+					System.out.print(" ");
 			}
-			a++;
-			System.out.println("");
+			System.out.println();
 		}
 	}
 }

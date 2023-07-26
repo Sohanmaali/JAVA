@@ -19,18 +19,22 @@ class Main
 	}
 }
  */
-/* class Test {
+
+//method inner class
+class Test {
     private int data = 30;
 
-    void displayData() {
-        class Inner {
-            void msg() {
+	void displayData() {
+		
+		class Inner {
+			
+			void msg() {
                 System.out.println("data is " + data);
             }
         }
-    }
         Inner inner = new Inner();
-       // inner.msg();
+		inner.msg();
+    }
 }
 
 class Main {
@@ -38,10 +42,11 @@ class Main {
         Test test = new Test();
         test.displayData();
     }
-} */
+}
 
 /* class Test {
     int data = 30;
++
 
 	abstract class Inner {
         abstract void msg();
@@ -67,6 +72,7 @@ class Main {
         in.msg();
     }
 } */
+
 
 /* abstract class Test 
 {
@@ -166,3 +172,23 @@ class Main implements Show, Show.Inner{
 	}
 } */
 
+/* class Test {
+	static int a = 0;
+	public Test ()
+	{
+		a++;
+	}
+	static class Inner
+	{
+		public Inner ()
+		{
+			a++;
+		}
+	}
+	public static void main(String[] args) 
+	{			
+		Test.Inner ob = new Test.Inner();
+		System.out.println(a);
+	}
+}
+ */

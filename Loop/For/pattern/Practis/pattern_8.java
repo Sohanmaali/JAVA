@@ -1,9 +1,9 @@
 /*
-1 2 3 4 5 4 3 2 1
-  1 2 3 4 3 2 1
-    1 2 3 2 1
-      1 2 1
-        1
+55555
+44444
+33333
+22222
+11111
 */
 import java.util.Scanner;
 class Pattern_8
@@ -13,23 +13,14 @@ class Pattern_8
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter any num");
 		int row = sc.nextInt();
-
-		for(int i=1 ;i<=row;i++)
+	
+		for(int i=row;i>=1;i--)
 		{
-			int x = 0;
-			for(int j=1;j<=(row<<1)-1;j++)
+			for(int j=1;j<=row;j++)
 			{
-				if(j>=i&&j<=(row<<1)-i)
-				{
-					x = (j<=row?++x:--x);
-					System.out.print(x+" ");
-				}
-				else
-				{
-					System.out.print("  ");
-				}
+				System.out.print(i);
 			}
-			System.out.println("");
+			System.out.println();
 		}
 	}
 }

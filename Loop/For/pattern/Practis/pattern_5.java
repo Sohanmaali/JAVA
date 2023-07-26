@@ -1,35 +1,31 @@
-
 /*
- I
- IN
- IND
- INDI
- INDIA
- INDI
- IND
- IN
- I
- 
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
 
 */
 import java.util.Scanner;
-
-class Pattern_5 {
+class Pattern_5
+{
 	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
-		
-		char a[] = {'I', 'N', 'D', 'I', 'A'};
-		int x=1;
-		for(int i=1 ;i<a.length<<1;i++)
+		System.out.println("Enter any num");
+		int row = sc.nextInt();
+	
+		for(int i=1;i<=row;i++)
 		{
-			for(int j=0;j<x;j++)
+			for(int j=1;j<=row;j++)
 			{
-				System.out.print(a[j]);
+				if(j>=row-i+1)
+					System.out.print("* ");
+				else
+				System.out.print("  ");
 				
 			}
-			x = (i<a.length?++x:--x);
-			System.out.println("");
+			System.out.println();
 		}
 	}
 }

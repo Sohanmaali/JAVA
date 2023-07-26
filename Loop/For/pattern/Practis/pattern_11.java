@@ -1,13 +1,10 @@
 /*
-        A
-      A B A
-    A B C B A
-  A B C D C B A
-A B C D E D C B A
-
-   
+12345
+1234
+123
+12
+1
 */
-
 import java.util.Scanner;
 class Pattern_11
 {
@@ -16,22 +13,14 @@ class Pattern_11
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter any num");
 		int row = sc.nextInt();
-		for(int i=1;i<=row;i++)
+	
+		for(int i=row;i>=1;i--)
 		{
-			char x = 'A'-1;
-			for(int j=1;j<=(row<<1);j++)
+			for(int j=1;j<=i;j++)
 			{
-				if(j>=row-i+1&&(j<row+i))
-				{
-					x = (j<=row?++x:--x);
-					System.out.print(x+" ");
-				}
-				else
-				{
-					System.out.print("  ");
-				}
+				System.out.print(j);
 			}
-			System.out.println("");
+			System.out.println();
 		}
 	}
 }

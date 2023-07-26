@@ -1,34 +1,26 @@
-
 /*
- 1
- 22
- 333
- 4444
- 55555
- 4444
- 333
- 22
- 1
-
+*
+* *
+* * *
+* * * *
+* * * * *
 */
 import java.util.Scanner;
-
-class Pattern_4 {
+class Pattern_4
+{
 	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter any num");
 		int row = sc.nextInt();
-		int x=1;
-		
-		for(int i=1 ;i<(row<<1);i++)
+	
+		for(int i=1;i<=row;i++)
 		{
-			for(int j=1;j<=x;j++)
+			for(int j=1;j<=i;j++)
 			{
-				System.out.print(x+" ");
+				System.out.print("* ");
 			}
-			x = (i<row?++x:--x);
-			System.out.println("");
+			System.out.println();
 		}
 	}
 }
