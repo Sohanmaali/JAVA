@@ -1,16 +1,18 @@
 /*
-   1
-  212
- 32123
-4321234
- 32123
-  212
-   1
-   
+
+    A
+   AB
+  ABC
+ ABCD
+ABCDE
+ ABCD
+  ABC
+   AB
+    A
 */
 
 import java.util.Scanner;
-class Pattern_10
+class Pattern_13
 {
 	public static void main(String[]args)
 	{
@@ -18,22 +20,23 @@ class Pattern_10
 		System.out.println("Enter any num");
 		int row = sc.nextInt();
 		int a=1;
-		for(int i=1;i<(row<<1);i++)
+		for(int i=1;i<=(row<<1);i++)
 		{
-			int x = row;
-			for(int j=1;j<row<<1;j++)
+			char x = 'A';
+			for(int j=1;j<=row;j++)
 			{
-				if(i<=row&&(j>=row-i+1&&(j<row+i))||((i>row)&&(j>=a&&j<=(row<<1)-a)))
+				if((i<=row&&j>row-i)||(i>row&&j>a))
 				{
 					System.out.print(x+" ");
+					x++;
 				}
 				else
 				{
 					System.out.print("  ");
 				}
-				x = (j<row?--x:++x);
 			}
-			a = (i>=row?++a:a);
+			if(i>row)
+			a++;
 			System.out.println("");
 		}
 	}

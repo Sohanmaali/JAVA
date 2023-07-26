@@ -1,16 +1,13 @@
 /*
-   1
-  212
- 32123
-4321234
- 32123
-  212
-   1
-   
-*/
+123454321
+1234 4321
+123   321
+12     21
+1       1
+ */
 
 import java.util.Scanner;
-class Pattern_10
+class Pattern_14
 {
 	public static void main(String[]args)
 	{
@@ -18,22 +15,22 @@ class Pattern_10
 		System.out.println("Enter any num");
 		int row = sc.nextInt();
 		int a=1;
-		for(int i=1;i<(row<<1);i++)
+		for(int i=1;i<=row;i++)
 		{
-			int x = row;
-			for(int j=1;j<row<<1;j++)
+			int x = 1;
+			for(int j=1;j<(row<<1);j++)
 			{
-				if(i<=row&&(j>=row-i+1&&(j<row+i))||((i>row)&&(j>=a&&j<=(row<<1)-a)))
+				if((j<=row-i+1)||(j>row+a-1))
 				{
 					System.out.print(x+" ");
 				}
 				else
 				{
-					System.out.print("  ");
+					System.out.print("--");
 				}
-				x = (j<row?--x:++x);
+				x = (j<row?++x:--x);
 			}
-			a = (i>=row?++a:a);
+			a++;
 			System.out.println("");
 		}
 	}

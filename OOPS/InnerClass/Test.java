@@ -1,0 +1,168 @@
+/* class Test{
+	
+	private int data=30;  
+ 
+	class Inner{ 
+ 
+		void msg(){
+			System.out.println("data is "+data);
+		}  
+	}
+}  
+class Main
+{
+	public static void main(String args[]){  
+	
+		//Test obj=new Test();  
+		Test.Inner in = new Test().new Inner();  
+		in.msg();  
+	}
+}
+ */
+/* class Test {
+    private int data = 30;
+
+    void displayData() {
+        class Inner {
+            void msg() {
+                System.out.println("data is " + data);
+            }
+        }
+    }
+        Inner inner = new Inner();
+       // inner.msg();
+}
+
+class Main {
+    public static void main(String[] args) {
+        Test test = new Test();
+        test.displayData();
+    }
+} */
+
+/* class Test {
+    int data = 30;
+
+	abstract class Inner {
+        abstract void msg();
+    }
+	class X //extends Test.Inner
+	{
+		void msg()
+		{
+			System.out.println("i am inner class");
+		}
+	}
+}
+class Sohan {
+}
+
+class Main {
+    public static void main(String[] args) {
+        Test test = new Test();
+		
+        Sohan so = new Sohan();
+       
+		Test.X in = test.new X();
+        in.msg();
+    }
+} */
+
+/* abstract class Test 
+{
+	abstract void msg();	
+}
+
+class Main {
+	
+    public static void main(String[] args) 
+	{
+		
+        Test test = new Test(){
+			void msg()
+			{
+				System.out.println("i am inner class");
+			}
+		};
+		Test test1 = new Test(){
+			void msg()
+			{
+				System.out.println("i am outer class");
+			}
+		};m,
+		test.msg();
+		test1.msg();
+	}
+}  */
+
+/* class Main {
+	void show()
+	{
+		class Local
+		{
+			private	void msg()
+			{
+				System.out.println("sohan");
+			}
+		}
+		Local ob1 = new Local();
+		ob1.msg();
+	}
+}  
+class Test{
+    public static void main(String[] args) 
+	{		
+		Main ob = new Main();
+		
+		ob.show();	
+	}
+} */
+
+/* interface Show{
+	void show();
+	interface Inner{
+		void m1();
+		default void m2()
+		{
+			System.out.println("i am m2 ");
+		} 
+	}
+}
+class Main implements Show, Show.Inner{
+	public void m1()
+	{
+		System.out.println("i am m1 ");
+	}
+	public void show ()
+	{
+		System.out.println("i am Show ");
+	}
+	public static void main(String[] args) 
+	{
+		Show.Inner ob = new Main ();
+		//Main ob1 = new Main();
+		ob.m1();
+		ob.m2();
+	}
+} */
+
+/* class Test {
+	static int a = 0;
+	public Test ()
+	{
+		a++;
+	}
+	static class Inner
+	{
+		public Inner ()
+		{
+			a++;
+		}
+	}
+	public static void main(String[] args) 
+	{			
+		Test.Inner ob = new Test.Inner();
+		System.out.println(a);
+	}
+} */
+
