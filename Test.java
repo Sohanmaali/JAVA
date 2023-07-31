@@ -57,7 +57,7 @@ class Test {
 	}
 } */
 
-interface MyinterFace
+/* interface MyinterFace
 {
 	int a = 10;
 	a=10;
@@ -73,4 +73,30 @@ class Main implements MyinterFace
 		Main obj = new Main();
 		obj.myMethod();
 	}
+} */
+
+/* class Main{
+	{
+		System.out.println("i am normal");
+	}
+	public static void main(String[] args)
+	{
+		A ob= new A();
+	}
+	static
+	{		
+		System.out.println("i am main static");
+	}
 }
+class A{
+	static {
+		System.out.println("i am static block");
+	}
+	A()
+	{	
+		System.out.println("i an constructor");
+	}
+	{
+		System.out.println("i am normal block");
+	}
+} */
