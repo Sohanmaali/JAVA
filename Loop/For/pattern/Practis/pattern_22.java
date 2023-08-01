@@ -1,9 +1,9 @@
 /*
-    A
-	B B
-	C C C
-	D D D D
-	E E E E E
+ A
+ B B
+ C C C
+ D D D D
+ E E E E E
 */
 import java.util.Scanner;
 class Pattern_22

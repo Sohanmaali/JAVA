@@ -6,6 +6,7 @@
 5 6 7 8
 9 0 1 2 3 
 */
+//not complide
 import java.util.Scanner;
 
 class Pattern_44

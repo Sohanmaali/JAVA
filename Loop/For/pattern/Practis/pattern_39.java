@@ -16,13 +16,12 @@ class Pattern_39
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter any num");
 		int row = sc.nextInt();
-		int a=1;
 		for(int i=1;i<=row;i++)
 		{
 			char x = 'A';
-			for(int j=1;j<=(row<<1);j++)
+			for(int j=1;j<=(row<<1)-i;j++)
 			{
-				if(j>=a && j<=(row<<1)-a)
+				if(j>=i)
 				{
 					System.out.print(x+" ");
 					x = (j<row?++x:--x);
@@ -32,7 +31,6 @@ class Pattern_39
 					System.out.print("  ");
 				}
 			}
-			a++;
 			System.out.println("");
 		}
 	}

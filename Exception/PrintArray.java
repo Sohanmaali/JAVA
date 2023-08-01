@@ -2,11 +2,14 @@ class Main{
 	public static void main(String[] args)
 	{
 		int arr[] = new int[3];
+		int size = 0;
+		int i = 0;
 		try
 		{
-			for(int i=0;i<args.length;i++)
+			for(;i<args.length;i++)
 			{
 				arr[i]= Integer.parseInt(args[i]);
+				size++;
 			}
 		}
 		catch(ArrayIndexOutOfBoundsException ref)
@@ -17,9 +20,9 @@ class Main{
 		{
 			System.out.println(ref);
 		}
-		for(int x:arr)
+		for(int j=0;j<i;j++)
 		{
-			System.out.println(x);
+			System.out.println(arr[j]);
 		}
 	}
 	

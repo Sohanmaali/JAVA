@@ -17,9 +17,9 @@ class Pattern_19
 		for(int i=1 ;i<=row;i++)
 		{
 			int x = 1;
-			for(int j=1;j<row<<1;j++)
+			for(int j=1;j<=row-1+i;j++)
 			{
-				if(j>row-i&&j<=row-1+i)
+				if(j>row-i)
 				{
 					System.out.print("* ");
 					x = (j<row?++x:--x);

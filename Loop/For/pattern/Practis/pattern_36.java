@@ -23,9 +23,9 @@ class Pattern_36
 		for(int i=1;i<(row<<1);i++)
 		{
 			int x = 1;
-			for(int j=1;j<=(row<<1);j++)
+			for(int j=1;j<row+i;j++)
 			{
-				if((i<=row)&&(j>row-i&&j<row+i)||((i>row)&&(j>a&&j<(row<<1)-a)))
+				if((i<=row)&&(j>row-i)||((i>row)&&(j>a&&j<(row<<1)-a)))
 				{
 					System.out.print(x);
 					x = (j<row?++x:--x);

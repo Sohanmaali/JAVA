@@ -14,7 +14,7 @@ class Pattern_21
 		System.out.println("Enter any num");
 		int row = sc.nextInt();
 		int ans;
-		/* for(int i=0;i<row;i++)
+		for(int i=0;i<row;i++)
 		{
 			ans = 1;
 			for(int j=0;j<=row-i;j++)
@@ -27,9 +27,9 @@ class Pattern_21
 				ans = ans*(i-j)/(j+1);		
 			}
 			System.out.println();
-		} */
+		}
 		
-		for(int i=0;i<row;i++)
+		/* for(int i=0;i<row;i++)
 		{
 			ans = 1;
 			
@@ -42,6 +42,6 @@ class Pattern_21
 				}				
 			}
 			System.out.println();
-		}
+		} */
 	}
 }

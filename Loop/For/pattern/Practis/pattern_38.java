@@ -18,9 +18,9 @@ class Pattern_38
 		for(int i=1;i<=row;i++)
 		{
 			char x = 'A'-1;
-			for(int j=1;j<=(row<<1);j++)
+			for(int j=1;j<row+i;j++)
 			{
-				if(j>=row-i+1&&(j<row+i))
+				if(j>=row-i+1)
 				{
 					x = (j<=row?++x:--x);
 					System.out.print(x);

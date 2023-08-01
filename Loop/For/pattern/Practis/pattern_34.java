@@ -1,4 +1,3 @@
-
 /*
     *
    ***
@@ -21,9 +20,9 @@ class Pattern_34 {
 		int k=1;
 		for(int i=1;i<(row<<1);i++)
 		{
-			for(int j=1;j<=(row<<1);j++)
+			for(int j=1;j<row+i;j++)
 			{
-				if((i<=row)&&(j>=row-i+1&&j<row+i)||((i>=row)&&(j>=k&&j<=(row<<1)-k)))
+				if((i<=row)&&(j>=row-i+1)||((i>=row)&&(j>=k&&j<=(row<<1)-k)))
 				{
 					System.out.print("*");
 				}

@@ -1,33 +1,33 @@
 /* class Test{
-	
-	private int data=30;  
- 
-	class Inner{ 
- 
+
+	private int data=30;
+
+	class Inner{
+
 		void msg(){
 			System.out.println("data is "+data);
-		}  
+		}
 	}
-}  
+}
 class Main
 {
-	public static void main(String args[]){  
-	
-		//Test obj=new Test();  
-		Test.Inner in = new Test().new Inner();  
-		in.msg();  
+	public static void main(String args[]){
+
+		//Test obj=new Test();
+		Test.Inner in = new Test().new Inner();
+		in.msg();
 	}
 }
  */
 
 //method inner class
-class Test {
+/* class Test {
     private int data = 30;
 
 	void displayData() {
-		
+
 		class Inner {
-			
+
 			void msg() {
                 System.out.println("data is " + data);
             }
@@ -42,7 +42,7 @@ class Main {
         Test test = new Test();
         test.displayData();
     }
-}
+} */
 
 /* class Test {
     int data = 30;
@@ -65,25 +65,24 @@ class Sohan {
 class Main {
     public static void main(String[] args) {
         Test test = new Test();
-		
+
         Sohan so = new Sohan();
-       
+
 		Test.X in = test.new X();
         in.msg();
     }
 } */
 
-
-/* abstract class Test 
+/* abstract class Test
 {
-	abstract void msg();	
+	abstract void msg();
 }
 
 class Main {
-	
-    public static void main(String[] args) 
+
+    public static void main(String[] args)
 	{
-		
+
         Test test = new Test(){
 			void msg()
 			{
@@ -114,13 +113,13 @@ class Main {
 		Local ob1 = new Local();
 		ob1.msg();
 	}
-}  
+}
 class Test{
-    public static void main(String[] args) 
-	{		
+    public static void main(String[] args)
+	{
 		Main ob = new Main();
-		
-		ob.show();	
+
+		ob.show();
 	}
 } */
 
@@ -131,7 +130,7 @@ class Test{
 		default void m2()
 		{
 			System.out.println("i am m2 ");
-		} 
+		}
 	}
 }
 class Main implements Show, Show.Inner{
@@ -143,7 +142,7 @@ class Main implements Show, Show.Inner{
 	{
 		System.out.println("i am Show ");
 	}
-	public static void main(String[] args) 
+	public static void main(String[] args)
 	{
 		Show.Inner ob = new Main ();
 		//Main ob1 = new Main();
@@ -165,8 +164,8 @@ class Main implements Show, Show.Inner{
 			a++;
 		}
 	}
-	public static void main(String[] args) 
-	{			
+	public static void main(String[] args)
+	{
 		Test.Inner ob = new Test.Inner();
 		System.out.println(a);
 	}
@@ -185,10 +184,52 @@ class Main implements Show, Show.Inner{
 			a++;
 		}
 	}
-	public static void main(String[] args) 
-	{			
+	public static void main(String[] args)
+	{
 		Test.Inner ob = new Test.Inner();
 		System.out.println(a);
 	}
 }
  */
+
+/* class Test {
+	int a = 10;
+
+	class Inner
+	{
+		int a = 100;
+		public void m1()
+		{
+			int a = 1000;
+			System.out.println(a);
+			System.out.println(this.a);
+			System.out.println(Test.this.a);
+		}
+	}
+	public static void main(String[] args)
+	{
+		Test.Inner ob =  new Test().new Inner();
+		ob.m1();
+	}
+} */
+
+/* class Test {
+	static int y = 10;
+
+	class Inner
+	{
+		int a = 100;
+		public void m1()
+		{
+			int a = 1000;
+			System.out.println(a);
+			System.out.println(this.a);
+			System.out.println(y);
+		}
+	}
+	public static void main(String[] args)
+	{
+		Test.Inner ob =  new Test().new Inner();
+		ob.m1();
+	}
+} */
