@@ -8,11 +8,10 @@ public class Try {
 		int b = sc.nextInt();
 		try
 		{
-			int c = a/b;	
-			System.out.println(c);
+                    int c = a/b;	
+                    System.out.println(c);
 		}
-                catch
-                
+                catch(){}
 		/*catch (ArithmeticException ref)
 		{
 			System.out.println("Second number must be greater then Zero");

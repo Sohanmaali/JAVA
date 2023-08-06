@@ -1,0 +1,5 @@
+1. What are different scenarios causing "Exception in thread main"? 
+2. What is the difference between ClassNotFoundException and NoClassDefFoundError in Java?
+3.What are the changes made to exception handling from Java 7?
+4. What is the difference between final, finally and finalize in Java
+5. What is re-throwing an exception? 
