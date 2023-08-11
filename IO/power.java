@@ -1,21 +1,20 @@
-import java.io.FileOutputStream;  
+import java.io.*;  
 
-public class FileOutputStreamExample 
+class Power
 {  
-	public static void main(String args[])
-	{    
-		try
-		{    
-            FileOutputStream fout=new FileOutputStream("D:\\testout.txt");    
-            String s="Welcome to javaTpoint.";    
-            byte b[]=s.getBytes();//converting string into byte array    
-            fout.write(b);    
-            fout.close();    
-            System.out.println("success...");    
-        }
-		catch(Exception e)
+	public static void main(String args[]) throws Exception
+	{
+		
+		FileOutputStream fout=new FileOutputStream("D:/JAVA/IO/File/F1.txt");    
+		
+		for(int i = 1;i<=100;i++)
 		{
-			System.out.println(e);
-			}    
-    }
-}  
+			String s = Integer.toString(i*i);
+			s += ", ";
+			byte a[] = s.getBytes();
+			fout.write(a);
+		}
+		fout.close();
+		System.out.println("success...");	
+	}
+}
