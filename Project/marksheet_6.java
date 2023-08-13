@@ -19,14 +19,12 @@ class DataClass // POJO Class
 	private int hindi;
 	private int english;
 	private double per;
-	
-	public DataClass()
-	{
-		
+
+	public DataClass() {
+
 	}
-	
-	public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int roll,
-			int physics, int chemistry, int math, int hindi, int english) {
+
+	public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int roll, int physics, int chemistry, int math, int hindi, int english) {
 		this.name = name;
 		this.fname = fname;
 		this.mname = mname;
@@ -167,7 +165,7 @@ class DataClass // POJO Class
 
 class Operation // BL Class
 {
-	int i=0, n;
+	int i = 0, n;
 
 	public void choice(DataClass student[], int n, Operation ob2) {
 		Scanner sc = new Scanner(System.in);
@@ -761,8 +759,8 @@ class Operation // BL Class
 				System.out.println("Please enter valide id password");
 			}
 		} while (id != "Sohan" && pass != "2002");
-
 	}
+	
 }
 
 class Mark // Clinte Class

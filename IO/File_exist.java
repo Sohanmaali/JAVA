@@ -27,9 +27,7 @@ class FileExist
         String fileName = sc.next(); 
 		
 		File fb = new File("D:/JAVA/IO/File/"+fileName);
-		
 		FileOutputStream fos;
-		
 		Operation oper = new Operation();
 		
 		if(fb.exists())
@@ -56,8 +54,8 @@ class FileExist
 					
 					System.out.println("File created: " + fileName);
 					break;
-					case 2:
-						oper.printFileList();
+				case 2:
+					oper.printFileList();
 					break;
 			}
 		}

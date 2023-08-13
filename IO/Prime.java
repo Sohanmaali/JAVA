@@ -5,8 +5,8 @@ class Prime
 	public static void main(String args[]) throws Exception
 	{
 		FileOutputStream fout=new FileOutputStream("D:/JAVA/IO/File/F1.txt");    
-		int i=2,count = 0;
-		for(;;i++)
+		int count = 0;
+		for(int i=2;;i++)
 		{
 			int temp = 0;
 			for(int j = 2;j<i;j++)
@@ -31,7 +31,7 @@ class Prime
 		}
 		
 		FileInputStream fis = new FileInputStream("D:/JAVA/IO/File/F1.txt");
-		while((i = fis.read())!=-1) 
+		while((int i = fis.read())!=-1) 
 		{
            char c = (char)i;
             

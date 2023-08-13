@@ -18,4 +18,4 @@ class PrimeCopy
 		fout.close();
 		fis.close();
 	}
-}
+}x

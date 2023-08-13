@@ -14,7 +14,7 @@ class NevenOdd
 		for(int i = 1;i<=x;i++)
 		{
 			String even = Integer.toString(i*2);
-			obj.write(even)
+			obj.write(even);
 		}
 	}
 }		

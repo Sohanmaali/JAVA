@@ -19,6 +19,7 @@ class MergeFile
 		{
             fout.write(i);
         }
+		fis_1.close();
 		fout.close();
 	}
 }
