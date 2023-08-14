@@ -1,7 +1,7 @@
 import java.io.*;
 
 class Employee implements Serializable {
-	
+
 	private int id;
 	private String name;
 	private double sal;

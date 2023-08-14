@@ -3,10 +3,15 @@ package operation;
 import datapackage.*;
 import printonconsol.*;
 import java.util.*;
+
 public class Operation // BL Class
 {
-	int i = 0, n;
-	public void opChoice(Operation ob) throws ClassNotFoundException{
+	static int i = 0;
+	static int n = 0;
+	String resetColor = "\u001B[0m";
+	String color = "\u001B[31m";
+
+	public void opChoice(Operation ob) throws ClassNotFoundException {
 		Scanner sc = new Scanner(System.in);
 		String resetColor = "\u001B[0m";
 		String color = "\u001B[31m";
@@ -14,10 +19,9 @@ public class Operation // BL Class
 		PrintOnConsol ob2 = new PrintOnConsol();
 		DataClass[] student = new DataClass[100];
 
-		int choice, num = 0;
+		int choice = 0, num = 0;
 		String id, pass;
-		do 
-		{
+		do {
 			System.out.print("Enter User id : ");
 			id = sc.nextLine();
 			System.out.print("Enter Password : ");
@@ -39,20 +43,48 @@ public class Operation // BL Class
 					System.out.print("\t\t-----------------------");
 					System.out.println("\t\t\t\t-----------------------\n\n");
 					System.out.println("\n\t\t\t\t\t     Enter Your Choice");
-					choice = sc.nextInt();
-					System.out.println(" ____________________________________________________________________________________________________________________");
+					boolean flag = false;
+					do {
+						try {
+							flag = false;
+							choice = sc.nextInt();
+
+						} catch (InputMismatchException e) {
+							flag = true;
+							System.out.println("Invalid Input Please Enter Your choice in int ");
+						}
+						sc.nextLine();
+					} while (flag);
+					System.out.println(
+							" ____________________________________________________________________________________________________________________");
 					switch (choice) {
 						case 1:
-							if (i == 0) {
+							if (n == 0) {
 								System.out.println("\t\t-------------------------------");
-								System.out.print("\t\t  Enter number of student : ");
-								n = sc.nextInt();
+								do {
+									System.out.print("\t\t  Enter number of student : ");
+									try {
+										flag = false;
+										n = sc.nextInt();
+
+									} catch (InputMismatchException e) {
+										flag = true;
+										System.out.println("Invalid Input Please Enter Your choice in int ");
+									}
+									sc.nextLine();
+								} while (flag);
+
 								System.out.println("\t\t-------------------------------");
 								ob1.takeInput(n, student, ob1);
+								System.out.println("Hello");
 							} else {
-								System.out.println(color+ "\t\t  --------------------------------------------------------------------");
-								System.out.println("\t\t      Sum student Data allreday exisit please choose Update Record choices : ");
-								System.out.println("\t\t  --------------------------------------------------------------------"+resetColor);
+								System.out.println(color
+										+ "\t\t  --------------------------------------------------------------------");
+								System.out.println(
+										"\t\t      Sum student Data allreday exisit please choose Update Record choices : ");
+								System.out.println(
+										"\t\t  --------------------------------------------------------------------"
+												+ resetColor);
 							}
 							break;
 						case 2:
@@ -92,19 +124,16 @@ public class Operation // BL Class
 			} else {
 				System.out.println("Please enter valide id password");
 			}
-		}while (id != "Sohan" && pass != "2002");
+		} while (id != "Sohan" && pass != "2002");
 	}
 
-	public void choice(DataClass student[], int n, Operation ob2) throws ClassNotFoundException{
+	public void choice(DataClass student[], int n, Operation ob2) throws ClassNotFoundException {
 		Scanner sc = new Scanner(System.in);
 		PrintOnConsol poc = new PrintOnConsol();
-		String resetColor = "\u001B[0m";
-		String color = "\u001B[31m";
-		int choice, searchRoll;
+		int choice = 0, searchRoll = 0;
 		boolean flag;
 		String searchName;
 		do {
-			flag = true;
 			System.out.println("\n\t\t\t\t\t     Your Choice are ");
 			System.out.print("\t\t-------------------------------");
 			System.out.println("\t\t\t\t-------------------------------");
@@ -122,24 +151,44 @@ public class Operation // BL Class
 			System.out.println("\t\t 5 For Exit");
 			System.out.println("\t\t-------------------------------");
 			System.out.println("\n\n\t\t\t\t\t     Enter Your Choice");
-			choice = sc.nextInt();
-			sc.nextLine();
+			do {
+				try {
+					flag = false;
+					choice = sc.nextInt();
+
+				} catch (InputMismatchException e) {
+					flag = true;
+					System.out.println("Invalid Input Please Enter Your choice in int ");
+					System.out.println("Please Enter Valide Input ");
+				}
+				sc.nextLine();
+			} while (flag);
 			System.out.println(
 					" ____________________________________________________________________________________________________________________");
 			switch (choice) {
 				case 1:
 					System.out.println("\t\t---------------------------");
-					System.out.print("\t\t  Enter Roll number : ");
-					searchRoll = sc.nextInt();
-					System.out.println("\t\t---------------------------");
-					for (int i = 0; i < n; i++) {
-						if (student[i].getRollNumber() == searchRoll) {
-							poc.printMarksheet(student, i);
+					do {
+						try {
 							flag = false;
+							System.out.print("\t\t  Enter Roll number : ");
+							searchRoll = sc.nextInt();
+
+						} catch (InputMismatchException e) {
+							flag = true;
+							System.out.println("Invalid Input Please Enter Your Roll Number in int ");
+						}
+					} while (flag);
+					sc.nextLine();
+					System.out.println("\t\t---------------------------");
+					for (int j = 0; j < n; j++) {
+						if (student[j].getRollNumber() == searchRoll) {
+							poc.printMarksheet(student, j);
+							flag = true;
 							break;
 						}
 					}
-					if (flag) {
+					if (!flag) {
 						System.out.println(
 								color + "\t\t  --------------------------------------------------------------------");
 						System.out.println("\t\t\t\t      Enter Roll Number Is Not exist : ");
@@ -156,10 +205,10 @@ public class Operation // BL Class
 					for (int i = 0; i < n; i++) {
 						if (student[i].getName().equals(searchName)) {
 							poc.printMarksheet(student, i);
-							flag = false;
+							flag = true;
 						}
 					}
-					if (flag) {
+					if (!flag) {
 						System.out.println(
 								color + "\t\t  --------------------------------------------------------------------");
 						System.out.println("\t\t\t\t      Enter Name Is Not exist : ");
@@ -179,7 +228,7 @@ public class Operation // BL Class
 		} while (choice != 5);
 	}
 
-	public void takeInput(int n, DataClass student[], Operation ob2)throws ClassNotFoundException {
+	public void takeInput(int n, DataClass student[], Operation ob2) throws ClassNotFoundException {
 		String resetColor = "\u001B[0m";
 		String color = "\u001B[31m";
 		Scanner sc = new Scanner(System.in);
@@ -187,9 +236,9 @@ public class Operation // BL Class
 		String corse, name, fname, mname, branch;
 
 		int physics, chemistry, math, hindi, english, year, roll, sem;
-
 		for (; i < n; i++) {
 			// student[i] = new DataClass();
+
 			System.out.println("\n\t\t-------------------------------");
 			System.out.print("\t\t  Enter Roll number : ");
 			roll = ob2.takeRoll(student, i, ob2);
@@ -266,14 +315,14 @@ public class Operation // BL Class
 		}
 	}
 
-public void searchDivision(DataClass student[], int n, Operation ob2) throws ClassNotFoundException{
+	public void searchDivision(DataClass student[], int n, Operation ob2) throws ClassNotFoundException {
 		Scanner sc = new Scanner(System.in);
-		
+
 		PrintOnConsol poc = new PrintOnConsol();
 		boolean flag;
 		String resetColor = "\u001B[0m";
 		String color = "\u001B[31m";
-		int choice;
+		int choice = 0;
 		do {
 			flag = true;
 			System.out.println("\n\t\t\t\t\t     Your Choice are ");
@@ -290,7 +339,17 @@ public void searchDivision(DataClass student[], int n, Operation ob2) throws Cla
 			System.out.print("\t\t-------------------------------");
 			System.out.println("\t\t\t\t-------------------------------");
 			System.out.println("\n\n\t\t\t\t\t     Enter Your Choice");
-			choice = sc.nextInt();
+			do {
+				try {
+					flag = false;
+					choice = sc.nextInt();
+
+				} catch (InputMismatchException e) {
+					flag = true;
+					System.out.println("Invalid Input Please Enter Your choice in int ");
+				}
+				sc.nextLine();
+			} while (flag);
 			System.out.println(
 					" ____________________________________________________________________________________________________________________");
 			switch (choice) {
@@ -349,14 +408,28 @@ public void searchDivision(DataClass student[], int n, Operation ob2) throws Cla
 		} while (choice != 6);
 	}
 
-public int takeRoll(DataClass student[], int i, Operation ob2)throws ClassNotFoundException {
+	public int takeRoll(DataClass student[], int i, Operation ob2)
+			throws ClassNotFoundException, NumberFormatException {
 		Scanner sc = new Scanner(System.in);
 		boolean flag;
-		int roll;
+		int roll = 0;
 		String resetColor = "\u001B[0m";
 		String color = "\u001B[31m";
 		do {
-			roll = sc.nextInt();
+
+			do {
+				try {
+					flag = false;
+
+					roll = sc.nextInt();
+
+				} catch (InputMismatchException e) {
+					flag = true;
+					System.out.println("Invalid Input Please Enter Your Roll num in int ");
+				}
+				sc.nextLine();
+			} while (flag);
+
 			flag = false;
 			for (int j = 0; i > 0 && j < i; j++) {
 				if (student[j].getRollNumber() == roll) {
@@ -373,13 +446,25 @@ public int takeRoll(DataClass student[], int i, Operation ob2)throws ClassNotFou
 		return roll;
 	}
 
-	public int takeMark()throws ClassNotFoundException {
+	public int takeMark() throws ClassNotFoundException {
 		String resetColor = "\u001B[0m";
 		String color = "\u001B[31m";
 		Scanner sc = new Scanner(System.in);
-		int mark;
+		int mark = 0;
+		boolean flag = false;
 		do {
-			mark = sc.nextInt();
+			do {
+				try {
+					flag = false;
+
+					mark = sc.nextInt();
+
+				} catch (InputMismatchException e) {
+					flag = true;
+					System.out.println("Invalid Input Please Enter Your Mark in int ");
+				}
+				sc.nextLine();
+			} while (flag);
 			if (mark < 0 || mark > 100) {
 				System.out
 						.println(color + "\t\t  --------------------------------------------------------------------");
@@ -391,11 +476,23 @@ public int takeRoll(DataClass student[], int i, Operation ob2)throws ClassNotFou
 		return mark;
 	}
 
-	public int takeYear()throws ClassNotFoundException {
+	public int takeYear() throws ClassNotFoundException {
 		Scanner sc = new Scanner(System.in);
-		int year;
+		int year = 0;
+		boolean flag = false;
 		do {
-			year = sc.nextInt();
+			do {
+				try {
+					flag = false;
+
+					year = sc.nextInt();
+
+				} catch (InputMismatchException e) {
+					flag = true;
+					System.out.println("Invalid Input Please Enter Your Year in int ");
+				}
+				sc.nextLine();
+			} while (flag);
 			if (year <= 0 || year >= 5) {
 				System.out.println("\t\t      Please Enter Valide Year");
 			}
@@ -403,13 +500,25 @@ public int takeRoll(DataClass student[], int i, Operation ob2)throws ClassNotFou
 		return year;
 	}
 
-	public int takeSem(int year)throws ClassNotFoundException {
+	public int takeSem(int year) throws ClassNotFoundException {
 		Scanner sc = new Scanner(System.in);
 		int sem = 0;
+		boolean flag = false;
 		switch (year) {
 			case 1:
 				do {
-					sem = sc.nextInt();
+					do {
+						try {
+							flag = false;
+
+							sem = sc.nextInt();
+
+						} catch (InputMismatchException e) {
+							flag = true;
+							System.out.println("Invalid Input Please Enter Your Sem in int ");
+						}
+						sc.nextLine();
+					} while (flag);
 					if (sem != 1 && sem != 2) {
 						System.out.println("\t\t      Please Enter Valide Sem");
 					}
@@ -417,7 +526,18 @@ public int takeRoll(DataClass student[], int i, Operation ob2)throws ClassNotFou
 				break;
 			case 2:
 				do {
-					sem = sc.nextInt();
+					do {
+						try {
+							flag = false;
+
+							sem = sc.nextInt();
+
+						} catch (InputMismatchException e) {
+							flag = true;
+							System.out.println("Invalid Input Please Enter Your Sem in int ");
+						}
+						sc.nextLine();
+					} while (flag);
 					if (sem != 3 && sem != 4) {
 						System.out.println("\t\t      Please Enter Valide Sem");
 					}
@@ -425,7 +545,19 @@ public int takeRoll(DataClass student[], int i, Operation ob2)throws ClassNotFou
 				break;
 			case 3:
 				do {
-					sem = sc.nextInt();
+					do {
+						try {
+							flag = false;
+
+							sem = sc.nextInt();
+
+						} catch (InputMismatchException e) {
+							flag = true;
+							System.out.println("Invalid Input Please Enter Your Sem in int ");
+						}
+						sc.nextLine();
+					} while (flag);
+
 					if (sem != 5 && sem != 6) {
 						System.out.println("\t\t      Please Enter Valide Sem");
 					}
@@ -433,7 +565,18 @@ public int takeRoll(DataClass student[], int i, Operation ob2)throws ClassNotFou
 				break;
 			case 4:
 				do {
-					sem = sc.nextInt();
+					do {
+						try {
+							flag = false;
+
+							sem = sc.nextInt();
+
+						} catch (InputMismatchException e) {
+							flag = true;
+							System.out.println("Invalid Input Please Enter Your Sem in int ");
+						}
+						sc.nextLine();
+					} while (flag);
 					if (sem != 7 && sem != 8) {
 						System.out.println("\t\t      Please Enter Valide Sem");
 					}
@@ -441,8 +584,4 @@ public int takeRoll(DataClass student[], int i, Operation ob2)throws ClassNotFou
 		}
 		return sem;
 	}
-
 }
-
-	
-	
