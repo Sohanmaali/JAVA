@@ -112,6 +112,7 @@ class ConeMen extends Frame implements WindowListener, ActionListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
+        System.exit(0);
 
     }
 

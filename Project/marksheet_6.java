@@ -32,7 +32,7 @@ class DataClass // POJO Class
 		this.branch = branch;
 		this.corse = corse;
 		this.year = year;
-		this.total = total;
+		// this.total = total;
 		this.roll = roll;
 		this.physics = physics;
 		this.chemistry = chemistry;
@@ -660,7 +660,7 @@ class Operation // BL Class
 
 			student[i] = new DataClass(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math,
 					hindi, english);
-			student[i].setTotel();
+			// student[i].setTotel();
 			student[i].setPer();
 
 			System.out.println(

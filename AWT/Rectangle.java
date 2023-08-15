@@ -94,9 +94,9 @@ class RectangleMen extends Frame implements WindowListener, ActionListener {
 
     }
 
-    @Override
+     @Override
     public void windowClosing(WindowEvent e) {
-
+        System.exit(0);
     }
 
     @Override

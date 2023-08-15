@@ -91,7 +91,7 @@ class Calc extends Frame implements WindowListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int a = 0,b = 0;
+        int a = 0, b = 0;
 
         try {
             a = Integer.parseInt(num1.getText());
@@ -138,6 +138,7 @@ class Calc extends Frame implements WindowListener, ActionListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
+        System.exit(0);
     }
 
     @Override
