@@ -5,9 +5,9 @@ import operation.*;
 
 public class PrintOnConsol {
 
-    public void printMarksheet(DataClass ref[], int i)throws ClassNotFoundException {
+    public void printMarksheet(DataClass ref[], int i) throws ClassNotFoundException {
         Operation ob = new Operation();
-		PrintOnConsol poc = new PrintOnConsol();
+        PrintOnConsol poc = new PrintOnConsol();
         System.out.println("\t\t   --------------------------------------------------------------------");
         System.out.println("\t\t   |");
 
@@ -15,13 +15,15 @@ public class PrintOnConsol {
         System.out.println("\t\t   |\tName  : " + ref[i].getName() + "\t\t\t\t\tBranch : " + ref[i].getBranch());
         System.out.println("\t\t   |\tFName : " + ref[i].getFName() + "\t\t\t\t\tSem    : " + ref[i].getSem() + "th");
         System.out.println("\t\t   |\tMName : " + ref[i].getMName() + "\t\t\t\t\tYear   : " + ref[i].getYear());
-        System.out.println("\t\t   |\tRoll  : " + ref[i].getRollNumber() + "\t\t\t\t\tCourse : " + ref[i].getCorse() + "\n");
+        System.out.println(
+                "\t\t   |\tRoll  : " + ref[i].getRollNumber() + "\t\t\t\t\tCourse : " + ref[i].getCorse() + "\n");
         System.out.println("\t\t   --------------------------------------------------------------------");
         System.out.println("\t\t   |\tSubCode      SubName       MaxMarks      MinMarks      ObtMark");
         System.out.println("\t\t   --------------------------------------------------------------------");
         System.out.println("\t\t   |\tBCA100       Physics        100            33            " + ref[i].getphysics());
         System.out.println("\t\t   --------------------------------------------------------------------");
-        System.out.println("\t\t   |\tBCA101       Chemistry      100            33            " + ref[i].getchemistry());
+        System.out
+                .println("\t\t   |\tBCA101       Chemistry      100            33            " + ref[i].getchemistry());
         System.out.println("\t\t   --------------------------------------------------------------------");
         System.out.println("\t\t   |\tBCA102       Math           100            33            " + ref[i].getmath());
         System.out.println("\t\t   --------------------------------------------------------------------");
@@ -33,7 +35,8 @@ public class PrintOnConsol {
         poc.division(ref, i);
         System.out.println("\t\t   |\n\t\t   |\n\t\t   |\n\t\t   |");
         System.out.println("\t\t   --------------------------------------------------------------------");
-        System.out.println(" ____________________________________________________________________________________________________________________");
+        System.out.println(
+                " ____________________________________________________________________________________________________________________");
     }
 
     public void division(DataClass ref[], int i) throws ClassNotFoundException {

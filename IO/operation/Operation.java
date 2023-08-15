@@ -29,5 +29,7 @@ public class Operation {
         System.out.println(dc.getId());
         System.out.println(dc.getName());
         System.out.println(dc.getSal());
+		System.out.println(dc.toString());
+		
     }
 }

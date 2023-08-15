@@ -1,71 +1,148 @@
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintStream;
+import java.io.PushbackInputStream;
+import java.io.Serializable;
+import java.util.Scanner;
 
-class Employee implements Serializable {
+class MarksheetData implements Serializable {
+	int roll, p, c, m, h, e;
+	String name;
 
-	private int id;
-	private String name;
-	private double sal;
+	public MarksheetData() {
+	}
 
-	public Employee(int id, String name, double sal) {
-		this.id = id;
+	public MarksheetData(int roll, String name, int p, int c, int m, int h, int e) {
+		this.roll = roll;
 		this.name = name;
-		this.sal = sal;
+		this.p = p;
+		this.c = c;
+		this.m = m;
+		this.h = h;
+		this.e = e;
 	}
 
-	public Employee() {
+	public void setRoll(int roll) {
+		this.roll = roll;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
+	public int getRoll() {
+		return roll;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public double getSal() {
-		return sal;
+	public String getName() {
+		return name;
 	}
 
-	public void setSal(double sal) {
-		this.sal = sal;
+	public int getP() {
+		return p;
+	}
+
+	public int getC() {
+		return c;
+	}
+
+	public int getM() {
+		return m;
+	}
+
+	public int getH() {
+		return h;
+	}
+
+	public int getE() {
+		return e;
+	}
+
+	@Override
+	public String toString() {
+		return roll + "\t " + name + "\t " + p + "\t " + c + "\t " + m + "\t " + h + "\t " + e;
 	}
 
 }
 
-class Main {
-	/**
-	 * @param args
-	 * @throws Exception
-	 */
-	public static void main(String args[]) throws Exception {
-		Employee emp = new Employee(101, "Sohan", 25000);
-		File f1 = new File("D:/JAVA/IO/File/emp.txt");
-		FileOutputStream fout = new FileOutputStream(f1);
-		ObjectOutputStream oop = new ObjectOutputStream(fout);
-		oop.writeObject(emp);
+class Marksheet {
+	static int i = 0, count = 0;
 
-		oop.close();
-		fout.close();
+	public static void main(String args[]) throws FileNotFoundException, IOException {
+		Scanner sc = new Scanner(System.in);
+		MarksheetData marksheet[] = new MarksheetData[100];
+		Marksheet ob = new Marksheet();
+		System.out.println("How many Data Yoy want To fill ");
+		int n = sc.nextInt();
 
-		FileInputStream fin = new FileInputStream(f1);
-		ObjectInputStream oip = new ObjectInputStream(fin);
+		for (int i = 0; i < n; i++) {
+			System.out.println("Enter The roll Number");
+			int roll = ob.cheakRoll(marksheet, i, ob);
+			sc.nextLine();
+			System.out.println("Enter The name ");
+			String name = sc.nextLine();
 
-		Employee emp1 = (Employee) oip.readObject();
+			System.out.println("Enter Physics Marks");
+			int p = ob.cheakMarks(sc);
 
-		System.out.println(emp1.getId());
-		System.out.println(emp1.getName());
-		System.out.println(emp1.getSal());
+			System.out.println("Enter Chemistry Marks");
+			int c = ob.cheakMarks(sc);
 
-		oip.close();
-		fin.close();
+			System.out.println("Enter Maths Marks");
+			int m = ob.cheakMarks(sc);
+
+			System.out.println("Enter Hindi Marks");
+			int h = ob.cheakMarks(sc);
+
+			System.out.println("Enter English Marks");
+			int e = ob.cheakMarks(sc);
+
+			marksheet[i] = new MarksheetData(roll, name, p, c, m, h, e);
+		}
+
+		File f = new File("Marksheet.txt");
+		FileOutputStream fos = new FileOutputStream(f, true);
+		PrintStream pw = new PrintStream(fos);
+		String s = "Roll\t Name \t Phys\t Chem \t Maths \t Hindi \t English";
+		
+		
+	}
+
+	public int cheakMarks(Scanner sc) {
+		int marks = sc.nextInt();
+		while (marks < 0 || marks > 100) {
+
+			System.out.println("Invalid  Marks");
+			System.out.println("Please Re-Enter The Marks:");
+			marks = sc.nextInt();
+		}
+		return marks;
+	}
+
+	public int cheakRoll(MarksheetData marksheet[],int i,Marksheet ob)
+	{
+		Scanner sc=new Scanner(System.in);
+		int roll;
+		boolean flag;
+		do
+		{
+			roll=sc.nextInt();
+			flag=false;
+			for(int j=0;i>0&&j<i;j++)
+			{
+				if(marksheet[j].getRoll()==roll)
+				{
+					System.out.println("roll number is alredy Exist plese Enter Other roll Number ");
+					flag=true;
+				}
+			}
+		}while(flag);
+		return roll;	
+		
 	}
 }

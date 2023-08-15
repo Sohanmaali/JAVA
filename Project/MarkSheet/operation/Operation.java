@@ -352,6 +352,8 @@ public class Operation // BL Class
 			} while (flag);
 			System.out.println(
 					" ____________________________________________________________________________________________________________________");
+
+			flag = true;
 			switch (choice) {
 				case 1:
 					for (int i = 0; i < n; i++) {

@@ -18,7 +18,8 @@ public class DataClass // POJO Class
 	private int english;
 	private double per;
 
-	public DataClass() {}
+	public DataClass() {
+	}
 
 	public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int roll,
 			int physics, int chemistry, int math, int hindi, int english) {
@@ -29,7 +30,6 @@ public class DataClass // POJO Class
 		this.branch = branch;
 		this.corse = corse;
 		this.year = year;
-		this.total = total;
 		this.roll = roll;
 		this.physics = physics;
 		this.chemistry = chemistry;
@@ -91,11 +91,11 @@ public class DataClass // POJO Class
 	}
 
 	public void setTotel() {
-		this.total = getphysics() + getchemistry() + getmath() + gethindi() + getenglish();
+		this.total = this.getphysics() + this.getchemistry() + this.getmath() + this.gethindi() + this.getenglish();
 	}
 
 	public void setPer() {
-		this.per = getTotal() / 5.0;
+		this.per = this.getTotal() / 5.0;
 	}
 
 	public int getRollNumber() {
@@ -157,5 +157,4 @@ public class DataClass // POJO Class
 	public int getTotal() {
 		return this.total;
 	}
-
 }
