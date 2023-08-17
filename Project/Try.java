@@ -1,29 +1,34 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
+class Student {
+    String name;
+    int age;
+    Semester[] semesterData;
 
-class Try {
+    Student(String name, int age, Semester[] semesterData) {
+        this.name = name;
+        this.age = age;
+        this.semesterData = semesterData;
+    }
+}
+
+class Semester {
+    int semester;
+    String[] subjects;
+
+    Semester(int semester, String[] subjects) {
+        this.semester = semester;
+        this.subjects = subjects;
+    }
+}
+
+class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        boolean flag = false;
-        int choice = 0;
-        do {
-            try {
-                flag = false;
-                choice = sc.nextInt();
-
-            } catch (InputMismatchException e) {
-                flag = true;
-                System.out.println("Invalid Input Please Enter Your choice in int ");
-            }
-            sc.nextLine();
-        } while (flag);
-        switch (choice) {
-            case 1 -> {
-                System.out.println("Hello");
-
-                break;
-            }
-
-        }
+        Student[] studentArray = new Student[] {
+                new Student("Alice", 18, new Semester[] {
+                        new Semester(1, new String[] { "Math", "Science", "History" }),
+                        new Semester(2, new String[] { "English", "Art", "Physical Education" })
+                })
+        // };
+        System.out.println(studentArray[0].name); // Output: Alice
+        System.out.println(studentArray[1].semesterData[2].subjects[1]); // Output: Physics
     }
 }

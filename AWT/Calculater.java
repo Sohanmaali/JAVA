@@ -156,5 +156,4 @@ class Calc extends Frame implements WindowListener, ActionListener {
     @Override
     public void windowOpened(WindowEvent e) {
     }
-
 }

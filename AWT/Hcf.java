@@ -18,7 +18,7 @@ class HcfFrame extends Frame implements WindowListener, ActionListener {
 
     Label lb1, lb2, result, ans, error;
     TextField num, num2;
-    Button checktbtn, clearBtn;
+    Button checktbtn, clearBtn, lcm;
 
     public HcfFrame() {
         this.setVisible(true);
@@ -44,11 +44,17 @@ class HcfFrame extends Frame implements WindowListener, ActionListener {
         this.add(num2);
         num2.setBounds(190, 120, 140, 30);
 
-        checktbtn = new Button("count");
+        checktbtn = new Button("HCF");
         this.add(checktbtn);
-        checktbtn.setBounds(44, 170, 70, 30);
+        checktbtn.setBounds(45, 170, 70, 30);
         checktbtn.setBackground(Color.cyan);
         checktbtn.addActionListener(this);
+
+        lcm = new Button("LCM");
+        this.add(lcm);
+        lcm.setBounds(135, 170, 70, 30);
+        lcm.setBackground(Color.cyan);
+        lcm.addActionListener(this);
 
         clearBtn = new Button("clear");
         this.add(clearBtn);
@@ -91,9 +97,21 @@ class HcfFrame extends Frame implements WindowListener, ActionListener {
             }
             int hcf = a1;
             ans.setText(String.valueOf(hcf));
-        }
-
-        else if (e.getSource() == clearBtn) {
+             num.setText("");
+            num2.setText("");
+        } else if (e.getSource() == lcm) {
+            while (a1 != b2) {
+                if (a1 < b2) {
+                    b2 = b2 - a1;
+                } else {
+                    a1 = a1 - b2;
+                }
+            }
+            int hcf = a1;
+            ans.setText(String.valueOf((a1 * b2) / hcf));
+            num.setText("");
+            num2.setText("");
+        } else if (e.getSource() == clearBtn) {
             num.setText("");
             num2.setText("");
             ans.setText("");
