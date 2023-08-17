@@ -1,5 +1,7 @@
 import operation.*;
 import datapackage.*;
+import display.*;
+
 import javax.swing.*;
 import java.util.Properties;
 import java.io.*;
@@ -9,6 +11,7 @@ class Marksheet1 extends JFrame implements Serialization {
         // Operation op = new Operation();
         DataClass student[] = new DataClass[100];
         // Properties properties = new Properties();
+        Display display;
         static int i = 0;
 
         public Marksheet1() {
@@ -488,55 +491,55 @@ class Marksheet1 extends JFrame implements Serialization {
         }// </editor-fold>
 
         private void nameActionPerformed(java.awt.event.ActionEvent evt) {
-               
+
         }
 
         private void rollNumActionPerformed(java.awt.event.ActionEvent evt) {
-               
+
         }
 
         private void mNameActionPerformed(java.awt.event.ActionEvent evt) {
-                
+
         }
 
         private void fNameActionPerformed(java.awt.event.ActionEvent evt) {
-               
+
         }
 
         private void yearActionPerformed(java.awt.event.ActionEvent evt) {
-               
+
         }
 
         private void branchActionPerformed(java.awt.event.ActionEvent evt) {
-                
+
         }
 
         private void courseActionPerformed(java.awt.event.ActionEvent evt) {
-               
+
         }
 
         private void semActionPerformed(java.awt.event.ActionEvent evt) {
-                
+
         }
 
         private void mathActionPerformed(java.awt.event.ActionEvent evt) {
-               
+
         }
 
         private void chemActionPerformed(java.awt.event.ActionEvent evt) {
-               
+
         }
 
         private void phycicsActionPerformed(java.awt.event.ActionEvent evt) {
-               
+
         }
 
         private void hindiActionPerformed(java.awt.event.ActionEvent evt) {
-                
+
         }
 
         private void englishActionPerformed(java.awt.event.ActionEvent evt) {
-                
+
         }
 
         private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -628,15 +631,11 @@ class Marksheet1 extends JFrame implements Serialization {
                 year.setText("");
                 sem.setText("");
                 phycics.setText("");
+                this.run();
+                
         }
-
-        public static void main(String args[]) {
-
-                java.awt.EventQueue.invokeLater(new Runnable() {
-                        public void run() {
-                                new Marksheet1().setVisible(true);
-                        }
-                });
+        public void run(){
+                new Display().setVisible(true);
         }
 
         // Variables declaration - do not modify

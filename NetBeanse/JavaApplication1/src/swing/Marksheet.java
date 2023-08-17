@@ -1,17 +1,14 @@
 package swing;
-
 //import operation.*;
 import datapackage.*;
 //import java.util.logging.Level;
-//import java.util.logging.Logger;
+import java.io.*;
 //import javax.swing.JLabel;
-//import java.util.Properties;
+import java.util.Properties;
+import swing.operation.Options;
 
-public class Marksheet extends javax.swing.JFrame implements Serialization{
+public class Marksheet extends javax.swing.JFrame{
 
-//    Operation op = new Operation();
-    DataClass student[] = new DataClass[100];
-//    Properties properties = new Properties();
 
     public Marksheet() {
         initComponents();
@@ -49,6 +46,7 @@ public class Marksheet extends javax.swing.JFrame implements Serialization{
         e = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -170,6 +168,13 @@ public class Marksheet extends javax.swing.JFrame implements Serialization{
             }
         });
 
+        jButton1.setText("BACK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -234,8 +239,11 @@ public class Marksheet extends javax.swing.JFrame implements Serialization{
                         .addComponent(branch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(hindi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(chem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(135, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +293,9 @@ public class Marksheet extends javax.swing.JFrame implements Serialization{
                         .addComponent(hindi, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(e, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(english, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -349,19 +359,19 @@ public class Marksheet extends javax.swing.JFrame implements Serialization{
     }//GEN-LAST:event_englishActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        r.setText("");
-        n.setText("");
-        f.setText("");
-        m.setText("");
-        c.setText("");
-        b.setText("");
-        y.setText("");
-        s.setText("");
-        p.setText("");
-        ch.setText("");
-        met.setText("");
-        h.setText("");
-        e.setText("");
+        rollNum.setText("");
+        name.setText("");
+        fName.setText("");
+        mName.setText("");
+        chem.setText("");
+        branch.setText("");
+        year.setText("");
+        sem.setText("");
+        phycics.setText("");
+        course.setText("");
+        math.setText("");
+        hindi.setText("");
+        english.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -384,7 +394,7 @@ public class Marksheet extends javax.swing.JFrame implements Serialization{
 
         student[i] = new DataSaver(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math, hindi, english);
 
-        properties.setProperty("Name",);
+//        properties.setProperty("Name",);
         properties.setProperty("Hindi", String.valueOf(student[i].getHindi()));
         properties.setProperty("Hindi", String.valueOf(student[i].getHindi()));
         properties.setProperty("English", String.valueOf(student[i].getEnglish()));
@@ -401,18 +411,15 @@ public class Marksheet extends javax.swing.JFrame implements Serialization{
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
-public static void main(String args[]) {
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            new Options().setVisible(true);
+            dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Marksheet().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel b;
@@ -427,6 +434,7 @@ public static void main(String args[]) {
     private javax.swing.JTextField fName;
     private javax.swing.JLabel h;
     private javax.swing.JTextField hindi;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel m;
