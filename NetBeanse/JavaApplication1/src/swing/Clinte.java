@@ -1,17 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package swing;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import swing.operation.Options;
 
 public class Clinte {
 
     public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(() -> {
-            new Options().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                ImageIcon imgicon = new ImageIcon("D:/JAVA/DAVV.png");
+                setIconImage(imgicon.getImage());
+                new Options().setVisible(true);
+            }
+
+            private void setIconImage(Image image) {
+                // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
         });
     }
 }

@@ -4,16 +4,21 @@ import datapackage.DataClass;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-import swing.operation.Options;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import swing.admin.Admin;
 
 public class StoreData extends javax.swing.JFrame {
 
-    DataClass student;
+    DataClass student[] = new DataClass[100];
     Properties properties = new Properties();
     static int i = 0;
 
     public StoreData() {
         initComponents();
+        setTitle("Student Data Store");
+        ImageIcon imgicon = new ImageIcon("D:/JAVA/DAVV.png");
+        setIconImage(imgicon.getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -51,6 +56,11 @@ public class StoreData extends javax.swing.JFrame {
         submit_B = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                formPropertyChange(evt);
+            }
+        });
 
         mother_l.setText("Mother Name");
 
@@ -97,7 +107,7 @@ public class StoreData extends javax.swing.JFrame {
             }
         });
 
-        reset_B.setText("RESET");
+        reset_B.setText("CLEAR");
         reset_B.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reset_BActionPerformed(evt);
@@ -253,7 +263,7 @@ public class StoreData extends javax.swing.JFrame {
 
     private void back_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_BActionPerformed
 
-        new Options().setVisible(true);
+        new Admin().setVisible(true);
         dispose();
     }//GEN-LAST:event_back_BActionPerformed
 
@@ -282,37 +292,109 @@ public class StoreData extends javax.swing.JFrame {
         String branch = branch_T.getText();
         String corse = course_T.getText();
 
-        int sem = Integer.parseInt(sem_T.getText());
-        int year = Integer.parseInt(year_T.getText());
-        int roll = Integer.parseInt(roll_T.getText());
-        int physics = Integer.parseInt(physics_T.getText());
-        int chemistry = Integer.parseInt(chemistry_T.getText());
-        int math = Integer.parseInt(mathes_T.getText());
-        int hindi = Integer.parseInt(hindi_T.getText());
-        int english = Integer.parseInt(english_T.getText());
+        int sem;
+        int year;
+        int roll;
+        int physics;
+        int chemistry;
+        int math;
+        int hindi;
+        int english;
 
-        student= new DataClass(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math, hindi, english);
+        if (!name.trim().isEmpty() && !fname.trim().isEmpty() && !mname.trim().isEmpty()
+                && !branch.trim().isEmpty() && !corse.trim().isEmpty()) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Please Fill All blanks");
+            return; // Fields should not be empty or contain only spaces
+        }
+        try {
+            year = Integer.parseInt(year_T.getText());
+            // ... (similarly for other integer inputs)
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "INVALIDE YEAR");
+            year_T.setText("");
+            return;
+        }
+
+        try {
+            roll = Integer.parseInt(roll_T.getText());
+        } catch (NumberFormatException e) {
+           JOptionPane.showMessageDialog(null, "Invalide Roll Number");
+            return;
+        }
+        try {
+            sem = Integer.parseInt(sem_T.getText());
+            // ... (similarly for other integer inputs)
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "INVALIDE Semester");
+            return;
+        }
+        try {
+            physics = Integer.parseInt(physics_T.getText());
+            // ... (similarly for other integer inputs)
+        } catch (NumberFormatException e) {
+           JOptionPane.showMessageDialog(null, "INVALIDE Mark of physics");
+            return;
+        }
+        try {
+            chemistry = Integer.parseInt(sem_T.getText());
+            // ... (similarly for other integer inputs)
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "INVALIDE Mark of chemistry");
+            return;
+        }
+        try {
+            math = Integer.parseInt(mathes_T.getText());
+            // ... (similarly for other integer inputs)
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "INVALIDE Mark of math");
+            return;
+        }
+        try {
+            hindi = Integer.parseInt(hindi_T.getText());
+            // ... (similarly for other integer inputs)
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "INVALIDE Mark of Hindi");
+            return;
+        }
+        try {
+            english = Integer.parseInt(english_T.getText());
+            // ... (similarly for other integer inputs)
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "INVALIDE Mark of English");
+            return;
+        }
+        int total = physics + chemistry + math + hindi + english;
+        
+        if (english > 100 || physics < 0 || physics > 100 || chemistry < 0 || chemistry > 100 || math < 0 || math > 100 || hindi < 0 || hindi > 100 || english < 0) {
+            JOptionPane.showMessageDialog(null, "INVALIDE Mark");
+            return;
+        }
+        student[i] = new DataClass(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math, hindi, english, total, i);
 
         String key = "Roll_" + roll;
 
-        properties.setProperty(key + "_Roll", String.valueOf(student.getRoll()));
-        properties.setProperty(key + "_Name", name);
-        properties.setProperty(key + "_FName", fname);
-        properties.setProperty(key + "_MName", mname);
-        properties.setProperty(key + "_Course", corse);
-        properties.setProperty(key + "_Branch", branch);
-        properties.setProperty(key + "_Year", String.valueOf(student.getYear()));
-        properties.setProperty(key + "_Sem", String.valueOf(student.getSem()));
-        properties.setProperty(key + "_Physics", String.valueOf(student.getPhysics()));
-        properties.setProperty(key + "_Chemistry", String.valueOf(student.getChemistry()));
-        properties.setProperty(key + "_Mathes", String.valueOf(student.getMath()));
-        properties.setProperty(key + "_Hindi", String.valueOf(student.getHindi()));
-        properties.setProperty(key + "_English", String.valueOf(student.getEnglish()));
+        properties.setProperty(key + "_Roll", String.valueOf(student[i].getRoll()));
+        properties.setProperty(key + "_Name", student[i].getName());
+        properties.setProperty(key + "_FName", student[i].getFname());
+        properties.setProperty(key + "_MName", student[i].getMname());
+        properties.setProperty(key + "_Course", student[i].getCorse());
+        properties.setProperty(key + "_Branch", student[i].getBranch());
+        properties.setProperty(key + "_Year", String.valueOf(student[i].getYear()));
+        properties.setProperty(key + "_Sem", String.valueOf(student[i].getSem()));
+        properties.setProperty(key + "_Physics", String.valueOf(student[i].getPhysics()));
+        properties.setProperty(key + "_Chemistry", String.valueOf(student[i].getChemistry()));
+        properties.setProperty(key + "_Mathes", String.valueOf(student[i].getMath()));
+        properties.setProperty(key + "_Hindi", String.valueOf(student[i].getHindi()));
+        properties.setProperty(key + "_English", String.valueOf(student[i].getEnglish()));
+        properties.setProperty(key + "_Total", String.valueOf(student[i].getTotal()));
+        properties.setProperty(key + "_AllStudent", String.valueOf(student[i].getI()));
 
         try (FileOutputStream fileOut = new FileOutputStream("Studentdata.properties",
                 true)) {
             properties.store(fileOut, "User Data");
             System.out.println("Data saved successfully.");
+            i++;
         } catch (IOException e) {
         }
 
@@ -329,7 +411,13 @@ public class StoreData extends javax.swing.JFrame {
         mathes_T.setText("");
         hindi_T.setText("");
         english_T.setText("");
+        JOptionPane.showMessageDialog(null, "Student Data Save !");
     }//GEN-LAST:event_submit_BActionPerformed
+
+    private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
+
+
+    }//GEN-LAST:event_formPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

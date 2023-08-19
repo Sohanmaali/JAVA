@@ -1,5 +1,8 @@
 package datapackage;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 public class DataClass implements Serialization // POJO Class
 {
 
@@ -18,11 +21,17 @@ public class DataClass implements Serialization // POJO Class
     private int hindi;
     private int english;
     private double per;
+    private int i;
 
     public DataClass() {
+        ImageIcon imgicon = new ImageIcon("D:/JAVA/DAVV.png");
+        setIconImage(imgicon.getImage());
     }
 
-    public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int roll, int physics, int chemistry, int math, int hindi, int english) {
+    public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int roll, int physics, int chemistry, int math, int hindi, int english, int total, int i) {
+
+        ImageIcon imgicon = new ImageIcon("D:/JAVA/DAVV.png");
+        setIconImage(imgicon.getImage());
         this.name = name;
         this.fname = fname;
         this.mname = mname;
@@ -30,14 +39,15 @@ public class DataClass implements Serialization // POJO Class
         this.branch = branch;
         this.corse = corse;
         this.year = year;
-       
+        this.total = total;
         this.roll = roll;
         this.physics = physics;
         this.chemistry = chemistry;
         this.math = math;
         this.hindi = hindi;
         this.english = english;
-      
+        this.i = i;
+
     }
 
     public String getName() {
@@ -160,4 +170,15 @@ public class DataClass implements Serialization // POJO Class
         this.per = per;
     }
 
+    public int getI() {
+        return i;
+    }
+
+    public void setI(int i) {
+        this.i = i;
+    }
+
+    private void setIconImage(Image image) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

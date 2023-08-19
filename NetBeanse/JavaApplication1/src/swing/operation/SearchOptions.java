@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import javax.swing.ImageIcon;
 import swing.display.Display;
 
 public class SearchOptions extends javax.swing.JFrame {
@@ -14,7 +15,9 @@ public class SearchOptions extends javax.swing.JFrame {
 
     public SearchOptions() {
         initComponents();
-
+        ImageIcon imgicon = new ImageIcon("D:/JAVA/DAVV.png");
+        setIconImage(imgicon.getImage());
+        
         roll = new Label("Enter Roll Number");
         roll.setBounds(40, 150, 130, 30);
         roll1 = new TextField();
@@ -235,14 +238,13 @@ public class SearchOptions extends javax.swing.JFrame {
     }//GEN-LAST:event_searchDivisionActionPerformed
 
     private void searchBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBActionPerformed
-        boolean flage = false;
+
         int rolln = 0;
         name1.setText("");
         try {
             rolln = Integer.parseInt(roll1.getText());
         } catch (NumberFormatException e) {
             System.out.println(e);
-            flage = true;
         }
         this.searchByRollNum(rolln);
 

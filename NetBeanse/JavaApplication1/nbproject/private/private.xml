@@ -5,9 +5,10 @@
         <group>
             <file>file:/D:/JAVA/NetBeanse/JavaApplication1/src/swing/display/Display.java</file>
             <file>file:/D:/JAVA/NetBeanse/JavaApplication1/src/swing/operation/Options.java</file>
-            <file>file:/D:/JAVA/NetBeanse/JavaApplication1/src/swing/operation/SearchOptions.java</file>
             <file>file:/D:/JAVA/NetBeanse/JavaApplication1/src/datapackage/DataClass.java</file>
             <file>file:/D:/JAVA/NetBeanse/JavaApplication1/src/swing/storedata/StoreData.java</file>
+            <file>file:/D:/JAVA/NetBeanse/JavaApplication1/src/swing/admin/AdminLogin.java</file>
+            <file>file:/D:/JAVA/NetBeanse/JavaApplication1/src/swing/admin/Admin.java</file>
             <file>file:/D:/JAVA/NetBeanse/JavaApplication1/src/swing/Clinte.java</file>
         </group>
     </open-files>
