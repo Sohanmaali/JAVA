@@ -1,9 +1,9 @@
-
 package swing;
 
 import javax.swing.ImageIcon;
 import swing.operation.Operation;
 import swing.operation.SearchOptions;
+import swing.operation.StudentSing;
 
 public class Home extends javax.swing.JFrame {
 
@@ -431,7 +431,8 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_login_BActionPerformed
 
     private void sign_up_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sign_up_BActionPerformed
-        // TODO add your handling code here:
+        new StudentSing().setVisible(true);
+        dispose();
     }//GEN-LAST:event_sign_up_BActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -466,10 +467,8 @@ public class Home extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Home().setVisible(true);
         });
     }
 
