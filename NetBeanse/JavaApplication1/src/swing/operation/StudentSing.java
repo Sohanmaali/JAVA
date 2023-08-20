@@ -1,9 +1,12 @@
 package swing.operation;
 
 import datapackage.DataClass;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import swing.Home;
 
@@ -657,30 +660,36 @@ public class StudentSing extends javax.swing.JFrame {
         char[] conPass = user_Password_con.getPassword();
         String conPass_1 = new String(conPass);
         String full_name = name_First.getText() + name_Last.getText();
+
         if (!mobile_Num.getText().trim().isEmpty() && !user_name1.getText().trim().isEmpty() && !father_Name.getText().trim().isEmpty() && !full_name.trim().isEmpty() && !mobile_Num.getText().trim().isEmpty() && !course.getText().trim().isEmpty() && !dob.getText().trim().isEmpty() && !gmail_Id.getText().trim().isEmpty() && !street_Add.getText().trim().isEmpty() && !block.getText().trim().isEmpty() && !distric.getText().trim().isEmpty() && !state.getText().trim().isEmpty() && !pincode.getText().trim().isEmpty() && !password_1.trim().isEmpty() && !conPass_1.trim().isEmpty()) {
         } else {
+            System.out.println("1");
             JOptionPane.showMessageDialog(null, "Please Fill All blanks");
             return;
         }
         if (Operation.checkGmail(gmail_Id.getText())) {
-
+            System.out.println("2");
             JOptionPane.showMessageDialog(null, "Invalide Gmail Id");
             return;
         }
         if (!Operation.checkMobileNumber(mobile_Num.getText())) {
+            System.out.println("3");
             JOptionPane.showMessageDialog(null, "Invalide Mobile Number");
             return;
         }
         if (!Operation.checkZipCode(pincode.getText())) {
+
+            System.out.println("4");
             JOptionPane.showMessageDialog(null, "Invalide Zip COde");
             return;
         }
         if (password.equals(conPass_1)) {
+            System.out.println("5");
             JOptionPane.showMessageDialog(null, "Password Not Match");
             return;
         }
 
-        System.out.println("Hello 1");
+        System.out.println("5");
 
         student[i] = new DataClass();
 
@@ -701,8 +710,30 @@ public class StudentSing extends javax.swing.JFrame {
         student[i].setPassword(conPass_1);
         student[i].setFname(father_Name.getText());
 
+        FileInputStream fileInput1 = null;
+        try {
+            fileInput1 = new FileInputStream("Marksheet.properties");
+            properties.load(fileInput1);
+            System.out.println("6");
+        } catch (IOException e) {
+            System.out.println("7");
+            System.out.println("Error opening file: " + e);
+            return;
+        }
+
         String key;
         key = "User_" + student[i].getUserName();
+
+        String keyCheck = "User_" + user_name1.getText();
+        String login_Id = properties.getProperty(keyCheck + "_User");
+
+        System.out.println(login_Id);
+
+        if (login_Id != null) {
+            user_name1.setText("");
+            JOptionPane.showMessageDialog(null, "USER AllReady EXISIT CHOICE ANATHOR USER NAME");
+            return;
+        }
 
         properties.setProperty(key + "_Name", student[i].getName());
 
@@ -734,15 +765,15 @@ public class StudentSing extends javax.swing.JFrame {
         properties.setProperty(key + "_Password", student[i].getPassword());
 
         System.out.println(student[i].getFname());
-
+        FileOutputStream fileout = null;
         try {
-            FileOutputStream fileout;
+
             fileout = new FileOutputStream("Marksheet.properties", true);
-            properties.store(fileout, "Data Sace Successly");
+            properties.store(fileout, "Data Save Successly");
 
         } catch (IOException e) {
-        } finally {
         }
+
         name_First.setText("");
         name_Last.setText("");
         father_Name.setText("");
@@ -762,6 +793,9 @@ public class StudentSing extends javax.swing.JFrame {
         user_name1.setText("");
         enter_Captch.setText("");
         i++;
+
+//        fileout.close();
+//        fileInput1.close();
         JOptionPane.showMessageDialog(null, "Sign Up successly");
         show_Captch.setText(Operation.ganrateCapcha());
         new Home().setVisible(true);

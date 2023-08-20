@@ -1,5 +1,7 @@
 package swing;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 import javax.swing.ImageIcon;
 import swing.operation.Operation;
@@ -418,15 +420,21 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_User_IdActionPerformed
 
     private void login_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_BActionPerformed
-      
-        String key = User_Id.getText();
 
-        key = properties.getProperty("User_" + userLoginId + "_User");
-      
-        if (key.equals(User_Id.getText())) {
-            key= properties.getProperty("User_" + user_pass);
+        try (FileInputStream fileInput = new FileInputStream("Marksheet.properties")) {
+            properties.load(fileInput);
+        } catch (IOException e) {
+            System.out.println("Error opening file: " + e);
+            return;
+        }
+        String key = "User_" + User_Id.getText();
+        String login_Id = properties.getProperty(key + "_User");
+
+        System.out.println(login_Id);
+        if (login_Id.equals(User_Id.getText())) {
+            key = properties.getProperty(key + "_Password");
             System.out.println(key);
-            if (key.equals(user_pass.getText())) {
+            if (key.equals(new String(user_pass.getPassword()))) {
 
                 if (capcha_Fill.getText().equals(capcha.getText())) {
                     new SearchOptions().setVisible(true);
