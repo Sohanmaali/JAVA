@@ -1,8 +1,5 @@
 package datapackage;
 
-import java.awt.Image;
-import javax.swing.ImageIcon;
-
 public class DataClass implements Serialization // POJO Class
 {
 
@@ -21,17 +18,23 @@ public class DataClass implements Serialization // POJO Class
     private int hindi;
     private int english;
     private double per;
-    private int i;
+    private String dob;
+    private String gender;
+    private String mobileNumber;
+    private String gmail;
+    private String streetAdd;
+    private String block;
+    private String distric;
+    private String state;
+    private String zip;
+    private String userName;
+    private String password;
 
     public DataClass() {
-        ImageIcon imgicon = new ImageIcon("D:/JAVA/DAVV.png");
-        setIconImage(imgicon.getImage());
     }
 
-    public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int roll, int physics, int chemistry, int math, int hindi, int english, int total, int i) {
+    public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int roll, int physics, int chemistry, int math, int hindi, int english, int total) {
 
-        ImageIcon imgicon = new ImageIcon("D:/JAVA/DAVV.png");
-        setIconImage(imgicon.getImage());
         this.name = name;
         this.fname = fname;
         this.mname = mname;
@@ -46,8 +49,123 @@ public class DataClass implements Serialization // POJO Class
         this.math = math;
         this.hindi = hindi;
         this.english = english;
-        this.i = i;
+    }
 
+    public DataClass(String name, String fname, String mname, int sem, String branch, String corse, int year, int total, int roll, int physics, int chemistry, int math, int hindi, int english, double per, String dob, String gender, String mobileNumber, String gmail, String streetAdd, String block, String distric, String state, String zip, String userName, String password) {
+        this.name = name;
+        this.fname = fname;
+        this.mname = mname;
+        this.sem = sem;
+        this.branch = branch;
+        this.corse = corse;
+        this.year = year;
+        this.total = total;
+        this.roll = roll;
+        this.physics = physics;
+        this.chemistry = chemistry;
+        this.math = math;
+        this.hindi = hindi;
+        this.english = english;
+        this.per = per;
+        this.dob = dob;
+        this.gender = gender;
+        this.mobileNumber = mobileNumber;
+        this.gmail = gmail;
+        this.streetAdd = streetAdd;
+        this.block = block;
+        this.distric = distric;
+        this.state = state;
+        this.zip = zip;
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getGmail() {
+        return gmail;
+    }
+
+    public void setGmail(String gmail) {
+        this.gmail = gmail;
+    }
+
+    public String getStreetAdd() {
+        return streetAdd;
+    }
+
+    public void setStreetAdd(String streetAdd) {
+        this.streetAdd = streetAdd;
+    }
+
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
+    }
+
+    public String getDistric() {
+        return distric;
+    }
+
+    public void setDistric(String distric) {
+        this.distric = distric;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -168,17 +286,5 @@ public class DataClass implements Serialization // POJO Class
 
     public void setPer(double per) {
         this.per = per;
-    }
-
-    public int getI() {
-        return i;
-    }
-
-    public void setI(int i) {
-        this.i = i;
-    }
-
-    private void setIconImage(Image image) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

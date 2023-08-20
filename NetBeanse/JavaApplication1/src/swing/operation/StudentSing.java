@@ -1,17 +1,24 @@
 package swing.operation;
 
 import datapackage.DataClass;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import swing.Home;
 
 public class StudentSing extends javax.swing.JFrame {
 
+    DataClass student[] = new DataClass[100];
+    Properties properties = new Properties();
+    static int i = 0;
+
     public StudentSing() {
         initComponents();
         setTitle("Student sing Up Page");
+        show_Captch.setText(Operation.ganrateCapcha());
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -76,7 +83,7 @@ public class StudentSing extends javax.swing.JFrame {
         jLabel1.setText("Rajiv Gandhi Progyogiki Vishwavidyalaya  Student Registration From");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("First Name");
+        jLabel2.setText("First Name*");
 
         name_First.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         name_First.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +93,7 @@ public class StudentSing extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Father Name");
+        jLabel3.setText("Father Name*");
 
         father_Name.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         father_Name.addActionListener(new java.awt.event.ActionListener() {
@@ -103,19 +110,19 @@ public class StudentSing extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("DOB");
+        jLabel4.setText("DOB*");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Mother Name");
+        jLabel5.setText("Mother Name*");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Course");
+        jLabel6.setText("Course*");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Last Name");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("Gmail");
+        jLabel9.setText("Gmail*");
 
         name_Last.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         name_Last.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +160,7 @@ public class StudentSing extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setText("Mobile Num");
+        jLabel10.setText("Mobile Num*");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
@@ -164,13 +171,13 @@ public class StudentSing extends javax.swing.JFrame {
         jLabel11.setText("Address");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel12.setText("Street Address");
+        jLabel12.setText("Street Address*");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel13.setText("Block");
+        jLabel13.setText("Block*");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("State");
+        jLabel14.setText("State*");
 
         street_Add.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         street_Add.addActionListener(new java.awt.event.ActionListener() {
@@ -194,10 +201,10 @@ public class StudentSing extends javax.swing.JFrame {
         });
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel17.setText("Distric");
+        jLabel17.setText("Distric*");
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel18.setText("Zip / Pincode");
+        jLabel18.setText("Zip / Pincode*");
 
         distric.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         distric.addActionListener(new java.awt.event.ActionListener() {
@@ -214,7 +221,7 @@ public class StudentSing extends javax.swing.JFrame {
         });
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel20.setText("Gender");
+        jLabel20.setText("Gender*");
 
         jRadioButton1.setText("Male");
 
@@ -254,10 +261,10 @@ public class StudentSing extends javax.swing.JFrame {
         });
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel19.setText("Password");
+        jLabel19.setText("Password*");
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel21.setText("Coform Password");
+        jLabel21.setText("Coform Password*");
 
         jButton4.setText("Re-ganrate");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -293,7 +300,7 @@ public class StudentSing extends javax.swing.JFrame {
         );
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel23.setText("Enter Capcha");
+        jLabel23.setText("Enter Capcha*");
 
         user_name1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         user_name1.addActionListener(new java.awt.event.ActionListener() {
@@ -622,6 +629,7 @@ public class StudentSing extends javax.swing.JFrame {
         gmail_Id.setText("");
         street_Add.setText("");
         block.setText("");
+        user_name1.setText("");
         distric.setText("");
         state.setText("");
         pincode.setText("");
@@ -629,7 +637,7 @@ public class StudentSing extends javax.swing.JFrame {
         user_Password.setText("");
         user_Password_con.setText("");
         enter_Captch.setText("");
-
+        show_Captch.setText(Operation.ganrateCapcha());
     }//GEN-LAST:event_Clear_BActionPerformed
 
     private void user_name1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_name1ActionPerformed
@@ -641,38 +649,123 @@ public class StudentSing extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String name = name_First.getText();
-        String last_Name = name_Last.getText();
-        String fname = father_Name.getText();
-        String mname = mobile_Num.getText();
-        String corse = course.getText();
-        String DOB = dob.getText();
-        String mobile_num = mobile_Num.getText();
-        String gmail = gmail_Id.getText();
-        String street = street_Add.getText();
-        String block_1 = block.getText();
-        String distric_1 = distric.getText();
-        String state_1 = state.getText();
-        String pincode_1 = pincode.getText();
+
         char[] password = user_Password.getPassword();
         String password_1 = new String(password);
         char[] conPass = user_Password_con.getPassword();
         String conPass_1 = new String(conPass);
-
-        if (!name.trim().isEmpty() && !fname.trim().isEmpty() && !mname.trim().isEmpty() && !corse.trim().isEmpty() && !mobile_num.trim().isEmpty() && !DOB.trim().isEmpty() && !gmail.trim().isEmpty() && !street.trim().isEmpty() && !block_1.trim().isEmpty() && !distric_1.trim().isEmpty() && !state_1.trim().isEmpty() && !pincode_1.trim().isEmpty() && !password_1.trim().isEmpty() && !conPass_1.trim().isEmpty()) {
+        String full_name = name_First.getText() + name_Last.getText();
+        if (!mobile_Num.getText().trim().isEmpty() && !user_name1.getText().trim().isEmpty() && !father_Name.getText().trim().isEmpty() && !full_name.trim().isEmpty() && !mobile_Num.getText().trim().isEmpty() && !course.getText().trim().isEmpty() && !dob.getText().trim().isEmpty() && !gmail_Id.getText().trim().isEmpty() && !street_Add.getText().trim().isEmpty() && !block.getText().trim().isEmpty() && !distric.getText().trim().isEmpty() && !state.getText().trim().isEmpty() && !pincode.getText().trim().isEmpty() && !password_1.trim().isEmpty() && !conPass_1.trim().isEmpty()) {
         } else {
             JOptionPane.showMessageDialog(null, "Please Fill All blanks");
+            return;
+        }
+        if (Operation.checkGmail(gmail_Id.getText())) {
+
+            JOptionPane.showMessageDialog(null, "Invalide Gmail Id");
+            return;
+        }
+        if (!Operation.checkMobileNumber(mobile_Num.getText())) {
+            JOptionPane.showMessageDialog(null, "Invalide Mobile Number");
+            return;
+        }
+        if (!Operation.checkZipCode(pincode.getText())) {
+            JOptionPane.showMessageDialog(null, "Invalide Zip COde");
+            return;
+        }
+        if (password.equals(conPass_1)) {
+            JOptionPane.showMessageDialog(null, "Password Not Match");
+            return;
         }
 
-        properties.setProperty(key + "_Roll", String.valueOf(student[i].getRoll()));
+        System.out.println("Hello 1");
+
+        student[i] = new DataClass();
+
+        student[i].setName(full_name);
+        student[i].setFname(father_Name.getText());
+        student[i].setMname(mother_Name.getText());
+        student[i].setDob(dob.getText());
+        student[i].setCorse(course.getText());
+//        student[i].setGender(ge.getText());
+        student[i].setMobileNumber(mobile_Num.getText());
+        student[i].setGmail(gmail_Id.getText());
+        student[i].setStreetAdd(street_Add.getText());
+        student[i].setBlock(block.getText());
+        student[i].setDistric(distric.getText());
+        student[i].setState(state.getText());
+        student[i].setZip(pincode.getText());
+        student[i].setUserName(user_name1.getText());
+        student[i].setPassword(conPass_1);
+        student[i].setFname(father_Name.getText());
+
+        String key;
+        key = "User_" + student[i].getUserName();
+
         properties.setProperty(key + "_Name", student[i].getName());
+
         properties.setProperty(key + "_FName", student[i].getFname());
+
         properties.setProperty(key + "_MName", student[i].getMname());
+
+        properties.setProperty(key + "_Dob", student[i].getDob());
+
         properties.setProperty(key + "_Course", student[i].getCorse());
-        properties.setProperty(key + "_Branch", student[i].getBranch());
-        properties.setProperty(key + "_Year", String.valueOf(student[i].getYear()));
-        properties.setProperty(key + "_Sem", String.valueOf(student[i].getSem()));
+
+//        properties.setProperty(key + "Mobile", String.valueOf(student[i].getYear()));
+        properties.setProperty(key + "_Mobile", student[i].getMobileNumber());
+
+        properties.setProperty(key + "_Gmail", student[i].getGmail());
+
+        properties.setProperty(key + "_Street", student[i].getStreetAdd());
+
+        properties.setProperty(key + "_Block", student[i].getBlock());
+
+        properties.setProperty(key + "_Distric", student[i].getDistric());
+
+        properties.setProperty(key + "_State", student[i].getState());
+
+        properties.setProperty(key + "_Zip", student[i].getZip());
+
+        properties.setProperty(key + "_User", student[i].getUserName());
+
+        properties.setProperty(key + "_Password", student[i].getPassword());
+
+        System.out.println(student[i].getFname());
+
+        try {
+            FileOutputStream fileout;
+            fileout = new FileOutputStream("Marksheet.properties", true);
+            properties.store(fileout, "Data Sace Successly");
+
+        } catch (IOException e) {
+        } finally {
+        }
+        name_First.setText("");
+        name_Last.setText("");
+        father_Name.setText("");
+        mother_Name.setText("");
+        dob.setText("");
+        course.setText("");
+        mobile_Num.setText("");
+        gmail_Id.setText("");
+        street_Add.setText("");
+        block.setText("");
+        distric.setText("");
+        state.setText("");
+        pincode.setText("");
+        enter_Captch.setText("");
+        user_Password.setText("");
+        user_Password_con.setText("");
+        user_name1.setText("");
+        enter_Captch.setText("");
+        i++;
+        JOptionPane.showMessageDialog(null, "Sign Up successly");
+        show_Captch.setText(Operation.ganrateCapcha());
+        new Home().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

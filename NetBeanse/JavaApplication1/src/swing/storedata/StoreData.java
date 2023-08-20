@@ -370,7 +370,7 @@ public class StoreData extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "INVALIDE Mark");
             return;
         }
-        student[i] = new DataClass(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math, hindi, english, total, i);
+        student[i] = new DataClass(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math, hindi, english, total);
 
         String key = "Roll_" + roll;
 
@@ -388,7 +388,7 @@ public class StoreData extends javax.swing.JFrame {
         properties.setProperty(key + "_Hindi", String.valueOf(student[i].getHindi()));
         properties.setProperty(key + "_English", String.valueOf(student[i].getEnglish()));
         properties.setProperty(key + "_Total", String.valueOf(student[i].getTotal()));
-        properties.setProperty(key + "_AllStudent", String.valueOf(student[i].getI()));
+      
 
         try (FileOutputStream fileOut = new FileOutputStream("Studentdata.properties",
                 true)) {
