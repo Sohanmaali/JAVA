@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import javax.swing.ImageIcon;
 import swing.display.Display;
+import swing.display.ShowMarksheet;
 
 public class SearchOptions extends javax.swing.JFrame {
 
@@ -17,7 +18,7 @@ public class SearchOptions extends javax.swing.JFrame {
         initComponents();
         ImageIcon imgicon = new ImageIcon("D:/JAVA/DAVV.png");
         setIconImage(imgicon.getImage());
-        
+
         roll = new Label("Enter Roll Number");
         roll.setBounds(40, 150, 130, 30);
         roll1 = new TextField();
@@ -292,9 +293,9 @@ public class SearchOptions extends javax.swing.JFrame {
             okB.setVisible(true);
             return;
         }
-        Display display = new Display();
-        display.display(roll);
-        display.setVisible(true);
+        ShowMarksheet show = new ShowMarksheet();
+        show.display(roll);
+        show.setVisible(true);
         dispose();
     }
 

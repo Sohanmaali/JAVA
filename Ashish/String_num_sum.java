@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Main	
+/* class Main	
 {  
 	public static void main(String args[])
 	{ 
@@ -20,5 +20,17 @@ class Main
 			}
 		}
 		System.out.println("Sum  = "+sum);
+	}
+} */
+
+class Main {
+	public static void main(String[] args) {
+		Main.show(2, 1, 3, 4, 5, 6, 9);
+	}
+
+	public static void show(int... a) {
+		for (int element : a) {
+			System.out.println(element);
+		}
 	}
 }
