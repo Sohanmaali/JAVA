@@ -51,7 +51,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="371" max="32767" attributes="0"/>
+                  <EmptySpace pref="314" max="32767" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
               </Group>
@@ -356,7 +356,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Rajiv Gandhi Progyogiki Vishwavidyalaya  Student Registration From"/>
+                <Property name="text" type="java.lang.String" value="RAJIV GANDHI PROGYOGIKI VISHWAVIDYALAYA  STUDENT REGISTRATION FROM"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">

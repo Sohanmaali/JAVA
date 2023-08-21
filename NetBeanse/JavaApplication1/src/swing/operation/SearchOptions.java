@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import javax.swing.ImageIcon;
+import swing.StudentLogin;
 import swing.display.Display;
 import swing.display.ShowMarksheet;
 
@@ -177,7 +178,7 @@ public class SearchOptions extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
 
-        new Options().setVisible(true);
+        new StudentLogin().setVisible(true);
         dispose();
 
     }//GEN-LAST:event_jButton4ActionPerformed

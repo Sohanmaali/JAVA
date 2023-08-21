@@ -2,12 +2,15 @@ class Operation {
     public static void main(String[] args) {
         // String s = ganrateCapcha();
         // String s = "sohanmaali144@gmail.com";
-        // String s = "62323898h2";
-        // System.out.println(checkMobileNumber(s));
-        String password = "2002";
+         String s = "62323898h2";
+        System.out.println(s);
+       /*  String password = "2002";
         String conPass_1 = "20002";
-        System.out.println(password.equals(conPass_1));
-
+        System.out.println(password.equals(conPass_1)); */
+        // System.out.println(checkMobileNumber(s));
+		char ch = '1';
+		int n = ch-'0';
+		System.out.println(n);
     }
 
     public static String ganrateCapcha() {
