@@ -20,6 +20,7 @@ import java.util.Scanner;
 			}
 		}
 		System.out.println("Sum  = "+sum);
+		System.out.println("Sum  = "+sum);
 	}
 } */
 
