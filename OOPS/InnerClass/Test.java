@@ -44,22 +44,27 @@ class Main {
     }
 } */
 
-/* class Test {
+class Test {
+	
     int data = 30;
-+
 
 	abstract class Inner {
         abstract void msg();
     }
 	class X //extends Test.Inner
 	{
-		void msg()
+		public void msg()
 		{
-			System.out.println("i am inner class");
+			System.out.println("i am inner X class");
 		}
 	}
 }
-class Sohan {
+class Sohan extends Test.Inner{
+	
+	public void msg()
+	{
+		System.out.println("i am inner  frome sohan class");
+	}
 }
 
 class Main {
@@ -70,8 +75,9 @@ class Main {
 
 		Test.X in = test.new X();
         in.msg();
+		so.msg();
     }
-} */
+}
 
 /* abstract class Test
 {
