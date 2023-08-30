@@ -14,10 +14,11 @@ public class First {
         ResultSet rs;
         //  String cmd = "insert into Student values(1002,'sohan','rajesh','rani',100)";
 
-        String path = "jdbc:mysql://localhost:3306/Infojava";
+        final String path = "jdbc:mysql://localhost:3306/Infojava";
+        final String idpass = "root";
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection(path, "root", "root");
+        con = DriverManager.getConnection(path, idpass, idpass);
         //   st = con.prepareStatement();
 
         String sql = "select * from Student";

@@ -1,6 +1,11 @@
 class Outer 
 {
 	int a =10;
+	public static void main(String ar[])
+	{
+		Outer.Inner in = new Outer().new Inner();
+		in.m1();
+	}
 	Outer()
 	{
 		
@@ -10,11 +15,6 @@ class Outer
 	void m2()
 	{
 		System.out.println("Outer m2 ");
-	}
-	public static void main(String ar[])
-	{
-		Outer.Inner in = new Outer().new Inner();
-		in.m1();
 	}
 	
 	class Inner
