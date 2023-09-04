@@ -1,4 +1,4 @@
-package jdbc;
+package jdbc.mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,6 +28,5 @@ public class StoreData {
         } finally {
             con.close();
         }
-
     }
 }
