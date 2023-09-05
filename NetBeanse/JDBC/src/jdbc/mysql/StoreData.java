@@ -16,6 +16,7 @@ public class StoreData {
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection(path, "root", "root");
         st = con.createStatement();
+         rs.absolute(i);
         int i = st.executeUpdate(cmd);
         //con.commit();
         if (i > 0) {
