@@ -1,3 +1,7 @@
 /NetBeanse/JavaApplication1/build/
 *.class
 /NetBeanse/JDBC/nbproject/private/
+/NetBeanse/JDBC/build/
+/NetBeanse/JDBC/dist/
+/NetBeanse/JAVA/nbproject/private/
+/NetBeanse/Banking/nbproject/private/
