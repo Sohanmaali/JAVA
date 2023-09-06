@@ -1,14 +1,13 @@
-package swing.operation;
+package swing.admin;
 
 import datapackage.DataClass;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import swing.StudentLogin;
+import swing.operation.Operation;
 
 public class StudentSing extends javax.swing.JFrame {
 
@@ -22,6 +21,9 @@ public class StudentSing extends javax.swing.JFrame {
         show_Captch.setText(Operation.ganrateCapcha());
     }
 
+    public static void main(String[] args) {
+       new StudentSing().setVisible(true);
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -660,23 +662,26 @@ public class StudentSing extends javax.swing.JFrame {
         char[] conPass = user_Password_con.getPassword();
         String conPass_1 = new String(conPass);
         String full_name = name_First.getText() + name_Last.getText();
-
+        System.out.println("1");
         if (!mobile_Num.getText().trim().isEmpty() && !user_name1.getText().trim().isEmpty() && !father_Name.getText().trim().isEmpty() && !full_name.trim().isEmpty() && !mobile_Num.getText().trim().isEmpty() && !course.getText().trim().isEmpty() && !dob.getText().trim().isEmpty() && !gmail_Id.getText().trim().isEmpty() && !street_Add.getText().trim().isEmpty() && !block.getText().trim().isEmpty() && !distric.getText().trim().isEmpty() && !state.getText().trim().isEmpty() && !pincode.getText().trim().isEmpty() && !password_1.trim().isEmpty() && !conPass_1.trim().isEmpty()) {
         } else {
             System.out.println("1");
             JOptionPane.showMessageDialog(null, "Please Fill All blanks");
             return;
         }
-        if (Operation.checkGmail(gmail_Id.getText())) {
+        System.out.println("2");
+        /*  if (Operation.checkGmail(gmail_Id.getText())) {
             System.out.println("2");
             JOptionPane.showMessageDialog(null, "Invalide Gmail Id");
             return;
-        }
+        }*/
+        System.out.println("3");
         if (!Operation.checkMobileNumber(mobile_Num.getText())) {
             System.out.println("3");
             JOptionPane.showMessageDialog(null, "Invalide Mobile Number");
             return;
         }
+        System.out.println("4");
         if (!Operation.checkZipCode(pincode.getText())) {
 
             System.out.println("4");
