@@ -15,7 +15,7 @@ public class Operation {
     public static boolean checkGmail(String gmail) {
         int i = 0;
         for (; i < gmail.length(); i++) {
-            if (gmail.charAt(i) == '@' && gmail.charAt(i + 6) == '.') {
+            if (gmail.charAt(i) == '@') {
                 return true;
             }
         }

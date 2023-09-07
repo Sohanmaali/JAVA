@@ -2,20 +2,20 @@ package admin;
 
 import databaseconnect.*;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 import operation.Operation;
 
 public class StudentSing extends javax.swing.JFrame {
-
-    static int i = 0;
-
+    
     public StudentSing() {
         initComponents();
         setTitle("Student sing Up Page");
         show_Captch.setText(Operation.ganrateCapcha());
     }
-
+    
     public static void main(String[] args) {
         new StudentSing().setVisible(true);
     }
@@ -57,7 +57,7 @@ public class StudentSing extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        submit = new javax.swing.JButton();
         Clear_B = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
@@ -229,10 +229,10 @@ public class StudentSing extends javax.swing.JFrame {
 
         jRadioButton3.setText("Other");
 
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        submit.setText("Submit");
+        submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                submitActionPerformed(evt);
             }
         });
 
@@ -293,10 +293,9 @@ public class StudentSing extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(show_Captch, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -313,10 +312,6 @@ public class StudentSing extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,12 +415,16 @@ public class StudentSing extends javax.swing.JFrame {
                         .addGap(67, 67, 67))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(submit)
                 .addGap(50, 50, 50)
                 .addComponent(Clear_B)
                 .addGap(55, 55, 55)
                 .addComponent(jButton3)
                 .addGap(344, 344, 344))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -513,15 +512,16 @@ public class StudentSing extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                                 .addComponent(enter_Captch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jButton4)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addComponent(jButton4))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(Clear_B)
-                    .addComponent(jButton1))
+                    .addComponent(submit))
                 .addGap(46, 46, 46))
         );
 
@@ -648,46 +648,67 @@ public class StudentSing extends javax.swing.JFrame {
         new StudentLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+    
 
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
+        
         char[] password = user_Password.getPassword();
         String password_1 = new String(password);
         char[] conPass = user_Password_con.getPassword();
         String conPass_1 = new String(conPass);
         String full_name = name_First.getText() + name_Last.getText();
         System.out.println("1");
-        /*  if (!mobile_Num.getText().trim().isEmpty() && !user_name1.getText().trim().isEmpty() && !father_Name.getText().trim().isEmpty() && !full_name.trim().isEmpty() && !mobile_Num.getText().trim().isEmpty() && !course.getText().trim().isEmpty() && !dob.getText().trim().isEmpty() && !gmail_Id.getText().trim().isEmpty() && !street_Add.getText().trim().isEmpty() && !block.getText().trim().isEmpty() && !distric.getText().trim().isEmpty() && !state.getText().trim().isEmpty() && !pincode.getText().trim().isEmpty() && !password_1.trim().isEmpty() && !conPass_1.trim().isEmpty()) {
+        if (!enter_Captch.getText().trim().isEmpty() && !mobile_Num.getText().trim().isEmpty() && !user_name1.getText().trim().isEmpty() && !father_Name.getText().trim().isEmpty() && !full_name.trim().isEmpty() && !mobile_Num.getText().trim().isEmpty() && !course.getText().trim().isEmpty() && !dob.getText().trim().isEmpty() && !gmail_Id.getText().trim().isEmpty() && !street_Add.getText().trim().isEmpty() && !block.getText().trim().isEmpty() && !distric.getText().trim().isEmpty() && !state.getText().trim().isEmpty() && !pincode.getText().trim().isEmpty() && !password_1.trim().isEmpty() && !conPass_1.trim().isEmpty()) {
         } else {
-            System.out.println("1");
-            JOptionPane.showMessageDialog(null, "Please Fill All blanks");
+            
+            JOptionPane.showMessageDialog(null, "Please Fill All Blanks");
+            show_Captch.setText(Operation.ganrateCapcha());
             return;
         }
-        System.out.println("2");
-        if (Operation.checkGmail(gmail_Id.getText())) {
-            System.out.println("2");
+        
+        if (!Operation.checkGmail(gmail_Id.getText())) {
             JOptionPane.showMessageDialog(null, "Invalide Gmail Id");
+            gmail_Id.setText("");
             return;
         }
-        System.out.println("3");
+        
         if (!Operation.checkMobileNumber(mobile_Num.getText())) {
             System.out.println("3");
             JOptionPane.showMessageDialog(null, "Invalide Mobile Number");
+            mobile_Num.setText("");
             return;
         }
         System.out.println("4");
         if (!Operation.checkZipCode(pincode.getText())) {
-
+            
             System.out.println("4");
             JOptionPane.showMessageDialog(null, "Invalide Zip COde");
+            pincode.setText("");
             return;
         }
-        if (password.equals(conPass_1)) {
-            System.out.println("5");
+        if (!password_1.equals(conPass_1)) {
             JOptionPane.showMessageDialog(null, "Password Not Match");
+            user_Password.setText("");
+            user_Password_con.setText("");
             return;
-        }*/
+        }
+        if (!enter_Captch.getText().equals(show_Captch.getText())) {
+            JOptionPane.showMessageDialog(null, "Invalide Captch");
+            enter_Captch.setText("");
+            show_Captch.setText(Operation.ganrateCapcha());
+            return;
+        }
+        try {
+            if (DataBaseConnect.checkUserID(user_name1.getText())) {
+                JOptionPane.showMessageDialog(null, "User AllReady Exist");
+                user_name1.setText("");
+                return;
+                
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            // Logger.getLogger(StudentSing.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         try {
             DataBaseConnect.storePersnalData(name_First.getText(), name_Last.getText(), father_Name.getText(), mother_Name.getText(), dob.getText(), course.getText(), jRadioButton1.getText(), mobile_Num.getText(), gmail_Id.getText());
         } catch (ClassNotFoundException | SQLException ex) {
@@ -702,7 +723,10 @@ public class StudentSing extends javax.swing.JFrame {
             DataBaseConnect.storeIdPassword(user_name1.getText(), password_1);
         } catch (ClassNotFoundException | SQLException e) {
         }
-        System.out.println("3");
+        JOptionPane.showMessageDialog(null, "Sign Up successly");
+        show_Captch.setText(Operation.ganrateCapcha());
+        new StudentLogin().setVisible(true);
+        dispose();
         name_First.setText("");
         name_Last.setText("");
         father_Name.setText("");
@@ -721,13 +745,7 @@ public class StudentSing extends javax.swing.JFrame {
         user_Password_con.setText("");
         user_name1.setText("");
         enter_Captch.setText("");
-        i++;
-
-        JOptionPane.showMessageDialog(null, "Sign Up successly");
-        show_Captch.setText(Operation.ganrateCapcha());
-        new StudentLogin().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_submitActionPerformed
     /*
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -739,7 +757,6 @@ public class StudentSing extends javax.swing.JFrame {
     private javax.swing.JTextField enter_Captch;
     private javax.swing.JTextField father_Name;
     private javax.swing.JTextField gmail_Id;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -778,6 +795,7 @@ public class StudentSing extends javax.swing.JFrame {
     private javax.swing.JLabel show_Captch;
     private javax.swing.JTextField state;
     private javax.swing.JTextField street_Add;
+    private javax.swing.JButton submit;
     private javax.swing.JPasswordField user_Password;
     private javax.swing.JPasswordField user_Password_con;
     private javax.swing.JTextField user_name1;
