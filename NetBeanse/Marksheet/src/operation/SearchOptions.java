@@ -1,41 +1,35 @@
-package swing.operation;
+package operation;
 
 import java.awt.*;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-import javax.swing.ImageIcon;
-import swing.StudentLogin;
-import swing.display.Display;
-import swing.display.ShowMarksheet;
+
+import admin.StudentLogin;
+import display.*;
+import java.sql.SQLException;
 
 public class SearchOptions extends javax.swing.JFrame {
 
-    Label name, roll;
-    TextField name1, roll1;
-    Properties properties = new Properties();
+    Label roll;
+    TextField roll1;
+
+    public static void main(String[] args) {
+        new SearchOptions().setVisible(true);
+    }
 
     public SearchOptions() {
         initComponents();
-        ImageIcon imgicon = new ImageIcon("D:/JAVA/DAVV.png");
-        setIconImage(imgicon.getImage());
 
         roll = new Label("Enter Roll Number");
         roll.setBounds(40, 150, 130, 30);
         roll1 = new TextField();
         roll1.setBounds(190, 150, 140, 30);
 
-        name = new Label("Enter Your Name");
-        name.setBounds(40, 150, 130, 30);
-        name1 = new TextField();
-        name1.setBounds(190, 150, 140, 30);
         searchB.setVisible(false);
         firstD.setVisible(false);
         secondD.setVisible(false);
         thirdD.setVisible(false);
         rollNotFound.setVisible(false);
         okB.setVisible(false);
-
+        System.out.println("1");
     }
 
     @SuppressWarnings("unchecked")
@@ -183,24 +177,14 @@ public class SearchOptions extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    Object searchRollnumber;
-    Object searchByName;
-
     private void searchNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchNameActionPerformed
         roll.setVisible(false);
         roll1.setVisible(false);
-
-        name.setVisible(true);
-        name1.setVisible(true);
-
-        this.add(name);
-        this.add(name1);
 
         searchB.setVisible(true);
         firstD.setVisible(false);
         secondD.setVisible(false);
         thirdD.setVisible(false);
-        searchByName = evt.getSource();
 
         rollNotFound.setVisible(false);
         okB.setVisible(false);
@@ -213,15 +197,10 @@ public class SearchOptions extends javax.swing.JFrame {
         roll.setVisible(true);
         roll1.setVisible(true);
 
-        name.setVisible(false);
-        name1.setVisible(false);
-
         searchB.setVisible(true);
         firstD.setVisible(false);
         secondD.setVisible(false);
         thirdD.setVisible(false);
-
-        searchRollnumber = evt.getSource();
 
         rollNotFound.setVisible(false);
         okB.setVisible(false);
@@ -230,8 +209,7 @@ public class SearchOptions extends javax.swing.JFrame {
     private void searchDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchDivisionActionPerformed
         roll.setVisible(false);
         roll1.setVisible(false);
-        name.setVisible(false);
-        name1.setVisible(false);
+
         searchB.setVisible(true);
         searchB.setVisible(false);
         firstD.setVisible(true);
@@ -242,26 +220,23 @@ public class SearchOptions extends javax.swing.JFrame {
     private void searchBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBActionPerformed
 
         int rolln = 0;
-        name1.setText("");
+
         try {
             rolln = Integer.parseInt(roll1.getText());
-        } catch (NumberFormatException e) {
-            System.out.println(e);
-        }
-        this.searchByRollNum(rolln);
+            this.searchByRollNum(rolln);
 
-        if (searchRollnumber == searchB) {
-            searchRollnumber = null;
-            if (rolln == 0) {
-                rollNotFound.setText("PLEASE ENTER ROLL NUMBER");
-                rollNotFound.setVisible(true);
-                return;
-            } else {
-                this.searchByRollNum(rolln);
-            }
-        } else if (searchByName == searchB) {
-            searchByName = null;
+        } catch (NumberFormatException | ClassNotFoundException | SQLException ex) {
+
+            System.out.println(ex);
         }
+
+        if (rolln == 0) {
+            rollNotFound.setText("PLEASE ENTER ROLL NUMBER");
+            rollNotFound.setVisible(true);
+            return;
+        } else {
+        }
+
         roll1.setText("");
     }//GEN-LAST:event_searchBActionPerformed
 
@@ -274,30 +249,17 @@ public class SearchOptions extends javax.swing.JFrame {
         okB.setVisible(false);
         roll1.setText("");
     }//GEN-LAST:event_okBActionPerformed
-    public void searchByRollNum(int roll) {
-
-        try (FileInputStream fileInput = new FileInputStream("Studentdata.properties")) {
-            properties.load(fileInput);
-        } catch (IOException e) {
-            System.out.println("Error opening file: " + e);
-            return;
-        }
-        String rollKey = "Roll_" + roll; // Construct the correct roll key
-        System.out.println("Looking for roll key: " + rollKey); // Debug statement
-
-        String key;
-        key = properties.getProperty(rollKey + "_Roll");
-        if (key == null) {
-            System.out.println("No user data found for the provided roll number.");
-            rollNotFound.setText("ROLL NUMBER NOT FOUND");
-            rollNotFound.setVisible(true);
-            okB.setVisible(true);
-            return;
-        }
+    public void searchByRollNum(int roll) throws ClassNotFoundException, SQLException {
+        System.out.println("3");
         ShowMarksheet show = new ShowMarksheet();
+        System.out.println("4");
         show.display(roll);
+        System.out.println("5");
         show.setVisible(true);
+        System.out.println("6");
         dispose();
+
+        System.out.println("2");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

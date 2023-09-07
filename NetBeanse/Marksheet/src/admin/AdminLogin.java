@@ -1,16 +1,14 @@
-package swing.admin;
+package admin;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import static databaseconnect.DataBaseConnect.checkAdminIDPassword;
+
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import swing.RgpvHome;
-import swing.operation.Operation;
+
+import operation.Operation;
+import swing.RGPVHOM;
 
 public class AdminLogin extends javax.swing.JFrame {
-
-    Operation operation = new Operation();
-    Properties properties = new Properties();
 
     public AdminLogin() {
         initComponents();
@@ -412,47 +410,20 @@ public class AdminLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void login_B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_B1ActionPerformed
-
-        try (FileInputStream fileInput = new FileInputStream("Marksheet.properties")) {
-            properties.load(fileInput);
-        } catch (IOException e) {
-            System.out.println("Error opening file: " + e);
-            return;
+        if (show_Captch.getText().equals(enter_Captch.getText())) {
+            JOptionPane.showMessageDialog(null, "Invalide Captcha");
         }
-        String key = "Admin_" + admin_Id.getText();
-        String login_Id = properties.getProperty(key + "_Admin");
-
-        System.out.println(login_Id);
-        if (null == login_Id) {
-            admin_Id.setText("");
-            admin_password.setText("");
-            show_Captch.setText(Operation.ganrateCapcha());
-            JOptionPane.showMessageDialog(null, "Admin Not Found");
-            return;
-        }
-        if (login_Id.equals(admin_Id.getText())) {
-            key = properties.getProperty(key + "_Password");
-            System.out.println(key);
-            if (key.equals(new String(admin_password.getPassword()))) {
-
-                if (enter_Captch.getText().equals(show_Captch.getText())) {
-                    new Admin().setVisible(true);
-                    admin_Id.setText("");
-                    admin_password.setText("");
-                    dispose();
-                } else {
-
-                    show_Captch.setText(Operation.ganrateCapcha());
-                    enter_Captch.setText("");
-                    JOptionPane.showMessageDialog(null, "Invalide CAPTCH");
-                }
-            } else {
+        enter_Captch.setText("");
+        try {
+            if (checkAdminIDPassword(admin_Id.getText(), admin_password.getText())) {
+                new Admin().setVisible(true);
+                admin_Id.setText("");
                 admin_password.setText("");
-                JOptionPane.showMessageDialog(null, "Invalide CAPTCH");
-
+                dispose();
+            } else {
             }
-        } else {
-            admin_Id.setText("");
+        } catch (ClassNotFoundException | SQLException ex) {
+
         }
 
     }//GEN-LAST:event_login_B1ActionPerformed
@@ -462,7 +433,7 @@ public class AdminLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void enter_CaptchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enter_CaptchActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_enter_CaptchActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -470,7 +441,7 @@ public class AdminLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new RgpvHome().setVisible(true);
+        new RGPVHOM().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 

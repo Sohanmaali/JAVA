@@ -1,10 +1,10 @@
-package swing.display;
+
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import javax.swing.ImageIcon;
-import swing.operation.SearchOptions;
+import operation.SearchOptions;
 
 public final class Display extends javax.swing.JFrame {
 
@@ -218,8 +218,6 @@ public final class Display extends javax.swing.JFrame {
                 backBActionPerformed(evt);
             }
         });
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sohan_Maali\\Desktop\\DAVV - Copy.png")); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("FORMERLY INDORE UNIVERSITY, INDORE");

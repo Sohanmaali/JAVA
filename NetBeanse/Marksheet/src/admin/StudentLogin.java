@@ -1,14 +1,19 @@
-package swing;
+package admin;
 
+import databaseconnect.DataBaseConnect;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import swing.admin.LoginOption;
-import swing.operation.Operation;
-import swing.operation.SearchOptions;
-import swing.admin.StudentSing;
+import swing.RgpvHome;
+import admin.LoginOption;
+import operation.Operation;
+import operation.SearchOptions;
+import admin.StudentSing;
 
 public class StudentLogin extends javax.swing.JFrame {
 
@@ -463,49 +468,15 @@ public class StudentLogin extends javax.swing.JFrame {
 
     private void login_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_BActionPerformed
 
-        try (FileInputStream fileInput = new FileInputStream("Marksheet.properties")) {
-            properties.load(fileInput);
-        } catch (IOException e) {
-            System.out.println("Error opening file: " + e);
-            return;
-        }
-        String key = "User_" + User_Id.getText();
-        String login_Id = properties.getProperty(key + "_User");
-
-        System.out.println(login_Id);
-        if (null == login_Id) {
-            User_Id.setText("");
-            user_pass.setText("");
-            capcha.setText(Operation.ganrateCapcha());
-            JOptionPane.showMessageDialog(null, "Student Not Found");
-            return;
-        }
-        if (login_Id.equals(User_Id.getText())) {
-            key = properties.getProperty(key + "_Password");
-            System.out.println(key);
-            if (key.equals(new String(user_pass.getPassword()))) {
-
-                if (capcha_Fill.getText().equals(capcha.getText())) {
-                    new SearchOptions().setVisible(true);
-                    User_Id.setText("");
-                    user_pass.setText("");
-                    dispose();
-                } else {
-                    massage.setVisible(true);
-                    capcha.setText(Operation.ganrateCapcha());
-                    capcha_Fill.setText("");
-                    massage.setText("Invalide Captcha ");
-                }
-            } else {
-                user_pass.setText("");
-                massage.setVisible(true);
-                massage.setText("Invalide Password");
+        try {
+            if (DataBaseConnect.checkUserIDPassword(User_Id.getText(), user_pass.getText())) {
+                new SearchOptions().setVisible(true);
+                dispose();
             }
-        } else {
-            User_Id.setText("");
-            massage.setVisible(true);
-            massage.setText("Invalide User ID");
+        } catch (ClassNotFoundException | SQLException ex) {
+            // Logger.getLogger(StudentLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }//GEN-LAST:event_login_BActionPerformed
 
     private void sign_up_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sign_up_BActionPerformed

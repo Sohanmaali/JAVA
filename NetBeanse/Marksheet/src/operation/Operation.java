@@ -1,9 +1,5 @@
-package swing.operation;
+package operation;
 
-/**
- *
- * @author Sohan_Maali
- */
 public class Operation {
 
     public static String ganrateCapcha() {

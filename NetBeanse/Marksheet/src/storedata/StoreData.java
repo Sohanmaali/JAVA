@@ -1,18 +1,17 @@
-package swing.storedata;
+package storedata;
 
-import datapackage.DataClass;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Properties;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import swing.admin.Admin;
+import admin.Admin;
+import static databaseconnect.DataBaseConnect.storeStudentMarks;
+import java.sql.SQLException;
+
+import static validations.Validations.checkMarks;
+
+import static validations.Validations.checkSemester;
+import static validations.Validations.checkYear;
 
 public class StoreData extends javax.swing.JFrame {
-
-    DataClass student[] = new DataClass[100];
-    Properties properties = new Properties();
-    static int i = 0;
 
     public StoreData() {
         initComponents();
@@ -165,21 +164,22 @@ public class StoreData extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(fname_T, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(mother_l, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(roll_T, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
-                                .addComponent(name_l, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(course_T, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(branch_l, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(year_T, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(sem_l, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(fname_T, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(mother_l, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(roll_T, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(57, 57, 57)
+                                    .addComponent(name_l, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(year_T, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(sem_l, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -204,29 +204,19 @@ public class StoreData extends javax.swing.JFrame {
                     .addComponent(mname_T, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mother_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(father_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(course_T, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(course_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(branch_T, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(branch_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(year_T, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(year_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(sem_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sem_T, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(course_T, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(course_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(branch_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(branch_T, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(year_T, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(year_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sem_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sem_T, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(physics_T, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chemistry_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,112 +282,65 @@ public class StoreData extends javax.swing.JFrame {
         String branch = branch_T.getText();
         String corse = course_T.getText();
 
-        int sem;
-        int year;
-        int roll;
-        int physics;
-        int chemistry;
-        int math;
-        int hindi;
-        int english;
-
         if (!name.trim().isEmpty() && !fname.trim().isEmpty() && !mname.trim().isEmpty()
                 && !branch.trim().isEmpty() && !corse.trim().isEmpty()) {
         } else {
-            JOptionPane.showMessageDialog(null, "Please Fill All blanks");
+            JOptionPane.showMessageDialog(null, "Please Fill All lanks");
             return; // Fields should not be empty or contain only spaces
         }
-        try {
-            year = Integer.parseInt(year_T.getText());
-            // ... (similarly for other integer inputs)
-        } catch (NumberFormatException e) {
+
+        if (!checkYear(year_T.getText())) {
             JOptionPane.showMessageDialog(null, "INVALIDE YEAR");
             year_T.setText("");
             return;
         }
 
-        try {
-            roll = Integer.parseInt(roll_T.getText());
-        } catch (NumberFormatException e) {
-           JOptionPane.showMessageDialog(null, "Invalide Roll Number");
-            return;
-        }
-        try {
-            sem = Integer.parseInt(sem_T.getText());
-            // ... (similarly for other integer inputs)
-        } catch (NumberFormatException e) {
+//        if (!checkRollNumber(roll_T.getText())) {
+//            JOptionPane.showMessageDialog(null, "Invalide Roll Number");
+//            roll_T.setText("");
+//            return;
+//        }
+        if (!checkSemester(sem_T.getText(), Integer.parseInt(year_T.getText()))) {
             JOptionPane.showMessageDialog(null, "INVALIDE Semester");
+            sem_T.setText("");
             return;
         }
-        try {
-            physics = Integer.parseInt(physics_T.getText());
-            // ... (similarly for other integer inputs)
-        } catch (NumberFormatException e) {
-           JOptionPane.showMessageDialog(null, "INVALIDE Mark of physics");
+
+        if (!checkMarks(physics_T.getText())) {
+
+            JOptionPane.showMessageDialog(null, "INVALIDE Mark of physics");
+            physics_T.setText("");
             return;
         }
-        try {
-            chemistry = Integer.parseInt(sem_T.getText());
-            // ... (similarly for other integer inputs)
-        } catch (NumberFormatException e) {
+        if (!checkMarks(chemistry_T.getText())) {
+
             JOptionPane.showMessageDialog(null, "INVALIDE Mark of chemistry");
+            chemistry_T.setText("");
             return;
         }
-        try {
-            math = Integer.parseInt(mathes_T.getText());
-            // ... (similarly for other integer inputs)
-        } catch (NumberFormatException e) {
+        if (!checkMarks(mathes_T.getText())) {
+
             JOptionPane.showMessageDialog(null, "INVALIDE Mark of math");
+            mathes_T.setText("");
             return;
         }
-        try {
-            hindi = Integer.parseInt(hindi_T.getText());
-            // ... (similarly for other integer inputs)
-        } catch (NumberFormatException e) {
+        if (!checkMarks(hindi_T.getText())) {
+
             JOptionPane.showMessageDialog(null, "INVALIDE Mark of Hindi");
+            hindi_T.setText("");
+            return;
+        }
+        if (!checkMarks(english_T.getText())) {
+
+            JOptionPane.showMessageDialog(null, "INVALIDE Mark of English");
+            english_T.setText("");
             return;
         }
         try {
-            english = Integer.parseInt(english_T.getText());
-            // ... (similarly for other integer inputs)
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "INVALIDE Mark of English");
-            return;
+            storeStudentMarks(Integer.parseInt(physics_T.getText()), Integer.parseInt(chemistry_T.getText()), Integer.parseInt(mathes_T.getText()), Integer.parseInt(hindi_T.getText()), Integer.parseInt(english_T.getText()));
+        } catch (ClassNotFoundException | SQLException ex) {
+            //Logger.getLogger(StoreData.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int total = physics + chemistry + math + hindi + english;
-        
-        if (english > 100 || physics < 0 || physics > 100 || chemistry < 0 || chemistry > 100 || math < 0 || math > 100 || hindi < 0 || hindi > 100 || english < 0) {
-            JOptionPane.showMessageDialog(null, "INVALIDE Mark");
-            return;
-        }
-        student[i] = new DataClass(name, fname, mname, sem, branch, corse, year, roll, physics, chemistry, math, hindi, english, total);
-
-        String key = "Roll_" + roll;
-
-        properties.setProperty(key + "_Roll", String.valueOf(student[i].getRoll()));
-        properties.setProperty(key + "_Name", student[i].getName());
-        properties.setProperty(key + "_FName", student[i].getFname());
-        properties.setProperty(key + "_MName", student[i].getMname());
-        properties.setProperty(key + "_Course", student[i].getCorse());
-        properties.setProperty(key + "_Branch", student[i].getBranch());
-        properties.setProperty(key + "_Year", String.valueOf(student[i].getYear()));
-        properties.setProperty(key + "_Sem", String.valueOf(student[i].getSem()));
-        properties.setProperty(key + "_Physics", String.valueOf(student[i].getPhysics()));
-        properties.setProperty(key + "_Chemistry", String.valueOf(student[i].getChemistry()));
-        properties.setProperty(key + "_Mathes", String.valueOf(student[i].getMath()));
-        properties.setProperty(key + "_Hindi", String.valueOf(student[i].getHindi()));
-        properties.setProperty(key + "_English", String.valueOf(student[i].getEnglish()));
-        properties.setProperty(key + "_Total", String.valueOf(student[i].getTotal()));
-      
-
-        try (FileOutputStream fileOut = new FileOutputStream("Studentdata.properties",
-                true)) {
-            properties.store(fileOut, "User Data");
-            System.out.println("Data saved successfully.");
-            i++;
-        } catch (IOException e) {
-        }
-
         roll_T.setText("");
         name_T.setText("");
         fname_T.setText("");

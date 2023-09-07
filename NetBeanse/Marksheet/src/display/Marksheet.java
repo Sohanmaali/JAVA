@@ -1,9 +1,11 @@
-package swing.display;
+package display;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-import swing.StudentLogin;
+import admin.StudentLogin;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Marksheet extends javax.swing.JFrame {
 
@@ -11,54 +13,33 @@ public class Marksheet extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void display(int roll) {
-        Properties properties = new Properties();
-        try (FileInputStream fileInput = new FileInputStream("Studentdata.properties")) {
-            properties.load(fileInput);
-        } catch (IOException e) {
-            System.out.println("Error opening file: " + e);
-            return;
-        }
-        String rollKey = "Roll_" + roll;
-        roll_Num.setText(properties.getProperty(rollKey + "_Roll"));
+    public void display(int roll) throws ClassNotFoundException, SQLException {
 
-        String nameKey = "Roll_" + roll;
-        name.setText(properties.getProperty(nameKey + "_Name"));
+        PreparedStatement st;
+        Connection con;
+        ResultSet rs;
 
-        String fnameKey = "Roll_" + roll;
-        F_Name.setText(properties.getProperty(fnameKey + "_FName"));
+        String path = "jdbc:mysql://localhost:3306/marksheet";
 
-        String mnameKey = "Roll_" + roll;
-        m_Name.setText(properties.getProperty(mnameKey + "_MName"));
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        con = DriverManager.getConnection(path, "root", "root");
 
-        String branchKey = "Roll_" + roll;
-        branch.setText(properties.getProperty(branchKey + "_Branch"));
+        String sql = "select * from marks where roll = '" + roll + "'";
+//        String sql1 = "select * from stregistration";
 
-//        String courseKey = "Roll_" + roll;
-//        course.setText(properties.getProperty(courseKey + "_Course"));
-        String yearKey = "Roll_" + roll;
-        year.setText(properties.getProperty(yearKey + "_Year"));
+        st = con.prepareStatement(sql);
+//        st1 = con.prepareStatement(sql1);
+        rs = st.executeQuery();
 
-        String semKey = "Roll_" + roll;
-        sem.setText(properties.getProperty(semKey + "_Sem"));
+        rs.next();
 
-        String hindiKey = "Roll_" + roll;
-        hindi.setText(properties.getProperty(hindiKey + "_Hindi"));
-
-        String englishKey = "Roll_" + roll;
-        english.setText(properties.getProperty(englishKey + "_English"));
-
-        String mathKey = "Roll_" + roll;
-        math.setText(properties.getProperty(mathKey + "_Mathes"));
-
-        String physicsKey = "Roll_" + roll;
-        phy.setText(properties.getProperty(physicsKey + "_Physics"));
-
-        String chemistryKey = "Roll_" + roll;
-        chem.setText(properties.getProperty(chemistryKey + "_Chemistry"));
-
-        String totalKey = "Roll_" + roll;
-        total.setText(properties.getProperty(totalKey + "_Total"));
+        phy.setText(String.valueOf(rs.getInt(1)));
+        chem.setText(String.valueOf(rs.getInt(2)));
+        math.setText(String.valueOf(rs.getInt(3)));
+        english.setText(String.valueOf(rs.getInt(4)));
+        hindi.setText(String.valueOf(rs.getInt(5)));
+        System.out.println(phy.getText() + "\n" + chem.getText() + "\n" + math.getText() + "\n" + english.getText() + "\n" + hindi.getText() + "\n");
+        con.close();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
@@ -1096,7 +1077,6 @@ public class Marksheet extends javax.swing.JFrame {
     private javax.swing.JLabel hindi;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1107,7 +1087,6 @@ public class Marksheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1118,7 +1097,6 @@ public class Marksheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -1129,7 +1107,6 @@ public class Marksheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -1139,19 +1116,13 @@ public class Marksheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

@@ -1,7 +1,7 @@
-package swing.operation;
+package operation;
 
 import javax.swing.ImageIcon;
-import swing.admin.AdminLogin;
+import admin.AdminLogin;
 
 public class Options extends javax.swing.JFrame {
     

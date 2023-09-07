@@ -2,7 +2,7 @@ package swing;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import swing.operation.Options;
+import operation.Options;
 
 public class Clinte {
 

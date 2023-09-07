@@ -1,18 +1,13 @@
-package swing.admin;
+package admin;
 
-import datapackage.DataClass;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Properties;
+import databaseconnect.*;
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
-import swing.StudentLogin;
-import swing.operation.Operation;
+import operation.Operation;
 
 public class StudentSing extends javax.swing.JFrame {
 
-    DataClass student[] = new DataClass[100];
-    Properties properties = new Properties();
     static int i = 0;
 
     public StudentSing() {
@@ -22,7 +17,7 @@ public class StudentSing extends javax.swing.JFrame {
     }
 
     public static void main(String[] args) {
-       new StudentSing().setVisible(true);
+        new StudentSing().setVisible(true);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -663,18 +658,18 @@ public class StudentSing extends javax.swing.JFrame {
         String conPass_1 = new String(conPass);
         String full_name = name_First.getText() + name_Last.getText();
         System.out.println("1");
-        if (!mobile_Num.getText().trim().isEmpty() && !user_name1.getText().trim().isEmpty() && !father_Name.getText().trim().isEmpty() && !full_name.trim().isEmpty() && !mobile_Num.getText().trim().isEmpty() && !course.getText().trim().isEmpty() && !dob.getText().trim().isEmpty() && !gmail_Id.getText().trim().isEmpty() && !street_Add.getText().trim().isEmpty() && !block.getText().trim().isEmpty() && !distric.getText().trim().isEmpty() && !state.getText().trim().isEmpty() && !pincode.getText().trim().isEmpty() && !password_1.trim().isEmpty() && !conPass_1.trim().isEmpty()) {
+        /*  if (!mobile_Num.getText().trim().isEmpty() && !user_name1.getText().trim().isEmpty() && !father_Name.getText().trim().isEmpty() && !full_name.trim().isEmpty() && !mobile_Num.getText().trim().isEmpty() && !course.getText().trim().isEmpty() && !dob.getText().trim().isEmpty() && !gmail_Id.getText().trim().isEmpty() && !street_Add.getText().trim().isEmpty() && !block.getText().trim().isEmpty() && !distric.getText().trim().isEmpty() && !state.getText().trim().isEmpty() && !pincode.getText().trim().isEmpty() && !password_1.trim().isEmpty() && !conPass_1.trim().isEmpty()) {
         } else {
             System.out.println("1");
             JOptionPane.showMessageDialog(null, "Please Fill All blanks");
             return;
         }
         System.out.println("2");
-        /*  if (Operation.checkGmail(gmail_Id.getText())) {
+        if (Operation.checkGmail(gmail_Id.getText())) {
             System.out.println("2");
             JOptionPane.showMessageDialog(null, "Invalide Gmail Id");
             return;
-        }*/
+        }
         System.out.println("3");
         if (!Operation.checkMobileNumber(mobile_Num.getText())) {
             System.out.println("3");
@@ -692,93 +687,22 @@ public class StudentSing extends javax.swing.JFrame {
             System.out.println("5");
             JOptionPane.showMessageDialog(null, "Password Not Match");
             return;
-        }
-
-        System.out.println("5");
-
-        student[i] = new DataClass();
-
-        student[i].setName(full_name);
-        student[i].setFname(father_Name.getText());
-        student[i].setMname(mother_Name.getText());
-        student[i].setDob(dob.getText());
-        student[i].setCorse(course.getText());
-//        student[i].setGender(ge.getText());
-        student[i].setMobileNumber(mobile_Num.getText());
-        student[i].setGmail(gmail_Id.getText());
-        student[i].setStreetAdd(street_Add.getText());
-        student[i].setBlock(block.getText());
-        student[i].setDistric(distric.getText());
-        student[i].setState(state.getText());
-        student[i].setZip(pincode.getText());
-        student[i].setUserName(user_name1.getText());
-        student[i].setPassword(conPass_1);
-        student[i].setFname(father_Name.getText());
-
-        FileInputStream fileInput1 = null;
+        }*/
         try {
-            fileInput1 = new FileInputStream("Marksheet.properties");
-            properties.load(fileInput1);
-            System.out.println("6");
-        } catch (IOException e) {
-            System.out.println("7");
-            System.out.println("Error opening file: " + e);
-            return;
+            DataBaseConnect.storePersnalData(name_First.getText(), name_Last.getText(), father_Name.getText(), mother_Name.getText(), dob.getText(), course.getText(), jRadioButton1.getText(), mobile_Num.getText(), gmail_Id.getText());
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println(ex);
         }
-
-        String key;
-        key = "User_" + student[i].getUserName();
-
-        String keyCheck = "User_" + user_name1.getText();
-        String login_Id = properties.getProperty(keyCheck + "_User");
-
-        System.out.println(login_Id);
-
-        if (login_Id != null) {
-            user_name1.setText("");
-            JOptionPane.showMessageDialog(null, "USER AllReady EXISIT CHOICE ANATHOR USER NAME");
-            return;
-        }
-
-        properties.setProperty(key + "_Name", student[i].getName());
-
-        properties.setProperty(key + "_FName", student[i].getFname());
-
-        properties.setProperty(key + "_MName", student[i].getMname());
-
-        properties.setProperty(key + "_Dob", student[i].getDob());
-
-        properties.setProperty(key + "_Course", student[i].getCorse());
-
-//        properties.setProperty(key + "Mobile", String.valueOf(student[i].getYear()));
-        properties.setProperty(key + "_Mobile", student[i].getMobileNumber());
-
-        properties.setProperty(key + "_Gmail", student[i].getGmail());
-
-        properties.setProperty(key + "_Street", student[i].getStreetAdd());
-
-        properties.setProperty(key + "_Block", student[i].getBlock());
-
-        properties.setProperty(key + "_Distric", student[i].getDistric());
-
-        properties.setProperty(key + "_State", student[i].getState());
-
-        properties.setProperty(key + "_Zip", student[i].getZip());
-
-        properties.setProperty(key + "_User", student[i].getUserName());
-
-        properties.setProperty(key + "_Password", student[i].getPassword());
-
-        System.out.println(student[i].getFname());
-        FileOutputStream fileout = null;
         try {
-
-            fileout = new FileOutputStream("Marksheet.properties", true);
-            properties.store(fileout, "Data Save Successly");
-
-        } catch (IOException e) {
+            DataBaseConnect.storeAddress(street_Add.getText(), block.getText(), distric.getText(), state.getText(), pincode.getText());
+        } catch (ClassNotFoundException | SQLException e) {
         }
-
+        System.out.println("2");
+        try {
+            DataBaseConnect.storeIdPassword(user_name1.getText(), password_1);
+        } catch (ClassNotFoundException | SQLException e) {
+        }
+        System.out.println("3");
         name_First.setText("");
         name_Last.setText("");
         father_Name.setText("");
@@ -799,15 +723,13 @@ public class StudentSing extends javax.swing.JFrame {
         enter_Captch.setText("");
         i++;
 
-//        fileout.close();
-//        fileInput1.close();
         JOptionPane.showMessageDialog(null, "Sign Up successly");
         show_Captch.setText(Operation.ganrateCapcha());
         new StudentLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-
+    /*
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Clear_B;
     private javax.swing.JTextField block;
