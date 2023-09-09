@@ -2,20 +2,18 @@ package admin;
 
 import databaseconnect.*;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 import operation.Operation;
 
 public class StudentSing extends javax.swing.JFrame {
-    
+
     public StudentSing() {
         initComponents();
         setTitle("Student sing Up Page");
         show_Captch.setText(Operation.ganrateCapcha());
     }
-    
+
     public static void main(String[] args) {
         new StudentSing().setVisible(true);
     }
@@ -53,10 +51,10 @@ public class StudentSing extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         distric = new javax.swing.JTextField();
         pincode = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        gen = new javax.swing.JLabel();
+        male = new javax.swing.JRadioButton();
+        female = new javax.swing.JRadioButton();
+        other = new javax.swing.JRadioButton();
         submit = new javax.swing.JButton();
         Clear_B = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -158,6 +156,11 @@ public class StudentSing extends javax.swing.JFrame {
                 mobile_NumActionPerformed(evt);
             }
         });
+        mobile_Num.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                mobile_NumKeyTyped(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setText("Mobile Num*");
@@ -220,14 +223,29 @@ public class StudentSing extends javax.swing.JFrame {
             }
         });
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel20.setText("Gender*");
+        gen.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gen.setText("Gender*");
 
-        jRadioButton1.setText("Male");
+        male.setText("Male");
+        male.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maleActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setText("Female");
+        female.setText("Female");
+        female.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                femaleActionPerformed(evt);
+            }
+        });
 
-        jRadioButton3.setText("Other");
+        other.setText("Other");
+        other.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherActionPerformed(evt);
+            }
+        });
 
         submit.setText("Submit");
         submit.addActionListener(new java.awt.event.ActionListener() {
@@ -318,13 +336,13 @@ public class StudentSing extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(gen, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(male, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(female, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(other, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -444,7 +462,12 @@ public class StudentSing extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(other)
+                                    .addComponent(female)
+                                    .addComponent(male)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -454,11 +477,7 @@ public class StudentSing extends javax.swing.JFrame {
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(dob, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton1)
-                                    .addComponent(jRadioButton2)
-                                    .addComponent(jRadioButton3))
+                                .addComponent(gen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -510,14 +529,14 @@ public class StudentSing extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(enter_Captch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                             .addGap(11, 11, 11)
                             .addComponent(jButton4))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(Clear_B)
@@ -530,13 +549,16 @@ public class StudentSing extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(314, Short.MAX_VALUE)
+                .addContainerGap(290, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(183, 183, 183))
+                .addGap(207, 207, 207))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -648,10 +670,10 @@ public class StudentSing extends javax.swing.JFrame {
         new StudentLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-    
+
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        
+
         char[] password = user_Password.getPassword();
         String password_1 = new String(password);
         char[] conPass = user_Password_con.getPassword();
@@ -660,18 +682,18 @@ public class StudentSing extends javax.swing.JFrame {
         System.out.println("1");
         if (!enter_Captch.getText().trim().isEmpty() && !mobile_Num.getText().trim().isEmpty() && !user_name1.getText().trim().isEmpty() && !father_Name.getText().trim().isEmpty() && !full_name.trim().isEmpty() && !mobile_Num.getText().trim().isEmpty() && !course.getText().trim().isEmpty() && !dob.getText().trim().isEmpty() && !gmail_Id.getText().trim().isEmpty() && !street_Add.getText().trim().isEmpty() && !block.getText().trim().isEmpty() && !distric.getText().trim().isEmpty() && !state.getText().trim().isEmpty() && !pincode.getText().trim().isEmpty() && !password_1.trim().isEmpty() && !conPass_1.trim().isEmpty()) {
         } else {
-            
+
             JOptionPane.showMessageDialog(null, "Please Fill All Blanks");
             show_Captch.setText(Operation.ganrateCapcha());
             return;
         }
-        
+
         if (!Operation.checkGmail(gmail_Id.getText())) {
             JOptionPane.showMessageDialog(null, "Invalide Gmail Id");
             gmail_Id.setText("");
             return;
         }
-        
+
         if (!Operation.checkMobileNumber(mobile_Num.getText())) {
             System.out.println("3");
             JOptionPane.showMessageDialog(null, "Invalide Mobile Number");
@@ -680,7 +702,7 @@ public class StudentSing extends javax.swing.JFrame {
         }
         System.out.println("4");
         if (!Operation.checkZipCode(pincode.getText())) {
-            
+
             System.out.println("4");
             JOptionPane.showMessageDialog(null, "Invalide Zip COde");
             pincode.setText("");
@@ -703,14 +725,14 @@ public class StudentSing extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "User AllReady Exist");
                 user_name1.setText("");
                 return;
-                
+
             }
         } catch (ClassNotFoundException | SQLException ex) {
             // Logger.getLogger(StudentSing.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         try {
-            DataBaseConnect.storePersnalData(name_First.getText(), name_Last.getText(), father_Name.getText(), mother_Name.getText(), dob.getText(), course.getText(), jRadioButton1.getText(), mobile_Num.getText(), gmail_Id.getText());
+            DataBaseConnect.storePersnalData(name_First.getText(), name_Last.getText(), father_Name.getText(), mother_Name.getText(), dob.getText(), course.getText(), male.getText(), mobile_Num.getText(), gmail_Id.getText());
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(ex);
         }
@@ -746,8 +768,50 @@ public class StudentSing extends javax.swing.JFrame {
         user_name1.setText("");
         enter_Captch.setText("");
     }//GEN-LAST:event_submitActionPerformed
-    /*
-     */
+
+    private void maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleActionPerformed
+        if (male.isSelected()) {
+            female.setSelected(false);
+            other.setSelected(false);
+            //gen = "Male";
+        }
+    }//GEN-LAST:event_maleActionPerformed
+
+    private void femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleActionPerformed
+        if (female.isSelected()) {
+            male.setSelected(false);
+            other.setSelected(false);
+            //gen = "Male";
+        }
+    }//GEN-LAST:event_femaleActionPerformed
+
+    private void otherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherActionPerformed
+        if (other.isSelected()) {
+            male.setSelected(false);
+            female.setSelected(false);
+            //gen = "Male";
+        }
+    }//GEN-LAST:event_otherActionPerformed
+
+    private void mobile_NumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobile_NumKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume non-digit characters
+        } else {
+            String s = mobile_Num.getText() + c; // Append the new character to the existing text
+            try {
+
+                if (s.length() > 10) {
+                    evt.consume(); // Consume the event if the value is greater than 100
+                }
+            } catch (NumberFormatException ex) {
+                // Handle the case where the text is not a valid integer
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_mobile_NumKeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Clear_B;
     private javax.swing.JTextField block;
@@ -756,6 +820,8 @@ public class StudentSing extends javax.swing.JFrame {
     private javax.swing.JTextField dob;
     private javax.swing.JTextField enter_Captch;
     private javax.swing.JTextField father_Name;
+    private javax.swing.JRadioButton female;
+    private javax.swing.JLabel gen;
     private javax.swing.JTextField gmail_Id;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -770,7 +836,6 @@ public class StudentSing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -784,13 +849,12 @@ public class StudentSing extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton male;
     private javax.swing.JTextField mobile_Num;
     private javax.swing.JTextField mother_Name;
     private javax.swing.JTextField name_First;
     private javax.swing.JTextField name_Last;
+    private javax.swing.JRadioButton other;
     private javax.swing.JTextField pincode;
     private javax.swing.JLabel show_Captch;
     private javax.swing.JTextField state;

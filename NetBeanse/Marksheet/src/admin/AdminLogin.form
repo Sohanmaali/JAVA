@@ -99,34 +99,29 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel23" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel23" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="admin_Id" min="-2" pref="159" max="-2" attributes="0"/>
-                                                  <Component id="admin_password" min="-2" pref="159" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                      <Component id="login_B1" min="-2" pref="89" max="-2" attributes="0"/>
-                                                      <Component id="enter_Captch" min="-2" pref="153" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="admin_Id" min="-2" pref="159" max="-2" attributes="0"/>
+                                          <Component id="admin_password" min="-2" pref="159" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                              <Component id="login_B1" min="-2" pref="89" max="-2" attributes="0"/>
+                                              <Component id="enter_Captch" min="-2" pref="153" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="sing_up_B" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                                      <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                           </Group>
@@ -171,12 +166,9 @@
                           <Component id="enter_Captch" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="jLabel23" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="sing_up_B" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="login_B1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="31" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="login_B1" min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -275,11 +267,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enter_CaptchActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="sing_up_B">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Sing Up"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="login_B1">
               <Properties>

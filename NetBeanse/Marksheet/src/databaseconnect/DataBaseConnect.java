@@ -16,20 +16,26 @@ public class DataBaseConnect {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root");
-            String sql = "SELECT * FROM marks";
-            String sql1 = "SELECT * FROM stregistration";
+
+            String sql = "SELECT * FROM stregistration,marks";
 
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            PreparedStatement ps1 = con.prepareStatement(sql1);
-            ResultSet rs1 = ps1.executeQuery();
 
-            while (rs1.next()) {
+            while (rs.next()) {
 
-                model.addRow(new Object[]{rs1.getString(1) + " " + rs1.getString(2), rs1.getString(3), rs1.getString(4)});
+                model.addRow(new Object[]{rs.getInt(1), rs.getInt(2), rs.getString(3),
+                    rs.getString(4), rs.getString(5)});
             }
+
+        } catch (ClassNotFoundException | SQLException e) {
+
         } finally {
-            con.close();
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                System.out.println("Exception");
+            }
         }
     }
 
@@ -48,6 +54,39 @@ public class DataBaseConnect {
         st.executeUpdate();
 
         con.close();
+    }
+
+    public static void storeMarks(int roll, int regi, int physics, int chemestry, int math, int hindi, int english) throws ClassNotFoundException, SQLException {
+
+        PreparedStatement ps;
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        //System.out.println("2");
+        try (
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root")) {
+
+            String cmd = "insert into marks (physics,chemistry,math,english,hindi) values (?,?,?,?,?)";
+
+            ps = con.prepareStatement(cmd);
+
+//                ps.setInt(1, roll);
+            ps.setInt(1, physics);
+
+            ps.setInt(2, chemestry);
+
+            ps.setInt(3, math);
+
+            ps.setInt(4, english);
+
+            ps.setInt(5, hindi);
+
+            int i = ps.executeUpdate();
+
+            if (i > 0) {
+                System.out.println("Seccusss");
+            } else {
+                System.out.println("Fail");
+            }
+        }
     }
 
     public static void storeAddress(String address, String block, String distric, String state, String zip) throws ClassNotFoundException, SQLException {
@@ -170,7 +209,7 @@ public class DataBaseConnect {
 
     }
 
-    /* public static boolean checkDuplicateRollNumber(int roll) throws ClassNotFoundException, SQLException {
+    public static boolean checkRollNumber(int roll) throws ClassNotFoundException, SQLException {
         PreparedStatement st;
         Connection con;
         ResultSet rs;                           //not complide
@@ -180,17 +219,42 @@ public class DataBaseConnect {
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection(path, "root", "root");
 
-        String sql = "select * from idpass where id = '" + roll + "'";
+        String sql = "select * from marks where id = '" + roll + "'";
 
         st = con.prepareStatement(sql);
-        rs = st.executeQuery();
-
-        rs.next();
         try {
-       //     return roll.equals(rs.getString(1));
+            rs = st.executeQuery();
+            rs.next();
+            return true;
         } catch (SQLException e) {
             return false;
+        } finally {
+            con.close();
         }
     }
-     */
+
+    public static boolean checkRegistrationNumber(int regi) throws ClassNotFoundException, SQLException {
+        PreparedStatement st;
+        Connection con;
+        ResultSet rs;                           //not complide
+
+        String path = "jdbc:mysql://localhost:3306/marksheet";
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        con = DriverManager.getConnection(path, "root", "root");
+
+        String sql = "select * from stregistration where id = '" + regi + "'";
+
+        st = con.prepareStatement(sql);
+        try {
+            rs = st.executeQuery();
+            rs.next();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        } finally {
+            con.close();
+        }
+    }
+
 }

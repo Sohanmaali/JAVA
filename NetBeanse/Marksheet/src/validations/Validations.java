@@ -20,7 +20,7 @@ public class Validations {
         int roll1 = 0;
         try {
             roll1 = Integer.parseInt(roll);
-            return roll1 > 0 && roll1 < 5;
+            return roll1 > 0;// && roll1 < 5;
         } catch (NumberFormatException e) {
             return false;
         }

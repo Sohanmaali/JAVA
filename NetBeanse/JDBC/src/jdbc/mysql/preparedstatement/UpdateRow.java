@@ -1,33 +1,27 @@
 package jdbc.mysql.preparedstatement;
 
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-import java.sql.SQLException;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-//Insert data in table
-public class First {
+public class UpdateRow {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
         String path = "jdbc:mysql://localhost:3306/Infojava";
         String idpss = "root";
+        String sql = "update Student set name = ? where id = ?";
+        Class.forName("com.mysql.cj.jdbc.Driver");
         try (Connection con = DriverManager.getConnection(path, idpss, idpss)) {
-            String sql = "insert into Student values(?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, 33);
-            ps.setString(2, "raj");
-            ps.setString(3, "mahesg");
-            ps.setString(4, "devi");
-            ps.setInt(5, 96);
+            ps.setInt(2, 1003);
+            ps.setString(1, "rani");
             int i = ps.executeUpdate();
             if (i > 0) {
-                System.out.println("Data Save Succesfully");
+                System.out.println("Data Save Succes");
             } else {
-                System.out.println("Data save fail");
+                System.out.println("fail");
             }
-            con.close();
         }
     }
 }
