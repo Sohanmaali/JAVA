@@ -49,7 +49,7 @@ public class DataBaseConnect {
         }
     }
 
-    public static void ShowAllRegistration(DefaultTableModel model) throws ClassNotFoundException, SQLException {
+    public static void showAllRegistration(DefaultTableModel model) throws ClassNotFoundException, SQLException {
 
         Connection con = null;
         try {
@@ -411,4 +411,56 @@ public class DataBaseConnect {
             }
         }
     }
+
+    public static void showByName(DefaultTableModel model, String name) {
+
+        Connection con = null;
+        ResultSet rs = null;
+        ResultSet rs1 = null;
+        PreparedStatement ps;
+        PreparedStatement ps1 = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+        }
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root");
+
+        } catch (SQLException e) {
+        }
+
+        String sql = "SELECT * FROM marks";
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+        } catch (SQLException e) {
+        }
+
+        String sql1 = "SELECT * FROM stregistration where firstame like '%" + name + "%'";
+
+        try {
+            ps1 = con.prepareStatement(sql1);
+
+            rs1 = ps1.executeQuery();
+        } catch (SQLException e) {
+        }
+        try {
+            while (rs.next() && rs1.next()) {
+                model.addRow(new Object[]{rs.getInt(1), rs1.getInt(1), rs1.getString(2),
+                    rs1.getString(3), rs1.getString(4)});
+            }
+        } catch (SQLException ex) {
+
+        }
+        try {
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                System.out.println("Exception");
+            }
+        }
+    }
+
 }
