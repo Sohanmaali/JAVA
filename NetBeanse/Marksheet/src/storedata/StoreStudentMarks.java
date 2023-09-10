@@ -4,8 +4,7 @@ import databaseconnect.DataBaseConnect;
 import static databaseconnect.DataBaseConnect.checkRegistrationNumber;
 import static databaseconnect.DataBaseConnect.checkRollNumber;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 
 public class StoreStudentMarks extends javax.swing.JFrame {
@@ -653,6 +652,10 @@ public class StoreStudentMarks extends javax.swing.JFrame {
 
     private void regiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_regiKeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_regiKeyTyped
 
     private void sub1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sub1FocusGained
@@ -747,7 +750,7 @@ public class StoreStudentMarks extends javax.swing.JFrame {
             return;
         }
         try {
-            if (!checkRollNumber(145)) {
+            if (!checkRollNumber(Integer.parseInt(roll.getText()))) {
                 JOptionPane.showMessageDialog(null, "Roll Number not match");
                 roll.setText("");
                 regi.setText("");
@@ -762,7 +765,7 @@ public class StoreStudentMarks extends javax.swing.JFrame {
             //Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if (!checkRegistrationNumber(145)) {
+            if (!checkRegistrationNumber(Integer.parseInt(regi.getText()))) {
                 JOptionPane.showMessageDialog(null, "Registration Number not match");
                 roll.setText("");
                 regi.setText("");
@@ -776,13 +779,11 @@ public class StoreStudentMarks extends javax.swing.JFrame {
         } catch (ClassNotFoundException | SQLException ex) {
             //Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            DataBaseConnect.storeMarks(Integer.parseInt(roll.getText()), Integer.parseInt(regi.getText()),
-                    Integer.parseInt(obt1.getText()), Integer.parseInt(obt2.getText()),
-                    Integer.parseInt(obt3.getText()), Integer.parseInt(obt5.getText()), Integer.parseInt(obt4.getText()));
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        if (DataBaseConnect.storeMarks(Integer.parseInt(roll.getText()), Integer.parseInt(regi.getText()),
+                Integer.parseInt(obt1.getText()), Integer.parseInt(obt2.getText()),
+                Integer.parseInt(obt3.getText()), Integer.parseInt(obt5.getText()), Integer.parseInt(obt4.getText())) > 0) {
+            JOptionPane.showMessageDialog(null, "Marks Update");
+        } // Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
     }//GEN-LAST:event_SumbitActionPerformed
 
     private void Sumbit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sumbit1ActionPerformed

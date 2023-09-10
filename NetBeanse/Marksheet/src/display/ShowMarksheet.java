@@ -13,34 +13,78 @@ public class ShowMarksheet extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void display(int roll) throws ClassNotFoundException, SQLException {
+    public boolean display(int roll) {
 
-        PreparedStatement st;
-        Connection con;
-        ResultSet rs;
+        PreparedStatement st = null;
+        Connection con = null;
+        ResultSet rs = null;
 
         String path = "jdbc:mysql://localhost:3306/marksheet";
+        try {
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection(path, "root", "root");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("------------------");
+            System.out.println(e);
+        }
+        try {
+            con = DriverManager.getConnection(path, "root", "root");
+
+        } catch (SQLException e) {
+            System.out.println(e);
+            System.out.println("+++++++++++++++++++++");
+        }
 
         String sql = "select * from marks where rollnumber = " + roll;
         System.out.println(sql);
 //        String sql1 = "select * from stregistration";
 
-        st = con.prepareStatement(sql);
+        try {
+
+            st = con.prepareStatement(sql);
+        } catch (SQLException e) {
+            System.out.println(e);
+            System.out.println("*******************");
+        }
 //        st1 = con.prepareStatement(sql1);
-        rs = st.executeQuery();
+        try {
 
-        rs.next();
+            rs = st.executeQuery();
 
-        phy.setText(String.valueOf(rs.getInt(2)));
-        chem.setText(String.valueOf(rs.getInt(3)));
-        math.setText(String.valueOf(rs.getInt(4)));
-        english.setText(String.valueOf(rs.getInt(5)));
-        hindi.setText(String.valueOf(rs.getInt(6)));
+        } catch (SQLException e) {
+            System.out.println(e);
+            System.out.println("/////////////");
+        }
+        try {
+            rs.next();
+            rs.getInt(3);
+
+        } catch (Exception e) {
+            return false;
+        }
+        try {
+
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("''''''''''''''''");
+        }
+        try {
+
+            phy.setText(String.valueOf(rs.getInt(2)));
+            chem.setText(String.valueOf(rs.getInt(3)));
+            math.setText(String.valueOf(rs.getInt(4)));
+            english.setText(String.valueOf(rs.getInt(5)));
+            hindi.setText(String.valueOf(rs.getInt(6)));
+        } catch (SQLException e) {
+            System.out.println(e);
+            System.out.println("==================");
+        }
         System.out.println(phy.getText() + "\n" + chem.getText() + "\n" + math.getText() + "\n" + english.getText() + "\n" + hindi.getText() + "\n");
-        con.close();
+        try {
+            con.close();
+        } catch (SQLException e) {
+        }
+        return false;
     }
 
     @SuppressWarnings("unchecked")

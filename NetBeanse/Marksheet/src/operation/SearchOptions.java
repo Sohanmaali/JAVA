@@ -1,21 +1,24 @@
 package operation;
 
 import admin.StudentLogin;
+import databaseconnect.DataBaseConnect;
+import static databaseconnect.DataBaseConnect.checkRollNumber;
 import display.*;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class SearchOptions extends javax.swing.JFrame {
-    
+
     public static void main(String[] args) {
         new SearchOptions().setVisible(true);
     }
-    
+
     public SearchOptions() {
         initComponents();
-        
+
         System.out.println("1");
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -117,20 +120,20 @@ public class SearchOptions extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void searchRollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchRollActionPerformed
-        
+
 
     }//GEN-LAST:event_searchRollActionPerformed
 
     private void searchBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBActionPerformed
-        
+
         int rolln = 0;
-        
+
         try {
             rolln = Integer.parseInt(roll.getText());
             this.searchByRollNum(rolln);
-            
+
         } catch (NumberFormatException | ClassNotFoundException | SQLException ex) {
-            
+
             System.out.println(ex);
         }
     }//GEN-LAST:event_searchBActionPerformed
@@ -146,13 +149,14 @@ public class SearchOptions extends javax.swing.JFrame {
         System.out.println("3");
         ShowMarksheet show = new ShowMarksheet();
         System.out.println("4");
-        show.display(roll);
-        System.out.println("5");
-        show.setVisible(true);
-        System.out.println("6");
-        dispose();
-        
-        System.out.println("2");
+        if (DataBaseConnect.checkRollNumber(roll)) {
+            show.display(roll);
+            show.setVisible(true);
+            dispose();
+        } else {
+            System.out.println("-----------------------");
+            JOptionPane.showMessageDialog(null, "Roll Number Not Found");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
