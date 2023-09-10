@@ -380,6 +380,8 @@ public class Admin extends javax.swing.JFrame {
 
     private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete1ActionPerformed
         // TODO add your handling code here:
+
+
     }//GEN-LAST:event_delete1ActionPerformed
 
     private void View_All_registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_View_All_registrationActionPerformed
@@ -403,14 +405,18 @@ public class Admin extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             if (checkRegistrationNumber(Integer.parseInt(ragis.getText()))) {
-
-                if (DataBaseConnect.ganrateRollNumber(Integer.parseInt(ragis.getText())) > 0) {
+                int i = DataBaseConnect.ganrateRollNumber(Integer.parseInt(ragis.getText()));
+                if (i > 0) {
                     JOptionPane.showMessageDialog(null, "Roll Number Ganrated Successfully");
+                    ragis.setText("");
+                } else if (i == -1) {
+                    JOptionPane.showMessageDialog(null, "Roll Number Allready Exist");
+                    ragis.setText("");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Roll Number Ganrated Fail");
+                    JOptionPane.showMessageDialog(null, "Roll Number Genaration Fail");
+                    ragis.setText("");
                 }
             } else {
-
                 JOptionPane.showMessageDialog(null, "Ragistration Number Not Found");
                 ragis.setText("");
             }

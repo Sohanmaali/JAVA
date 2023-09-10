@@ -13,7 +13,7 @@ public class ShowAllStudent extends javax.swing.JFrame {
 
         initComponents();
         DefaultTableModel model = (DefaultTableModel) stDataTable.getModel();
-        DataBaseConnect.ShowAllRegistration(model);
+        DataBaseConnect.showAllStudent(model);
     }
 
     @SuppressWarnings("unchecked")
@@ -40,14 +40,11 @@ public class ShowAllStudent extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Student Registration Id", "Roll Number", "Student Name", "Father Name", "Mother Name"
+                "Roll Number", "Student Registration Id", "Student Name", "Father Name", "Mother Name"
             }
         ));
         stDataTable.setRowHeight(40);
         jScrollPane1.setViewportView(stDataTable);
-        if (stDataTable.getColumnModel().getColumnCount() > 0) {
-            stDataTable.getColumnModel().getColumn(0).setHeaderValue("Student Registration Id");
-        }
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 

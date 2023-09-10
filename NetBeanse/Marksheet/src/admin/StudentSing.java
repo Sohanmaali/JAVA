@@ -222,6 +222,11 @@ public class StudentSing extends javax.swing.JFrame {
                 pincodeActionPerformed(evt);
             }
         });
+        pincode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pincodeKeyTyped(evt);
+            }
+        });
 
         gen.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         gen.setText("Gender*");
@@ -694,20 +699,20 @@ public class StudentSing extends javax.swing.JFrame {
             return;
         }
 
-        if (!Operation.checkMobileNumber(mobile_Num.getText())) {
-            System.out.println("3");
-            JOptionPane.showMessageDialog(null, "Invalide Mobile Number");
-            mobile_Num.setText("");
-            return;
-        }
+//        if (!Operation.checkMobileNumber(mobile_Num.getText())) {
+//            System.out.println("3");
+//            JOptionPane.showMessageDialog(null, "Invalide Mobile Number");
+//            mobile_Num.setText("");
+//            return;
+//        }
         System.out.println("4");
-        if (!Operation.checkZipCode(pincode.getText())) {
-
-            System.out.println("4");
-            JOptionPane.showMessageDialog(null, "Invalide Zip COde");
-            pincode.setText("");
-            return;
-        }
+//        if (!Operation.checkZipCode(pincode.getText())) {
+//
+//            System.out.println("4");
+//            JOptionPane.showMessageDialog(null, "Invalide Zip COde");
+//            pincode.setText("");
+//            return;
+//        }
         if (!password_1.equals(conPass_1)) {
             JOptionPane.showMessageDialog(null, "Password Not Match");
             user_Password.setText("");
@@ -811,6 +816,25 @@ public class StudentSing extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mobile_NumKeyTyped
+
+    private void pincodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pincodeKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume non-digit characters
+        } else {
+            String s = pincode.getText() + c; // Append the new character to the existing text
+            try {
+
+                if (s.length() > 6) {
+                    evt.consume(); // Consume the event if the value is greater than 100
+                }
+            } catch (NumberFormatException ex) {
+                // Handle the case where the text is not a valid integer
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_pincodeKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Clear_B;

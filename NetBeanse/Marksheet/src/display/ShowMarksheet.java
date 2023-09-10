@@ -79,7 +79,7 @@ public class ShowMarksheet extends javax.swing.JFrame {
             System.out.println(e);
             System.out.println("==================");
         }
-        System.out.println(phy.getText() + "\n" + chem.getText() + "\n" + math.getText() + "\n" + english.getText() + "\n" + hindi.getText() + "\n");
+      //  System.out.println(phy.getText() + "\n" + chem.getText() + "\n" + math.getText() + "\n" + english.getText() + "\n" + hindi.getText() + "\n");
         try {
             con.close();
         } catch (SQLException e) {

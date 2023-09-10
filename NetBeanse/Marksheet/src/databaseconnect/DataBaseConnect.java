@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import javax.swing.table.DefaultTableModel;
 
 public class DataBaseConnect {
@@ -14,7 +13,7 @@ public class DataBaseConnect {
         //System.out.println(checkRegistrationNumber(7));
     }
 
-    public static void retriveAllData(DefaultTableModel model) throws ClassNotFoundException, SQLException {
+    public static void showAllStudent(DefaultTableModel model) throws ClassNotFoundException, SQLException {
 
         Connection con = null;
         try {
@@ -22,15 +21,21 @@ public class DataBaseConnect {
 
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root");
 
-            String sql = "SELECT * FROM stregistration,marks";
+            String sql = "SELECT * FROM marks";
 
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
+            String sql1 = "SELECT * FROM stregistration";
 
-                model.addRow(new Object[]{rs.getInt(1), rs.getInt(2), rs.getString(3),
-                    rs.getString(4), rs.getString(5)});
+            PreparedStatement ps1 = con.prepareStatement(sql1);
+            ResultSet rs1 = ps1.executeQuery();
+            // int roll = 0;
+
+            while (rs.next() && rs1.next()) {
+                // roll = rs.getInt(1);
+                model.addRow(new Object[]{rs.getInt(1), rs1.getInt(1), rs1.getString(2),
+                    rs1.getString(3), rs1.getString(4)});
             }
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -52,7 +57,7 @@ public class DataBaseConnect {
 
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root");
 
-            String sql = "SELECT * FROM stregistration,marks";
+            String sql = "SELECT * FROM stregistration";
 
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -97,10 +102,21 @@ public class DataBaseConnect {
 
         String path = "jdbc:mysql://localhost:3306/marksheet";
         Class.forName("com.mysql.cj.jdbc.Driver");
+
         con = DriverManager.getConnection(path, "root", "root");
-        String sql = "insert into address values('" + address + "','" + block + "','" + distric + "','" + state + "','" + zip + "')";
+
+        String sql1 = "SELECT registration_num FROM stregistration";
+
+        PreparedStatement ps = con.prepareStatement(sql1);
+
+        ResultSet rs = ps.executeQuery();
+
+        rs.next();
+
+        String sql = "insert into address values(" + rs.getInt(1) + ",'" + address + "','" + block + "','" + distric + "','" + state + "','" + zip + "')";
 
         st = con.prepareStatement(sql);
+
         st.executeUpdate();
         con.close();
     }
@@ -112,8 +128,17 @@ public class DataBaseConnect {
         String path = "jdbc:mysql://localhost:3306/marksheet";
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection(path, "root", "root");
-        String sql = "insert into idpass values('" + id + "','" + password + "')";
 
+        String sql1 = "SELECT registration_num FROM stregistration";
+
+        PreparedStatement ps = con.prepareStatement(sql1);
+
+        ResultSet rs = ps.executeQuery();
+
+        rs.next();
+
+        String sql = "insert into idpass values(" + rs.getInt(1) + ",'" + id + "','" + password + "')";
+        System.out.println(sql);
         st = con.prepareStatement(sql);
         st.executeUpdate();
         con.close();
@@ -136,7 +161,7 @@ public class DataBaseConnect {
 
         rs.next();
         try {
-            return id.equals(rs.getString(1)) && password.equals(rs.getString(2));
+            return id.equals(rs.getString(2)) && password.equals(rs.getString(3));
         } catch (SQLException e) {
             return false;
         }
@@ -247,7 +272,7 @@ public class DataBaseConnect {
         con = DriverManager.getConnection(path, "root", "root");
 
         String sql = "select * from stregistration where registration_num = '" + regi + "'";
-        System.out.println("22222222");
+
         st = con.prepareStatement(sql);
         try {
             rs = st.executeQuery();
@@ -347,35 +372,42 @@ public class DataBaseConnect {
 
     }
 
-    public static int ganrateRollNumber(int regi) throws ClassNotFoundException, SQLException {
-        System.out.println("11111111111111111");
-        PreparedStatement ps;
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        //System.out.println("2");
-        // Connection con;
-        try (
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root")) {
-            System.out.println("222222222222222222");
+    public static int ganrateRollNumber(int regi) {
 
-            String cmd = "insert into marks values()";
-            System.out.println("33333333333333");///runed
+        PreparedStatement ps = null;
+        Connection con = null;
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+        }
+        try {
+
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root");
+
+        } catch (SQLException e) {
+        }
+
+        String cmd = "insert into marks(registration_num) values(?)";
+        try {
+
             ps = con.prepareStatement(cmd);
-            System.out.println("44444444444444");
-            // ps.setInt(1, regi);
-            System.out.println("55555555");
-            int i = 0;
+
+            ps.setInt(1, regi);
+        } catch (SQLException e) {
+
+        }
+
+        int i = 0;
+        try {
+            return ps.executeUpdate();
+        } catch (SQLException | NullPointerException e) {
+            return -1;
+        } finally {
             try {
-                i = ps.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-            System.out.println("6666666");
-            if (i > 0) {
-                System.out.println("77777777");
-                return i;
-            } else {
-                System.out.println("8888888888");
-                return i;
+                con.close();
+            } catch (SQLException ex) {
+                //Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
