@@ -1,10 +1,12 @@
 package admin;
 
 import databaseconnect.DataBaseConnect;
-import static databaseconnect.DataBaseConnect.checkRegistrationNumber;
+import static databaseconnect.DataBaseConnect.checkRegistrationNumberSTRegi;
 import display.ShowAllRegistration;
 import display.ShowAllStudent;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -526,7 +528,7 @@ public class Admin extends javax.swing.JFrame {
     private void rollGenerateDoneBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollGenerateDoneBTNActionPerformed
         try {
             // TODO add your handling code here:
-            if (checkRegistrationNumber(Integer.parseInt(ragis.getText()))) {
+            if (checkRegistrationNumberSTRegi(Integer.parseInt(ragis.getText()))) {
                 int i = DataBaseConnect.ganrateRollNumber(Integer.parseInt(ragis.getText()));
                 if (i > 0) {
                     JOptionPane.showMessageDialog(null, "Roll Number Ganrated Successfully");
@@ -542,8 +544,10 @@ public class Admin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Ragistration Number Not Found");
                 ragis.setText("");
             }
-        } catch (ClassNotFoundException | SQLException ex) {
-            //  Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rollGenerateDoneBTNActionPerformed
 

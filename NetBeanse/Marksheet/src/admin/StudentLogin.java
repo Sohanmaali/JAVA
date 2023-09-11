@@ -176,7 +176,7 @@ public class StudentLogin extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -476,19 +476,18 @@ public class StudentLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_User_IdActionPerformed
 
     private void login_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_BActionPerformed
-
         try {
             if ((!User_Id.getText().isEmpty() && !user_pass.getText().isEmpty() != capcha_Fill.getText().isEmpty())) {
-                System.out.println("10000");
-                if (DataBaseConnect.checkUserIDPassword(User_Id.getText(), user_pass.getText())) {
 
+                if (DataBaseConnect.checkUserIDPassword(User_Id.getText(), user_pass.getText())) {
                     if (capcha.getText().equals(capcha_Fill.getText())) {
-                        System.out.println("20000");
-                        new SearchOptions().setVisible(true);
+
+                        new SearchOptions(User_Id.getText()).setVisible(true);
                         dispose();
                     } else {
                         JOptionPane.showMessageDialog(null, "Invalide Captcha");
-                        Operation.ganrateCapcha();
+                        capcha.setText(Operation.ganrateCapcha());
+                        capcha_Fill.setText("");
 
                     }
                 } else {

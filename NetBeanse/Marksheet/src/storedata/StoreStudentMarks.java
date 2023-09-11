@@ -2,9 +2,11 @@ package storedata;
 
 import admin.Admin;
 import databaseconnect.DataBaseConnect;
-import static databaseconnect.DataBaseConnect.checkRegistrationNumber;
+import static databaseconnect.DataBaseConnect.checkRegistrationNumberSTRegi;
 import static databaseconnect.DataBaseConnect.checkRollNumber;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -778,7 +780,7 @@ public class StoreStudentMarks extends javax.swing.JFrame {
             //Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if (!checkRegistrationNumber(Integer.parseInt(regi.getText()))) {
+            if (!checkRegistrationNumberSTRegi(Integer.parseInt(regi.getText()))) {
                 JOptionPane.showMessageDialog(null, "Registration Number not match");
                 roll.setText("");
                 regi.setText("");
@@ -788,10 +790,13 @@ public class StoreStudentMarks extends javax.swing.JFrame {
                 obt4.setText("");
                 obt5.setText("");
                 return;
+            } //Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
+            else {
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            //Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
         if (DataBaseConnect.storeMarks(Integer.parseInt(roll.getText()), Integer.parseInt(regi.getText()),
                 Integer.parseInt(obt1.getText()), Integer.parseInt(obt2.getText()),
                 Integer.parseInt(obt3.getText()), Integer.parseInt(obt5.getText()), Integer.parseInt(obt4.getText())) > 0) {

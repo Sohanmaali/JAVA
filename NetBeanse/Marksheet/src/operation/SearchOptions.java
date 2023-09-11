@@ -3,11 +3,12 @@ package operation;
 import admin.StudentLogin;
 import databaseconnect.DataBaseConnect;
 import display.*;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import swing.RGPVHOM;
 
 public class SearchOptions extends javax.swing.JFrame {
+
+    String userid;
 
     public static void main(String[] args) {
         new SearchOptions().setVisible(true);
@@ -17,6 +18,12 @@ public class SearchOptions extends javax.swing.JFrame {
         initComponents();
 
         System.out.println("1");
+    }
+
+    public SearchOptions(String Id) {
+        initComponents();
+        System.out.println("1111111111111111111111");
+        this.userid = Id;
     }
 
     @SuppressWarnings("unchecked")
@@ -35,14 +42,13 @@ public class SearchOptions extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        roll = new javax.swing.JTextField();
-        searchB = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         showMarksheet = new javax.swing.JButton();
         searchRoll1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -151,23 +157,6 @@ public class SearchOptions extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel3.setText("Enter your roll num :");
-
-        roll.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                rollKeyPressed(evt);
-            }
-        });
-
-        searchB.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        searchB.setText("SEARCH");
-        searchB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBActionPerformed(evt);
-            }
-        });
-
         jButton4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jButton4.setText("BACK");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -205,7 +194,7 @@ public class SearchOptions extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(166, 166, 166)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,48 +204,57 @@ public class SearchOptions extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel3.setBackground(new java.awt.Color(51, 51, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\JAVA\\empoloy-removebg-preview.png")); // NOI18N
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(214, 214, 214))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(92, 92, 92)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(searchB, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(showMarksheet, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(109, 109, 109)
-                                .addComponent(searchRoll1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(302, Short.MAX_VALUE))))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(showMarksheet, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(154, 154, 154)
+                        .addComponent(searchRoll1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(searchB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(searchRoll1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                    .addComponent(showMarksheet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(showMarksheet, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchRoll1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(93, 93, 93)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,7 +271,7 @@ public class SearchOptions extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(464, 464, 464))
+                .addGap(415, 415, 415))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,9 +281,9 @@ public class SearchOptions extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(41, 41, 41)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -301,26 +299,21 @@ public class SearchOptions extends javax.swing.JFrame {
 
     private void showMarksheetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMarksheetActionPerformed
 
+        System.out.println(userid);
+        // System.out.println(DataBaseConnect.getRegistrationId(userid));
+        if (DataBaseConnect.getMarks(DataBaseConnect.getRegistrationId(userid))) {
+
+            System.out.println(DataBaseConnect.getRegistrationId(userid));
+            ShowMarksheet show = new ShowMarksheet(DataBaseConnect.getRollNumber(DataBaseConnect.getRegistrationId(userid)), userid);
+
+            // show.display(DataBaseConnect.getRollNumber(DataBaseConnect.getRegistrationId(userid)));
+             show.setVisible(true);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Marksheet Not Found");
+        }
 
     }//GEN-LAST:event_showMarksheetActionPerformed
-
-    private void searchBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBActionPerformed
-
-        int rolln = 0;
-
-        try {
-            rolln = Integer.parseInt(roll.getText());
-            this.searchByRollNum(rolln);
-
-        } catch (NumberFormatException | ClassNotFoundException | SQLException ex) {
-
-            System.out.println(ex);
-        }
-    }//GEN-LAST:event_searchBActionPerformed
-
-    private void rollKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rollKeyPressed
-        
-    }//GEN-LAST:event_rollKeyPressed
 
     private void home_buttenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_buttenActionPerformed
         new RGPVHOM().setVisible(true);
@@ -334,19 +327,6 @@ public class SearchOptions extends javax.swing.JFrame {
     private void searchRoll1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchRoll1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchRoll1ActionPerformed
-    public void searchByRollNum(int roll) throws ClassNotFoundException, SQLException {
-        System.out.println("3");
-        ShowMarksheet show = new ShowMarksheet();
-        System.out.println("4");
-        if (DataBaseConnect.checkRollNumber(roll)) {
-            show.display(roll);
-            show.setVisible(true);
-            dispose();
-        } else {
-            System.out.println("-----------------------");
-            JOptionPane.showMessageDialog(null, "Roll Number Not Found");
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
@@ -364,9 +344,8 @@ public class SearchOptions extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField roll;
-    private javax.swing.JButton searchB;
     private javax.swing.JButton searchRoll1;
     private javax.swing.JButton showMarksheet;
     // End of variables declaration//GEN-END:variables

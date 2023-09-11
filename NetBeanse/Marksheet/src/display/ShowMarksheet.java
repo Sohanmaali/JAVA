@@ -1,6 +1,7 @@
 package display;
 
 import admin.StudentLogin;
+import static databaseconnect.DataBaseConnect.getRegistrationId;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,11 +12,19 @@ import operation.SearchOptions;
 public class ShowMarksheet extends javax.swing.JFrame {
 
     public ShowMarksheet() {
+
         initComponents();
     }
 
-    public boolean display(int roll) {
+    public ShowMarksheet(int roll, String userid) {
 
+        initComponents();
+        this.display(roll, userid);
+    }
+
+    public boolean display(int roll, String userid) {
+
+        System.out.println(roll);
         Connection con = null;
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -39,14 +48,16 @@ public class ShowMarksheet extends javax.swing.JFrame {
         }
 
         String sql = "select * from marks where rollnumber = " + roll;
-        String sql1 = "select * from stregistration where registration_num = " + roll;
-        System.out.println(sql);
-//        String sql1 = "select * from stregistration";
+        String sql1 = "select * from stregistration where registration_num = " + getRegistrationId(userid);
+        System.out.println("=============================");
+        System.out.println(sql1);
+        System.out.println("=============================");
+//       String sql1 = "select * from stregistration";
 
         try {
-
             st = con.prepareStatement(sql);
             st1 = con.prepareStatement(sql1);
+
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -61,9 +72,10 @@ public class ShowMarksheet extends javax.swing.JFrame {
             System.out.println(e);
         }
         try {
+
             rs.next();
             rs1.next();
-            rs.getInt(3);
+            //  rs.getInt(3);
 
         } catch (SQLException e) {
             return false;
@@ -75,21 +87,36 @@ public class ShowMarksheet extends javax.swing.JFrame {
 
         }
         try {
-            roll_Num.setText(String.valueOf(rs1.getInt(1)));
+            roll_Num.setText(String.valueOf(rs.getInt(1)));
+            System.out.println(String.valueOf(rs.getInt(1)));
+            /*rs1 = stregistration*/
+            System.out.println("-----------------------------------------------------------------------1");
             name.setText(rs1.getString(2) + " " + rs1.getString(3));
+            System.out.println("-----------------------------------------------------------------------2");
             F_Name.setText(rs1.getString(4));
+            System.out.println("-----------------------------------------------------------------------3");
             m_Name.setText(rs1.getString(5));
+            System.out.println("-----------------------------------------------------------------------4");
             year.setText("3");
             sem.setText("6");
             enroll_num.setText(rs1.getString(1));
+            System.out.println("-----------------------------------------------------------------------5");
             branch.setText(rs1.getString(7));
+            System.out.println("-----------------------------------------------------------------------6");
             total.setText(String.valueOf(rs.getInt(3) + rs.getInt(4) + rs.getInt(5) + rs.getInt(6) + rs.getInt(7)));
+            System.out.println("-----------------------------------------------------------------------7");
             phy.setText(String.valueOf(rs.getInt(3)));
+            /*rs = marks*/
+            System.out.println("-----------------------------------------------------------------------8");
             chem.setText(String.valueOf(rs.getInt(4)));
+            System.out.println("-----------------------------------------------------------------------9");
             math.setText(String.valueOf(rs.getInt(5)));
+            System.out.println("-----------------------------------------------------------------------1");
             english.setText(String.valueOf(rs.getInt(6)));
+            System.out.println("-----------------------------------------------------------------------2");
             hindi.setText(String.valueOf(rs.getInt(7)));
         } catch (SQLException e) {
+            System.out.println("==========");
             System.out.println(e);
         }
         //  System.out.println(phy.getText() + "\n" + chem.getText() + "\n" + math.getText() + "\n" + english.getText() + "\n" + hindi.getText() + "\n");

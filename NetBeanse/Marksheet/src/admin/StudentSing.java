@@ -742,12 +742,12 @@ public class StudentSing extends javax.swing.JFrame {
             System.out.println(ex);
         }
         try {
-            DataBaseConnect.storeAddress(street_Add.getText(), block.getText(), distric.getText(), state.getText(), pincode.getText());
+            DataBaseConnect.storeAddress(street_Add.getText(), block.getText(), distric.getText(), state.getText(), pincode.getText(), gmail_Id.getText());
         } catch (ClassNotFoundException | SQLException e) {
         }
         System.out.println("2");
         try {
-            DataBaseConnect.storeIdPassword(user_name1.getText(), password_1);
+            DataBaseConnect.storeIdPassword(user_name1.getText(), password_1, gmail_Id.getText());
         } catch (ClassNotFoundException | SQLException e) {
         }
         JOptionPane.showMessageDialog(null, "Sign Up successly");

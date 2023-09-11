@@ -5,12 +5,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class DataBaseConnect {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         //System.out.println(checkRegistrationNumber(7));
+        System.out.println(DataBaseConnect.getRollNumber(503));
     }
 
     public static void showAllStudent(DefaultTableModel model) throws ClassNotFoundException, SQLException {
@@ -96,7 +99,7 @@ public class DataBaseConnect {
         con.close();
     }
 
-    public static void storeAddress(String address, String block, String distric, String state, String zip) throws ClassNotFoundException, SQLException {
+    public static void storeAddress(String address, String block, String distric, String state, String zip, String gmail) throws ClassNotFoundException, SQLException {
         PreparedStatement st;
         Connection con;
 
@@ -105,10 +108,10 @@ public class DataBaseConnect {
 
         con = DriverManager.getConnection(path, "root", "root");
 
-        String sql1 = "SELECT registration_num FROM stregistration";
+        String sql1 = "SELECT registration_num FROM stregistration where gmail = ?";
 
         PreparedStatement ps = con.prepareStatement(sql1);
-
+        ps.setString(1, gmail);
         ResultSet rs = ps.executeQuery();
 
         rs.next();
@@ -121,7 +124,7 @@ public class DataBaseConnect {
         con.close();
     }
 
-    public static void storeIdPassword(String id, String password) throws ClassNotFoundException, SQLException {
+    public static void storeIdPassword(String id, String password, String gmail) throws ClassNotFoundException, SQLException {
         PreparedStatement st;
         Connection con;
 
@@ -129,10 +132,10 @@ public class DataBaseConnect {
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection(path, "root", "root");
 
-        String sql1 = "SELECT registration_num FROM stregistration";
+        String sql1 = "SELECT registration_num FROM stregistration where gmail = ?";
 
         PreparedStatement ps = con.prepareStatement(sql1);
-
+        ps.setString(1, gmail);
         ResultSet rs = ps.executeQuery();
 
         rs.next();
@@ -178,14 +181,15 @@ public class DataBaseConnect {
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection(path, "root", "root");
 
-        String sql = "select * from idpass where id = '" + id + "'";
+        String sql = "select * from idpass where id = ?";
 
         st = con.prepareStatement(sql);
+        st.setString(1, id);
         rs = st.executeQuery();
 
         rs.next();
         try {
-            return id.equals(rs.getString(1));
+            return id.equals(rs.getString(2));
         } catch (SQLException e) {
             return false;
         }
@@ -219,23 +223,6 @@ public class DataBaseConnect {
         }
     }
 
-    public static void storeStudentMarks(int physics, int chemistry, int math, int hindi, int english) throws ClassNotFoundException, SQLException {
-        PreparedStatement st;
-        Connection con;
-
-        String path = "jdbc:mysql://localhost:3306/marksheet";
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        con = DriverManager.getConnection(path, "root", "root");
-        String sql = "insert into marks values('" + physics + "','" + chemistry + "','" + math + "','" + english + "','" + hindi + "')";
-        st = con.prepareStatement(sql);
-
-        st.executeUpdate();
-
-        con.close();
-
-    }
-
     public static boolean checkRollNumber(int roll) throws ClassNotFoundException, SQLException {
         PreparedStatement st;
         Connection con;
@@ -253,15 +240,15 @@ public class DataBaseConnect {
             rs = st.executeQuery();
             rs.next();
             System.out.println(rs.getInt(1));
-            return true;
+            return true;     //if roll Number is Exist t
         } catch (SQLException e) {
-            return false;
+            return false; //if roll Number is  not Exist give error and return false
         } finally {
             con.close();
         }
     }
 
-    public static boolean checkRegistrationNumber(int regi) throws ClassNotFoundException, SQLException {
+    public static boolean checkRegistrationNumberSTRegi(int regi) throws ClassNotFoundException, SQLException {
         PreparedStatement st;
         Connection con;
         ResultSet rs = null;
@@ -278,13 +265,13 @@ public class DataBaseConnect {
             rs = st.executeQuery();
             rs.next();
             System.out.println(rs.getString(1));
+            return true;         //if Registration Number is Exist t
         } catch (SQLException e) {
             System.out.println(e);
-            return false;
+            return false;  //if Registration Number is  not Exist give error and return false
         } finally {
             con.close();
         }
-        return true;
     }
 
     public static int storeMarks(int roll, int regi, int physics, int chemestry, int math, int hindi, int english) {
@@ -463,4 +450,175 @@ public class DataBaseConnect {
         }
     }
 
+    public static boolean getMarks(int registration) {
+
+        PreparedStatement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+        String path = "jdbc:mysql://localhost:3306/marksheet";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            con = DriverManager.getConnection(path, "root", "root");
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String sql = "SELECT * FROM marks WHERE registration_num = ?";
+        try {
+            st = con.prepareStatement(sql);
+        } catch (SQLException ex) {
+
+        }
+        try {
+            System.out.println("------------------");
+            st.setInt(1, registration);
+            rs = st.executeQuery();
+        } catch (SQLException ex) {
+
+        }
+        try {
+            System.out.println("------------------");
+            rs.next();
+            System.out.println("//////////////////");
+            System.out.println(rs.getInt(3));
+            return true;
+        } catch (SQLException ex) {
+            //  Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+
+            }
+        }
+    }
+
+    {/* public static boolean checkRegistrationNumberMarks(int regi) throws ClassNotFoundException, SQLException {
+        PreparedStatement st;
+        Connection con;   //Check registration number on Marks Tables
+        ResultSet rs = null;
+
+        String path = "jdbc:mysql://localhost:3306/marksheet";
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        con = DriverManager.getConnection(path, "root", "root");
+
+        String sql = "select * from marks where registration_num = '" + regi + "'";
+
+        st = con.prepareStatement(sql);
+        try {
+            rs = st.executeQuery();
+            rs.next();
+            System.out.println(rs.getString(1));
+            return true;         //if Registration Number is Exist t
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;  //if Registration Number is  not Exist give error and return false
+        } finally {
+            con.close();
+        }
+    }*/
+    }
+
+    public static int getRegistrationId(String userId) {
+
+        PreparedStatement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+        String path = "jdbc:mysql://localhost:3306/marksheet";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            con = DriverManager.getConnection(path, "root", "root");
+
+        } catch (SQLException ex) {
+            //   Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String sql = " SELECT registration_num FROM idpass WHERE  id = '" + userId + "'";
+        try {
+            st = con.prepareStatement(sql);
+
+        } catch (SQLException ex) {
+
+        }
+        try {
+            //   st.setString(1, userId);
+            rs = st.executeQuery();
+
+        } catch (SQLException ex) {
+
+        }
+        try {
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException ex) {
+            //  Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+
+            }
+        }
+    }
+
+    public static int getRollNumber(int regi) {
+
+        PreparedStatement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+        String path = "jdbc:mysql://localhost:3306/marksheet";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            con = DriverManager.getConnection(path, "root", "root");
+
+        } catch (SQLException ex) {
+            //Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String sql = " SELECT rollnumber FROM marks WHERE  registration_num = " + regi + "";
+        try {
+            st = con.prepareStatement(sql);
+
+        } catch (SQLException ex) {
+
+        }
+        try {
+            //   st.setString(1, userId);
+            rs = st.executeQuery();
+
+        } catch (SQLException ex) {
+
+        }
+        try {
+            rs.next();
+
+            return rs.getInt(1);
+        } catch (SQLException ex) {
+            //  Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+
+            }
+        }
+    }
 }
