@@ -135,7 +135,7 @@ public class Options extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void student_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_BActionPerformed
-        new SearchOptions().setVisible(true);
+        new StudentMainPage().setVisible(true);
         dispose();
     }//GEN-LAST:event_student_BActionPerformed
 

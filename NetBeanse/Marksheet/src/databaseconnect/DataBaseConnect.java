@@ -13,7 +13,7 @@ public class DataBaseConnect {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         //System.out.println(checkRegistrationNumber(7));
-        System.out.println(DataBaseConnect.getRollNumber(503));
+        System.out.println(DataBaseConnect.checkMarksExist(1003));
     }
 
     public static void showAllStudent(DefaultTableModel model) throws ClassNotFoundException, SQLException {
@@ -280,10 +280,10 @@ public class DataBaseConnect {
         try {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (Exception e) {
+        } catch (ClassNotFoundException e) {
             System.out.println(e);
         }
-        //System.out.println("2");\
+
         Connection con = null;
         String cmd = null;
         try {
@@ -303,28 +303,24 @@ public class DataBaseConnect {
         } catch (SQLException e) {
             System.out.println(e);
         }
-        System.out.println("-- -- -- -- -- -- -- -- -- -- -- --");
-//                ps.setInt(1, roll);
         try {
 
             ps.setInt(1, physics);
         } catch (SQLException e) {
             System.out.println(e);
-            System.out.println("1");
         }
         try {
 
             ps.setInt(2, chemestry);
         } catch (SQLException e) {
             System.out.println(e);
-            System.out.println("2");
+
         }
         try {
 
             ps.setInt(3, math);
         } catch (SQLException e) {
             System.out.println(e);
-            System.out.println("3");
         }
         try {
 
@@ -338,25 +334,47 @@ public class DataBaseConnect {
             ps.setInt(5, hindi);
         } catch (SQLException e) {
             System.out.println(e);
-            System.out.println("5");
         }
-        System.out.println("============");
         try {
             return ps.executeUpdate();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             return 0;
         } finally {
             try {
-                System.out.println("++++++++++++++++");
+
                 con.close();
-                System.out.println("-------------------*************");
 
             } catch (SQLException ex) {
                 // Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
+    }
+
+    public static boolean checkMarksExist(int roll) throws ClassNotFoundException, SQLException {
+
+        PreparedStatement st;
+        Connection con;
+        ResultSet rs;
+        String path = "jdbc:mysql://localhost:3306/marksheet";
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        con = DriverManager.getConnection(path, "root", "root");
+
+        String sql = "select * from marks where rollnumber = '" + roll + "'";
+
+        st = con.prepareStatement(sql);
+        try {
+            rs = st.executeQuery();
+            rs.next();
+            System.out.println(rs.getInt(4));
+            return rs.getInt(4) > 0; //if Marks is Existt
+        } catch (SQLException e) {
+            return false; //if Marks is  not Exist give error and return false
+        } finally {
+            con.close();
+        }
     }
 
     public static int ganrateRollNumber(int regi) {

@@ -46,21 +46,24 @@ public class Admin extends javax.swing.JFrame {
         updateButten = new javax.swing.JButton();
         storeDataButten = new javax.swing.JButton();
         deleteButten = new javax.swing.JButton();
-        genrate_rollNumber = new javax.swing.JButton();
-        rollGenerateDoneBTN = new javax.swing.JButton();
         back_B = new javax.swing.JButton();
-        enterRollNumber = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        ragis = new javax.swing.JTextField();
+        allStudentPannel = new javax.swing.JPanel();
         viewStudentRagistration = new javax.swing.JComboBox<>();
-        viewOptionStudent = new javax.swing.JComboBox<>();
         enterRagistreterName = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         ragisTakeName = new javax.swing.JTextField();
         viewRegistrationBTN = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        viewOptionStudent = new javax.swing.JComboBox<>();
         enterName1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         ragis2 = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        genrate_rollNumber = new javax.swing.JButton();
+        enterRollNumber = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        ragis = new javax.swing.JTextField();
+        rollGenerateDoneBTN = new javax.swing.JButton();
         done2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -136,7 +139,7 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(academicBTN)
                 .addGap(42, 42, 42)
                 .addComponent(quickLinksBTN)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,9 +192,8 @@ public class Admin extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3))
         );
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 255));
@@ -226,26 +228,6 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        genrate_rollNumber.setBackground(new java.awt.Color(5, 131, 210));
-        genrate_rollNumber.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        genrate_rollNumber.setForeground(new java.awt.Color(255, 255, 255));
-        genrate_rollNumber.setText("Generate Roll");
-        genrate_rollNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                genrate_rollNumberActionPerformed(evt);
-            }
-        });
-
-        rollGenerateDoneBTN.setBackground(new java.awt.Color(5, 131, 210));
-        rollGenerateDoneBTN.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        rollGenerateDoneBTN.setForeground(new java.awt.Color(255, 255, 255));
-        rollGenerateDoneBTN.setText("DONE");
-        rollGenerateDoneBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rollGenerateDoneBTNActionPerformed(evt);
-            }
-        });
-
         back_B.setBackground(new java.awt.Color(5, 131, 210));
         back_B.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         back_B.setForeground(new java.awt.Color(255, 255, 255));
@@ -253,6 +235,139 @@ public class Admin extends javax.swing.JFrame {
         back_B.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back_BActionPerformed(evt);
+            }
+        });
+
+        viewStudentRagistration.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Student Registration", "View By Name", "View By Address" }));
+        viewStudentRagistration.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewStudentRagistrationActionPerformed(evt);
+            }
+        });
+
+        enterRagistreterName.setBackground(new java.awt.Color(204, 255, 153));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("Enter Name                  :");
+
+        ragisTakeName.setBackground(new java.awt.Color(204, 255, 153));
+        ragisTakeName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ragisTakeNameActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout enterRagistreterNameLayout = new javax.swing.GroupLayout(enterRagistreterName);
+        enterRagistreterName.setLayout(enterRagistreterNameLayout);
+        enterRagistreterNameLayout.setHorizontalGroup(
+            enterRagistreterNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(enterRagistreterNameLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ragisTakeName, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+        enterRagistreterNameLayout.setVerticalGroup(
+            enterRagistreterNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ragisTakeName)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        viewRegistrationBTN.setBackground(new java.awt.Color(5, 131, 210));
+        viewRegistrationBTN.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        viewRegistrationBTN.setForeground(new java.awt.Color(255, 255, 255));
+        viewRegistrationBTN.setText("DONE");
+        viewRegistrationBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewRegistrationBTNActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout allStudentPannelLayout = new javax.swing.GroupLayout(allStudentPannel);
+        allStudentPannel.setLayout(allStudentPannelLayout);
+        allStudentPannelLayout.setHorizontalGroup(
+            allStudentPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(allStudentPannelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(viewStudentRagistration, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(enterRagistreterName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(viewRegistrationBTN)
+                .addGap(133, 133, 133))
+        );
+        allStudentPannelLayout.setVerticalGroup(
+            allStudentPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(allStudentPannelLayout.createSequentialGroup()
+                .addGroup(allStudentPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(enterRagistreterName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(viewStudentRagistration, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(viewRegistrationBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
+        );
+
+        viewOptionStudent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Student", "View By Name", "View By Roll Number" }));
+        viewOptionStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewOptionStudentActionPerformed(evt);
+            }
+        });
+
+        enterName1.setBackground(new java.awt.Color(204, 255, 153));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setText("Enter Name");
+
+        ragis2.setBackground(new java.awt.Color(204, 255, 153));
+        ragis2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ragis2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout enterName1Layout = new javax.swing.GroupLayout(enterName1);
+        enterName1.setLayout(enterName1Layout);
+        enterName1Layout.setHorizontalGroup(
+            enterName1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(enterName1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(ragis2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+        );
+        enterName1Layout.setVerticalGroup(
+            enterName1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ragis2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(viewOptionStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(enterName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(viewOptionStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(enterName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        genrate_rollNumber.setBackground(new java.awt.Color(5, 131, 210));
+        genrate_rollNumber.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        genrate_rollNumber.setForeground(new java.awt.Color(255, 255, 255));
+        genrate_rollNumber.setText("Generate Roll");
+        genrate_rollNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genrate_rollNumberActionPerformed(evt);
             }
         });
 
@@ -288,87 +403,36 @@ public class Admin extends javax.swing.JFrame {
             .addComponent(ragis, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
-        viewStudentRagistration.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Student Registration", "View By Name", "View By Address" }));
-        viewStudentRagistration.addActionListener(new java.awt.event.ActionListener() {
+        rollGenerateDoneBTN.setBackground(new java.awt.Color(5, 131, 210));
+        rollGenerateDoneBTN.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        rollGenerateDoneBTN.setForeground(new java.awt.Color(255, 255, 255));
+        rollGenerateDoneBTN.setText("DONE");
+        rollGenerateDoneBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewStudentRagistrationActionPerformed(evt);
+                rollGenerateDoneBTNActionPerformed(evt);
             }
         });
 
-        viewOptionStudent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Student", "View By Name", "View By Roll Number" }));
-        viewOptionStudent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewOptionStudentActionPerformed(evt);
-            }
-        });
-
-        enterRagistreterName.setBackground(new java.awt.Color(204, 255, 153));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Enter Name                  :");
-
-        ragisTakeName.setBackground(new java.awt.Color(204, 255, 153));
-        ragisTakeName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ragisTakeNameActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout enterRagistreterNameLayout = new javax.swing.GroupLayout(enterRagistreterName);
-        enterRagistreterName.setLayout(enterRagistreterNameLayout);
-        enterRagistreterNameLayout.setHorizontalGroup(
-            enterRagistreterNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(enterRagistreterNameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(ragisTakeName, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(genrate_rollNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(enterRollNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(rollGenerateDoneBTN))
         );
-        enterRagistreterNameLayout.setVerticalGroup(
-            enterRagistreterNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(enterRagistreterNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ragisTakeName, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-        );
-
-        viewRegistrationBTN.setBackground(new java.awt.Color(5, 131, 210));
-        viewRegistrationBTN.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        viewRegistrationBTN.setForeground(new java.awt.Color(255, 255, 255));
-        viewRegistrationBTN.setText("DONE");
-        viewRegistrationBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewRegistrationBTNActionPerformed(evt);
-            }
-        });
-
-        enterName1.setBackground(new java.awt.Color(204, 255, 153));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Enter Name");
-
-        ragis2.setBackground(new java.awt.Color(204, 255, 153));
-        ragis2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ragis2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout enterName1Layout = new javax.swing.GroupLayout(enterName1);
-        enterName1.setLayout(enterName1Layout);
-        enterName1Layout.setHorizontalGroup(
-            enterName1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(enterName1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addComponent(ragis2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
-        );
-        enterName1Layout.setVerticalGroup(
-            enterName1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ragis2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(genrate_rollNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(enterRollNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rollGenerateDoneBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         done2.setBackground(new java.awt.Color(5, 131, 210));
@@ -385,63 +449,45 @@ public class Admin extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(back_B, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(375, 375, 375))
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(back_B, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(viewOptionStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(enterName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(done2))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(genrate_rollNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20)
-                            .addComponent(enterRollNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(rollGenerateDoneBTN)
-                            .addGap(8, 8, 8))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(viewStudentRagistration, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(26, 26, 26)
-                            .addComponent(enterRagistreterName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(viewRegistrationBTN)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
                         .addComponent(storeDataButten, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(109, 109, 109)
+                        .addGap(58, 58, 58)
                         .addComponent(updateButten, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76)
-                        .addComponent(deleteButten, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(64, 64, 64)
+                        .addComponent(deleteButten, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(done2))
+                        .addComponent(allStudentPannel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 182, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(genrate_rollNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(enterRollNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rollGenerateDoneBTN))
-                .addGap(54, 54, 54)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(enterRagistreterName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewStudentRagistration, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewRegistrationBTN, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(done2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(enterName1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewOptionStudent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(84, 84, 84)
+                .addGap(72, 72, 72)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(allStudentPannel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(done2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteButten, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(storeDataButten, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updateButten, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(storeDataButten, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
+                    .addComponent(deleteButten, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(147, 147, 147)
                 .addComponent(back_B, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -460,8 +506,8 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -473,9 +519,9 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -494,7 +540,8 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_back_BActionPerformed
 
     private void updateButtenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtenActionPerformed
-
+        new UpdateStudentDetails().setVisible(true);
+        dispose();
         //dispose();
     }//GEN-LAST:event_updateButtenActionPerformed
 
@@ -534,7 +581,7 @@ public class Admin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Roll Number Ganrated Successfully");
                     ragis.setText("");
                 } else if (i == -1) {
-                    JOptionPane.showMessageDialog(null, "Roll Number Allready Exist");
+                    JOptionPane.showMessageDialog(null, "Roll Number Already Exists");
                     ragis.setText("");
                 } else {
                     JOptionPane.showMessageDialog(null, "Roll Number Genaration Fail");
@@ -544,10 +591,8 @@ public class Admin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Ragistration Number Not Found");
                 ragis.setText("");
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | SQLException ex) {
+            //  Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rollGenerateDoneBTNActionPerformed
 
@@ -575,7 +620,7 @@ public class Admin extends javax.swing.JFrame {
             case "All Student" -> {
                 try {
                     new ShowAllStudent().setVisible(true);
-                    System.out.println("555555555");
+                    
                     dispose();
                 } catch (ClassNotFoundException | SQLException ex) {
                     //Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
@@ -619,6 +664,7 @@ public class Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> aboutBTN;
     private javax.swing.JButton academicBTN;
+    private javax.swing.JPanel allStudentPannel;
     private javax.swing.JButton back_B;
     private javax.swing.JButton deleteButten;
     private javax.swing.JButton done2;
@@ -635,9 +681,11 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JButton quickLinksBTN;
     private javax.swing.JTextField ragis;

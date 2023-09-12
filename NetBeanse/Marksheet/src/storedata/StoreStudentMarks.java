@@ -796,11 +796,33 @@ public class StoreStudentMarks extends javax.swing.JFrame {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            if (DataBaseConnect.checkMarksExist(Integer.parseInt(roll.getText()))) {
+                JOptionPane.showMessageDialog(null, "Student Marks already exists");
+                roll.setText("");
+                regi.setText("");
+                obt1.setText("");
+                obt2.setText("");
+                obt3.setText("");
+                obt4.setText("");
+                obt5.setText("");
+                return;
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            // Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
         if (DataBaseConnect.storeMarks(Integer.parseInt(roll.getText()), Integer.parseInt(regi.getText()),
                 Integer.parseInt(obt1.getText()), Integer.parseInt(obt2.getText()),
                 Integer.parseInt(obt3.getText()), Integer.parseInt(obt5.getText()), Integer.parseInt(obt4.getText())) > 0) {
             JOptionPane.showMessageDialog(null, "Marks Update");
+            roll.setText("");
+            regi.setText("");
+            obt1.setText("");
+            obt2.setText("");
+            obt3.setText("");
+            obt4.setText("");
+            obt5.setText("");
         } // Logger.getLogger(StoreStudentMarks.class.getName()).log(Level.SEVERE, null, ex);
     }//GEN-LAST:event_SumbitActionPerformed
 

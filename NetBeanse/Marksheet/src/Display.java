@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import javax.swing.ImageIcon;
-import operation.SearchOptions;
+import operation.StudentMainPage;
 
 public final class Display extends javax.swing.JFrame {
 
@@ -508,7 +508,7 @@ public final class Display extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBActionPerformed
-        new SearchOptions().setVisible(true);
+        new StudentMainPage().setVisible(true);
         dispose();
 
     }//GEN-LAST:event_backBActionPerformed

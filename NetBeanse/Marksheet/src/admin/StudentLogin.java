@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import operation.Operation;
-import operation.SearchOptions;
+import operation.StudentMainPage;
 import swing.RGPVHOM;
 
 public class StudentLogin extends javax.swing.JFrame {
@@ -482,7 +482,7 @@ public class StudentLogin extends javax.swing.JFrame {
                 if (DataBaseConnect.checkUserIDPassword(User_Id.getText(), user_pass.getText())) {
                     if (capcha.getText().equals(capcha_Fill.getText())) {
 
-                        new SearchOptions(User_Id.getText()).setVisible(true);
+                        new StudentMainPage(User_Id.getText()).setVisible(true);
                         dispose();
                     } else {
                         JOptionPane.showMessageDialog(null, "Invalide Captcha");
