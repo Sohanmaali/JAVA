@@ -89,6 +89,11 @@ public class StudentSing extends javax.swing.JFrame {
                 name_FirstActionPerformed(evt);
             }
         });
+        name_First.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                name_FirstKeyTyped(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Father Name*");
@@ -99,11 +104,21 @@ public class StudentSing extends javax.swing.JFrame {
                 father_NameActionPerformed(evt);
             }
         });
+        father_Name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                father_NameKeyTyped(evt);
+            }
+        });
 
         dob.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         dob.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dobActionPerformed(evt);
+            }
+        });
+        dob.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dobKeyTyped(evt);
             }
         });
 
@@ -128,6 +143,11 @@ public class StudentSing extends javax.swing.JFrame {
                 name_LastActionPerformed(evt);
             }
         });
+        name_Last.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                name_LastKeyTyped(evt);
+            }
+        });
 
         mother_Name.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         mother_Name.addActionListener(new java.awt.event.ActionListener() {
@@ -135,11 +155,21 @@ public class StudentSing extends javax.swing.JFrame {
                 mother_NameActionPerformed(evt);
             }
         });
+        mother_Name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                mother_NameKeyTyped(evt);
+            }
+        });
 
         course.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         course.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 courseActionPerformed(evt);
+            }
+        });
+        course.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                courseKeyTyped(evt);
             }
         });
 
@@ -188,6 +218,11 @@ public class StudentSing extends javax.swing.JFrame {
                 street_AddActionPerformed(evt);
             }
         });
+        street_Add.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                street_AddKeyTyped(evt);
+            }
+        });
 
         block.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         block.addActionListener(new java.awt.event.ActionListener() {
@@ -195,11 +230,21 @@ public class StudentSing extends javax.swing.JFrame {
                 blockActionPerformed(evt);
             }
         });
+        block.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                blockKeyTyped(evt);
+            }
+        });
 
         state.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         state.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stateActionPerformed(evt);
+            }
+        });
+        state.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                stateKeyTyped(evt);
             }
         });
 
@@ -213,6 +258,11 @@ public class StudentSing extends javax.swing.JFrame {
         distric.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 districActionPerformed(evt);
+            }
+        });
+        distric.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                districKeyTyped(evt);
             }
         });
 
@@ -835,6 +885,87 @@ public class StudentSing extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_pincodeKeyTyped
+
+    private void name_FirstKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_name_FirstKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+
+            evt.consume(); // Consume digit characters
+        }
+    }//GEN-LAST:event_name_FirstKeyTyped
+
+    private void name_LastKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_name_LastKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+
+            evt.consume(); // Consume digit characters
+        } // TODO add your handling code here:
+    }//GEN-LAST:event_name_LastKeyTyped
+
+    private void father_NameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_father_NameKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+
+            evt.consume(); // Consume digit characters
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_father_NameKeyTyped
+
+    private void mother_NameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mother_NameKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+
+            evt.consume(); // Consume digit characters
+        }  // TODO add your handling code here:
+    }//GEN-LAST:event_mother_NameKeyTyped
+
+    private void dobKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dobKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+
+            evt.consume(); // Consume digit characters
+        }      // TODO add your handling code here:
+    }//GEN-LAST:event_dobKeyTyped
+
+    private void courseKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_courseKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+
+            evt.consume(); // Consume digit characters
+        } // TODO add your handling code here:
+    }//GEN-LAST:event_courseKeyTyped
+
+    private void street_AddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_street_AddKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+
+            evt.consume(); // Consume digit characters
+        }  // TODO add your handling code here:
+    }//GEN-LAST:event_street_AddKeyTyped
+
+    private void blockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_blockKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+
+            evt.consume(); // Consume digit characters
+        }    // TODO add your handling code here:
+    }//GEN-LAST:event_blockKeyTyped
+
+    private void districKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_districKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+
+            evt.consume(); // Consume digit characters
+        }  // TODO add your handling code here:
+    }//GEN-LAST:event_districKeyTyped
+
+    private void stateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stateKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+
+            evt.consume(); // Consume digit characters
+        }      // TODO add your handling code here:
+    }//GEN-LAST:event_stateKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Clear_B;

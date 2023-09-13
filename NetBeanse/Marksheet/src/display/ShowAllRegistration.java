@@ -22,27 +22,8 @@ public class ShowAllRegistration extends javax.swing.JFrame {
      */
     public ShowAllRegistration() throws ClassNotFoundException, SQLException {
         initComponents();
-       // DefaultTableModel model = (DefaultTableModel) stDataTable.getModel();
-        //DataBaseConnect.showAllRegistration(model);
-    }
-
-    public ShowAllRegistration(String all_Student_Registration, String name) {
-        initComponents();
         DefaultTableModel model = (DefaultTableModel) stDataTable.getModel();
-        //String name = "";
-        switch (all_Student_Registration) {
-            case "All Student Registration" -> {
-                try {
-                    DataBaseConnect.showAllRegistration(model);
-                } catch (ClassNotFoundException | SQLException ex) {
-                    //  Logger.getLogger(ShowAllRegistration.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            case "View By Name" -> {
-                DataBaseConnect.showByName(model, name); //  Logger.getLogger(ShowAllRegistration.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
+        DataBaseConnect.showAllRegistration(model);
     }
 
     /**

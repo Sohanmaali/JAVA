@@ -13,7 +13,7 @@ public class DataBaseConnect {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         //System.out.println(checkRegistrationNumber(7));
-        System.out.println(DataBaseConnect.checkMarksExist(1003));
+        //System.out.println(DataBaseConnect.removeStudentData(1003, 504));
     }
 
     public static void showAllStudent(DefaultTableModel model) throws ClassNotFoundException, SQLException {
@@ -516,33 +516,6 @@ public class DataBaseConnect {
         }
     }
 
-    {/* public static boolean checkRegistrationNumberMarks(int regi) throws ClassNotFoundException, SQLException {
-        PreparedStatement st;
-        Connection con;   //Check registration number on Marks Tables
-        ResultSet rs = null;
-
-        String path = "jdbc:mysql://localhost:3306/marksheet";
-
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection(path, "root", "root");
-
-        String sql = "select * from marks where registration_num = '" + regi + "'";
-
-        st = con.prepareStatement(sql);
-        try {
-            rs = st.executeQuery();
-            rs.next();
-            System.out.println(rs.getString(1));
-            return true;         //if Registration Number is Exist t
-        } catch (SQLException e) {
-            System.out.println(e);
-            return false;  //if Registration Number is  not Exist give error and return false
-        } finally {
-            con.close();
-        }
-    }*/
-    }
-
     public static int getRegistrationId(String userId) {
 
         PreparedStatement st = null;
@@ -638,5 +611,171 @@ public class DataBaseConnect {
 
             }
         }
+    }
+
+    public static int StudentDataUpdate(String update, String updateValue, int roll, int regiNum) {
+        PreparedStatement ps = null;
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println(e);
+        }
+
+        Connection con = null;
+        String cmd = null;
+        try {
+
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root");
+
+//            cmd = "UPDATE marks SET physics = ? WHERE rollnumber = " + roll;
+            //System.out.println(cmd);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        switch (update) {
+            case "Name" -> {
+
+                cmd = "UPDATE stregistration SET firstame = ? WHERE registration_num = ?";
+                try {
+                    ps = con.prepareStatement(cmd);
+                    ps.setString(1, updateValue);
+                    ps.setInt(2, regiNum);
+                } catch (SQLException ex) {
+
+                }
+            }
+            case "Last Name" -> {
+
+                cmd = "UPDATE stregistration SET lastname = ? WHERE registration_num = ?";
+                try {
+                    ps = con.prepareStatement(cmd);
+                    ps.setString(1, updateValue);
+                    ps.setInt(2, regiNum);
+                } catch (SQLException ex) {
+
+                }
+            }
+            case "Father Name" -> {
+                cmd = "UPDATE stregistration SET father = ? WHERE registration_num = ?";
+                try {
+                    ps = con.prepareStatement(cmd);
+                    ps.setString(1, updateValue);
+                    ps.setInt(2, regiNum);
+                } catch (SQLException ex) {
+
+                }
+            }
+            case "Mother Name" -> {
+                cmd = "UPDATE stregistration SET mother = ? WHERE registration_num = ?";
+                try {
+                    ps = con.prepareStatement(cmd);
+                    ps.setString(1, updateValue);
+                    ps.setInt(2, regiNum);
+                } catch (SQLException ex) {
+
+                }
+            }
+            case "Mobile" -> {
+                cmd = "UPDATE stregistration SET mobile = ? WHERE registration_num = ?";
+                try {
+                    ps = con.prepareStatement(cmd);
+                    ps.setString(1, updateValue);
+                    ps.setInt(2, regiNum);
+                } catch (SQLException ex) {
+
+                }
+            }
+            case "Hindi" -> {
+                cmd = "UPDATE marks SET hindi = ? WHERE rollnumber = ?";
+                try {
+                    ps = con.prepareStatement(cmd);
+                    ps.setString(1, updateValue);
+                    ps.setInt(2, roll);
+                } catch (SQLException ex) {
+                }
+            }
+            case "English" -> {
+                cmd = "UPDATE marks SET english = ? WHERE rollnumber = ?";
+                try {
+                    ps = con.prepareStatement(cmd);
+                    ps.setString(1, updateValue);
+                    ps.setInt(2, roll);
+                } catch (SQLException ex) {
+                }
+            }
+            case "Mathes" -> {
+                cmd = "UPDATE marks SET math = ? WHERE rollnumber = ?";
+                try {
+                    ps = con.prepareStatement(cmd);
+                    ps.setString(1, updateValue);
+                    ps.setInt(2, roll);
+                } catch (SQLException ex) {
+                }
+            }
+            case "Physics" -> {
+                cmd = "UPDATE marks SET physics = ? WHERE rollnumber = ?";
+                try {
+                    ps = con.prepareStatement(cmd);
+                    ps.setString(1, updateValue);
+                    ps.setInt(2, roll);
+                } catch (SQLException ex) {
+                }
+            }
+            case "Chemestry" -> {
+                cmd = "UPDATE marks SET chemistry = ? WHERE rollnumber = ?";
+                try {
+                    ps = con.prepareStatement(cmd);
+                    ps.setString(1, updateValue);
+                    ps.setInt(2, roll);
+                } catch (SQLException ex) {
+                }
+            }
+        }
+
+        try {
+            return ps.executeUpdate();
+
+        } catch (SQLException e) {
+            return 0;
+        } finally {
+            try {
+
+                con.close();
+
+            } catch (SQLException ex) {
+                // Logger.getLogger(DataBaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    public static int removeStudentData(int roll, int regi) {
+        Connection con = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root");
+
+            String sql = "delete from marks where rollnumber = ?";
+            String sql1 = "delete from stregistration where registration_num = ?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, roll);
+            ResultSet rs = ps.executeQuery();
+
+            PreparedStatement ps1 = con.prepareStatement(sql1);
+            ps1.setInt(1, regi);
+            ResultSet rs1 = ps1.executeQuery();
+
+        } catch (ClassNotFoundException | SQLException e) {
+
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                System.out.println("Exception");
+            }
+        }
+        return 0;
     }
 }
