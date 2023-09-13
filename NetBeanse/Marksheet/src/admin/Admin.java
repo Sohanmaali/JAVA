@@ -2,13 +2,13 @@ package admin;
 
 import databaseconnect.DataBaseConnect;
 import static databaseconnect.DataBaseConnect.checkRegistrationNumberSTRegi;
+import static databaseconnect.DataBaseConnect.removeStudentData;
 import display.ShowAllRegistration;
 import display.ShowAllStudent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-//import test.StoreData;
 import storedata.StoreStudentMarks;
 import swing.RGPVHOM;
 
@@ -57,7 +57,8 @@ public class Admin extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         update = new javax.swing.JButton();
         rollGenerateDoneBTN = new javax.swing.JButton();
-        viewAllList1 = new javax.swing.JComboBox<>();
+        delete = new javax.swing.JButton();
+        removeData = new javax.swing.JComboBox<>();
         generate_Roll = new javax.swing.JComboBox<>();
         generateMarksheet = new javax.swing.JComboBox<>();
         back_B = new javax.swing.JButton();
@@ -176,7 +177,7 @@ public class Admin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        updation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "                   Update", "Name", "Last Name", "Father Name", "Mother Name", "Mobile", "Gmail", "Adhar" }));
+        updation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "                   Update", "Name", "Last Name", "Father Name", "Mother Name" }));
         updation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updationActionPerformed(evt);
@@ -205,9 +206,20 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel4.setText("Enter Ragistration Number");
 
+        regis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regisActionPerformed(evt);
+            }
+        });
         regis.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 regisKeyTyped(evt);
+            }
+        });
+
+        value.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valueActionPerformed(evt);
             }
         });
 
@@ -266,9 +278,8 @@ public class Admin extends javax.swing.JFrame {
         rollGeneratorLayout.setHorizontalGroup(
             rollGeneratorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rollGeneratorLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(36, 36, 36)
                 .addComponent(take_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(113, Short.MAX_VALUE))
         );
@@ -302,23 +313,34 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        delete.setBackground(new java.awt.Color(5, 131, 210));
+        delete.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        delete.setForeground(new java.awt.Color(255, 255, 255));
+        delete.setText("Delete");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout updatePannelLayout = new javax.swing.GroupLayout(updatePannel);
         updatePannel.setLayout(updatePannelLayout);
         updatePannelLayout.setHorizontalGroup(
             updatePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(updatePannelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(updatePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(updatePannelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(updatePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(updatePannelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rollGenerator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(updatePannelLayout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(update)
-                        .addGap(41, 41, 41)
-                        .addComponent(rollGenerateDoneBTN)))
+                    .addComponent(updatePannelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rollGenerator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updatePannelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(delete)
+                .addGap(18, 18, 18)
+                .addComponent(update)
+                .addGap(18, 18, 18)
+                .addComponent(rollGenerateDoneBTN)
+                .addGap(72, 72, 72))
         );
         updatePannelLayout.setVerticalGroup(
             updatePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,17 +349,19 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(updatePannelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rollGenerator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(updatePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rollGenerateDoneBTN))
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addGroup(updatePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(rollGenerateDoneBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(updatePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(16, 16, 16))
         );
 
-        viewAllList1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "         Remove Data", "Registration", "Student" }));
-        viewAllList1.addActionListener(new java.awt.event.ActionListener() {
+        removeData.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "         Remove Data", "Registration", "Student" }));
+        removeData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewAllList1ActionPerformed(evt);
+                removeDataActionPerformed(evt);
             }
         });
 
@@ -380,7 +404,7 @@ public class Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(generate_Roll, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(viewAllList1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(removeData, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(viewAllList, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(updation, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(generateMarksheet, 0, 164, Short.MAX_VALUE)
@@ -395,26 +419,25 @@ public class Admin extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(viewAllList, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(updation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(marksUpdation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(viewAllList1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(generate_Roll, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(generateMarksheet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(updatePannel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
+                .addComponent(viewAllList, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(updation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(marksUpdation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(removeData, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(generate_Roll, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(generateMarksheet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(back_B)
                 .addGap(26, 26, 26))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(updatePannel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -582,10 +605,17 @@ public class Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_regisKeyTyped
 
-    private void viewAllList1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllList1ActionPerformed
-        // TODO add your handling code here:
+    private void removeDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeDataActionPerformed
         rollGenerateDoneBTN.setVisible(false);
-    }//GEN-LAST:event_viewAllList1ActionPerformed
+        switch (removeData.getSelectedIndex()) {
+            case 1 -> {
+            }
+            case 2 -> {
+                removeStudentData(10, 10);
+            }
+        }
+
+    }//GEN-LAST:event_removeDataActionPerformed
 
     private void generate_RollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generate_RollActionPerformed
         rollGenerator.setVisible(true);
@@ -597,6 +627,10 @@ public class Admin extends javax.swing.JFrame {
 
     private void take_regisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_take_regisKeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume non-digit characters
+        }
     }//GEN-LAST:event_take_regisKeyTyped
 
     private void generateMarksheetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateMarksheetActionPerformed
@@ -613,10 +647,38 @@ public class Admin extends javax.swing.JFrame {
         update.setVisible(true);
     }//GEN-LAST:event_marksUpdationActionPerformed
 
+    private void regisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_regisActionPerformed
+
+    private void valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueActionPerformed
+        // TODO add your handling code here:
+
+        switch (updation.getSelectedItem().toString()) {
+            case "Marks" -> {
+
+            }
+
+            case "Hindi" -> {
+            }
+            case "English" -> {
+            }
+            case "Chemestry" -> {
+            }
+            case "Physics" -> {
+            }
+        }
+    }//GEN-LAST:event_valueActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> aboutBTN;
     private javax.swing.JButton academicBTN;
     private javax.swing.JButton back_B;
+    private javax.swing.JButton delete;
     private javax.swing.JComboBox<String> generateMarksheet;
     private javax.swing.JComboBox<String> generate_Roll;
     private javax.swing.JButton homeBTN;
@@ -636,6 +698,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> marksUpdation;
     private javax.swing.JButton quickLinksBTN;
     private javax.swing.JTextField regis;
+    private javax.swing.JComboBox<String> removeData;
     private javax.swing.JTextField roll;
     private javax.swing.JButton rollGenerateDoneBTN;
     private javax.swing.JPanel rollGenerator;
@@ -646,6 +709,5 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> updation;
     private javax.swing.JTextField value;
     private javax.swing.JComboBox<String> viewAllList;
-    private javax.swing.JComboBox<String> viewAllList1;
     // End of variables declaration//GEN-END:variables
 }
