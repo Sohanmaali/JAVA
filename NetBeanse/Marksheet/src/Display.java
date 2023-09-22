@@ -510,7 +510,6 @@ public final class Display extends javax.swing.JFrame {
     private void backBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBActionPerformed
         new StudentMainPage().setVisible(true);
         dispose();
-
     }//GEN-LAST:event_backBActionPerformed
     public static void main(String[] args) {
         Display ob = new Display();

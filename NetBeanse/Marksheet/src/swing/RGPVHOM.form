@@ -153,8 +153,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton5" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -237,7 +237,7 @@
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="home_butten" min="-2" pref="129" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="119" max="-2" attributes="0"/>
+                      <Component id="jComboBox1" min="-2" pref="123" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -254,10 +254,10 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="home_butten" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="btn" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="btn" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="btn1" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
                           <Component id="jButton3" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jComboBox1" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   </Group>
@@ -274,6 +274,9 @@
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="home_buttenMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="home_buttenMouseExited"/>
+                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="home_buttenMouseReleased"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="home_buttenActionPerformed"/>
               </Events>
             </Component>
@@ -286,6 +289,8 @@
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMouseExited"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActionPerformed"/>
               </Events>
             </Component>
@@ -297,6 +302,10 @@
                 <Property name="text" type="java.lang.String" value="ACADEMICS"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn1MouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn1MouseExited"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
@@ -307,17 +316,41 @@
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseExited"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JComboBox" name="jComboBox1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
+                  <Font name="Segoe UI" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ABOUT US"/>
-                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="14">
+                    <StringItem index="0" value="ABOUT US"/>
+                    <StringItem index="1" value="About RGPV"/>
+                    <StringItem index="2" value="Vision"/>
+                    <StringItem index="3" value="Vice Chancellors Message"/>
+                    <StringItem index="4" value="Know Your VC"/>
+                    <StringItem index="5" value="University Mascot"/>
+                    <StringItem index="6" value="Lokpal"/>
+                    <StringItem index="7" value="The Campus"/>
+                    <StringItem index="8" value="Acts"/>
+                    <StringItem index="9" value="Statutes"/>
+                    <StringItem index="10" value="Ordinance"/>
+                    <StringItem index="11" value="Administration"/>
+                    <StringItem index="12" value="The Finance Committee"/>
+                    <StringItem index="13" value="Board of Studies"/>
+                  </StringArray>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

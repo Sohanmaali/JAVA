@@ -1,6 +1,7 @@
 package swing;
 
 import admin.LoginOption;
+import java.awt.Color;
 
 public class RGPVHOM extends javax.swing.JFrame {
 
@@ -26,7 +27,7 @@ public class RGPVHOM extends javax.swing.JFrame {
         btn = new javax.swing.JButton();
         btn1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -91,8 +92,8 @@ public class RGPVHOM extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(106, 106, 106)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5)
-                            .addComponent(jButton1))))
+                            .addComponent(jButton1)
+                            .addComponent(jButton5))))
                 .addGap(608, 608, 608)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -117,6 +118,17 @@ public class RGPVHOM extends javax.swing.JFrame {
         home_butten.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         home_butten.setText("HOME");
         home_butten.setContentAreaFilled(false);
+        home_butten.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                home_buttenMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                home_buttenMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                home_buttenMouseReleased(evt);
+            }
+        });
         home_butten.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 home_buttenActionPerformed(evt);
@@ -126,6 +138,14 @@ public class RGPVHOM extends javax.swing.JFrame {
         btn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn.setText("LOGIN");
         btn.setContentAreaFilled(false);
+        btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMouseExited(evt);
+            }
+        });
         btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActionPerformed(evt);
@@ -135,19 +155,35 @@ public class RGPVHOM extends javax.swing.JFrame {
         btn1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn1.setText("ACADEMICS");
         btn1.setContentAreaFilled(false);
+        btn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn1MouseExited(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setText("INSTITUTIONS");
         jButton3.setContentAreaFilled(false);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setText("ABOUT US");
-        jButton2.setContentAreaFilled(false);
+        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ABOUT US", "About RGPV", "Vision", "Vice Chancellors Message", "Know Your VC", "University Mascot", "Lokpal", "The Campus", "Acts", "Statutes", "Ordinance", "Administration", "The Finance Committee", "Board of Studies" }));
+        jComboBox1.setBorder(null);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -157,7 +193,7 @@ public class RGPVHOM extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(home_butten, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(43, 43, 43)
@@ -172,10 +208,10 @@ public class RGPVHOM extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(home_butten, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9))
         );
 
@@ -265,6 +301,50 @@ public class RGPVHOM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void home_buttenMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home_buttenMouseReleased
+
+    }//GEN-LAST:event_home_buttenMouseReleased
+
+    private void home_buttenMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home_buttenMouseEntered
+
+        home_butten.setForeground(Color.blue);
+    }//GEN-LAST:event_home_buttenMouseEntered
+
+    private void home_buttenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home_buttenMouseExited
+
+        home_butten.setForeground(Color.black);
+    }//GEN-LAST:event_home_buttenMouseExited
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // TODO add your handling code here:
+        jButton3.setForeground(Color.blue);
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+        jButton3.setForeground(Color.black);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void btn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseEntered
+        // TODO add your handling code here:
+        btn1.setForeground(Color.blue);
+    }//GEN-LAST:event_btn1MouseEntered
+
+    private void btn1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseExited
+        // TODO add your handling code here:
+        btn1.setForeground(Color.black);
+    }//GEN-LAST:event_btn1MouseExited
+
+    private void btnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMouseEntered
+        // TODO add your handling code here:
+         btn.setForeground(Color.blue);
+    }//GEN-LAST:event_btnMouseEntered
+
+    private void btnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMouseExited
+        // TODO add your handling code here:
+         btn.setForeground(Color.black);
+    }//GEN-LAST:event_btnMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -304,9 +384,9 @@ public class RGPVHOM extends javax.swing.JFrame {
     private javax.swing.JButton btn1;
     private javax.swing.JButton home_butten;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

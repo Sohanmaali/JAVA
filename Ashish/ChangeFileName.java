@@ -53,7 +53,8 @@ public class ChangeFileName {
             }
 
             // Delete the file represented by 'f'
-            if (f.delete()) {
+            // if (f.delete())
+             {
                 System.out.println("File deleted: " + f.getName());
 
                 // Attempt to rename 'f' to 'dest'

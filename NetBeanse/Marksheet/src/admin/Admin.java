@@ -5,6 +5,7 @@ import static databaseconnect.DataBaseConnect.checkRegistrationNumberSTRegi;
 import static databaseconnect.DataBaseConnect.removeStudentData;
 import display.ShowAllRegistration;
 import display.ShowAllStudent;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +34,7 @@ public class Admin extends javax.swing.JFrame {
 
         jPanel9 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         homeBTN = new javax.swing.JButton();
         academicBTN = new javax.swing.JButton();
         institutionBTM = new javax.swing.JButton();
@@ -87,11 +88,20 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(jLabel13))
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         homeBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         homeBTN.setText("HOME");
+        homeBTN.setBorder(null);
         homeBTN.setContentAreaFilled(false);
+        homeBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                homeBTNMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                homeBTNMouseExited(evt);
+            }
+        });
         homeBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeBTNActionPerformed(evt);
@@ -100,10 +110,12 @@ public class Admin extends javax.swing.JFrame {
 
         academicBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         academicBTN.setText("ACADEMICS");
+        academicBTN.setBorder(null);
         academicBTN.setContentAreaFilled(false);
 
         institutionBTM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         institutionBTM.setText("INSTITUTIONS");
+        institutionBTM.setBorder(null);
         institutionBTM.setContentAreaFilled(false);
         institutionBTM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +125,7 @@ public class Admin extends javax.swing.JFrame {
 
         quickLinksBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         quickLinksBTN.setText("QUICK LINKS");
+        quickLinksBTN.setBorder(null);
         quickLinksBTN.setContentAreaFilled(false);
 
         aboutBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -124,11 +137,11 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(homeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
@@ -139,13 +152,13 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(academicBTN)
                 .addGap(42, 42, 42)
                 .addComponent(quickLinksBTN)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(homeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(academicBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(institutionBTM, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -460,7 +473,7 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,7 +491,7 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -497,19 +510,6 @@ public class Admin extends javax.swing.JFrame {
         new AdminLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_back_BActionPerformed
-
-    private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBTNActionPerformed
-        new RGPVHOM().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_homeBTNActionPerformed
-
-    private void institutionBTMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_institutionBTMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_institutionBTMActionPerformed
-
-    private void aboutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_aboutBTNActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         // TODO add your handling code here:
@@ -674,6 +674,28 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteActionPerformed
 
+    private void aboutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aboutBTNActionPerformed
+
+    private void institutionBTMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_institutionBTMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_institutionBTMActionPerformed
+
+    private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBTNActionPerformed
+        new RGPVHOM().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_homeBTNActionPerformed
+
+    private void homeBTNMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBTNMouseEntered
+        homeBTN.setForeground(Color.blue);
+    }//GEN-LAST:event_homeBTNMouseEntered
+
+    private void homeBTNMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBTNMouseExited
+        // TODO add your handling code here:
+        homeBTN.setForeground(Color.black);
+    }//GEN-LAST:event_homeBTNMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> aboutBTN;
     private javax.swing.JButton academicBTN;
@@ -682,6 +704,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> generateMarksheet;
     private javax.swing.JComboBox<String> generate_Roll;
     private javax.swing.JButton homeBTN;
+    private javax.swing.JButton home_butten;
     private javax.swing.JButton institutionBTM;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
@@ -694,6 +717,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JComboBox<String> marksUpdation;
     private javax.swing.JButton quickLinksBTN;
