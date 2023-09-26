@@ -16,7 +16,22 @@
         <servlet-name>Pattern</servlet-name>
         <servlet-class>Pattern</servlet-class>
     </servlet>
-   
+    <servlet>
+        <servlet-name>OddNumberSerice</servlet-name>
+        <servlet-class>OddNumberSerice</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Palindrome</servlet-name>
+        <servlet-class>Palindrome</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PrimeNumber</servlet-name>
+        <servlet-class>PrimeNumber</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>First</servlet-name>
+        <servlet-class>preeti.First</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
@@ -33,5 +48,20 @@
         <servlet-name>Pattern</servlet-name>
         <url-pattern>/Pattern</url-pattern>
     </servlet-mapping>
-   
+    <servlet-mapping>
+        <servlet-name>OddNumberSerice</servlet-name>
+        <url-pattern>/OddNumberSerice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Palindrome</servlet-name>
+        <url-pattern>/Palindrome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PrimeNumber</servlet-name>
+        <url-pattern>/PrimeNumber</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>First</servlet-name>
+        <url-pattern>/First</url-pattern>
+    </servlet-mapping>
 </web-app>
