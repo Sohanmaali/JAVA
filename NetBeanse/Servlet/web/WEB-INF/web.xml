@@ -29,6 +29,10 @@
         <servlet-class>PrimeNumber</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>Calculatar</servlet-name>
+        <servlet-class>Calculatar</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>First</servlet-name>
         <servlet-class>preeti.First</servlet-class>
     </servlet>
@@ -63,5 +67,9 @@
     <servlet-mapping>
         <servlet-name>First</servlet-name>
         <url-pattern>/First</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Calculatar</servlet-name>
+        <url-pattern>/Calculatar</url-pattern>
     </servlet-mapping>
 </web-app>
