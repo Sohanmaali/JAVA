@@ -1,66 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-    
     <servlet>
         <servlet-name>OddNumberSerice</servlet-name>
         <servlet-class>OddNumberSerice</servlet-class>
+        <servlet-mapping>
+            <servlet-name>Calculatar</servlet-name>
+            <url-pattern>/Calculatar</url-pattern>
+        </servlet-mapping>
     </servlet>
-    
+    <servlet>
+        <servlet-name>FoureValue1</servlet-name>
+        <servlet-class>FoureValue1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Calculater1</servlet-name>
+        <servlet-class>Calculater1</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OddNumberSerice</servlet-name>
         <url-pattern>/OddNumberSerice</url-pattern>
+        <servlet-mapping>
+            <servlet-name>Calculatar</servlet-name>
+            <url-pattern>/Calculatar</url-pattern>
+        </servlet-mapping>
     </servlet-mapping>
-    
-    
     <servlet>
         <servlet-name>Calculatar</servlet-name>
         <servlet-class>Calculatar</servlet-class>
+        <servlet-mapping>
+            <servlet-name>Calculatar</servlet-name>
+            <url-pattern>/Calculatar</url-pattern>
+        </servlet-mapping>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>Calculatar</servlet-name>
         <url-pattern>/Calculatar</url-pattern>
     </servlet-mapping>
-    
-    
     <servlet>
         <servlet-name>OneOperand</servlet-name>
         <servlet-class>OneOperand</servlet-class>
-    </servlet> 
-    
+    </servlet>
     <servlet-mapping>
         <servlet-name>OneOperand</servlet-name>
         <url-pattern>/OneOperand</url-pattern>
     </servlet-mapping>
-    
-    
     <servlet>
         <servlet-name>TwoValue</servlet-name>
         <servlet-class>TwoValue</servlet-class>
-    </servlet> 
+    </servlet>
     <servlet-mapping>
         <servlet-name>TwoValue</servlet-name>
         <url-pattern>/TwoValue</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>TwoValue1</servlet-name>
         <servlet-class>TwoValue1</servlet-class>
-    </servlet> 
-      
+        <servlet-mapping>
+            <servlet-name>TwoValue1</servlet-name>
+            <url-pattern>/TwoValue1</url-pattern>
+        </servlet-mapping>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TwoValue1</servlet-name>
         <url-pattern>/TwoValue1</url-pattern>
+        <servlet-mapping>
+            <servlet-name>TwoValue1</servlet-name>
+            <url-pattern>/TwoValue1</url-pattern>
+        </servlet-mapping>
     </servlet-mapping>
-    
-          
     <servlet>
         <servlet-name>FoureNumber</servlet-name>
         <servlet-class>FoureNumber</servlet-class>
-    </servlet>   
-       
+    </servlet>
     <servlet-mapping>
         <servlet-name>FoureNumber</servlet-name>
         <url-pattern>/FoureNumber</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FoureValue1</servlet-name>
+        <url-pattern>/FoureValue1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Calculater1</servlet-name>
+        <url-pattern>/Calculater1</url-pattern>
     </servlet-mapping>
 </web-app>

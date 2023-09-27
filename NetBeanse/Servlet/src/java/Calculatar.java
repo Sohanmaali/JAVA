@@ -10,7 +10,6 @@ public class Calculatar extends HttpServlet {
     protected void serviseRequest(HttpServletRequest req, HttpServletResponse res) throws IOException {
         res.setContentType("text/html;charset = UTF-8");
         try (PrintWriter out = res.getWriter()) {
-//            out.println("Sohan");
             int n = Integer.parseInt(req.getParameter("n1"));
             int m = Integer.parseInt(req.getParameter("n2"));
 
@@ -22,28 +21,30 @@ public class Calculatar extends HttpServlet {
                 multiplaction(n, m, out);
             } else if (req.getParameter("Division") != null) {
                 division(n, m, out);
+            } else if (req.getParameter("Modul") != null) {
+                modul(n, m, out);
             }
         }
     }
 
     public void addition(int n, int m, PrintWriter out) {
         out.println(n + m);
-
     }
 
     public void subtraction(int n, int m, PrintWriter out) {
         out.println(n - m);
-
     }
 
     public void multiplaction(int n, int m, PrintWriter out) {
         out.println(n * m);
-
     }
 
     public void division(int n, int m, PrintWriter out) {
         out.println(n / m);
+    }
 
+    public void modul(int n, int m, PrintWriter out) {
+        out.println(n % m);
     }
 
     /**
