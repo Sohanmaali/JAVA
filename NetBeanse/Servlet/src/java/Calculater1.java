@@ -27,13 +27,15 @@ public class Calculater1 extends HttpServlet {
 
             out.print("<tr>");
             out.print("<td>");
-            out.print("<lable style='width:97%; height:30px;' >Enter First Number: </lable>   ");
-            out.print("   <input style='width:97%; height:30px;' type = 'text' placeholder='Enter Number' name='n1'>");
+//            out.print("<lable style='width:97%; height:30px;' >Enter First Number: </lable>   ");
+            out.println("Enter First Number:");
+            out.print("   <input style='width:97%; height:30px;' type = 'text' placeholder='Enter First Number' name='n1'>");
             out.print("</td>");
             out.print("</tr>");
             out.print("<tr>");
             out.print("<td>");
-            out.print("<lable style='width:97%; height:30px;' >Enter Second Number: </lable>   ");
+//            out.print("<lable style='width:97%; height:30px;' >Enter Second Number: </lable>   ");
+            out.println("Enter Second Number:");
             out.print("   <input style='width:97%; height:30px;' type = 'text' placeholder='Enter Second number' name='n2'>");
             out.print("</td>");
             out.print("</tr>");

@@ -14,45 +14,53 @@ public class Calculatar extends HttpServlet {
             int m = Integer.parseInt(req.getParameter("n2"));
 
             if (req.getParameter("Addition") != null) {
-                addition(n, m, out);
+                showResult(addition(n, m, out), res);
+
             } else if (req.getParameter("Subtraction") != null) {
-                subtraction(n, m, out);
+                showResult(subtraction(n, m, out), res);
             } else if (req.getParameter("Multiplaction") != null) {
-                multiplaction(n, m, out);
+                showResult(multiplaction(n, m, out), res);
             } else if (req.getParameter("Division") != null) {
-                division(n, m, out);
+                showResult(division(n, m, out), res);
             } else if (req.getParameter("Modul") != null) {
-                modul(n, m, out);
+                showResult(modul(n, m, out), res);
             }
         }
     }
 
-    public void addition(int n, int m, PrintWriter out) {
-        out.println(n + m);
+    public void showResult(int n, HttpServletResponse res) throws IOException {
+        res.setContentType("text/html");
+        res.getWriter().println("<html>");
+        res.getWriter().println("<head><title>Calculator Result</title></head>");
+        res.getWriter().println("<body>");
+        res.getWriter().println("<h1>Calculator Result</h1>");
+        res.getWriter().println("<p>Result: " + n + "</p>");
+        res.getWriter().println("</body>");
+        res.getWriter().println("</html>");
+
     }
 
-    public void subtraction(int n, int m, PrintWriter out) {
-        out.println(n - m);
+    public int addition(int n, int m, PrintWriter out) {
+        return n + m;
+
     }
 
-    public void multiplaction(int n, int m, PrintWriter out) {
-        out.println(n * m);
+    public int subtraction(int n, int m, PrintWriter out) {
+        return n - m;
     }
 
-    public void division(int n, int m, PrintWriter out) {
-        out.println(n / m);
+    public int multiplaction(int n, int m, PrintWriter out) {
+        return n * m;
     }
 
-    public void modul(int n, int m, PrintWriter out) {
-        out.println(n % m);
+    public int division(int n, int m, PrintWriter out) {
+        return n / m;
     }
 
-    /**
-     *
-     * @param req
-     * @param res
-     * @throws IOException
-     */
+    public int modul(int n, int m, PrintWriter out) {
+        return n % m;
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         serviseRequest(req, res);
