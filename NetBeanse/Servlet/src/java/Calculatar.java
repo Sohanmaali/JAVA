@@ -13,7 +13,7 @@ public class Calculatar extends HttpServlet {
 //            out.println("Sohan");
             int n = Integer.parseInt(req.getParameter("n1"));
             int m = Integer.parseInt(req.getParameter("n2"));
-            
+
             if (req.getParameter("Addition") != null) {
                 addition(n, m, out);
             } else if (req.getParameter("Subtraction") != null) {

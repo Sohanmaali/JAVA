@@ -1,75 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-    <servlet>
-        <servlet-name>NewServlet</servlet-name>
-        <servlet-class>NewServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Power</servlet-name>
-        <servlet-class>Power</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Serice</servlet-name>
-        <servlet-class>Serice</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Pattern</servlet-name>
-        <servlet-class>Pattern</servlet-class>
-    </servlet>
+    
     <servlet>
         <servlet-name>OddNumberSerice</servlet-name>
         <servlet-class>OddNumberSerice</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>Palindrome</servlet-name>
-        <servlet-class>Palindrome</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PrimeNumber</servlet-name>
-        <servlet-class>PrimeNumber</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Calculatar</servlet-name>
-        <servlet-class>Calculatar</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>First</servlet-name>
-        <servlet-class>preeti.First</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>NewServlet</servlet-name>
-        <url-pattern>/NewServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Power</servlet-name>
-        <url-pattern>/Power</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Serice</servlet-name>
-        <url-pattern>/Serice</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Pattern</servlet-name>
-        <url-pattern>/Pattern</url-pattern>
-    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>OddNumberSerice</servlet-name>
         <url-pattern>/OddNumberSerice</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Palindrome</servlet-name>
-        <url-pattern>/Palindrome</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PrimeNumber</servlet-name>
-        <url-pattern>/PrimeNumber</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>First</servlet-name>
-        <url-pattern>/First</url-pattern>
-    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>Calculatar</servlet-name>
+        <servlet-class>Calculatar</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>Calculatar</servlet-name>
         <url-pattern>/Calculatar</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>OneOperand</servlet-name>
+        <servlet-class>OneOperand</servlet-class>
+    </servlet> 
+    
+    <servlet-mapping>
+        <servlet-name>OneOperand</servlet-name>
+        <url-pattern>/OneOperand</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>TwoValue</servlet-name>
+        <servlet-class>TwoValue</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>TwoValue</servlet-name>
+        <url-pattern>/TwoValue</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>TwoValue1</servlet-name>
+        <servlet-class>TwoValue1</servlet-class>
+    </servlet> 
+      
+    <servlet-mapping>
+        <servlet-name>TwoValue1</servlet-name>
+        <url-pattern>/TwoValue1</url-pattern>
+    </servlet-mapping>
+    
+          
+    <servlet>
+        <servlet-name>FoureNumber</servlet-name>
+        <servlet-class>FoureNumber</servlet-class>
+    </servlet>   
+       
+    <servlet-mapping>
+        <servlet-name>FoureNumber</servlet-name>
+        <url-pattern>/FoureNumber</url-pattern>
     </servlet-mapping>
 </web-app>
