@@ -28,7 +28,7 @@ public class FoureNumber extends HttpServlet {
             out.print("<tr>");
             out.print("<td>");
             out.print("<lable style='width:97%; height:30px;' >Enter a Number: </lable>   ");
-            out.print("   <input style='width:97%; height:30px;' type = 'text' placeholder='Enter Number' name='n1'>");
+            out.print("   <input style='width:97%; height:30px;' type = 'text' placeholder='Enter Number' required name='n1'>");
             out.print("</td>");
             out.print("</tr>");
             //  out.print("<tr>");

@@ -16,6 +16,14 @@
         <servlet-name>Calculater1</servlet-name>
         <servlet-class>Calculater1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DataStore</servlet-name>
+        <servlet-class>jdbcConnect.DataStore</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginPageData</servlet-name>
+        <servlet-class>jdbcConnect.LoginPageData</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OddNumberSerice</servlet-name>
         <url-pattern>/OddNumberSerice</url-pattern>
@@ -83,5 +91,13 @@
     <servlet-mapping>
         <servlet-name>Calculater1</servlet-name>
         <url-pattern>/Calculater1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DataStore</servlet-name>
+        <url-pattern>/DataStore</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginPageData</servlet-name>
+        <url-pattern>/LoginPageData</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -185,7 +185,6 @@ public class OneOperand extends HttpServlet {
         } else {
             out.println("Not Prime number");
         }
-
     }
 
     @Override

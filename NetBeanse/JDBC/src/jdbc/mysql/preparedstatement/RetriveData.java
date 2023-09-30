@@ -21,8 +21,7 @@ class RetriveData {
             while (rs.next()) {
                 System.out.println(rs.getInt(1) + "\t    " + rs.getString(2) + "\t    " + rs.getString(3) + "\t    " + rs.getString(4) + "\t    " + rs.getInt(5));
             }
+            con.close();
         }
     }
-
 }
-//jdbc:mysql://localhost:3306/Infojava";

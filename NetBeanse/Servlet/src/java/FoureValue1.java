@@ -12,15 +12,17 @@ public class FoureValue1 extends HttpServlet {
             throws ServletException, IOException {
 
         try (PrintWriter out = response.getWriter()) {
-
-            String ans = request.getParameter("answer");
-            int n = Integer.parseInt(request.getParameter("n1"));
+            int n = 0;
+            try {
+                n = Integer.parseInt(request.getParameter("n1"));
+            } catch (NumberFormatException e) {
+            }
             int i, j, k;
 
             if (request.getParameter("Fibbonaci") != null) {
                 out.println("<h1>Fibonaci : </h1>");
 
-                int a = 0, b = 1, c = 0;
+                int a, b = 1, c = 0;
                 for (i = 1; i <= n; i++) {
                     a = b;
                     b = c;
