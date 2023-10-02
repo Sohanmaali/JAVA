@@ -176,7 +176,7 @@ public class DashBoard extends HttpServlet {
       out.print("  </head>");
       out.print("  <body>");
       out.print("    <header id='head'>");
-      out.print("      <div>WELLCOME SOHAN</div>");
+      out.print("      <div>WELCOME SOHAN</div>");
       out.print("    </header>");
       out.print("    <nav>");
       out.print("      <div class='nav-content'>");
@@ -247,7 +247,7 @@ public class DashBoard extends HttpServlet {
       out.print("        </div>");
       out.print("      </div>");
       out.print("      <div class='bottom'>");
-      out.print("        <p>Copyright © 2020 <a href='#'>CodingLab</a> All rights reserved</p>");
+      out.print("        <p>Copyright © 2023 <a href='#'>MyDashBoead</a> All rights reserved</p>");
       out.print("      </div>");
       out.print("    </footer>");
       out.print("  </body>");

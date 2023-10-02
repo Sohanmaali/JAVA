@@ -34,14 +34,10 @@ public class LoginPageData extends HttpServlet {
                 ResultSet rs = ps.executeQuery();
 
                 if (rs.next()) {
-//                   response.sendRedirect("DashBoard.java");
-//                    response.sendRedirect("https://example.com/dashboard");
-//                    response.sendRedirect("DashBoard.java");
-//                    response.sendRedirect("Servlet.DashBoard.java");
                     response.sendRedirect(request.getContextPath() + "/DashBoard");
-
                 } else {
-                    out.println("Login Fail");
+                    LoginPage.processRequest(request, response, 1);
+//                    out.println("Login Fail");
                 }
             } catch (SQLException e) {
                 out.print(e);

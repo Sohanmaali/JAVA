@@ -36,6 +36,10 @@
         <servlet-name>RegistrationPage</servlet-name>
         <servlet-class>jdbcConnect.RegistrationPage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DashBoard1</servlet-name>
+        <servlet-class>preet.DashBoard1</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OddNumberSerice</servlet-name>
         <url-pattern>/OddNumberSerice</url-pattern>
@@ -123,5 +127,9 @@
     <servlet-mapping>
         <servlet-name>RegistrationPage</servlet-name>
         <url-pattern>/RegistrationPage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashBoard1</servlet-name>
+        <url-pattern>/DashBoard1</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -155,7 +155,7 @@ public class RegistrationPage extends HttpServlet {
             out.print("       </div>");
             out.print("       <div class='text'>");
             out.print("         <h3>");
-            out.print("           Already have an account? <a href='LoginPage.html'>Login now</a>");
+            out.print("           Already have an account? <a href='LoginPage'>Login now</a>");
             out.print("         </h3>");
             out.print("       </div>");
             out.print("     </form>");

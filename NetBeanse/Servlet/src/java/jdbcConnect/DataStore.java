@@ -28,18 +28,15 @@ public class DataStore extends HttpServlet {
                 ps.setString(3, request.getParameter("gmail"));
                 ps.setString(4, request.getParameter("mobile"));
                 ps.setString(5, request.getParameter("password"));
-                int i = 0;
-                try {
-                    i = ps.executeUpdate();
 
+                try {
+                    if (ps.executeUpdate() > 0) {
+                        response.sendRedirect(request.getContextPath() + "/LoginPage");
+                    } else {
+                        response.sendRedirect(request.getContextPath() + "/RegistrationPage");
+                    }
                 } catch (SQLException e) {
                     System.out.println(e);
-                }
-                System.out.println(i);
-                if (i > 0) {
-                    response.sendRedirect("LoginPage.html");
-                } else {
-                    out.println("Registration Fail");
                 }
             }
         }
@@ -51,7 +48,7 @@ public class DataStore extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException | ClassNotFoundException ex) {
-//            Logger.getLogger(DataStore.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
     }
 
@@ -61,6 +58,7 @@ public class DataStore extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex);
         }
     }
 

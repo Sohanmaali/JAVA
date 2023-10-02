@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package jdbcConnect;
 
 import java.io.IOException;
@@ -16,10 +12,11 @@ import jakarta.servlet.http.HttpServletResponse;
  * @author DELL
  */
 public class LoginPage extends HttpServlet {
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    
+    public static void processRequest(HttpServletRequest request, HttpServletResponse response, int n)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        boolean flag = true;
         try (PrintWriter out = response.getWriter()) {
             out.print("      <!DOCTYPE html>");
             out.print(" <html>");
@@ -116,6 +113,7 @@ public class LoginPage extends HttpServlet {
             out.print("            .signup label:hover{");
             out.print("                text-decoration: underline;");
             out.print("            }");
+            out.print("form label{display: none;}");
             out.print("        </style>");
             out.print("    </head>");
             out.print("    <body>");
@@ -137,12 +135,20 @@ public class LoginPage extends HttpServlet {
             out.print(
                     "                        <input type='password' placeholder='Enter your password' name='password'>");
             out.print("                        <a href='#'>Forgot password?</a>");
+
+//            -----------------------------------------------------------------
+            if (n == 1) {
+                out.print(" <br> <br> <label>Invalide Id Password </label>");
+//                n = 0;
+            }
+
+//            -----------------------------------------------------------------
             out.print("                        <input type='submit' class='button' value='Login'>");
             out.print("                    </form>");
             out.print("                    <div class='signup'>");
             out.print("                        <span class='signup'>Don't have an account?");
             out.print(
-                    "                            <label for='check'><a href='RegistrationPage.html'>SignUp</a></label>");
+                    "                            <label for='check'><a href='RegistrationPage'>SignUp</a></label>");
             out.print("                        </span>");
             out.print("                    </div>");
             out.print("                </div>");
@@ -151,7 +157,7 @@ public class LoginPage extends HttpServlet {
             out.print("    </html>");
             out.print("</body>");
             out.print("</html>");
-
+            
         }
     }
 
@@ -168,7 +174,7 @@ public class LoginPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        processRequest(request, response, 0);
     }
 
     /**
@@ -182,7 +188,7 @@ public class LoginPage extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        processRequest(request, response, 0);
     }
 
     /**
