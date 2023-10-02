@@ -22,15 +22,22 @@ public class DataStore extends HttpServlet {
             String idpass = "root";
             String sql = "INSERT INTO servlet (name,fname,gmail,mobile,password) values(?,?,?,?,?)";
             try (Connection con = DriverManager.getConnection(path, idpass, idpass)) {
-
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1, request.getParameter("name"));
                 ps.setString(2, request.getParameter("fname"));
                 ps.setString(3, request.getParameter("gmail"));
                 ps.setString(4, request.getParameter("mobile"));
                 ps.setString(5, request.getParameter("password"));
-                if (ps.executeUpdate() > 0) {
-                    out.println("Registration Sucssec");
+                int i = 0;
+                try {
+                    i = ps.executeUpdate();
+
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+                System.out.println(i);
+                if (i > 0) {
+                    response.sendRedirect("LoginPage.html");
                 } else {
                     out.println("Registration Fail");
                 }

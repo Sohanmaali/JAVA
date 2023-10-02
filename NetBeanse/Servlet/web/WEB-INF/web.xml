@@ -24,6 +24,18 @@
         <servlet-name>LoginPageData</servlet-name>
         <servlet-class>jdbcConnect.LoginPageData</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DashBoard</servlet-name>
+        <servlet-class>jdbcConnect.DashBoard</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginPage</servlet-name>
+        <servlet-class>jdbcConnect.LoginPage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrationPage</servlet-name>
+        <servlet-class>jdbcConnect.RegistrationPage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OddNumberSerice</servlet-name>
         <url-pattern>/OddNumberSerice</url-pattern>
@@ -99,5 +111,17 @@
     <servlet-mapping>
         <servlet-name>LoginPageData</servlet-name>
         <url-pattern>/LoginPageData</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashBoard</servlet-name>
+        <url-pattern>/DashBoard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginPage</servlet-name>
+        <url-pattern>/LoginPage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrationPage</servlet-name>
+        <url-pattern>/RegistrationPage</url-pattern>
     </servlet-mapping>
 </web-app>
