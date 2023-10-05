@@ -19,7 +19,8 @@ class Pattern_33
 		System.out.println("Enter any number");
 		int row = sc.nextInt();
 		int k=row*2-1;
-	/*	for(int i=1;i<=row;i++)
+	/*
+		for(int i=1;i<=row;i++)
 		{
 			for(int j=1;j<=i*2-1;j++)
 			{

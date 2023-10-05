@@ -155,6 +155,11 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
         );
 
         Name1.setText("Name");
+        Name1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Name1ActionPerformed(evt);
+            }
+        });
 
         father_Name.setText("Father-Name");
 
@@ -247,6 +252,10 @@ public class UpdateStudentDetails extends javax.swing.JFrame {
     private void aboutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBTNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aboutBTNActionPerformed
+
+    private void Name1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name1ActionPerformed
 
     /**
      * @param args the command line arguments

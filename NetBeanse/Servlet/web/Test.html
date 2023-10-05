@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      input[type="checkbox"]:checked + input[type="text"] {
+        pointer-events: auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        color: #333;
+      }
+
+      button {
+        display: none;
+      }
+
+      input[type="checkbox"]:checked + input[type="text"] + button {
+        display: inline-block;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="editToggle1">Edit Field 1</label>
+    <input type="checkbox" id="editToggle1" />
+    <input type="text" id="editableField1" />
+    <button id="saveButton1">Save</button>
+
+    <label for="editToggle2">Edit Field 2</label>
+    <input type="checkbox" id="editToggle2" />
+    <input type="text" id="editableField2" />
+    <button id="saveButton2">Save</button>
+  </body>
+</html>

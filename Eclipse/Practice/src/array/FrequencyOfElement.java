@@ -27,11 +27,11 @@ public class FrequencyOfElement {
 			for (int j = i + 1; j < size;) {
 				if (array[i] == array[j]) {
 					count++;
-					for (int k = i; k < size; k++) {
+					for (int k = j; k < size; k++) {
 						array[k] = array[k + 1];
 					}
 					size--;
-					i--;
+					//j--;
 				} else {
 					j++;
 				}
@@ -42,7 +42,7 @@ public class FrequencyOfElement {
 
 		System.out.println("\nFrequency Of Array Element");
 		for (int i = 0; i < size; i++) {
-			System.out.println(array[i] + " = " + frequency[i]);
+			System.out.println(array[i] + " = " + frequency[i+1]);
 		}
 		sc.close();
 	}

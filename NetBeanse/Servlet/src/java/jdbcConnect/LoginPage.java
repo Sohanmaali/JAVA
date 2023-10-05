@@ -7,16 +7,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author DELL
- */
 public class LoginPage extends HttpServlet {
-    
+
     public static void processRequest(HttpServletRequest request, HttpServletResponse response, int n)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        boolean flag = true;
         try (PrintWriter out = response.getWriter()) {
             out.print("      <!DOCTYPE html>");
             out.print(" <html>");
@@ -113,7 +108,11 @@ public class LoginPage extends HttpServlet {
             out.print("            .signup label:hover{");
             out.print("                text-decoration: underline;");
             out.print("            }");
-            out.print("form label{display: none;}");
+            //            --------------------------------------------
+            out.print("      form label {display: block;} ");
+            //                 label {display: block;} input:focus + label {     display: none;    }
+            out.print("    form input:focus  label{     display: none;    }");
+            //            --------------------------------------------
             out.print("        </style>");
             out.print("    </head>");
             out.print("    <body>");
@@ -131,24 +130,19 @@ public class LoginPage extends HttpServlet {
             out.print("                <div class='login form'>");
             out.print("                    <header>Login</header>");
             out.print("                    <form action='LoginPageData'>");
-            out.print("                        <input type='text' placeholder='Enter your email' name='gmail'>");
+            out.print("                        <input id='inputField' type='text' placeholder='Enter your email' name='gmail' required> ");
             out.print(
-                    "                        <input type='password' placeholder='Enter your password' name='password'>");
+                    "                        <input id='inputField' type='password' placeholder='Enter your password' name='password' required>");
             out.print("                        <a href='#'>Forgot password?</a>");
-
 //            -----------------------------------------------------------------
             if (n == 1) {
-                out.print(" <br> <br> <label>Invalide Id Password </label>");
-//                n = 0;
+                out.print(" <br> <br> <label for='inputField'>Invalide Id Password </label>");
             }
-
 //            -----------------------------------------------------------------
             out.print("                        <input type='submit' class='button' value='Login'>");
             out.print("                    </form>");
             out.print("                    <div class='signup'>");
-            out.print("                        <span class='signup'>Don't have an account?");
-            out.print(
-                    "                            <label for='check'><a href='RegistrationPage'>SignUp</a></label>");
+            out.print("                        <span class='signup'>Don't have an account?       <a href='RegistrationPage'>SignUp</a>");
             out.print("                        </span>");
             out.print("                    </div>");
             out.print("                </div>");
@@ -157,48 +151,25 @@ public class LoginPage extends HttpServlet {
             out.print("    </html>");
             out.print("</body>");
             out.print("</html>");
-            
+
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
-    // + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response, 0);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response, 0);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

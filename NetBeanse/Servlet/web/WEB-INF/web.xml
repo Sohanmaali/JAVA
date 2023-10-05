@@ -40,6 +40,14 @@
         <servlet-name>DashBoard1</servlet-name>
         <servlet-class>preet.DashBoard1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Profile</servlet-name>
+        <servlet-class>jdbcConnect.Profile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateData</servlet-name>
+        <servlet-class>jdbcConnect.UpdateData</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OddNumberSerice</servlet-name>
         <url-pattern>/OddNumberSerice</url-pattern>
@@ -131,5 +139,13 @@
     <servlet-mapping>
         <servlet-name>DashBoard1</servlet-name>
         <url-pattern>/DashBoard1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Profile</servlet-name>
+        <url-pattern>/Profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateData</servlet-name>
+        <url-pattern>/UpdateData</url-pattern>
     </servlet-mapping>
 </web-app>
