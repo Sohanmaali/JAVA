@@ -48,6 +48,10 @@
         <servlet-name>UpdateData</servlet-name>
         <servlet-class>jdbcConnect.UpdateData</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>jdbcConnect.LogOut</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OddNumberSerice</servlet-name>
         <url-pattern>/OddNumberSerice</url-pattern>
@@ -147,5 +151,9 @@
     <servlet-mapping>
         <servlet-name>UpdateData</servlet-name>
         <url-pattern>/UpdateData</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOut</servlet-name>
+        <url-pattern>/LogOut</url-pattern>
     </servlet-mapping>
 </web-app>
