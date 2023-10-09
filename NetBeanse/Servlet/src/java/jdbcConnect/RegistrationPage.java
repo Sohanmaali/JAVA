@@ -6,6 +6,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class RegistrationPage extends HttpServlet {
 
@@ -14,7 +15,7 @@ public class RegistrationPage extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 //            response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
-
+            HttpSession session = request.getSession();
             out.print("<!DOCTYPE html>");
             out.print("<html lang='en'>");
             out.print("<head>");
@@ -156,12 +157,23 @@ public class RegistrationPage extends HttpServlet {
             out.print("           Already have an account? <a href='LoginPage'>Login now</a>");
             out.print("         </h3>");
             out.print("       </div>");
-            int s = response.getStatus();
-            if (s == 23) {
+//            int x = (Integer) request.getAttribute("error");
+
+            int x = (Integer) session.getAttribute("error");
+            if (x == 1) {
                 out.print(" <br> <br> <label for='inputField'>Email id already Exist </label>");
             }
-            if (s == 24) {
+            if (x == 2) {
                 out.print(" <br> <br> <label for='inputField'>Password Not match </label>");
+            }
+            if (x == 3) {
+                out.print(" <br> <br> <label for='inputField'>Invalide Mobile number </label>");
+            }
+            if (x == 4) {
+                out.print(" <br> <br> <label for='inputField'>Invalide Name </label>");
+            }
+            if (x == 5) {
+                out.print(" <br> <br> <label for='inputField'>Invalide Father Name</label>");
             }
             out.print("     </form>");
             out.print("   </div>");

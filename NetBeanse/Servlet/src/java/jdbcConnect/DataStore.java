@@ -5,6 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.DriverManager;
@@ -16,10 +17,38 @@ public class DataStore extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
+//        System.out.println(checkName("wsed96FDfsadf"));
         try (PrintWriter out = response.getWriter()) {
+            //----------------------------------
+            HttpSession session = request.getSession();
+//            session.setAttribute("error", 0);
+            //----------------------------------
+            if (!request.getParameter("password").equals(request.getParameter("cpassword"))) {
+                session.setAttribute("error", 2);
+                response.sendRedirect(request.getContextPath() + "/RegistrationPage");
+                return;
+            }
+            if (!checkMobileNumber(request.getParameter("mobile"))) {
+                session.setAttribute("error", 3);
+                response.sendRedirect(request.getContextPath() + "/RegistrationPage");
+                return;
+            }
+            if (!checkName(request.getParameter("name"))) {
+                session.setAttribute("error", 4);
+                response.sendRedirect(request.getContextPath() + "/RegistrationPage");
+                return;
+            }
+            if (!checkName(request.getParameter("fname"))) {
+                session.setAttribute("error", 5);
+                response.sendRedirect(request.getContextPath() + "/RegistrationPage");
+                return;
+            }
+
             Class.forName("com.mysql.cj.jdbc.Driver");
+
             String path = "jdbc:mysql://localhost:3306/Infojava";
             String idpass = "root";
+
             String sql = "INSERT INTO servlet (name,fname,gmail,mobile,password) values(?,?,?,?,?)";
             try (Connection con = DriverManager.getConnection(path, idpass, idpass)) {
                 PreparedStatement ps = con.prepareStatement(sql);
@@ -29,10 +58,6 @@ public class DataStore extends HttpServlet {
                 ps.setString(4, request.getParameter("mobile"));
                 ps.setString(5, request.getParameter("password"));
 
-//                if (!request.getParameter("password").equals(request.getParameter("cpassword"))) {
-//                    RegistrationPage.processRequest(request, response, 2);
-////                    return;
-//                }
                 try {
                     if (ps.executeUpdate() > 0) {
                         response.sendRedirect(request.getContextPath() + "/LoginPage");
@@ -42,14 +67,34 @@ public class DataStore extends HttpServlet {
                 } catch (SQLException e) {
                     //if we get error thrn catch block is exceute
                     System.out.println(e);
-                    response.setStatus(23);
-                    System.out.println("////////////////////////////////////");
-                    response.sendError(0);
-                    System.out.println("////////////////////////////////////");
+                    session.setAttribute("error", 1);
                     response.sendRedirect(request.getContextPath() + "/RegistrationPage");
                 }
             }
         }
+    }
+
+    public static boolean checkMobileNumber(String mobileNumber) {
+        if (mobileNumber.length() != 10) {
+            return false;
+        }
+        for (int i = 0; i < mobileNumber.length(); i++) {
+            try {
+                int n = mobileNumber.charAt(i) - '0';
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkName(String name) {
+        for (int i = 0; i < name.length(); i++) {
+            if ((name.charAt(i) < 97 || name.charAt(i) > 122) && (name.charAt(i) < 67 || name.charAt(i) > 122)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -77,22 +122,3 @@ public class DataStore extends HttpServlet {
         return "Short description";
     }
 }
-
-//public class MyServlet extends HttpServlet {
-//
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        // Some logic to detect an error condition
-//        boolean isError = true;
-//
-//        if (isError) {
-//            // Sending a 404 (Not Found) status code with a custom error message
-//            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Resource not found");
-//        } else {
-//            // Normal processing
-//            response.getWriter().write("Request processed successfully");
-//               }
-//
-//    
-//
-//    }
-//}

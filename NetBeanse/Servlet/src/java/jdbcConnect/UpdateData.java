@@ -28,70 +28,81 @@ public class UpdateData extends HttpServlet {
             HttpSession session = request.getSession();
             ResultSet rs = (ResultSet) session.getAttribute("rs");
             String idpass = "root";
+            if (!request.getParameter("password").equals(request.getParameter("cpassword"))) {
+                session.setAttribute("error", 2);
+                response.sendRedirect(request.getContextPath() + "/EditProfile");
+                return;
+            }
+            if (!checkMobileNumber(request.getParameter("mobile"))) {
+                session.setAttribute("error", 3);
+                response.sendRedirect(request.getContextPath() + "/EditProfile");
+                return;
+            }
+            if (!checkName(request.getParameter("name"))) {
+                session.setAttribute("error", 4);
+                response.sendRedirect(request.getContextPath() + "/EditProfile");
+                return;
+            }
+            if (!checkName(request.getParameter("fname"))) {
+                session.setAttribute("error", 5);
+                response.sendRedirect(request.getContextPath() + "/EditProfile");
+                return;
+            }
             try {
                 con = DriverManager.getConnection(path, idpass, idpass);
                 PreparedStatement ps = null;
-                if (request.getParameter("saveButton1") != null) {
 
-                    if (!request.getParameter("name").isEmpty()) {
-                        sql = "UPDATE servlet SET name =  ? WHERE  gmail =  ? ";
-                        ps = con.prepareStatement(sql);
-                        ps.setString(1, request.getParameter("name"));
-                        ps.setString(2, rs.getString("gmail"));
-                    }
+//                    if (!request.getParameter("name").isEmpty()) {
+                sql = "UPDATE servlet SET name =  ?,fname =  ?,gmail =?, mobile =?, password =? WHERE  gmail =  ? ";
+                ps = con.prepareStatement(sql);
+                ps.setString(1, request.getParameter("name"));
+                ps.setString(2, request.getParameter("fname"));
+                ps.setString(3, request.getParameter("gmail"));
+                ps.setString(4, request.getParameter("mobile"));
+                ps.setString(5, request.getParameter("password"));
+                ps.setString(6, rs.getString("gmail"));
 
-                } else if (request.getParameter("saveButton2") != null) {
-
-                    if (!request.getParameter("fname").isEmpty()) {
-                        sql = "UPDATE servlet SET fname =  ? WHERE  gmail =  ?";
-                        ps = con.prepareStatement(sql);
-                        ps.setString(1, request.getParameter("fname"));
-                        ps.setString(2, rs.getString("gmail"));
-                    }
-
-                } else if (request.getParameter("saveButton3") != null) {
-
-                    if (!request.getParameter("gmail").isEmpty()) {
-                        sql = "UPDATE servlet SET gmail =  ? WHERE  gmail =  ?";
-                        ps = con.prepareStatement(sql);
-                        ps.setString(1, request.getParameter("gmail"));
-                        ps.setString(2, rs.getString("gmail"));
-                    }
-//                    System.out.print(rs.getString("gmail") + "<br>");
-                } else if (request.getParameter("saveButton4") != null) {
-
-                    if (!request.getParameter("mobile").isEmpty()) {
-                        sql = "UPDATE servlet SET mobile =  ? WHERE  gmail =  ?";
-                        ps = con.prepareStatement(sql);
-                        ps.setString(1, request.getParameter("mobile"));
-                        ps.setString(2, rs.getString("gmail"));
-                    }
-
-                } else if (request.getParameter("saveButton5") != null) {
-                    if (!request.getParameter("password").isEmpty()) {
-                        sql = "UPDATE servlet SET password =  ? WHERE  gmail =  ?";
-                        ps = con.prepareStatement(sql);
-                        ps.setString(1, request.getParameter("password"));
-                        ps.setString(2, rs.getString("gmail"));
-                    }
-                }
                 if (ps.executeUpdate() > 0) {
-                    //Object datasave = 1;
-                    session.setAttribute("sms", 1);
-//                    response.sendRedirect(request.getContextPath() + "/Profile");
-                    response.sendRedirect(request.getContextPath() + "/DataStore");
+                    sql = "SELECT * FROM servlet WHERE gmail = ?";
+                    PreparedStatement ps1 = con.prepareStatement(sql);
+                    ps1.setString(1, rs.getString("gmail"));
+                    rs = ps1.executeQuery(sql);
+                    session.setAttribute("rs", rs);
+                    response.sendRedirect(request.getContextPath() + "/Profile");
+//                    response.sendRedirect(request.getContextPath() + "/");
+//                    response.sendRedirect(request.getContextPath() + "/AfterUpdate");
 
                 } else {
-//                    Profile.processRequest(request, response, 1);
+
                     response.sendRedirect(request.getContextPath() + "/LoginPage");
                 }
             } catch (SQLException e) {
-
-                out.println(e);
-                out.println("***************");
                 out.println(e);
             }
         }
+    }
+
+    public static boolean checkMobileNumber(String mobileNumber) {
+        if (mobileNumber.length() != 10) {
+            return false;
+        }
+        for (int i = 0; i < mobileNumber.length(); i++) {
+            try {
+                int n = mobileNumber.charAt(i) - '0';
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkName(String name) {
+        for (int i = 0; i < name.length(); i++) {
+            if ((name.charAt(i) < 97 || name.charAt(i) > 122) && (name.charAt(i) < 67 || name.charAt(i) > 122)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

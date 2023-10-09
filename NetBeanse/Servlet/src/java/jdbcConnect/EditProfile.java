@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package jdbcConnect;
 
 import jakarta.servlet.ServletException;
@@ -16,8 +20,17 @@ import java.util.logging.Logger;
  *
  * @author DELL
  */
-public class Profile extends HttpServlet {
+public class EditProfile extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
@@ -26,8 +39,9 @@ public class Profile extends HttpServlet {
             response.setHeader("Cache-Control", "No-Cache");
             response.setHeader("Cache-Control", "No-Store");
             ResultSet rs = (ResultSet) session.getAttribute("rs");
+
             if (rs != null) {
-                out.print("<!DOCTYPE html>");
+                out.print("         <!DOCTYPE html>");
                 out.print(" <html lang='en'>");
                 out.print(" <head>");
                 out.print("<meta charset='UTF-8' />");
@@ -222,16 +236,16 @@ public class Profile extends HttpServlet {
                 out.print("         width='100'");
                 out.print("         height='100'");
                 out.print("       />");
-                out.print("       <div class='name'>" + rs.getString("name") + "</div>");
-                out.print("       <div class='job'>Student</div>");
+                out.print("       <div class='name'>my Name</div>");
+                out.print("       <div class='job'>title</div>");
                 out.print("     </div>");
                 out.print("     <div class='sidenav-url'>");
                 out.print("       <div class='url'>");
-                out.print("         <a href='EditProfile' class='active'>Edit</a>");
+                out.print("         <a href='Edit' class='active'>Edit</a>");
                 out.print("         <hr align='center' />");
                 out.print("       </div>");
                 out.print("       <div class='url'>");
-                out.print("         <a href='DashBoard'>Back</a>");
+                out.print("         <a href='Profile'>Back</a>");
                 out.print("         <hr align='center' />");
                 out.print("       </div>");
                 out.print("     </div>");
@@ -242,30 +256,63 @@ public class Profile extends HttpServlet {
                 out.print("     <h2>IDENTITY</h2>");
                 out.print("     <div class='card'>");
                 out.print("       <div class='card-body'>");
+                out.print("<form action='UpdateData'>");
                 out.print("         <table>");
                 out.print("           <tbody>");
                 out.print("             <tr>");
                 out.print("               <td>Name</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td> " + rs.getString(1) + " </td>");
+                out.print("               <td><input type='text' name='name' value=" + rs.getString(1) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
                 out.print("               <td>Father</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td>" + rs.getString(2) + "</td>");
+                out.print("               <td><input type='text' name='fname' value=" + rs.getString(2) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
                 out.print("               <td>Mobile</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td>" + rs.getString(4) + "</td>");
+                out.print("               <td><input type='text' name='mobile' value=" + rs.getString(4) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
                 out.print("               <td>Email</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td>" + rs.getString(3) + "</td>");
+                out.print("               <td><input type='text' name='gmail' value=" + rs.getString(3) + "></td>");
                 out.print("             </tr>");
+                out.print("             <tr>");
+                out.print("             <tr>");
+                out.print("               <td>Password</td>");
+                out.print("               <td>:</td>");
+                out.print("               <td><input type='password' name='password' value=" + rs.getString(5) + "></td>");
+                out.print("             </tr>");
+                out.print("             <tr>");
+                out.print("             <tr>");
+                out.print("               <td>C Password</td>");
+                out.print("               <td>:</td>");
+                out.print("               <td><input type='password' name='cpassword' value=" + rs.getString(5) + "></td>");
+                out.print("             </tr>");
+                out.print("             <tr>");
+                out.print("               <td><input type='submit' value='Save'></td>");
+                out.print("             </tr>");
+                int x = (Integer) session.getAttribute("error");
+                if (x == 1) {
+                    out.print("<td for='inputField'>Email id already Exist </td>");
+                }
+                if (x == 2) {
+                    out.print("<td for='inputField'>Password Not match </td>");
+                }
+                if (x == 3) {
+                    out.print("<td for='inputField'>Invalide Mobile number </td>");
+                }
+                if (x == 4) {
+                    out.print("<td for='inputField'>Invalide Name </td>");
+                }
+                if (x == 5) {
+                    out.print("<td for='inputField'>Invalide Father Name</td>");
+                }
                 out.print("           </tbody>");
                 out.print("         </table>");
+                out.print("</form>");
                 out.print("       </div>");
                 out.print("     </div>");
                 out.print("     <h2>SOCIAL MEDIA</h2>");
@@ -307,6 +354,7 @@ public class Profile extends HttpServlet {
                 out.print("   <!-- End -->");
                 out.print(" </body>");
                 out.print("</html>");
+
             } else {
                 response.sendRedirect(request.getContextPath() + "/LoginPage");
             }
@@ -319,7 +367,7 @@ public class Profile extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditProfile.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -337,7 +385,7 @@ public class Profile extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditProfile.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

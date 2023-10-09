@@ -52,6 +52,18 @@
         <servlet-name>LogOut</servlet-name>
         <servlet-class>jdbcConnect.LogOut</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Profile1</servlet-name>
+        <servlet-class>jdbcConnect.Profile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProfile</servlet-name>
+        <servlet-class>jdbcConnect.EditProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AfterUpdate</servlet-name>
+        <servlet-class>jdbcConnect.AfterUpdate</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OddNumberSerice</servlet-name>
         <url-pattern>/OddNumberSerice</url-pattern>
@@ -155,5 +167,17 @@
     <servlet-mapping>
         <servlet-name>LogOut</servlet-name>
         <url-pattern>/LogOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Profile1</servlet-name>
+        <url-pattern>/Profile1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProfile</servlet-name>
+        <url-pattern>/EditProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AfterUpdate</servlet-name>
+        <url-pattern>/AfterUpdate</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -7,6 +7,9 @@
 
     <!-- Custom Css -->
     <style>
+      /* Import Font Dancing Script */
+      @import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
       * {
         margin: 0;
       }
@@ -35,8 +38,8 @@
       .navbar-top ul {
         float: right;
         list-style-type: none;
-        /* margin: 0; */
-        /* overflow: hidden; */
+        margin: 0;
+        overflow: hidden;
         padding: 18px 50px 0 40px;
       }
 
@@ -47,8 +50,8 @@
       .navbar-top ul li a {
         color: #333;
         padding: 14px 16px;
-        /* text-align: center; */
-        /* text-decoration: none; */
+        text-align: center;
+        text-decoration: none;
       }
 
       .icon-count {
@@ -60,10 +63,17 @@
         padding: 2px;
         position: relative;
       }
+
+      /* End */
+
+      /* Sidenav */
       .sidenav {
         background-color: #fff;
         color: #333;
+        border-bottom-right-radius: 25px;
         height: 86%;
+        left: 0;
+        overflow-x: hidden;
         padding-top: 20px;
         position: absolute;
         top: 70px;
@@ -71,6 +81,8 @@
       }
 
       .profile {
+        margin-bottom: 20px;
+        margin-top: -12px;
         text-align: center;
       }
 
@@ -84,7 +96,9 @@
         font-weight: bold;
         padding-top: 20px;
       }
+
       .job {
+        font-size: 16px;
         font-weight: bold;
         padding-top: 10px;
       }
@@ -116,6 +130,10 @@
         margin-left: 14%;
         width: 65%;
       }
+
+      /* End */
+
+      /* Main */
       .main {
         margin-top: 2%;
         margin-left: 29%;
@@ -126,7 +144,7 @@
 
       .main h2 {
         color: #333;
-        /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-size: 24px;
         margin-bottom: 10px;
       }
@@ -135,6 +153,7 @@
         background-color: #fff;
         border-radius: 18px;
         box-shadow: 1px 1px 8px 0 grey;
+        height: auto;
         margin-bottom: 20px;
         padding: 20px 0 20px 50px;
       }
@@ -144,6 +163,12 @@
         font-size: 16px;
         height: 270px;
         width: 80%;
+      }
+
+      .edit {
+        position: absolute;
+        color: #e7e7e8;
+        right: 14%;
       }
 
       .social-media {
@@ -182,6 +207,8 @@
       .fa-snapchat:hover {
         color: #fffb01 !important;
       }
+
+      /* End */
     </style>
     <!-- FontAwesome 5 -->
     <link
@@ -252,12 +279,13 @@
       <h2>IDENTITY</h2>
       <div class="card">
         <div class="card-body">
+          <i class="fa fa-pen fa-xs edit"></i>
           <table>
             <tbody>
               <tr>
                 <td>Name</td>
                 <td>:</td>
-                <td>ImDezCode</td>
+                <td><input type="text" name="name" value=""></td>
               </tr>
               <tr>
                 <td>Father</td>
@@ -273,15 +301,23 @@
                 <td>Email</td>
                 <td>:</td>
                 <td>Email</td>
+              </tr>
+              <tr>
+                <td>Job</td>
+                <td>:</td>
+                <td>Web Developer</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-
+<form action="">
+  
+</form>
       <h2>SOCIAL MEDIA</h2>
       <div class="card">
         <div class="card-body">
+          <i class="fa fa-pen fa-xs edit"></i>
           <div class="social-media">
             <span class="fa-stack fa-sm">
               <i class="fas fa-circle fa-stack-2x"></i>
