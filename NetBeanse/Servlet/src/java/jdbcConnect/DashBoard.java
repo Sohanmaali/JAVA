@@ -255,10 +255,10 @@ public class DashBoard extends HttpServlet {
                 out.print("            <input id='sent_btn' type='submit' name='' value='Send' />");
                 out.print("            <div class='media-icons'>");
                 out.print("              <a href='#''><i class='fab fa-facebook-f'></i></a>");
-                out.print("              <a href='#''><i class='fab fa-instagram'></i></a>");
+                out.print("              <a href='https://www.instagram.com/sohan_maali1/' target='_blank'><i class='fab fa-instagram'></i></a>");
                 out.print("              <a href='#'><i class='fab fa-twitter'></i></a>");
                 out.print("              <a href='#'><i class='fab fa-youtube/></i></a>");
-                out.print("              <a href='#'><i class='fab fa-linkedin-in'></i></a>");
+                out.print("              <a href='https://www.linkedin.com/in/sohan-un-6b3795282' target='_blank'><i class='fab fa-linkedin-in'></i></a>");
                 out.print("            </div>");
                 out.print("          </form>");
                 out.print("        </div>");

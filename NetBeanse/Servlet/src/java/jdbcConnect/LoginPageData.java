@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginPageData extends HttpServlet {
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
@@ -24,7 +24,7 @@ public class LoginPageData extends HttpServlet {
             Connection con;
             String path = "jdbc:mysql://localhost:3306/Infojava";
             String sql = "SELECT * FROM servlet WHERE gmail = ? and password = ?";
-            
+
             String idpass = "root";
             try {
                 con = DriverManager.getConnection(path, idpass, idpass);
@@ -32,7 +32,7 @@ public class LoginPageData extends HttpServlet {
                 ps.setString(1, request.getParameter("gmail"));
                 ps.setString(2, request.getParameter("password"));
                 ResultSet rs = ps.executeQuery();
-                
+
                 if (rs.next()) {
                     HttpSession session = request.getSession();
                     session.setAttribute("rs", rs);
@@ -45,30 +45,28 @@ public class LoginPageData extends HttpServlet {
             }
         }
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(LoginPageData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(LoginPageData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";
     }
-    
+
 }

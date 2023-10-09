@@ -78,7 +78,8 @@ public class UpdateData extends HttpServlet {
                 if (ps.executeUpdate() > 0) {
                     //Object datasave = 1;
                     session.setAttribute("sms", 1);
-                    response.sendRedirect(request.getContextPath() + "/Profile");
+//                    response.sendRedirect(request.getContextPath() + "/Profile");
+                    response.sendRedirect(request.getContextPath() + "/DataStore");
 
                 } else {
 //                    Profile.processRequest(request, response, 1);

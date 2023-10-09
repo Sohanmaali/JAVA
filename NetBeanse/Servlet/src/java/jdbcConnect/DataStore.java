@@ -29,6 +29,10 @@ public class DataStore extends HttpServlet {
                 ps.setString(4, request.getParameter("mobile"));
                 ps.setString(5, request.getParameter("password"));
 
+//                if (!request.getParameter("password").equals(request.getParameter("cpassword"))) {
+//                    RegistrationPage.processRequest(request, response, 2);
+////                    return;
+//                }
                 try {
                     if (ps.executeUpdate() > 0) {
                         response.sendRedirect(request.getContextPath() + "/LoginPage");
@@ -36,7 +40,13 @@ public class DataStore extends HttpServlet {
                         response.sendRedirect(request.getContextPath() + "/RegistrationPage");
                     }
                 } catch (SQLException e) {
+                    //if we get error thrn catch block is exceute
                     System.out.println(e);
+                    response.setStatus(23);
+                    System.out.println("////////////////////////////////////");
+                    response.sendError(0);
+                    System.out.println("////////////////////////////////////");
+                    response.sendRedirect(request.getContextPath() + "/RegistrationPage");
                 }
             }
         }
@@ -67,3 +77,22 @@ public class DataStore extends HttpServlet {
         return "Short description";
     }
 }
+
+//public class MyServlet extends HttpServlet {
+//
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        // Some logic to detect an error condition
+//        boolean isError = true;
+//
+//        if (isError) {
+//            // Sending a 404 (Not Found) status code with a custom error message
+//            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Resource not found");
+//        } else {
+//            // Normal processing
+//            response.getWriter().write("Request processed successfully");
+//               }
+//
+//    
+//
+//    }
+//}

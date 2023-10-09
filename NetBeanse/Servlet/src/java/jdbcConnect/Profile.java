@@ -25,7 +25,7 @@ public class Profile extends HttpServlet {
             ResultSet rs = (ResultSet) session.getAttribute("rs");
 
             if (rs != null) {
-                out.print("            <!DOCTYPE html>");
+                out.print("<!DOCTYPE html>");
                 out.print(" <html lang='en'>");
                 out.print("  <head>");
                 out.print("<meta charset='UTF-8' />");
@@ -260,10 +260,10 @@ public class Profile extends HttpServlet {
                 out.print("    <tr>");
                 out.print("      <td>");
                 int ob = (Integer) session.getAttribute("sms");
-                if (ob == 1) {
-                    out.print("<span>Data Saved</span>");
-                    ob = 0;
-                }
+//                if (ob == 1) {
+//                    out.print("<span>Data Saved</span>");
+//                    ob = 0;
+//                }
                 out.print("      </td>");
                 out.print("    </tr>");
                 out.print("  </table>");
