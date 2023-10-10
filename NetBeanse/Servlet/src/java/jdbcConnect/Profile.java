@@ -26,6 +26,7 @@ public class Profile extends HttpServlet {
             response.setHeader("Cache-Control", "No-Cache");
             response.setHeader("Cache-Control", "No-Store");
             ResultSet rs = (ResultSet) session.getAttribute("rs");
+//            rs.next();
             if (rs != null) {
                 out.print("<!DOCTYPE html>");
                 out.print(" <html lang='en'>");

@@ -26,8 +26,10 @@ public class UpdateData extends HttpServlet {
             String path = "jdbc:mysql://localhost:3306/Infojava";
             String sql = "";
             HttpSession session = request.getSession();
+
             ResultSet rs = (ResultSet) session.getAttribute("rs");
             String idpass = "root";
+            session.setAttribute("error", 100);
             if (!request.getParameter("password").equals(request.getParameter("cpassword"))) {
                 session.setAttribute("error", 2);
                 response.sendRedirect(request.getContextPath() + "/EditProfile");
@@ -61,25 +63,49 @@ public class UpdateData extends HttpServlet {
                 ps.setString(4, request.getParameter("mobile"));
                 ps.setString(5, request.getParameter("password"));
                 ps.setString(6, rs.getString("gmail"));
-
+//            }
                 if (ps.executeUpdate() > 0) {
-                    sql = "SELECT * FROM servlet WHERE gmail = ?";
-                    PreparedStatement ps1 = con.prepareStatement(sql);
-                    ps1.setString(1, rs.getString("gmail"));
-                    rs = ps1.executeQuery(sql);
+
+                    session.setAttribute("error", 100);
+//                    response.sendRedirect(request.getContextPath() + "/Profile");
+//                    response.sendRedirect(request.getContextPath() + "/LoginPage");
+                 
+                    rs = getRSData(request, response);
                     session.setAttribute("rs", rs);
-                    response.sendRedirect(request.getContextPath() + "/Profile");
-//                    response.sendRedirect(request.getContextPath() + "/");
-//                    response.sendRedirect(request.getContextPath() + "/AfterUpdate");
+                    response.sendRedirect(request.getContextPath() + "/AfterUpdate");
 
                 } else {
-
+                    session.setAttribute("error", 100);
                     response.sendRedirect(request.getContextPath() + "/LoginPage");
                 }
             } catch (SQLException e) {
+                session.setAttribute("error", 100);
                 out.println(e);
             }
         }
+    }
+
+    public ResultSet getRSData(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con;
+        String path = "jdbc:mysql://localhost:3306/Infojava";
+        String sql = "SELECT * FROM servlet WHERE gmail = ?";
+        ResultSet rs = null;
+        String idpass = "root";
+        try {
+            con = DriverManager.getConnection(path, idpass, idpass);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, request.getParameter("gmail"));
+
+//                ps.setString(2, request.getParameter("password"))
+            rs = ps.executeQuery();
+
+            rs.next();
+
+        } catch (SQLException e) {
+            System.out.print(e);
+        }
+        return rs;
     }
 
     public static boolean checkMobileNumber(String mobileNumber) {
@@ -111,7 +137,7 @@ public class UpdateData extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
+            // Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -128,6 +154,5 @@ public class UpdateData extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }

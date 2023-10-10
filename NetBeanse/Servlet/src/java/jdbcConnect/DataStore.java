@@ -48,7 +48,7 @@ public class DataStore extends HttpServlet {
 
             String path = "jdbc:mysql://localhost:3306/Infojava";
             String idpass = "root";
-
+            session.setAttribute("error", 0);
             String sql = "INSERT INTO servlet (name,fname,gmail,mobile,password) values(?,?,?,?,?)";
             try (Connection con = DriverManager.getConnection(path, idpass, idpass)) {
                 PreparedStatement ps = con.prepareStatement(sql);

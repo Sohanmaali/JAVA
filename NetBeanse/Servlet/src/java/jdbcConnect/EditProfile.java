@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package jdbcConnect;
 
 import jakarta.servlet.ServletException;
@@ -22,15 +18,6 @@ import java.util.logging.Logger;
  */
 public class EditProfile extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
@@ -39,9 +26,9 @@ public class EditProfile extends HttpServlet {
             response.setHeader("Cache-Control", "No-Cache");
             response.setHeader("Cache-Control", "No-Store");
             ResultSet rs = (ResultSet) session.getAttribute("rs");
-
+            Object x = null;
             if (rs != null) {
-                out.print("         <!DOCTYPE html>");
+                out.print("<!DOCTYPE html>");
                 out.print(" <html lang='en'>");
                 out.print(" <head>");
                 out.print("<meta charset='UTF-8' />");
@@ -262,53 +249,60 @@ public class EditProfile extends HttpServlet {
                 out.print("             <tr>");
                 out.print("               <td>Name</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td><input type='text' name='name' value=" + rs.getString(1) + "></td>");
+                out.print("               <td><input type='text' name='name' required value=" + rs.getString(1) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
                 out.print("               <td>Father</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td><input type='text' name='fname' value=" + rs.getString(2) + "></td>");
+                out.print("               <td><input type='text' name='fname' required value=" + rs.getString(2) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
                 out.print("               <td>Mobile</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td><input type='text' name='mobile' value=" + rs.getString(4) + "></td>");
+                out.print("               <td><input type='text' name='mobile' required value=" + rs.getString(4) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
                 out.print("               <td>Email</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td><input type='text' name='gmail' value=" + rs.getString(3) + "></td>");
+                out.print("               <td><input type='text' name='gmail' required value=" + rs.getString(3) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
                 out.print("             <tr>");
                 out.print("               <td>Password</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td><input type='password' name='password' value=" + rs.getString(5) + "></td>");
+                out.print("               <td><input type='password' name='password' required value=" + rs.getString(5) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
                 out.print("             <tr>");
                 out.print("               <td>C Password</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td><input type='password' name='cpassword' value=" + rs.getString(5) + "></td>");
+                out.print("               <td><input type='password' name='cpassword' required value=" + rs.getString(5) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
                 out.print("               <td><input type='submit' value='Save'></td>");
                 out.print("             </tr>");
-                int x = (Integer) session.getAttribute("error");
-                if (x == 1) {
+                x = session.getAttribute("error");
+//                 ResultSet rs = (ResultSet) session.getAttribute("rs");
+                System.out.println(x + "-----------");
+                if (x.equals(1)) {
                     out.print("<td for='inputField'>Email id already Exist </td>");
+                    x = null;
                 }
-                if (x == 2) {
+                if (x.equals(2)) {
                     out.print("<td for='inputField'>Password Not match </td>");
+                    x = null;
                 }
-                if (x == 3) {
+                if (x.equals(3)) {
                     out.print("<td for='inputField'>Invalide Mobile number </td>");
+                    x = null;
                 }
-                if (x == 4) {
+                if (x.equals(4)) {
                     out.print("<td for='inputField'>Invalide Name </td>");
+                    x = null;
                 }
-                if (x == 5) {
+                if (x.equals(5)) {
                     out.print("<td for='inputField'>Invalide Father Name</td>");
+                    x = null;
                 }
                 out.print("           </tbody>");
                 out.print("         </table>");

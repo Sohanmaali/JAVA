@@ -10,11 +10,10 @@ import jakarta.servlet.http.HttpSession;
 
 public class RegistrationPage extends HttpServlet {
 
-    public void processRequest(HttpServletRequest request, HttpServletResponse response, int n)
+    public void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-//            response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
             HttpSession session = request.getSession();
             out.print("<!DOCTYPE html>");
             out.print("<html lang='en'>");
@@ -185,13 +184,13 @@ public class RegistrationPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response, 0);
+        processRequest(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response, 0);
+        processRequest(request, response);
     }
 
     @Override
