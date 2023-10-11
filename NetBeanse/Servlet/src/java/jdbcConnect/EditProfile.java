@@ -228,12 +228,12 @@ public class EditProfile extends HttpServlet {
                 out.print("       <div class='job'>title</div>");
                 out.print("     </div>");
                 out.print("     <div class='sidenav-url'>");
+//                out.print("       <div class='url'>");
+//                out.print("         <a href='Edit' class='active'>Edit</a>");
+//                out.print("         <hr align='center' />");
+//                out.print("       </div>");
                 out.print("       <div class='url'>");
-                out.print("         <a href='Edit' class='active'>Edit</a>");
-                out.print("         <hr align='center' />");
-                out.print("       </div>");
-                out.print("       <div class='url'>");
-                out.print("         <a href='Profile'>Back</a>");
+                out.print("         <a href='Back'>Back</a>");
                 out.print("         <hr align='center' />");
                 out.print("       </div>");
                 out.print("     </div>");
@@ -270,7 +270,7 @@ public class EditProfile extends HttpServlet {
                 out.print("             <tr>");
                 out.print("               <td>Password</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td></td>");
+                out.print("               <td><input type='password' name='password' required value=" + rs.getString(5) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
                 out.print("               <td>C Password</td>");

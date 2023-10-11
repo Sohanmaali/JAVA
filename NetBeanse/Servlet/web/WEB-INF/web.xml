@@ -68,6 +68,10 @@
         <servlet-name>WelComePage</servlet-name>
         <servlet-class>jdbcConnect.WelComePage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Back</servlet-name>
+        <servlet-class>jdbcConnect.Back</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OddNumberSerice</servlet-name>
         <url-pattern>/OddNumberSerice</url-pattern>
@@ -200,7 +204,11 @@
         <servlet-name>WelComePage</servlet-name>
         <url-pattern>/WelComePage</url-pattern>
     </servlet-mapping>
-    <welcome-file-list>  
-        <welcome-file>WelComePage</welcome-file>  
-    </welcome-file-list>  
+    <servlet-mapping>
+        <servlet-name>Back</servlet-name>
+        <url-pattern>/Back</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>WelComePage</welcome-file>
+    </welcome-file-list>
 </web-app>

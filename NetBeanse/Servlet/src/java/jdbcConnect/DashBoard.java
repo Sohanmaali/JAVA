@@ -87,7 +87,7 @@ public class DashBoard extends HttpServlet {
                 out.print(" .nav-content .nav-links li {");
                 out.print("   list-style: none;");
                 out.print("   margin: 8px;");
-                out.print("   margin-left: 100px;");
+                out.print("   margin-left: 80px;");//////////change
                 out.print(" }");
                 out.print(" .nav-links li a {");
                 out.print("   text-decoration: none;");
@@ -96,6 +96,7 @@ public class DashBoard extends HttpServlet {
                 out.print("   font-weight: 500;");
                 out.print("   padding: 10px 4px;");
                 out.print(" }");
+                out.print(".out{font-size: 18px;}");/////-----------------
                 out.print(" .nav-links li a:hover {");
                 out.print("   color: black;");
                 out.print(" }");
@@ -206,6 +207,7 @@ public class DashBoard extends HttpServlet {
                 out.print("          <li><a href='#'>Gallary</a></li>");
                 out.print("          <li><a href='#'>Contact</a></li>");
                 out.print("          <li><a href='Profile'><i class=\"fa-solid fa-user\"></i></a></li>");
+                out.print("          <li><a href='LogOut'><i class=\"fa fa-sign-out-alt\"></i></a></li>");
                 out.print("        </ul>");
                 out.print("      </div>");
                 out.print("    </nav>");
@@ -231,7 +233,7 @@ public class DashBoard extends HttpServlet {
                 out.print("              <a href='#'><i class='fas fa-phone-volume'></i>+007 9089 6767</a>");
                 out.print("            </div>");
                 out.print("            <div class='email'>");
-                out.print("              <a href='#''><i class='fas fa-envelope'></i>abc@gmail.com</a>");
+                out.print("              <a href='#'><i class='fas fa-envelope'></i>abc@gmail.com</a>");
                 out.print("            </div>");
                 out.print("          </div>");
                 out.print("        </div>");
@@ -299,5 +301,4 @@ public class DashBoard extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-
 }

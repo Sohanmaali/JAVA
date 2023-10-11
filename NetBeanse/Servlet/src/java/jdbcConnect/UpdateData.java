@@ -25,6 +25,8 @@ public class UpdateData extends HttpServlet {
 
             ResultSet rs = (ResultSet) session.getAttribute("rs");
             session.setAttribute("error", 100);
+            System.out.println(request.getParameter("password"));
+            System.out.println(request.getParameter("cpassword"));
             if (!request.getParameter("password").equals(request.getParameter("cpassword"))) {
                 session.setAttribute("error", 2);
                 response.sendRedirect(request.getContextPath() + "/EditProfile");
@@ -86,23 +88,17 @@ public class UpdateData extends HttpServlet {
 
     public ResultSet getRSData(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException {
         ServletContext ctx = this.getServletContext();
-            Class.forName(ctx.getInitParameter("driver"));
+        Class.forName(ctx.getInitParameter("driver"));
         Connection con;
 
-//        String path = "jdbc:mysql://localhost:3306/Infojava";
         String sql = "SELECT * FROM servlet WHERE gmail = ?";
         ResultSet rs = null;
-//        String idpass = "root";
         try {
             con = DriverManager.getConnection(ctx.getInitParameter("path"), ctx.getInitParameter("idpass"), ctx.getInitParameter("idpass"));
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, request.getParameter("gmail"));
-
-//                ps.setString(2, request.getParameter("password"))
             rs = ps.executeQuery();
-
             rs.next();
-
         } catch (SQLException e) {
             System.out.print(e);
         }
@@ -148,7 +144,6 @@ public class UpdateData extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
