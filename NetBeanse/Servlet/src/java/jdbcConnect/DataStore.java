@@ -1,5 +1,7 @@
 package jdbcConnect;
 
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import java.sql.Connection;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -43,14 +45,12 @@ public class DataStore extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/RegistrationPage");
                 return;
             }
+            ServletContext ctx = this.getServletContext();
+            Class.forName(ctx.getInitParameter("driver"));
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            String path = "jdbc:mysql://localhost:3306/Infojava";
-            String idpass = "root";
             session.setAttribute("error", 0);
             String sql = "INSERT INTO servlet (name,fname,gmail,mobile,password) values(?,?,?,?,?)";
-            try (Connection con = DriverManager.getConnection(path, idpass, idpass)) {
+            try (Connection con = DriverManager.getConnection(ctx.getInitParameter("path"), ctx.getInitParameter("idpass"), ctx.getInitParameter("idpass"))) {
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1, request.getParameter("name"));
                 ps.setString(2, request.getParameter("fname"));

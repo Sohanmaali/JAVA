@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -267,12 +268,10 @@ public class EditProfile extends HttpServlet {
                 out.print("               <td><input type='text' name='gmail' required value=" + rs.getString(3) + "></td>");
                 out.print("             </tr>");
                 out.print("             <tr>");
-                out.print("             <tr>");
                 out.print("               <td>Password</td>");
                 out.print("               <td>:</td>");
-                out.print("               <td><input type='password' name='password' required value=" + rs.getString(5) + "></td>");
+                out.print("               <td></td>");
                 out.print("             </tr>");
-                out.print("             <tr>");
                 out.print("             <tr>");
                 out.print("               <td>C Password</td>");
                 out.print("               <td>:</td>");

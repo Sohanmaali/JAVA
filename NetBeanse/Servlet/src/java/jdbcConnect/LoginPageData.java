@@ -1,5 +1,6 @@
 package jdbcConnect;
 
+import jakarta.servlet.ServletContext;
 import java.sql.Connection;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -20,14 +21,15 @@ public class LoginPageData extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            ServletContext ctx = this.getServletContext();
+            Class.forName(ctx.getInitParameter("driver"));
             Connection con;
-            String path = "jdbc:mysql://localhost:3306/Infojava";
+            // String path = "jdbc:mysql://localhost:3306/Infojava";
             String sql = "SELECT * FROM servlet WHERE gmail = ? and password = ?";
 
-            String idpass = "root";
+//            String idpass = "root";
             try {
-                con = DriverManager.getConnection(path, idpass, idpass);
+                con = DriverManager.getConnection(ctx.getInitParameter("path"), ctx.getInitParameter("idpass"), ctx.getInitParameter("idpass"));
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1, request.getParameter("gmail"));
                 ps.setString(2, request.getParameter("password"));
