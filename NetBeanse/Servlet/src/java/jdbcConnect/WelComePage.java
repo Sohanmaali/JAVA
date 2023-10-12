@@ -266,7 +266,7 @@ public class WelComePage extends HttpServlet {
                     + "    <nav>\n"
                     + "      <div class=\"nav-content\">\n"
                     + "        <div class=\"logo\">\n"
-                    + "          <a href=\"#\">Wellcome</a>\n"
+                    + "          <a href=\"#\">Welcome</a>\n"
                     + "        </div>\n"
                     + "        <ul class=\"nav-links\">\n"
                     + "          <li><a href=\"#\">Home</a></li>\n"

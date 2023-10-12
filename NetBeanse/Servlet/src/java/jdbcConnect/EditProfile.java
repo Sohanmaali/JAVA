@@ -13,10 +13,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author DELL
- */
 public class EditProfile extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -27,7 +23,7 @@ public class EditProfile extends HttpServlet {
             response.setHeader("Cache-Control", "No-Cache");
             response.setHeader("Cache-Control", "No-Store");
             ResultSet rs = (ResultSet) session.getAttribute("rs");
-            Object x = null;
+            Object x;
             if (rs != null) {
                 out.print("<!DOCTYPE html>");
                 out.print(" <html lang='en'>");
@@ -228,10 +224,6 @@ public class EditProfile extends HttpServlet {
                 out.print("       <div class='job'>title</div>");
                 out.print("     </div>");
                 out.print("     <div class='sidenav-url'>");
-//                out.print("       <div class='url'>");
-//                out.print("         <a href='Edit' class='active'>Edit</a>");
-//                out.print("         <hr align='center' />");
-//                out.print("       </div>");
                 out.print("       <div class='url'>");
                 out.print("         <a href='Back'>Back</a>");
                 out.print("         <hr align='center' />");
@@ -281,7 +273,6 @@ public class EditProfile extends HttpServlet {
                 out.print("               <td><input type='submit' value='Save'></td>");
                 out.print("             </tr>");
                 x = session.getAttribute("error");
-//                 ResultSet rs = (ResultSet) session.getAttribute("rs");
                 System.out.println(x + "-----------");
                 if (x.equals(1)) {
                     out.print("<td for='inputField'>Email id already Exist </td>");
@@ -335,11 +326,6 @@ public class EditProfile extends HttpServlet {
                 out.print("           <span class='fa-stack fa-sm'>");
                 out.print("             <i class='fas fa-circle fa-stack-2x'></i>");
                 out.print("             <i class='fab fa-whatsapp fa-stack-1x fa-inverse'></i>");
-                out.print("           </span>");
-                out.print("           <span class='fa-stack fa-sm'>");
-                out.print("             <i class='fas fa-circle fa-stack-2x'></i>");
-                out.print("             <i class='fab fa-snapchat fa-stack-1x fa-inverse'></i>");
-                out.print("           </span>");
                 out.print("         </div>");
                 out.print("       </div>");
                 out.print("     </div>");
@@ -347,7 +333,6 @@ public class EditProfile extends HttpServlet {
                 out.print("   <!-- End -->");
                 out.print(" </body>");
                 out.print("</html>");
-
             } else {
                 response.sendRedirect(request.getContextPath() + "/LoginPage");
             }
@@ -382,11 +367,6 @@ public class EditProfile extends HttpServlet {
         }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

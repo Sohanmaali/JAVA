@@ -156,7 +156,6 @@ public class RegistrationPage extends HttpServlet {
             out.print("           Already have an account? <a href='LoginPage'>Login now</a>");
             out.print("         </h3>");
             out.print("       </div>");
-//            int x = (Integer) request.getAttribute("error");
 
             int x = (Integer) session.getAttribute("error");
             if (x == 1) {

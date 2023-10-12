@@ -297,10 +297,6 @@ public class Profile extends HttpServlet {
                 out.print("             <i class='fas fa-circle fa-stack-2x'></i>");
                 out.print("             <i class='fab fa-whatsapp fa-stack-1x fa-inverse'></i>");
                 out.print("           </span>");
-                out.print("           <span class='fa-stack fa-sm'>");
-                out.print("             <i class='fas fa-circle fa-stack-2x'></i>");
-                out.print("             <i class='fab fa-snapchat fa-stack-1x fa-inverse'></i>");
-                out.print("           </span>");
                 out.print("         </div>");
                 out.print("       </div>");
                 out.print("     </div>");
