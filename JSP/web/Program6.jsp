@@ -1,6 +1,6 @@
 <%-- 
-    Document   : First
-    Created on : 12-Oct-2023, 1:30:30 pm
+    Document   : Program6
+    Created on : 13-Oct-2023, 9:08:30 am
     Author     : DELL
 --%>
 
@@ -13,18 +13,15 @@
     </head>
     <body>
         <%
-        int row = 5;
-        for(int i= 1;i<=row;i++) 
-        {
-            for(int j= 1;j<=row;j++) {
-                if(j>=row-i+1){
+ int N = 10; // Replace with the desired value of N
+ int sum = 0;
+
+ for (int i = 1; i <= N; i++) {
+     sum += i;
+ }
+
         %>
-        <p>*</p>
-        <% }else {%>
-        <p>_</p>
-        <%
-         }
-     }
- }%>
+        <p>The sum of numbers from 1 to <%= N %> is <%= sum %></p>
+
     </body>
 </html>
