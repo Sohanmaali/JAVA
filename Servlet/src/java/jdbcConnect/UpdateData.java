@@ -42,7 +42,7 @@ public class UpdateData extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/EditProfile");
                 return;
             }
-            if (!checkName(request.getParameter("fname"))) {
+            if (!checkName(request.getParameter("fname").trim())) {
                 session.setAttribute("error", 5);
                 response.sendRedirect(request.getContextPath() + "/EditProfile");
                 return;

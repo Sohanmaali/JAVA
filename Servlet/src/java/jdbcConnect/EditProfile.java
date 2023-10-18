@@ -273,26 +273,20 @@ public class EditProfile extends HttpServlet {
                 out.print("               <td><input type='submit' value='Save'></td>");
                 out.print("             </tr>");
                 x = session.getAttribute("error");
-                System.out.println(x + "-----------");
                 if (x.equals(1)) {
                     out.print("<td for='inputField'>Email id already Exist </td>");
-                    x = null;
                 }
                 if (x.equals(2)) {
                     out.print("<td for='inputField'>Password Not match </td>");
-                    x = null;
                 }
                 if (x.equals(3)) {
                     out.print("<td for='inputField'>Invalide Mobile number </td>");
-                    x = null;
                 }
                 if (x.equals(4)) {
                     out.print("<td for='inputField'>Invalide Name </td>");
-                    x = null;
                 }
                 if (x.equals(5)) {
                     out.print("<td for='inputField'>Invalide Father Name</td>");
-                    x = null;
                 }
                 out.print("           </tbody>");
                 out.print("         </table>");
@@ -349,14 +343,6 @@ public class EditProfile extends HttpServlet {
         }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

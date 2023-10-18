@@ -2,20 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/src/java/jdbcConnect/Profile.java</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/src/java/jdbcConnect/UpdateData.java</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/src/java/jdbcConnect/DashBoard.java</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/src/java/jdbcConnect/AfterUpdate.java</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/src/java/jdbcConnect/Back.java</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/src/java/jdbcConnect/LoginPageData.java</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/web/index.html</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/src/java/jdbcConnect/WelComePage.java</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/src/java/jdbcConnect/RegistrationPage.java</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/web/WEB-INF/web.xml</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/src/java/jdbcConnect/DataStore.java</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/src/java/jdbcConnect/EditProfile.java</file>
-            <file>file:/D:/JAVA/NetBeanse/Servlet/web/Wellcome.html</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
