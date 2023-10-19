@@ -40,6 +40,9 @@
         <button onclick="primeNumber()" id="HCF" value="PrimeNumber">
             PrimeNumber
         </button>
+        <button onclick="calculater()" id="calculater" value="calculater">
+            Calculater
+        </button>
         <br /><br />
 
         <div id="factorial1" style="display: none">
@@ -126,12 +129,36 @@
         <div id="PrimeNumber1" style="display: none">
             <form action="">
                 <input type="text" id="valuen1" name="first" />
-                <!-- <input type="text" id="valuen2" name="second" /> -->
+                <input type="text" id="valuen2" name="second" />
                 <input type="submit" value="primeNumber" name="primeNumber" />
+            </form>
+        </div>
+        <div id="calculater1" style="display: none">
+            <form action="">
+                <input type="text" id="valuen1" name="first" />
+                <input type="text" id="valuen2" name="second" />
+                <input type="submit" value="Add" name="add" />
+                <input type="submit" value="Sub" name="sub" />
+                <input type="submit" value="multi" name="multi" />
+                <input type="submit" value="division" name="division" />
             </form>
         </div>
 
         <script>
+            function calculater() {
+                calculater1.style.display = "inline";
+                PrimeNumber1.style.display = "none";
+                factorial1.style.display = "none";
+                power1.style.display = "none";
+                Reverse1.style.display = "none";
+                HCF1.style.display = "none";
+                CheckEvenOdd1.style.display = "none";
+                LeapYear1.style.display = "none";
+                Voting1.style.display = "none";
+                cartoon1.style.display = "none";
+                fibbonacci1.style.display = "none";
+                Cube1.style.display = "none";
+            }
             function power() {
                 power1.style.display = "inline";
                 PrimeNumber1.style.display = "none";
@@ -145,6 +172,7 @@
                 cartoon1.style.display = "none";
                 fibbonacci1.style.display = "none";
                 Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
             function factorial() {
                 factorial1.style.display = "inline";
@@ -159,6 +187,7 @@
                 cartoon1.style.display = "none";
                 fibbonacci1.style.display = "none";
                 Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
             function cube() {
                 Cube1.style.display = "inline";
@@ -173,6 +202,7 @@
                 cartoon1.style.display = "none";
                 fibbonacci1.style.display = "none";
                 // Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
             function fibbonacci() {
                 fibbonacci1.style.display = "inline";
@@ -187,6 +217,7 @@
                 cartoon1.style.display = "none";
                 // fibbonacci1.style.display = "none";
                 Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
             function cartoon() {
                 cartoon1.style.display = "inline";
@@ -201,6 +232,7 @@
                 // cartoon1.style.display = "none";
                 fibbonacci1.style.display = "none";
                 Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
             function voting() {
                 Voting1.style.display = "inline";
@@ -215,8 +247,8 @@
                 cartoon1.style.display = "none";
                 fibbonacci1.style.display = "none";
                 Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
-
             function leapyear() {
                 LeapYear1.style.display = "inline";
                 PrimeNumber1.style.display = "none";
@@ -230,8 +262,8 @@
                 cartoon1.style.display = "none";
                 fibbonacci1.style.display = "none";
                 Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
-
             function checkEvenOdd() {
                 CheckEvenOdd1.style.display = "inline";
                 PrimeNumber1.style.display = "none";
@@ -245,8 +277,8 @@
                 cartoon1.style.display = "none";
                 fibbonacci1.style.display = "none";
                 Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
-
             function hcf() {
                 HCF1.style.display = "inline";
                 PrimeNumber1.style.display = "none";
@@ -260,8 +292,8 @@
                 cartoon1.style.display = "none";
                 fibbonacci1.style.display = "none";
                 Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
-
             function reverse() {
                 Reverse1.style.display = "inline";
                 PrimeNumber1.style.display = "none";
@@ -275,8 +307,8 @@
                 cartoon1.style.display = "none";
                 fibbonacci1.style.display = "none";
                 Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
-
             function primeNumber() {
                 PrimeNumber1.style.display = "inline";
                 factorial1.style.display = "none";
@@ -289,14 +321,22 @@
                 cartoon1.style.display = "none";
                 fibbonacci1.style.display = "none";
                 Cube1.style.display = "none";
+                calculater1.style.display = "none";
             }
         </script>
     </body>
 </html>
-<% String s = request.getParameter("first"); 
-    if (s != null && !s.equals("")) { 
-        int a = Integer.parseInt(s); 
-        int b= 0;
+<% 
+String s = request.getParameter("first"); 
+int b = 0;
+if (s != null && !s.equals("")) { 
+    int a = Integer.parseInt(s); 
+        String s1 = request.getParameter("second"); 
+        if(s1 != null && !s1.equals(""))
+        {      
+            b = Integer.parseInt(s1); 
+        }
+        
         if(request.getParameter("cube") != null){
             int result = a*a*a;
             out.print(result);
@@ -326,9 +366,7 @@
             } else{ 
                 out.print("Odd Number");
             }
-        }
-       
-         else if(request.getParameter("reverse") != null){
+        }else if(request.getParameter("reverse") != null){
             int result =0;
             while(a>0){ 
                 result =(result*10)+(a%10); 
@@ -347,9 +385,7 @@
              }else{ 
                 out.println("not a prime number"); 
             } 
-        } 
-       
-        else if (request.getParameter("cartoon") != null){
+        }else if (request.getParameter("cartoon") != null){
             for(int i=1;i<=a;i++){
                 for(int j=1;j<=i;j++){
                     out.print("* "); 
@@ -362,6 +398,19 @@
                 fact*=i;
             }
             out.print(fact); 
+        } else if (request.getParameter("add") != null){
+           
+            out.print(a+b); 
+        }else if (request.getParameter("sub") != null){
+           
+            out.print(a-b); 
+        } else if (request.getParameter("multi") != null){
+           
+            out.print(a*b); 
+        }
+        else if (request.getParameter("division") != null){
+           
+            out.print(a/b); 
         }
     }
 %>
