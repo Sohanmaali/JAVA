@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="Factorial" onclick="factorial()" name="fibob">Factorial</button>
+    <button onclick="calculater()" id="calculater" value="calculater">
+      Calculater
+    </button>
+    <div id="factorial1" style="display: none">
+      <form action="">
+        <input type="text" id="valuen1" name="first" />
+        <span id="factorialsub">
+          <input type="submit" value="Factorial" name="factsub" />
+        </span>
+      </form>
+    </div>
+    <div id="calculater1" style="display: none">
+      <form action="">
+        <input type="text" id="valuen1" name="first" />
+        <input type="text" id="valuen2" name="second" />
+        <input type="submit" value="Add" name="add" onclick="chectTwoValue()" />
+        <input type="submit" value="Sub" name="sub" onclick="chectTwoValue()" />
+        <input
+          type="submit"
+          value="multi"
+          name="multi"
+          onclick="chectTwoValue() "
+        />
+        <input
+          type="submit"
+          value="division"
+          name="division"
+          onclick="chectTwoValue() "
+        />
+      </form>
+    </div>
+    <script>
+      function factorial() {
+        factorial1.style.display = "inline";
+        calculater1.style.display = "none";
+      }
+      function calculater() {
+        calculater1.style.display = "inline";
+
+        factorial1.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
