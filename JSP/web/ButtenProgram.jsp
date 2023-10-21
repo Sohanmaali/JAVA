@@ -19,15 +19,17 @@
         <div id="tekeInput">
             <form action="">
                 <input type="text" id="value1" name="firstValue" />
+                <span id="secondInput" style="display: none;"> <input type="text" id="value2" name="secondValue" /> </span>
                 <input type="submit" id="ans" name="oldName" value="ans" />
+                <div id="calc" style="display: none;">
+                    <input type="submit" id="ans1" name="oldName" value="ans" />
+                    <input type="submit" id="ans2" name="oldName" value="ans" />
+                    <input type="submit" id="ans3" name="oldName" value="ans" />
+                </div>
             </form>
         </div>
        
         <script>
-function changepasss()
-{
-  var button1 = document.getElementById("");
-}
 
             function changeButtonName(buttonNumber) {
                 // Get the IDs of the buttons
@@ -41,6 +43,8 @@ function changepasss()
                 var button8 = document.getElementById("button8");
                 var button9 = document.getElementById("button9");
                 var button10 = document.getElementById("button10");
+                var secondInput = document.getElementById("secondInput");
+                var calc = document.getElementById("calc");
 
                 // Reset the names of all buttons
                 button1.textContent = "Factorial";
@@ -59,6 +63,9 @@ function changepasss()
                     ans.textContent = "Factorial";
                     ans.name = "Factorial";
                     ans.value = "Factorial";
+                    secondInput.style.display = "none";
+                    calc.style.display = "none";
+                    
                     showInput();
                 } else if (buttonNumber === 2) {
                     ans.textContent = "Fibonacci";
@@ -101,9 +108,17 @@ function changepasss()
                     ans.value = "PrimeNumber";
                     showInput();
                 } else if (buttonNumber === 10) {
-                    ans.textContent = "Factorial";
-                    ans.name = "Factorial";
-                    ans.value = "Factorial";
+                    ans.textContent = "Calculator";
+                    ans.name = "Add";
+                    ans1.name = "Sub";
+                    ans2.name = "Multi";
+                    ans3.name = "divi";
+                    ans.value = "Add";
+                    ans1.value = "Sub";
+                    ans2.value = "Multi";
+                    ans3.value = "divi";
+                    secondInput.style.display = "inline";
+                    calc.style.display = "inline";
                 }
             }
             function showInput() {
@@ -185,17 +200,17 @@ if (s != null && !s.equals("")) {
                 fact*=i;
             }
             out.print(fact); 
-        } else if (request.getParameter("add") != null){
+        } else if (request.getParameter("Add") != null){
            
             out.print(a+b); 
-        }else if (request.getParameter("sub") != null){
+        }else if (request.getParameter("Sub") != null){
            
             out.print(a-b); 
-        } else if (request.getParameter("multi") != null){
+        } else if (request.getParameter("Multi") != null){
            
             out.print(a*b); 
         }
-        else if (request.getParameter("division") != null){
+        else if (request.getParameter("divi") != null){
            
             out.print(a/b); 
         }
