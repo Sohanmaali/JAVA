@@ -65,7 +65,6 @@
                     ans.value = "Factorial";
                     secondInput.style.display = "none";
                     calc.style.display = "none";
-                    
                     showInput();
                 } else if (buttonNumber === 2) {
                     ans.textContent = "Fibonacci";
@@ -133,12 +132,12 @@ String s = request.getParameter("firstValue");
 int b = 0;
 if (s != null && !s.equals("")) { 
     int a = Integer.parseInt(s); 
-        String s1 = request.getParameter("second"); 
+        String s1 = request.getParameter("secondInput"); 
         if(s1 != null && !s1.equals(""))
         {      
             b = Integer.parseInt(s1); 
         }
-        
+        out.println(a+" "+ b);
         if(request.getParameter("Cube") != null){
             int result = a*a*a;
             out.print(result);
