@@ -72,6 +72,14 @@
         <servlet-name>Back</servlet-name>
         <servlet-class>jdbcConnect.Back</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Modal</servlet-name>
+        <servlet-class>jdbcConnect.Modal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatePassword</servlet-name>
+        <servlet-class>jdbcConnect.UpdatePassword</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OddNumberSerice</servlet-name>
         <url-pattern>/OddNumberSerice</url-pattern>
@@ -207,6 +215,14 @@
     <servlet-mapping>
         <servlet-name>Back</servlet-name>
         <url-pattern>/Back</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Modal</servlet-name>
+        <url-pattern>/Modal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePassword</servlet-name>
+        <url-pattern>/UpdatePassword</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>WelComePage</welcome-file>

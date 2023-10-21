@@ -1,0 +1,88 @@
+<% 
+String s = request.getParameter("first"); 
+int b = 0;
+if (s != null && !s.equals("")) { 
+    int a = Integer.parseInt(s); 
+        String s1 = request.getParameter("second"); 
+        if(s1 != null && !s1.equals(""))
+        {      
+            b = Integer.parseInt(s1); 
+        }
+        
+        if(request.getParameter("cube") != null){
+            int result = a*a*a;
+            out.print(result);
+        } else if (request.getParameter("fibbonacci") != null){ 
+            int x=-1,y=1,result =0; 
+            for(int i=1;i<=a;i++){ 
+                result = x+y;
+                x=y;
+                y=result;
+                out.print(result +" "); 
+            }
+        }else if(request.getParameter("voting") != null){
+            if(a<=18){ 
+                out.print("Not eligival for voting"); 
+            } else{ 
+                out.print(" eligival for voting");
+            } 
+        } else if(request.getParameter("LeapYear") != null){ 
+            if((a%100!=0&&a%4==0)||a%400==0){
+                out.print("Leap Year"); 
+            } else{ 
+                out.print("Normal Year");
+            }
+        }else if(request.getParameter("checkEvenOdd") != null){
+            if(a%2==0){ 
+                out.print("Even Number");
+            } else{ 
+                out.print("Odd Number");
+            }
+        }else if(request.getParameter("reverse") != null){
+            int result =0;
+            while(a>0){ 
+                result =(result*10)+(a%10); 
+                a/=10; 
+            }
+            out.println(result);
+        } else if(request.getParameter("primeNumber") != null){
+            int result =0;
+            for(int i=1;i<=a;i++){ 
+                if(a%i==0){ 
+                    result++;
+                } 
+            }
+            if(result ==2){   
+                out.println("prime number"); 
+             }else{ 
+                out.println("not a prime number"); 
+            } 
+        }else if (request.getParameter("cartoon") != null){
+            for(int i=1;i<=a;i++){
+                for(int j=1;j<=i;j++){
+                    out.print("* "); 
+                } 
+                out.print("<br>"); 
+            }
+        } else if (request.getParameter("factsub") != null){
+            int fact =1;
+            for(int i=1;i<=a;i++){
+                fact*=i;
+            }
+            out.print(fact); 
+        } else if (request.getParameter("add") != null){
+           
+            out.print(a+b); 
+        }else if (request.getParameter("sub") != null){
+           
+            out.print(a-b); 
+        } else if (request.getParameter("multi") != null){
+           
+            out.print(a*b); 
+        }
+        else if (request.getParameter("division") != null){
+           
+            out.print(a/b); 
+        }
+    }
+%>

@@ -119,14 +119,16 @@ public class UpdateData extends HttpServlet {
         return true;
     }
 
-    public boolean checkName(String name) {
-        for (int i = 0; i < name.length(); i++) {
-            if ((name.charAt(i) < 97 || name.charAt(i) > 122) && (name.charAt(i) < 67 || name.charAt(i) > 122)) {
-                return false;
-            }
+    public boolean checkName(String name1) {
+        String name = name1.toLowerCase();
+    for (int i = 0; i < name.length(); i++) {
+        char c = name.charAt(i);
+        if (!((c >= 'a' && c <= 'z') || c == ' ')) {
+            return false;
         }
-        return true;
     }
+    return true;
+}
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
