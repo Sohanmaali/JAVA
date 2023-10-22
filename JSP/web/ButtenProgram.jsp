@@ -16,7 +16,7 @@
         <button id="button9" onclick="changeButtonName(9)">PrimeNumber</button>
         <button id="button10" onclick="changeButtonName(10)">Calculator</button>
         <br /><br /><br />
-        <div id="tekeInput">
+        <div id="tekeInput" style="display: none;">
             <form action="">
                 <input type="text" id="value1" name="firstValue" />
                 <span id="secondInput" style="display: none;"> <input type="text" id="value2" name="secondValue" /> </span>
@@ -70,21 +70,29 @@
                     ans.textContent = "Fibonacci";
                     ans.name = "Fibonacci";
                     ans.value = "Fibonacci";
+                    secondInput.style.display = "none";
+                    calc.style.display = "none";
                     showInput();
                 } else if (buttonNumber === 3) {
                     ans.textContent = "Cube";
                     ans.name = "Cube";
                     ans.value = "Cube";
+                    secondInput.style.display = "none";
+                    calc.style.display = "none";
                     showInput();
                 } else if (buttonNumber === 4) {
                     ans.textContent = "Cartoon";
                     ans.name = "Cartoon";
                     ans.value = "Cartoon";
+                    secondInput.style.display = "none";
+                    calc.style.display = "none";
                     showInput();
                 } else if (buttonNumber === 5) {
                     ans.textContent = "Voting";
                     ans.name = "Voting";
                     ans.value = "Voting";
+                    secondInput.style.display = "none";
+                    calc.style.display = "none";
                     showInput();
                 } else if (buttonNumber === 6) {
                     ans.textContent = "LeapYear";
@@ -95,16 +103,22 @@
                     ans.textContent = "CheckEvenOdd";
                     ans.name = "CheckEvenOdd";
                     ans.value = "CheckEvenOdd";
+                    secondInput.style.display = "none";
+                    calc.style.display = "none";
                     showInput();
                 } else if (buttonNumber === 8) {
                     ans.textContent = "Reverse";
                     ans.name = "Reverse";
                     ans.value = "Reverse";
+                    secondInput.style.display = "none";
+                    calc.style.display = "none";
                     showInput();
                 } else if (buttonNumber === 9) {
                     ans.textContent = "PrimeNumber";
                     ans.name = "PrimeNumber";
                     ans.value = "PrimeNumber";
+                    secondInput.style.display = "none";
+                    calc.style.display = "none";
                     showInput();
                 } else if (buttonNumber === 10) {
                     ans.textContent = "Calculator";
@@ -118,6 +132,7 @@
                     ans3.value = "divi";
                     secondInput.style.display = "inline";
                     calc.style.display = "inline";
+                     showInput();
                 }
             }
             function showInput() {
@@ -132,15 +147,16 @@ String s = request.getParameter("firstValue");
 int b = 0;
 if (s != null && !s.equals("")) { 
     int a = Integer.parseInt(s); 
-        String s1 = request.getParameter("secondInput"); 
+        String s1 = request.getParameter("secondValue"); 
         if(s1 != null && !s1.equals(""))
         {      
             b = Integer.parseInt(s1); 
+//            out.print(b);
         }
-        out.println(a+" "+ b);
+//        out.println(a+" "+ b);
         if(request.getParameter("Cube") != null){
             int result = a*a*a;
-            out.print(result);
+            out.print("Cube = "+ result);
         } else if (request.getParameter("Fibonacci") != null){ 
             int x=-1,y=1,result =0; 
             for(int i=1;i<=a;i++){ 
@@ -153,7 +169,7 @@ if (s != null && !s.equals("")) {
             if(a<=18){ 
                 out.print("Not eligival for voting"); 
             } else{ 
-                out.print(" eligival for voting");
+                out.print(" Eligival for voting");
             } 
         } else if(request.getParameter("LeapYear") != null){ 
             if((a%100!=0&&a%4==0)||a%400==0){
@@ -173,7 +189,7 @@ if (s != null && !s.equals("")) {
                 result =(result*10)+(a%10); 
                 a/=10; 
             }
-            out.println(result);
+            out.println("Reverse = "+result);
         } else if(request.getParameter("PrimeNumber") != null){
             int result =0;
             for(int i=1;i<=a;i++){ 
@@ -182,9 +198,9 @@ if (s != null && !s.equals("")) {
                 } 
             }
             if(result ==2){   
-                out.println("prime number"); 
+                out.println("Prime number"); 
              }else{ 
-                out.println("not a prime number"); 
+                out.println("Not a prime number"); 
             } 
         }else if (request.getParameter("Cartoon") != null){
             for(int i=1;i<=a;i++){
@@ -193,25 +209,25 @@ if (s != null && !s.equals("")) {
                 } 
                 out.print("<br>"); 
             }
-        } else if (request.getParameter("factsub") != null){
+        } else if (request.getParameter("Factorial") != null){
             int fact =1;
             for(int i=1;i<=a;i++){
                 fact*=i;
             }
-            out.print(fact); 
+            out.print("Factorial = "+fact); 
         } else if (request.getParameter("Add") != null){
            
-            out.print(a+b); 
+            out.print("Add = " + (a+b)); 
         }else if (request.getParameter("Sub") != null){
            
-            out.print(a-b); 
+            out.print("Sub = " +(a-b)); 
         } else if (request.getParameter("Multi") != null){
            
-            out.print(a*b); 
+            out.print("Multi = " +( a*b)); 
         }
         else if (request.getParameter("divi") != null){
            
-            out.print(a/b); 
+            out.print( "divi = " + (a/b)); 
         }
     }
 %>

@@ -52,12 +52,22 @@ public static void main(String arg[])throws IOException
 	System.out.println("hello world");
 }
 }*/
-class Simple1 {
-	public static void main(String args[]) {
-		Simple1 s = new Simple1();
-		String s1 = "hello";
-		// int a =2;
-		System.out.println(s instanceof Simple1);// true
-		System.out.println(s1 instanceof objrct);// true
+// class Simple1 {
+// 	public static void main(String args[]) {
+// 		Simple1 s = new Simple1();
+// 		String s1 = "hello";
+// 		// int a =2;
+// 		System.out.println(s instanceof Simple1);// true
+// 		System.out.println(s1 instanceof objrct);// true
+// 	}
+// }
+class AssertionExample {
+	public static void main(String[] args) {
+		int x = 10;
+		int y = 5;
+
+		assert x > y : "x should be greater than y";
+
+		System.out.println("x is greater than y");
 	}
 }
