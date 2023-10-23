@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>JSP Page</title>
+        <title>J S P Page</title>
     </head>
     <body>
         <button id="button1" onclick="changeButtonName(1)">Factorial</button>
@@ -10,10 +10,10 @@
         <button id="button3" onclick="changeButtonName(3)">Cube</button>
         <button id="button4" onclick="changeButtonName(4)">Cartoon</button>
         <button id="button5" onclick="changeButtonName(5)">Voting</button>
-        <button id="button6" onclick="changeButtonName(6)">LeapYear</button>
-        <button id="button7" onclick="changeButtonName(7)">CheckEvenOdd</button>
+        <button id="button6" onclick="changeButtonName(6)">Leap Year</button>
+        <button id="button7" onclick="changeButtonName(7)">Check Even Odd</button>
         <button id="button8" onclick="changeButtonName(8)">Reverse</button>
-        <button id="button9" onclick="changeButtonName(9)">PrimeNumber</button>
+        <button id="button9" onclick="changeButtonName(9)">Prime Number</button>
         <button id="button10" onclick="changeButtonName(10)">Calculator</button>
         <br /><br /><br />
         <div id="tekeInput" style="display: none;">
