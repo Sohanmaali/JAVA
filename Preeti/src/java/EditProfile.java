@@ -162,7 +162,7 @@ public class EditProfile extends HttpServlet {
                                         <tr>
                                           <td>Email</td>
                                           <td>:</td>
-                                          <td><input type="email" value="sohan@" name="email" /></td>
+                                          <td><input type="email" value="sohan" name="email" /></td>
                                         </tr>
                                         <tr>
                                           <td>

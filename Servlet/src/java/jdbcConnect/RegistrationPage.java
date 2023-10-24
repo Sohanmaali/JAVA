@@ -119,7 +119,7 @@ public class RegistrationPage extends HttpServlet {
             out.print("       <div class='input-box'>");
             out.print("         <input");
             out.print("           type='text'");
-            out.print("           placeholder='Enter your Mobile'");
+            out.print("           placeholder='Enter your Mobile'maxlength=\"10\"");
             out.print("           required");
             out.print("           name='mobile'");
             out.print("         />");
@@ -172,6 +172,9 @@ public class RegistrationPage extends HttpServlet {
             }
             if (x == 5) {
                 out.print(" <br> <br> <label for='inputField'>Invalide Father Name</label>");
+            }
+            if (x == 6) {
+                out.print(" <br> <br> <label for='inputField'>Invalide Email id</label>");
             }
             out.print("     </form>");
             out.print("   </div>");

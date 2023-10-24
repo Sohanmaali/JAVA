@@ -31,6 +31,52 @@ public class LoginPage extends HttpServlet {
             out.print("                width: 100%;");
             out.print("                background: #009579;");
             out.print("            }");
+            out.print("""
+                       nav {
+                                                      position: fixed;
+                                                      top: 0;
+                                                      left: 0;
+                                                      width: 100%;
+                                                      padding: 20px;
+                                                    }
+                                                    nav.sticky {
+                                                      padding: 15px 20px;
+                                                    }
+                                                    nav .nav-content {
+                                                      height: 10%;
+                                              width: 100%;
+                                                      display: flex;
+                                                      align-items: center;
+                                                      justify-content: space-between;
+                                                    }
+                                                    
+                                                    nav.sticky .logo a {
+                                                      color: white;
+                                                    }
+                                                    .nav-content .nav-links {
+                                                      display: flex;
+                                                    }
+                                                    .nav-content .nav-links li {
+                                                      list-style: none;
+                                                      margin: 0 8px;
+                       padding-left:185px;
+                                                    }
+                                                    .nav-links li a {
+                                                      text-decoration: none;
+                                                      color: white;
+                                                      font-size: 18px;
+                                                      font-weight: 500;
+                                                      padding-left:5px;
+                                                    }
+                                                    .nav-links li a:hover {
+                                                      color: black;
+                                                    }
+                                                    nav.sticky .nav-links li a {
+                                                      color: #fff;
+                                                    }
+                                                    nav.sticky .nav-links li a:hover {
+                                                      color: #0e2431;
+                                                    }""");
             out.print("            .container{");
             out.print("                position: absolute;");
             out.print("                top: 50%;");
@@ -108,11 +154,6 @@ public class LoginPage extends HttpServlet {
             out.print("            .signup label:hover{");
             out.print("                text-decoration: underline;");
             out.print("            }");
-            //            --------------------------------------------
-            out.print("      form label {display: block;} ");
-            //                 label {display: block;} input:focus + label {     display: none;    }
-            out.print("    form input:focus  label{     display: none;    }");
-            //            --------------------------------------------
             out.print("        </style>");
             out.print("    </head>");
             out.print("    <body>");
@@ -125,6 +166,19 @@ public class LoginPage extends HttpServlet {
             out.print("            <title>Login & Registration Form</title>");
             out.print("        </head>");
             out.print("        <body>");
+            out.print("""
+                      <nav>
+                            <div class="nav-content">
+                                <ul class="nav-links">
+                                    <li><a href="WelComePage">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Skills</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                     </nav>""");
+
             out.print("            <div class='container'>");
             out.print("                <input type='checkbox' id='check'>");
             out.print("                <div class='login form'>");

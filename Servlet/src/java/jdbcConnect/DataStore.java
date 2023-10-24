@@ -45,6 +45,11 @@ public class DataStore extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/RegistrationPage");
                 return;
             }
+            if (!checkGmail(request.getParameter("gmail"))) {
+                session.setAttribute("error", 6);
+                response.sendRedirect(request.getContextPath() + "/RegistrationPage");
+                return;
+            }
             ServletContext ctx = this.getServletContext();
             Class.forName(ctx.getInitParameter("driver"));
 
@@ -90,14 +95,19 @@ public class DataStore extends HttpServlet {
 
     public boolean checkName(String name1) {
         String name = name1.toLowerCase();
-    for (int i = 0; i < name.length(); i++) {
-        char c = name.charAt(i);
-        if (!((c >= 'a' && c <= 'z') || c == ' ')) {
-            return false;
+        for (int i = 0; i < name.length(); i++) {
+            char c = name.charAt(i);
+            if (!((c >= 'a' && c <= 'z') || c == ' ')) {
+                return false;
+            }
         }
+        return true;
     }
-    return true;
-}
+
+    public boolean checkGmail(String gmail) {
+
+        return gmail.contains("@gmail.com");
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
