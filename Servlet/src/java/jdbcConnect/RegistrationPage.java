@@ -157,25 +157,7 @@ public class RegistrationPage extends HttpServlet {
             out.print("         </h3>");
             out.print("       </div>");
 
-            int x = (Integer) session.getAttribute("error");
-            if (x == 1) {
-                out.print(" <br> <br> <label for='inputField'>Email id already Exist </label>");
-            }
-            if (x == 2) {
-                out.print(" <br> <br> <label for='inputField'>Password Not match </label>");
-            }
-            if (x == 3) {
-                out.print(" <br> <br> <label for='inputField'>Invalide Mobile number </label>");
-            }
-            if (x == 4) {
-                out.print(" <br> <br> <label for='inputField'>Invalide Name </label>");
-            }
-            if (x == 5) {
-                out.print(" <br> <br> <label for='inputField'>Invalide Father Name</label>");
-            }
-            if (x == 6) {
-                out.print(" <br> <br> <label for='inputField'>Invalide Email id</label>");
-            }
+           
             out.print("     </form>");
             out.print("   </div>");
             out.print(" </body>");

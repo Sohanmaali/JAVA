@@ -1,6 +1,5 @@
 package jdbcConnect;
 
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import java.sql.Connection;
 import jakarta.servlet.ServletException;

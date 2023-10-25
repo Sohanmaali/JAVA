@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="myInput" disabled 4/>
+    <button id="enableButton">Enable Input</button>
+    <button id="disableButton">Disable Input</button>
+    <script>
+      // Get references to the input field and buttons
+      const inputField = document.getElementById("myInput");
+      const enableButton = document.getElementById("enableButton");
+      const disableButton = document.getElementById("disableButton");
+
+      // Add click event listeners to enable and disable buttons
+      enableButton.addEventListener("click", () => {
+        inputField.disabled = false; // Enable the input field
+      });
+
+      disableButton.addEventListener("click", () => {
+        inputField.disabled = true; // Disable the input field
+      });
+    </script>
+  </body>
+</html>
