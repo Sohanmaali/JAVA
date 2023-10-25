@@ -28,7 +28,7 @@
                 </div>
             </form>
         </div>
-       
+
         <script>
 
             function changeButtonName(buttonNumber) {
@@ -132,7 +132,7 @@
                     ans3.value = "divi";
                     secondInput.style.display = "inline";
                     calc.style.display = "inline";
-                     showInput();
+                    showInput();
                 }
             }
             function showInput() {
