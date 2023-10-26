@@ -28,7 +28,7 @@
                               }
                               nav.sticky {
                                 padding: 15px 20px;
-                                background: #4070f4;
+                                background: gray;
                                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                               }
                               nav .nav-content {
