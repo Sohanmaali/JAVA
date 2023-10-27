@@ -127,7 +127,7 @@ if(rs!=null){%>
             #section_one_three {
                 height: 450px;
                 width: 33%;
-                background-color: blue;
+                background-color: whitesmoke;
             }
             .card {
                 background-color: #fff;
@@ -278,6 +278,7 @@ if(rs!=null){%>
                                                                 disabled
                                                                 name ="Myname"
                                                                 />
+                                                            <div id="udisplay"></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -291,6 +292,7 @@ if(rs!=null){%>
                                                                 disabled
                                                                 name ="father"
                                                                 />
+                                                            <div id="fdisplay"></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -304,6 +306,7 @@ if(rs!=null){%>
                                                                 disabled
                                                                 name="mobile"
                                                                 />
+                                                            <div id="mdisplay"></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -317,8 +320,25 @@ if(rs!=null){%>
                                                                 disabled
                                                                 name="email"
                                                                 />
+                                                            <div id="edisplay"></div>
                                                         </td>
                                                     </tr>
+
+<!--                                                    <tr style="display: none" id="pfield">
+                                                        <td>Password</td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <input
+                                                                type="password"
+                                                                value="23"
+                                                                id="pass"
+                                                                disabled
+                                                                name="password"
+                                                                />
+                                                            <div id="pdisplay"></div>
+                                                        </td>
+                                                    </tr>-->
+
                                                     <tr style="display: none" id="btn">
                                                         <td><input type="submit" value="Save" /></td>
                                                     </tr>
@@ -418,16 +438,111 @@ if(rs!=null){%>
             var email = document.getElementById("email");
             var btn = document.getElementById("btn");
             var enableButton = document.getElementById("enableButton");
+
+//            var pfield = document.getElementById("pfield"); // For Pass
+//            var pass = document.getElementById("pass");// For Pass
+
             enableButton.addEventListener("click", () => {
-                Myname.disabled = false; // Enable the input field
-                father.disabled = false; // Enable the input field
-                mobile.disabled = false; // Enable the input field
-                email.disabled = false; // Enable the input field
+                Myname.disabled = false; 
+                father.disabled = false; 
+                mobile.disabled = false; 
+                email.disabled = false; 
+//                pass.disabled = false; // For Pass
                 btn.style.display = "inline";
                 enableButton.style.display = "none";
-            <%= flag= true %>
+//                pfield.style.display = "block";// For Pass
             });
         </script>
+
+        <script>
+            //        --------------------------------------------
+            function validate() {
+                var username = usernamevalidate();
+                var father = fathervalidate();
+                var mobile = mobilevalidate();
+                var email = emailvalidate();
+//                var pass = passvalidate();
+//                var cpass = cpassvalidate();
+                if (!username || !father || !mobile || !email) {
+                    return false;
+                }
+            }
+            function usernamevalidate() {
+                var username = document.getElementById("Myname");
+                var udisplay = document.getElementById("udisplay");
+                if (username.value.trim() === "") {
+                    udisplay.innerHTML = "Username Required";
+                    udisplay.style.color = "red";
+                    return false;
+                } else {
+                    var reg = /^[A-Z  a-z_]+$/;
+                    if (reg.test(username.value)) {
+                        udisplay.innerHTML = "";
+                        return true;
+                    } else {
+                        udisplay.innerHTML = "Invalid Name";
+                        return false;
+                    }
+                }
+            }
+            function fathervalidate() {
+                var father = document.getElementById("father");
+                var fdisplay = document.getElementById("fdisplay");
+                if (father.value.trim() === "") {
+                    fdisplay.innerHTML = "Father name Required";
+                    fdisplay.style.color = "red";
+                    return false;
+                } else {
+                    var reg = /^[A-Z  a-z]+$/;
+                    if (reg.test(father.value)) {
+                        fdisplay.innerHTML = "";
+                        return true;
+                    } else {
+                        fdisplay.innerHTML = "Invalid Father Name";
+                        return false;
+                    }
+                }
+            }
+            function mobilevalidate() {
+                var mobile = document.getElementById("mobile");
+                var mdisplay = document.getElementById("mdisplay");
+                if (mobile.value.trim() === "") {
+                    mdisplay.innerHTML = "Mobile Number Required";
+                    mdisplay.style.color = "red";
+                    return false;
+                } else {
+                    var reg = /^[0-9]+$/;
+                    if (reg.test(mobile.value)) {
+                        mdisplay.innerHTML = "";
+                        return true;
+                    } else {
+                        mdisplay.innerHTML = "Invalid Mobile Number";
+                        return false;
+                    }
+                }
+            }
+            function emailvalidate() {
+                var email = document.getElementById("email");
+                var edisplay = document.getElementById("edisplay");
+                if (email.value.trim() === "") {
+                    edisplay.innerHTML = "Email Id Required";
+                    edisplay.style.color = "red";
+                    return false;
+                } else {
+                    // var reg = /^[a-z]+$/;
+                    var reg = /^[a-z0-9.]+@[a-z0-9.]+\.[a-z]{2,4}$/;
+                    if (reg.test(email.value)) {
+                        edisplay.innerHTML = "";
+                        return true;
+                    } else {
+                        edisplay.innerHTML = "Invalid Email id";
+                        return false;
+                    }
+                }
+            }
+// -------------------------------
+        </script>
+
     </body>
 </html>
 <% }else { response.sendRedirect(request.getContextPath() + "/LoginPage.jsp"); }
@@ -449,7 +564,6 @@ String idpass ="root";
                 ps.setString(2, request.getParameter("father"));
                 ps.setString(3, request.getParameter("email"));
                 ps.setString(4, request.getParameter("mobile"));
-//                ps.setString(5, request.getParameter("password"));
                 ps.setString(5, rs.getString("gmail"));
                 try {
                     if (ps.executeUpdate() > 0) {

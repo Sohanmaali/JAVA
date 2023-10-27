@@ -127,7 +127,7 @@
                 <input type="checkbox" id="check" />
                 <div class="login form">
                     <header>Login</header>
-                    <form action="">
+                    <form action="" onsubmit="return validateId()">
                         <input
                             type="text"
                             placeholder="Enter your email"
@@ -142,6 +142,7 @@
                             />
                         <a href="#">Forgot password?</a>
                         <input type="submit" class="button" value="Login" />
+                        <div id="error" style="display: none"></div>
                     </form>
                     <div class="signup">
                         <span class="signup" > Don't have an account?
@@ -154,12 +155,14 @@
     </html>
 </body>
 </html>
-<%             Class.forName("com.mysql.cj.jdbc.Driver");
+<%   
+    if(request.getParameter("password")!=null && request.getParameter("password")!="")
+    {
+    Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con;
              String path = "jdbc:mysql://localhost:3306/Infojava";
             String idpass = "root";
             String sql = "SELECT * FROM servlet WHERE gmail = ? and password = ?";
-
             try {
                 con = DriverManager.getConnection(path, idpass, idpass);
                 PreparedStatement ps = con.prepareStatement(sql);
@@ -168,11 +171,22 @@
                 ResultSet rs = ps.executeQuery();
 
                 if (rs.next()) {
-//                    HttpSession session = request.getSession();
                     session.setAttribute("rs", rs);
                     response.sendRedirect(request.getContextPath() + "/DashBoard.jsp");
                 } else {
-                                   }
-            } catch (SQLException e) {
-                System.out.print(e);
-            }%>
+%>
+<script>
+    function validateId()
+    {
+        var error = document.getElementById("error");
+        error.innerHTML = "Password Not Match";
+        error.style.color = "red";
+    }
+</script>
+<%
+}
+} catch (SQLException e) {
+System.out.print(e);
+}
+}
+%>
