@@ -10,7 +10,7 @@
 <% response.setHeader("Cache-Control", "No-Cache");
 response.setHeader("Cache-Control", "No-Store"); 
 ResultSet rs =(ResultSet)session.getAttribute("rs"); 
-boolean flag = false;
+//boolean flag = false;
 if(rs!=null){%>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
