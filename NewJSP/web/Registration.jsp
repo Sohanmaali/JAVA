@@ -5,6 +5,8 @@
 <%@page import = "java.sql.SQLException"%> 
 <%@page import = "java.sql.Connection"%>
 <%@page import = "java.sql.DriverManager"%> 
+
+<!--Made by sohan-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -75,7 +77,7 @@
                     </div>
 
                     <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-primary btn-rounded w-75">
+                        <button type="submit" class="btn btn-primary btn-rounded w-75" id="btn">
                             Register Now
                         </button>
                     </div>
@@ -96,10 +98,16 @@
         var email = emailvalidate();
         var pass = passvalidate();
 //                var cpass = cpassvalidate();
+        var btn = document.getElementById("btn");
         var passmatch = PassMatch();
 
-        if (!username || !father || !mobile || !email || !pass || !cpa || !passmatch) {
+        if (!username || !father || !mobile || !email || !pass || !passmatch) {
+//            btn.style.
+            btn.disabled = true;
             return false;
+        } else
+        {
+            btn.disabled = false;
         }
     }
     function usernamevalidate() {

@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/JAVA/Servlet/src/java/jdbcConnect/DashBoard.java</file>
-            <file>file:/D:/JAVA/Servlet/src/java/jdbcConnect/LoginPage.java</file>
-            <file>file:/D:/JAVA/Servlet/src/java/jdbcConnect/RegistrationPage.java</file>
-            <file>file:/D:/JAVA/Servlet/src/java/jdbcConnect/LogOut.java</file>
-            <file>file:/D:/JAVA/Servlet/src/java/jdbcConnect/DataStore.java</file>
-            <file>file:/D:/JAVA/Servlet/src/java/jdbcConnect/UpdateData.java</file>
-            <file>file:/D:/JAVA/Servlet/src/java/jdbcConnect/WelComePage.java</file>
-            <file>file:/D:/JAVA/Servlet/src/java/jdbcConnect/EditProfile.java</file>
-            <file>file:/D:/JAVA/Servlet/web/WEB-INF/web.xml</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
