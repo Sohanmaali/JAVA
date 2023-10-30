@@ -1,18 +1,18 @@
-<%-- Document : Admin Created on : 29-Oct-2023, 3:16:20 pm Author : DELL --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import = "java.sql.DriverManager"%>
 <%@page import =  "java.sql.PreparedStatement"%>
 <%@page import =  "java.sql.ResultSet"%>
 <%@page import =  "java.sql.SQLException"%>
 <%@page import =  "java.sql.Connection"%>
-<%@ taglib
-    uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <%@ taglib
-        uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
-        <% response.setHeader("Cache-Control", "No-Cache");
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%
+        response.setHeader("Cache-Control", "No-Cache");
         response.setHeader("Cache-Control", "No-Store"); 
         ResultSet rs =(ResultSet)session.getAttribute("rs"); 
-        //boolean flag = false;
-        if(rs!=null){%>
+        if(rs!=null){
+%>
         <!DOCTYPE html>
         <html lang="en">
             <head>
@@ -114,15 +114,15 @@
                                             >
                                             <tbody>
                                                 <tr>
-                                                    <th class="th-sm">UserID</th>
-                                                    <th class="th-sm">UserName</th>
+                                                    <th class="th-sm">User ID</th>
+                                                    <th class="th-sm">User Name</th>
                                                     <th class="th-sm">Father Name</th>
                                                     <th class="th-sm">Email</th>
                                                     <th class="th-sm">Phone No</th>
                                                     <th class="th-sm">Edit</th>
                                                     <th class="th-sm">Delete</th>
                                                 </tr>
-                                                <c:set var="n" value="1" />
+                                                <c:set var="n" value="1"/>
                                                 <c:forEach var="row" items="${result.rows}">
                                                     <tr>
                                                         <td><c:out value="${n}" /></td>
@@ -151,7 +151,7 @@
                                         </table>
                                         <!-- table end  -->
 
-                                        <!-- modal start -=----------------------- -->
+                                        <!-- modal start ------------------------ -->
 
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
