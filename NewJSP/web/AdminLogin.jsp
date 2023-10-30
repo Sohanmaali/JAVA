@@ -1,4 +1,4 @@
-<%-- Document : Login Created on : 27-Oct-2023, 2:27:36 pm Author : DELL --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import = "java.sql.DriverManager"%>
 <%@page import =  "java.sql.PreparedStatement"%>
@@ -40,7 +40,7 @@
             <div class="d-flex justify-content-center h-100">
                 <div class="card">
                     <div class="card-header">
-                        <h3>User Log In</h3>
+                        <h3>Admin Log In</h3>
                     </div>
                     <div class="card-body">
                         <form action="">
@@ -93,9 +93,9 @@
     {
     Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con;
-             String path = "jdbc:mysql://localhost:3306/Infojava";
+             String path = "jdbc:mysql://localhost:3306/Hotel";
             String idpass = "root";
-            String sql = "SELECT * FROM servlet WHERE gmail = ? and password = ?";
+            String sql = "SELECT * FROM Admin WHERE Gmail = ? and Password = ?";
             try {
                 con = DriverManager.getConnection(path, idpass, idpass);
                 PreparedStatement ps = con.prepareStatement(sql);
@@ -105,12 +105,18 @@
 
                 if (rs.next()) {
                     session.setAttribute("rs", rs);
-                    response.sendRedirect(request.getContextPath() + "/DashBoard.jsp");
+                    out.print("----------1--------------");
+                    response.sendRedirect(request.getContextPath() + "/Admin.jsp");
                 } else {
+                 out.print("-----------2-------------");
+                 out.print(request.getParameter("gmail"));
+                 out.print(request.getParameter("password"));
                 }
                 }
                 catch (SQLException e) 
                     {
+                    
+                     out.print(e);
                         //response.sendRedirect(request.getContextPath() + "/Registration.jsp"); 
                           }}
 %>

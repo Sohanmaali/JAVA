@@ -1,79 +1,114 @@
+//
+//import javax.mail.*;
+//import javax.mail.internet.*;
+//import java.util.Properties;
+//
+//public class SendMail {
+//
+//    private String emailAddressTo = new String();
+//    private String msgSubject = new String();
+//    private String msgText = new String();
+//    final String USER_NAME = "mohanmaali144@gmail.com";   //User name of the Goole(gmail) account
+//    final String PASSSWORD = "cqponcbythxmqpqn";  //Password of the Goole(gmail) account
+//    final String FROM_ADDRESS = "ajmeraaashu55@gmail.com";  //From addresss
+//
+////    public SendMail() {
+////    }
+//
+//    public static void main(String[] args) {
+//        SendMail email = new SendMail();
+//        //Sending test email
+//        email.createAndSendEmail("ajmeraaashu55@gmail.com", "Create bank account ho chuka hai",
+//                "Congratulations !!! \nyou are account has been created in info branch: ");
+//    }
+//
+//    public void createAndSendEmail(String emailAddressTo, String msgSubject, String msgText) {
+//        this.emailAddressTo = emailAddressTo;
+//        this.msgSubject = msgSubject;
+//        this.msgText = msgText;
+//        sendEmailMessage();
+//    }
+//
+//    private void sendEmailMessage() {
+//
+//        //Create email sending properties
+//        Properties props = new Properties();
+//        props.put("mail.smtp.auth", "true");
+//        props.put("mail.smtp.starttls.enable", "true");
+//        props.put("mail.smtp.host", "smtp.gmail.com");
+//        props.put("mail.smtp.port", "587");
+//
+//        Session session = Session.getInstance(props,
+//                new javax.mail.Authenticator() {
+//            @Override
+//            protected PasswordAuthentication getPasswordAuthentication() {
+//                return new PasswordAuthentication("ajmeraaashu55@gmail.com", "cqponcbythxmqpqn");
+//            }
+//        });
+//
+//        try {
+//
+//            Message message = new MimeMessage(session);
+//            message.setFrom(new InternetAddress("ajmeraaashu55@gmail.com")); //Set from address of the email
+//            message.setContent(msgText, "text/html"); //set content type of the email
+//
+//            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("mohanmaali144@gmail.com")); //Set email recipient
+//
+//            message.setSubject("RS BANK"); //Set email message subject
+//            Transport.send(message); //Send email message
+//
+//            System.out.println("sent email successfully!");
+//
+//        } catch (MessagingException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+//
+//    public void setEmailAddressTo(String emailAddressTo) {
+//        this.emailAddressTo = emailAddressTo;
+//    }
+//
+//    public void setSubject(String subject) {
+//        this.msgSubject = subject;
+//    }
+//
+//    public void setMessageText(String msgText) {
+//        this.msgText = msgText;
+//    }
+//
+//}
 
+import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
-import java.util.Properties;
+//import javax.activation.*;
 
 public class SendMail {
 
-    private String emailAddressTo = new String();
-    private String msgSubject = new String();
-    private String msgText = new String();
-    final String USER_NAME = "mohanmaali144@gmail.com";   //User name of the Goole(gmail) account
-    final String PASSSWORD = "cqponcbythxmqpqn";  //Password of the Goole(gmail) account
-    final String FROM_ADDRESS = "ajmeraaashu55@gmail.com";  //From addresss
-
-    public SendMail() {
-    }
-
     public static void main(String[] args) {
-        SendMail email = new SendMail();
-        //Sending test email
-        email.createAndSendEmail("ajmeraaashu55@gmail.com", "Create bank account ho chuka hai",
-                "Congratulations !!! \nyou are account has been created in info branch: ");
-    }
+        String to = "sohanmaali4@gmail.com";//change accordingly  
+        String from = "sohanmaali4@gmail.com";//change accordingly  
+        String host = "localhost";//or IP address  
 
-    public void createAndSendEmail(String emailAddressTo, String msgSubject, String msgText) {
-        this.emailAddressTo = emailAddressTo;
-        this.msgSubject = msgSubject;
-        this.msgText = msgText;
-        sendEmailMessage();
-    }
+        //Get the session object  
+        Properties properties = System.getProperties();
+        properties.setProperty("mail.smtp.host", host);
+        Session session = Session.getDefaultInstance(properties);
 
-    private void sendEmailMessage() {
-
-        //Create email sending properties
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("ajmeraaashu55@gmail.com", "cqponcbythxmqpqn");
-            }
-        });
-
+        //compose the message  
         try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            message.setSubject("Ping");
+            message.setText("Hello, this is example of sending email  ");
 
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("ajmeraaashu55@gmail.com")); //Set from address of the email
-            message.setContent(msgText, "text/html"); //set content type of the email
+            // Send message  
+            Transport.send(message);
+            System.out.println("message sent successfully....");
 
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("mohanmaali144@gmail.com")); //Set email recipient
-
-            message.setSubject("RS BANK"); //Set email message subject
-            Transport.send(message); //Send email message
-
-            System.out.println("sent email successfully!");
-
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
         }
     }
-
-    public void setEmailAddressTo(String emailAddressTo) {
-        this.emailAddressTo = emailAddressTo;
-    }
-
-    public void setSubject(String subject) {
-        this.msgSubject = subject;
-    }
-
-    public void setMessageText(String msgText) {
-        this.msgText = msgText;
-    }
-
 }

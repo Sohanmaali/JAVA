@@ -422,19 +422,13 @@ if(rs!=null){%>
             var email = document.getElementById("email");
             var btn = document.getElementById("btn");
             var enableButton = document.getElementById("enableButton");
-
-//            var pfield = document.getElementById("pfield"); // For Pass
-//            var pass = document.getElementById("pass");// For Pass
-
             enableButton.addEventListener("click", () => {
                 Myname.disabled = false;
                 father.disabled = false;
                 mobile.disabled = false;
                 email.disabled = false;
-//                pass.disabled = false; // For Pass
                 btn.style.display = "inline";
                 enableButton.style.display = "none";
-//                pfield.style.display = "block";// For Pass
             });
         </script>
 

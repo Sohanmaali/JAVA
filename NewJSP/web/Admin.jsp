@@ -1,8 +1,18 @@
 <%-- Document : Admin Created on : 29-Oct-2023, 3:16:20 pm Author : DELL --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%> <%@ taglib
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import = "java.sql.DriverManager"%>
+<%@page import =  "java.sql.PreparedStatement"%>
+<%@page import =  "java.sql.ResultSet"%>
+<%@page import =  "java.sql.SQLException"%>
+<%@page import =  "java.sql.Connection"%>
+<%@ taglib
     uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <%@ taglib
         uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
-
+        <% response.setHeader("Cache-Control", "No-Cache");
+        response.setHeader("Cache-Control", "No-Store"); 
+        ResultSet rs =(ResultSet)session.getAttribute("rs"); 
+        //boolean flag = false;
+        if(rs!=null){%>
         <!DOCTYPE html>
         <html lang="en">
             <head>
@@ -17,7 +27,12 @@
                 <meta name="keywords" content="" />
                 <meta name="description" content="" />
                 <meta name="author" content="" />
+                <!--***************************************************-->
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+                <!--***************************************************-->
                 <!-- -------------------CDN PATH BOOT------------------------------- -->
                 <link
                     href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -62,68 +77,9 @@
                         <!-- right content -->
                         <div id="content">
                             <!-- topbar -->
-                            <div class="topbar">
-                                <nav class="navbar navbar-expand-lg navbar-light">
-                                    <div class="full">
-                                        <button
-                                            class="btn btn-primary"
-                                            type="button"
-                                            data-bs-toggle="offcanvas"
-                                            data-bs-target="#offcanvasExample"
-                                            aria-controls="offcanvasExample"
-                                            >
-                                            <i class="fa fa-bars"></i>
-                                        </button>
-                                        <!-- OFCANVAS START -->
-                                        <div
-                                            class="offcanvas offcanvas-start"
-                                            tabindex="-1"
-                                            id="offcanvasExample"
-                                            aria-labelledby="offcanvasExampleLabel"
-                                            >
-                                            <div class="offcanvas-header">
-                                                <h5 class="offcanvas-title" id="offcanvasExampleLabel">
-                                                    Offcanvas
-                                                </h5>
-                                                <button
-                                                    type="button"
-                                                    class="btn-close text-reset"
-                                                    data-bs-dismiss="offcanvas"
-                                                    aria-label="Close"
-                                                    ></button>
-                                            </div>
-                                            <div class="offcanvas-body">
-                                                <div>
-                                                    Some text as placeholder. In real life you can have the
-                                                    elements you have chosen. Like, text, images, lists, etc.
-                                                </div>
 
-                                            </div>
-                                        </div>
-                                        <!-- OFCANVAS END -->
-                                        <div class="right_topbar">
-                                            <div class="icon_info">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#"><i class="fa-solid fa-house"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fa-solid fa-user"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"
-                                                           ><i class="fa-solid fa-right-from-bracket"></i
-                                                            ></a>
-                                                    </li>
-                                                </ul>
-                                                <ul>
-                                                    <li></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </nav>
-                            </div>
+                            <jsp:include page="AdminNavVar.jsp" />       
+
                             <!-- end topbar -->
                             <!-- dashboard inner -->
                             <div class="midde_cont">
@@ -163,18 +119,17 @@
                                                     <th class="th-sm">Father Name</th>
                                                     <th class="th-sm">Email</th>
                                                     <th class="th-sm">Phone No</th>
-
                                                     <th class="th-sm">Edit</th>
                                                     <th class="th-sm">Delete</th>
                                                 </tr>
-
+                                                <c:set var="n" value="1" />
                                                 <c:forEach var="row" items="${result.rows}">
                                                     <tr>
-                                                        <td></td>
-                                                        <td><c:out value="${row.name}" /></td>
-                                                        <td><c:out value="${row.fname}" /></td>
-                                                        <td><c:out value="${row.gmail}" /></td>
-                                                        <td><c:out value="${row.mobile}" /></td>
+                                                        <td><c:out value="${n}" /></td>
+                                                        <td><c:out value="${row.name}"/></td>
+                                                        <td><c:out value="${row.fname}"/></td>
+                                                        <td><c:out value="${row.gmail}"/></td>
+                                                        <td><c:out value="${row.mobile}"/></td>
                                                         <td>
                                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                                 Edit
@@ -190,6 +145,7 @@
                                                             </button>
                                                         </td>
                                                     </tr>
+                                                    <c:set var="n" value="${n+1}" />
                                                 </c:forEach>
                                             </tbody>
                                         </table>
@@ -205,15 +161,26 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form>
+                                                        <form action="">
+                                                            <div class="mb-3">
+                                                                <label for="exampleInputEmail1" class="form-label">User Name</label>
+                                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="exampleInputEmail1" class="form-label">User Father Name</label>
+                                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                                                            </div>
                                                             <div class="mb-3">
                                                                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                                                                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                                                <label for="exampleInputEmail1" class="form-label">User Mobile Number</label>
+                                                                <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
                                                             </div>
                                                             <div class="mb-3 form-check">
                                                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -247,3 +214,21 @@
                 </div>
             </body>
         </html>
+        <% }else { response.sendRedirect(request.getContextPath() + "/index.jsp"); }
+        %>
+        <script>
+            var Myname = document.getElementById("Myname");
+            var father = document.getElementById("father");
+            var mobile = document.getElementById("mobile");
+            var email = document.getElementById("email");
+            var btn = document.getElementById("btn");
+            var enableButton = document.getElementById("enableButton");
+            enableButton.addEventListener("click", () => {
+                Myname.disabled = false;
+                father.disabled = false;
+                mobile.disabled = false;
+                email.disabled = false;
+                btn.style.display = "inline";
+                enableButton.style.display = "none";
+            });
+        </script>

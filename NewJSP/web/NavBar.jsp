@@ -58,7 +58,28 @@
                                 <li><a href="#">Drop Down 4</a></li>
                             </ul>
                         </li>
-                        <li><a class="getstarted scrollto" href="Login.jsp">Login</a></li>
+                        <!--<li><a class="getstarted scrollto" href="Login.jsp">Login</a></li>-->
+                        
+                        
+                        <!-------------------------------------------------------------------------->
+                        <li class="dropdown">
+                            <a href="#"
+                               > <span>Login</span> <i class="bi bi-chevron-down"> </i
+                                > </a>
+                            <ul>
+                                <li><a href="AdminLogin.jsp">Admin</a></li>
+                                <li class="dropdown">
+                                    <a href="Login.jsp"
+                                       ><span>User</span>
+                                        
+                                        </a>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <!-------------------------------------------------------------------------->
+                        
                             <%--<jsp:forward page="Login.jsp" />--%>
                         <li>
                             <a class="getstarted scrollto" href="Registration.jsp">Sign Up</a>
