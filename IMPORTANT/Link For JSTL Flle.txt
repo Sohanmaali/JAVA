@@ -5,3 +5,8 @@ https://repo.maven.apache.org/maven2/org/glassfish/web/jakarta.servlet.jsp.jstl/
 
 
 Download all file and create lib folder in web INF in net beans and paste all file in
+
+
+
+
+https://java4732.blogspot.com/2015/05/topics-based-interview-questions.html //INTERVIEW Q

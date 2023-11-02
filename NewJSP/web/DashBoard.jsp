@@ -10,7 +10,6 @@
 <% response.setHeader("Cache-Control", "No-Cache");
 response.setHeader("Cache-Control", "No-Store"); 
 ResultSet rs =(ResultSet)session.getAttribute("rs"); 
-//boolean flag = false;
 if(rs!=null){%>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -221,6 +220,7 @@ if(rs!=null){%>
                 color: black;
             }
         </style>
+
     </head>
     <body>
         <nav>
@@ -524,14 +524,15 @@ if(rs!=null){%>
     </body>
 </html>
 <% }else { response.sendRedirect(request.getContextPath() + "/index.jsp"); }
-%> <% 
-if(request.getParameter("Myname")!=null)
-{
-request.getParameter("Myname");
-Class.forName("com.mysql.cj.jdbc.Driver");
-String path = "jdbc:mysql://localhost:3306/Infojava";
-String idpass ="root";
-          Connection con;
+%> 
+<% 
+    if(request.getParameter("Myname")!=null)
+    {
+        request.getParameter("Myname");
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String path = "jdbc:mysql://localhost:3306/Infojava";
+        String idpass ="root";
+              Connection con;
             String sql;
             try {
                 con = DriverManager.getConnection(path,idpass, idpass);
@@ -545,16 +546,19 @@ String idpass ="root";
                 ps.setString(5, rs.getString("gmail"));
                 try {
                     if (ps.executeUpdate() > 0) {
-                    
-                    sql = "SELECT * FROM servlet WHERE gmail = ?";
-                    ps = con.prepareStatement(sql);
-                    ps.setString(1, request.getParameter("email"));
-                    rs = ps.executeQuery();
-                    rs.next();
-                     session.setAttribute("rs", rs);
-                      response.sendRedirect(request.getContextPath() + "/DashBoard.jsp");
+                        sql = "SELECT * FROM servlet WHERE gmail = ?";
+                     PreparedStatement  ps1 = con.prepareStatement(sql);
+                        ps1.setString(1, request.getParameter("email"));
+                        
+                        rs=null;
+                        
+                        rs = ps1.executeQuery();
+                        rs.next();
+                        session.setAttribute("rs", rs);
+                       
+                        response.sendRedirect(request.getContextPath() + "/DashBoard.jsp");
                     } else {
-                        response.sendRedirect(request.getContextPath() + "/Login.jsp");
+                            response.sendRedirect(request.getContextPath() + "/Login.jsp");
                     }
                 } catch (SQLException e) {
                 System.out.println(e);

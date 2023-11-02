@@ -44,35 +44,35 @@
                         <h3 class="text-primary"><strong>Register Now</strong></h3>
                     </div>
                     <div class="mb-3">
-                        <label for="Name" class="form-label">Your Name</label>
-                        <input type="text" class="form-control" id="Name" name="uname" onkeyup="usernamevalidate()"/>
+                        <label for="Name" class="form-label">Your Name *</label>
+                        <input type="text" class="form-control" id="Name" name="uname" onkeyup="usernamevalidate()" required/>
                         <div id="nameError"></div>
                     </div>
                     <div class="mb-3">
-                        <label for="Name" class="form-label">Father Name</label>
-                        <input type="text" class="form-control" id="FName" name="fname" onkeyup="fathervalidate()"/>
+                        <label for="Name" class="form-label">Father Name *</label>
+                        <input type="text" class="form-control" id="FName" name="fname" onkeyup="fathervalidate()" required/>
                         <div id="fnameError"></div>
                     </div>
                     <div class="mb-3">
-                        <label for="Email" class="form-label">Email Id</label>
-                        <input type="email" class="form-control" id="email" name="gmail" onkeyup="emailvalidate()" />
+                        <label for="Email" class="form-label">Email Id *</label>
+                        <input type="email" class="form-control" id="email" name="gmail" onkeyup="emailvalidate()" required/>
                         <div id="gmailError"></div>
                     </div>
                     <div class="mb-3">
-                        <label for="Mobile" class="form-label">Mobile Number</label>
-                        <input type="tel" class="form-control" id="Mobile" name="mobile" maxlength="10" onkeyup="mobilevalidate()"/>
+                        <label for="Mobile" class="form-label">Mobile Number *</label>
+                        <input type="tel" class="form-control" id="Mobile" name="mobile" maxlength="10" onkeyup="mobilevalidate()" required/>
                         <div id="mobileError"></div>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" onkeyup ="passvalidate()"/>
+                        <label for="password" class="form-label">Password *</label>
+                        <input type="password" class="form-control" id="password" name="password" onkeyup ="passvalidate()" required/>
                         <div id="passwordError"></div>
                     </div>
                     <div class="mb-3">
                         <label for="confirm_password" class="form-label"
-                               >Confirm Password</label
+                               >Confirm Password *</label
                         >
-                        <input type="password" class="form-control" id="confirm_password"  onkeyup ="cpassValidate()"/>
+                        <input type="password" class="form-control" id="confirm_password"  onkeyup ="cpassValidate()" required/>
                         <div id="cpasswordError"></div>
                     </div>
 
@@ -124,6 +124,7 @@
                 return true;
             } else {
                 udisplay.innerHTML = "Invalid Name";
+                udisplay.style.color = "red";
                 return false;
             }
         }
@@ -142,6 +143,7 @@
                 return true;
             } else {
                 fdisplay.innerHTML = "Invalid Father Name";
+                fdisplay.style.color = "red";
                 return false;
             }
         }
@@ -161,6 +163,7 @@
                 return true;
             } else {
                 mdisplay.innerHTML = "Invalid Mobile Number";
+                mdisplay.style.color = "red";
                 return false;
             }
         }
@@ -180,6 +183,7 @@
                 return true;
             } else {
                 edisplay.innerHTML = "Invalid Email id";
+                edisplay.style.color = "red";
                 return false;
             }
         }

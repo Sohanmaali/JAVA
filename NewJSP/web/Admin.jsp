@@ -114,39 +114,39 @@
                                     >
                                     <tbody>
                                         <tr>
-                                            <th class="th-sm">User ID</th>
-                                            <th class="th-sm">User Name</th>
-                                            <th class="th-sm">Father Name</th>
-                                            <th class="th-sm">Email</th>
-                                            <th class="th-sm">Phone No</th>
-                                            <th class="th-sm">Edit</th>
-                                            <th class="th-sm">Delete</th>
+                                            <th class="th-sm"> <center> User ID </center></th>
+                                    <th class="th-sm"> <center> User Name </center></th>
+                                    <th class="th-sm"> <center> Father Name </center></th>
+                                    <th class="th-sm"> <center> Email </center></th>
+                                    <th class="th-sm"> <center> Phone No </center></th>
+                                    <th class="th-sm"> <center> Edit </center></th>
+                                    <th class="th-sm"> <center> Delete </center></th>
+                                    </tr>
+                                    <c:set var="n" value="1"/>
+                                    <c:forEach var="row" items="${result.rows}">
+                                        <tr>
+                                            <td><c:out value="${n}" /></td>
+                                            <td><c:out value="${row.name}"/></td>
+                                            <td><c:out value="${row.fname}"/></td>
+                                            <td><c:out value="${row.gmail}"/></td>
+                                            <td><c:out value="${row.mobile}"/></td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-danger"
+                                                    onclick="myDelete()"
+                                                    >
+                                                    Delete
+                                                </button>
+                                            </td>
                                         </tr>
-                                        <c:set var="n" value="1"/>
-                                        <c:forEach var="row" items="${result.rows}">
-                                            <tr>
-                                                <td><c:out value="${n}" /></td>
-                                                <td><c:out value="${row.name}"/></td>
-                                                <td><c:out value="${row.fname}"/></td>
-                                                <td><c:out value="${row.gmail}"/></td>
-                                                <td><c:out value="${row.mobile}"/></td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Edit
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        type="button"
-                                                        class="btn btn-danger"
-                                                        onclick="myDelete()"
-                                                        >
-                                                        Delete
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <c:set var="n" value="${n+1}" />
-                                        </c:forEach>
+                                        <c:set var="n" value="${n+1}" />
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                                 <!-- table end  -->
@@ -163,22 +163,22 @@
                                             <div class="modal-body">
                                                 <form action="">
                                                     <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">User Name</label>
+                                                        <label for="exampleInputEmail1" class="form-label">User Name *</label>
                                                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">User Father Name</label>
+                                                        <label for="exampleInputEmail1" class="form-label">User Father Name *</label>
                                                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                                        <label for="exampleInputEmail1" class="form-label">Email address *</label>
                                                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">User Mobile Number</label>
+                                                        <label for="exampleInputEmail1" class="form-label">User Mobile Number *</label>
                                                         <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                                                     </div>
@@ -236,3 +236,28 @@
         enableButton.style.display = "none";
     });
 </script>
+<%   
+    if(request.getParameter("password")!=null && request.getParameter("password")!="")
+    {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con;
+             String path = "jdbc:mysql://localhost:3306/Infojava";
+            String idpass = "root";
+            String sql = "SELECT * FROM servlet";
+            try {
+                con = DriverManager.getConnection(path, idpass, idpass);
+                PreparedStatement ps = con.prepareStatement(sql);;
+                ResultSet adrs = ps.executeQuery();
+
+                if (adrs.next()) {
+                    session.setAttribute("adrs", adrs);
+//                    response.sendRedirect(request.getContextPath() + "/DashBoard.jsp");
+                } else {
+                }
+                }
+                catch (SQLException e) 
+                    {
+                        //response.sendRedirect(request.getContextPath() + "/Registration.jsp"); 
+                          }
+}
+%>
