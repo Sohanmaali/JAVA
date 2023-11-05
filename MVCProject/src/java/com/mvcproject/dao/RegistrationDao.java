@@ -1,6 +1,8 @@
 package com.mvcproject.dao;
 
-public class RegistrationDao {
+import java.io.Serializable;
+
+public class RegistrationDao implements Serializable{
 
     private int id;
     private String name, father, email, mobile, Password;

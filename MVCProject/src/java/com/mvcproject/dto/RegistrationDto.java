@@ -35,6 +35,7 @@ public class RegistrationDto {
                 ps.setString(2, dao.getFather());
                 ps.setString(3, dao.getEmail());
                 ps.setString(4, dao.getMobile());
+                ps.setString(5, dao.getPassword());
                 if (ps.executeUpdate() > 0) {
                     return true;
                 }

@@ -324,20 +324,20 @@ if(rs!=null){%>
                                                         </td>
                                                     </tr>
 
-<!--                                                    <tr style="display: none" id="pfield">
-                                                        <td>Password</td>
-                                                        <td>:</td>
-                                                        <td>
-                                                            <input
-                                                                type="password"
-                                                                value="23"
-                                                                id="pass"
-                                                                disabled
-                                                                name="password"
-                                                                />
-                                                            <div id="pdisplay"></div>
-                                                        </td>
-                                                    </tr>-->
+                                                    <!--                                                    <tr style="display: none" id="pfield">
+                                                                                                            <td>Password</td>
+                                                                                                            <td>:</td>
+                                                                                                            <td>
+                                                                                                                <input
+                                                                                                                    type="password"
+                                                                                                                    value="23"
+                                                                                                                    id="pass"
+                                                                                                                    disabled
+                                                                                                                    name="password"
+                                                                                                                    />
+                                                                                                                <div id="pdisplay"></div>
+                                                                                                            </td>
+                                                                                                        </tr>-->
 
                                                     <tr style="display: none" id="btn">
                                                         <td><input type="submit" value="Save" /></td>
@@ -443,10 +443,10 @@ if(rs!=null){%>
 //            var pass = document.getElementById("pass");// For Pass
 
             enableButton.addEventListener("click", () => {
-                Myname.disabled = false; 
-                father.disabled = false; 
-                mobile.disabled = false; 
-                email.disabled = false; 
+                Myname.disabled = false;
+                father.disabled = false;
+                mobile.disabled = false;
+                email.disabled = false;
 //                pass.disabled = false; // For Pass
                 btn.style.display = "inline";
                 enableButton.style.display = "none";
