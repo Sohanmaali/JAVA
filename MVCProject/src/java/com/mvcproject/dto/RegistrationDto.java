@@ -1,6 +1,6 @@
 package com.mvcproject.dto;
 
-import com.mvcproject.dao.GetConnection;
+import com.mvcprojectdb.services.GetConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
