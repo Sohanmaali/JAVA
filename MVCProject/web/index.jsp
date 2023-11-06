@@ -31,7 +31,7 @@
 
   <body>
     <!-- ======= Header ======= -->
-    <%--<jsp:include page="NavBar.jsp" />--%>
+    <jsp:include page="NavBar.jsp" />
     <!-- End Header -->
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">

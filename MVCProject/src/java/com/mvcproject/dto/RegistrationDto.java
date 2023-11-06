@@ -9,8 +9,9 @@ import com.mvcproject.dao.RegistrationDao;
 
 public class RegistrationDto {
 
-    public ResultSet login(RegistrationDao dao) {
+    public boolean login(RegistrationDao dao) {
         Connection con = GetConnection.getConnectin();
+        boolean b = false;
         ResultSet rs = null;
         if (con != null) {
             String sql = "select * from Registration where email= ? and password = ?";
@@ -19,10 +20,13 @@ public class RegistrationDto {
                 ps.setString(1, dao.getEmail());
                 ps.setString(2, dao.getPassword());
                 rs = ps.executeQuery();
+                if (rs.next()) {
+                    b = true;
+                }
             } catch (SQLException e) {
             }
         }
-        return rs;
+        return b;
     }
 
     public boolean registration(RegistrationDao dao) {
@@ -36,6 +40,7 @@ public class RegistrationDto {
                 ps.setString(3, dao.getEmail());
                 ps.setString(4, dao.getMobile());
                 ps.setString(5, dao.getPassword());
+                System.out.println("---------1-------------------");
                 if (ps.executeUpdate() > 0) {
                     return true;
                 }
