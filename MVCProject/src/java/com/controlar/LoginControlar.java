@@ -1,7 +1,7 @@
 package com.controlar;
 
-import com.mvcproject.dao.RegistrationDao;
-import com.mvcproject.dto.RegistrationDto;
+import com.mvcproject.model.RegistrationDao;
+import com.mvcproject.model.RegistrationDto;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,7 +18,7 @@ public class LoginControlar extends HttpServlet {
             RegistrationDao regidao = new RegistrationDao();
             RegistrationDto regidto = new RegistrationDto();
             regidao.setEmail(request.getParameter("gmail"));
-            regidao.setEmail(request.getParameter("password"));
+            regidao.setPassword(request.getParameter("password"));
             if (regidto.login(regidao)) {
                 response.sendRedirect("DashBoard.jsp");
             } else {

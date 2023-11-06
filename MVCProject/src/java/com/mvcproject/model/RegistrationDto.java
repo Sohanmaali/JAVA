@@ -1,11 +1,11 @@
-package com.mvcproject.dto;
+package com.mvcproject.model;
 
 import com.mvcprojectdb.services.GetConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
-import com.mvcproject.dao.RegistrationDao;
+import com.mvcproject.model.RegistrationDao;
 
 public class RegistrationDto {
 

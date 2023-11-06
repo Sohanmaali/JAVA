@@ -1,4 +1,4 @@
-package com.mvcproject.dao;
+package com.mvcproject.model;
 
 import java.io.Serializable;
 
