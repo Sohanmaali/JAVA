@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>com.myhotel.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrationController</servlet-name>
+        <servlet-class>com.myhotel.controller.RegistrationController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrationControllers</servlet-name>
+        <servlet-class>com.myhotel.controller.RegistrationControllers</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrationController</servlet-name>
+        <url-pattern>/RegistrationController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrationControllers</servlet-name>
+        <url-pattern>/RegistrationControllers</url-pattern>
+    </servlet-mapping>
+</web-app>

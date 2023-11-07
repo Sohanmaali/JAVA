@@ -30,7 +30,7 @@ public class RegistrationDao implements Serializable{
         return this.id;
     }
 
-    public int setId() {
+    public int setId(int id) {
         return this.id;
     }
 

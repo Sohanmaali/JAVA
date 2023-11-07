@@ -2,11 +2,19 @@
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
         <servlet-name>RegistrationControlar</servlet-name>
-        <servlet-class>com.controlar.RegistrationControlar</servlet-class>
+        <servlet-class>com.mvcproject.controlar.RegistrationControlar</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginControlar</servlet-name>
-        <servlet-class>com.controlar.LoginControlar</servlet-class>
+        <servlet-class>com.mvcproject.controlar.LoginControlar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>com.mvcproject.controlar.LogOut</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateProfile</servlet-name>
+        <servlet-class>com.mvcproject.controlar.UpdateProfile</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegistrationControlar</servlet-name>
@@ -15,5 +23,13 @@
     <servlet-mapping>
         <servlet-name>LoginControlar</servlet-name>
         <url-pattern>/LoginControlar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOut</servlet-name>
+        <url-pattern>/LogOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProfile</servlet-name>
+        <url-pattern>/UpdateProfile</url-pattern>
     </servlet-mapping>
 </web-app>

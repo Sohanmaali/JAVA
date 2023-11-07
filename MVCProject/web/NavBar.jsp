@@ -1,4 +1,3 @@
-<%-- Document : NavBar Created on : 27-Oct-2023, 5:02:45 pm Author : DELL --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,7 +30,7 @@
                         <li><a class="nav-link scrollto" href="#about">About</a></li>
                         <li><a class="nav-link scrollto" href="#services">Services</a></li>
                         <li>
-                            <a class="nav-link scrollto" href="#portfolio">Portfolio</a>
+                            <!--<a class="nav-link scrollto" href="#portfolio">Portfolio</a>-->
                         </li>
                         <li><a class="nav-link scrollto" href="#team">Team</a></li>
                         <li class="dropdown">
@@ -59,8 +58,8 @@
                             </ul>
                         </li>
                         <!--<li><a class="getstarted scrollto" href="Login.jsp">Login</a></li>-->
-                        
-                        
+
+
                         <!-------------------------------------------------------------------------->
                         <li class="dropdown">
                             <a href="#"
@@ -71,16 +70,16 @@
                                 <li class="dropdown">
                                     <a href="Login.jsp"
                                        ><span>User</span>
-                                        
-                                        </a>
-                                    
+
+                                    </a>
+
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <!-------------------------------------------------------------------------->
-                        
-                            <%--<jsp:forward page="Login.jsp" />--%>
+
+                        <%--<jsp:forward page="Login.jsp" />--%>
                         <li>
                             <a class="getstarted scrollto" href="Registration.jsp">Sign Up</a>
                         </li>

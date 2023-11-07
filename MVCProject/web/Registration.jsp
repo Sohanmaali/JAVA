@@ -108,7 +108,7 @@
         var udisplay = document.getElementById("nameError");
         if (username.value.trim() === "") {
             udisplay.innerHTML = "Username Required";
-            udisplay.style.color = "red";
+            udisplay.style.color = "red";   
             return false;
         } else {
             var reg = /^[A-Z  a-z_]+$/;

@@ -2,6 +2,13 @@
 <%@page contentType="text/html"
         pageEncoding="UTF-8"%> 
 
+<%@page import =  "jakarta.servlet.http.HttpSession"%>
+<% 
+//   HttpSession session = request.getSession();
+    response.setHeader("Cache-Control", "No-Cache");
+response.setHeader("Cache-Control", "No-Store"); 
+if(session.getAttribute("name")!=null){
+%>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -252,10 +259,10 @@
                                     ></button>
                             </div>
                             <div class="offcanvas-body">
-                                <h2>IDENTITY</h2>
+                                <h2>Profile</h2>
                                 <div class="card">
                                     <div class="card-body">
-                                        <form action="">
+                                        <form action="UpdateProfile">
                                             <table>
                                                 <tbody>
                                                     <tr>
@@ -264,7 +271,7 @@
                                                         <td>
                                                             <input
                                                                 type="text"
-                                                                value="name"
+                                                                value="<%= session.getAttribute("name") %>"
                                                                 id="Myname"
                                                                 disabled
                                                                 name ="Myname"
@@ -278,7 +285,7 @@
                                                         <td>
                                                             <input
                                                                 type="text"
-                                                                value="father"
+                                                                value="<%= session.getAttribute("father") %>"
                                                                 id="father"
                                                                 disabled
                                                                 name ="father"
@@ -292,7 +299,7 @@
                                                         <td>
                                                             <input
                                                                 type="text"
-                                                                value="mobile"
+                                                                value="<%= session.getAttribute("mobile") %>"
                                                                 id="mobile"
                                                                 disabled
                                                                 name="mobile"
@@ -306,7 +313,7 @@
                                                         <td>
                                                             <input
                                                                 type="text"
-                                                                value="email"
+                                                                value="<%= session.getAttribute("email") %>"
                                                                 id="email"
                                                                 disabled
                                                                 name="email"
@@ -328,7 +335,7 @@
                         <!--<a href="#"><i class="fa-solid fa-user"></i></a>-->
                     </li>
                     <li>
-                        <a href="LogOut.jsp"
+                        <a href="LogOut"
                            > <i
                                 class="fa-solid fa-right-from-bracket"
                                 name="logout"
@@ -514,3 +521,10 @@
 
     </body>
 </html>
+<%
+    }
+else
+{
+ response.sendRedirect("index.jsp");
+}
+%>
