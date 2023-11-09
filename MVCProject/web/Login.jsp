@@ -1,6 +1,3 @@
-<%-- Document : Login Created on : 27-Oct-2023, 2:27:36?pm Author : DELL --%>
-
-
 
 <!DOCTYPE html>
 <html>

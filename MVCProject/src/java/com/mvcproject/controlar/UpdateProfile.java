@@ -56,5 +56,4 @@ public class UpdateProfile extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-
 }

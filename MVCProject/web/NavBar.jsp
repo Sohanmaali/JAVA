@@ -66,7 +66,7 @@
                                > <span>Login</span> <i class="bi bi-chevron-down"> </i
                                 > </a>
                             <ul>
-                                <li><a href="AdminLogin.jsp">Admin</a></li>
+                                <li><a href="EmployeeLogin.jsp">Employee</a></li>
                                 <li class="dropdown">
                                     <a href="Login.jsp"
                                        ><span>User</span>

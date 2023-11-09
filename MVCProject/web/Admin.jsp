@@ -1,6 +1,12 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+//   HttpSession session = request.getSession();
+    response.setHeader("Cache-Control", "No-Cache");
+response.setHeader("Cache-Control", "No-Store"); 
+if(session.getAttribute("name")!=null){
 
+%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -81,7 +87,7 @@
                             </div>
 
                             <div class="row">
-                              
+
 
                                 <!-- table  -->
                                 <table
@@ -100,8 +106,8 @@
                                     <th class="th-sm"> <center> Edit </center></th>
                                     <th class="th-sm"> <center> Delete </center></th>
                                     </tr>
-                                  
-                                   
+
+
                                     </tbody>
                                 </table>
                                 <!-- table end  -->
@@ -186,3 +192,10 @@
         enableButton.style.display = "none";
     });
 </script>
+<%
+    }
+else
+{
+ response.sendRedirect("index.jsp");
+}
+%>

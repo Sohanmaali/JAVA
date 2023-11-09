@@ -16,6 +16,14 @@
         <servlet-name>UpdateProfile</servlet-name>
         <servlet-class>com.mvcproject.controlar.UpdateProfile</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EmployeeLogin</servlet-name>
+        <servlet-class>com.mvcproject.controlar.EmployeeLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmployeeRegistration</servlet-name>
+        <servlet-class>com.mvcproject.controlar.EmployeeRegistration</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrationControlar</servlet-name>
         <url-pattern>/RegistrationControlar</url-pattern>
@@ -31,5 +39,13 @@
     <servlet-mapping>
         <servlet-name>UpdateProfile</servlet-name>
         <url-pattern>/UpdateProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeLogin</servlet-name>
+        <url-pattern>/EmployeeLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeRegistration</servlet-name>
+        <url-pattern>/EmployeeRegistration</url-pattern>
     </servlet-mapping>
 </web-app>

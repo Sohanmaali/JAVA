@@ -1,8 +1,4 @@
-<%-- 
-    Document   : AdminNavVar
-    Created on : 29-Oct-2023, 5:43:29 pm
-    Author     : DELL
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -121,8 +117,12 @@
 
                                     </li>
                                     <li>
-                                        <a href="LogOut.jsp"
-                                           ><i class="fa-solid fa-right-from-bracket"></i
+                                        <a href="LogOut"
+                                           > <i
+                                                class="fa-solid fa-right-from-bracket"
+                                                name="logout"
+                                                value="logout"
+                                                ></i
                                             ></a>
                                     </li>
                                 </ul>

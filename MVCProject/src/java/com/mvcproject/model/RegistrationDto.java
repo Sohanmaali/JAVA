@@ -2,6 +2,7 @@ package com.mvcproject.model;
 
 import static com.mvcproject.model.RegistrationDto.decrypt;
 import com.mvcprojectdb.services.GetConnection;
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -33,11 +34,17 @@ public class RegistrationDto {
                 ps.setString(1, dao.getEmail());
                 rs = ps.executeQuery();
                 if (rs.next()) {
-                    String encryptedPasswordFromDB = rs.getString("password"); // Get the encrypted password from the database
-                    String decryptedPassword = decrypt(encryptedPasswordFromDB); // Decrypt the password from the database
-                    if (decryptedPassword.equals(dao.getPassword())) { // Compare the decrypted password with the input password
-                        b = true;
-                    }
+                    dao.setId(rs.getInt(1));
+                    dao.setName(rs.getString(2));
+                    dao.setFather(rs.getString(3));
+                    dao.setEmail(rs.getString(4));
+                    dao.setMobile(rs.getString(5));
+                    dao.setPassword(rs.getString(6));
+//                    String encryptedPasswordFromDB = rs.getString("password"); // Get the encrypted password from the database
+//                    String decryptedPassword = decrypt(encryptedPasswordFromDB); // Decrypt the password from the database
+//                    if (decryptedPassword.equals(dao.getPassword())) { // Compare the decrypted password with the input password
+                    b = true;
+//                    }
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -180,8 +187,7 @@ public class RegistrationDto {
             key = sha.digest(key);
             key = Arrays.copyOf(key, 16); // use only first 128 bit
             secretKey = new SecretKeySpec(key, "AES");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
         }
     }
 
@@ -191,7 +197,7 @@ public class RegistrationDto {
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
             return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
-        } catch (Exception e) {
+        } catch (UnsupportedEncodingException | InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e) {
             System.out.println("Error while encrypting: " + e.toString());
         }
         return null;
