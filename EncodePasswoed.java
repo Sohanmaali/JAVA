@@ -8,5 +8,7 @@ public class EncodePasswoed {
 
         System.out.println("Pass  =  " + enpass);
 
+
+        
     }
 }
