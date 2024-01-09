@@ -10,7 +10,6 @@ class CheckNum {
 
 		if (num1 >= 0) {
 			System.out.println("Positive num");
-		} else {
 			System.out.println("Nagative num");
 		}
 	}

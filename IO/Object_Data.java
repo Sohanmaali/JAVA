@@ -108,8 +108,7 @@ class Marksheet {
 		FileOutputStream fos = new FileOutputStream(f, true);
 		PrintStream pw = new PrintStream(fos);
 		String s = "Roll\t Name \t Phys\t Chem \t Maths \t Hindi \t English";
-		
-		
+
 	}
 
 	public int cheakMarks(Scanner sc) {
@@ -123,25 +122,21 @@ class Marksheet {
 		return marks;
 	}
 
-	public int cheakRoll(MarksheetData marksheet[],int i,Marksheet ob)
-	{
-		Scanner sc=new Scanner(System.in);
+	public int cheakRoll(MarksheetData marksheet[], int i, Marksheet ob) {
+		Scanner sc = new Scanner(System.in);
 		int roll;
 		boolean flag;
-		do
-		{
-			roll=sc.nextInt();
-			flag=false;
-			for(int j=0;i>0&&j<i;j++)
-			{
-				if(marksheet[j].getRoll()==roll)
-				{
+		do {
+			roll = sc.nextInt();
+			flag = false;
+			for (int j = 0; i > 0 && j < i; j++) {
+				if (marksheet[j].getRoll() == roll) {
 					System.out.println("roll number is alredy Exist plese Enter Other roll Number ");
-					flag=true;
+					flag = true;
 				}
 			}
-		}while(flag);
-		return roll;	
-		
+		} while (flag);
+		return roll;
+
 	}
 }

@@ -1,16 +1,13 @@
-import java.util.Scanner;
-
-interface MyLambda{
-    int add(int a,int b);
+interface Demo {
+    int i = 520;
 }
 
-public class Test{
+class Test implements Demo {
+    // int add(int a,int b);
     public static void main(String[] args) {
-    
-        MyLambda ad1=(a,b)->(a+b);
-        System.out.println(ad1.add(10,20));
-    
-        MyLambda ad2=(int a,int b)->(a+b);
-        System.out.println(ad2.add(100,200));
-    }  
+        System.out.println("hello");
+        Demo d = new Test();
+        System.out.println(Demo.i);
+        // Demo.m();
+    }
 }

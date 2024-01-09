@@ -37,23 +37,25 @@ class TestMain {
         ob.details();
     }
 } */
+@FunctionalInterface
+interface Student {
 
-class Student {
-   
-    public void show()
-    {
-        System.out.println("hy i am studen");
-    }
-}
-class Test extends Student {
-    public int display()
-    {
-        return 1000;
-    }
+    void display();
+
+    // void d();
+
 }
 
-class TestMain {
+// class Demo implements Student {
+// // @FunctionalInterface
+// Student s = () -> System.out.println("hello");
+
+// // s.display();
+// }
+
+class Test1 {
     public static void main(String args[]) {
-        Test ob = new Test();
-      ob.show();
+        Student s = () -> System.out.println("hello");
+        s.display();
     }
+}
