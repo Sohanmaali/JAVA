@@ -10,13 +10,14 @@ import org.hibernate.classic.Session;
  *
  * @author Sohan_Maali
  */
-public class Test {
+public class StoreData {
+
     public static void main(String[] args) {
         System.out.println("kjfdnkj");
-        Configuration cfg= new Configuration();
+        Configuration cfg = new Configuration();
         cfg.configure();
-        SessionFactory sf= cfg.buildSessionFactory();
-        Session session = sf.openSession(); 
+        SessionFactory sf = cfg.buildSessionFactory();
+        Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
         Employee emp = new Employee();
         emp.setId(40);
