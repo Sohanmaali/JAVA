@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name= "com.sohan.pojo.Employee" table= "test">
+        <id name="id" column = "id" />
+        <property name="name" column="name" />
+        <property name="father" column="father" />
+    </class>
+<!--     <class name = "com.sohan.pojo.Student" table = "Student">
+        <id name="id" column = "id" />
+        <property name ="roll" column = "rollNum" />
+        <property name ="name" column = "userName" />
+        <property name ="fname" column = "fname" />
+    </class>-->
+</hibernate-mapping>
