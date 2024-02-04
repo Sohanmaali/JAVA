@@ -4,12 +4,8 @@ import com.sohan.pojo.Employee;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.classic.Session;
+import org.hibernate.Session;
 
-/**
- *
- * @author Sohan_Maali
- */
 public class DeleteData {
 
     public static void main(String[] args) {
@@ -19,7 +15,7 @@ public class DeleteData {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
         Employee emp = new Employee();
-        emp.setId(30);
+        emp.setId(20);
         session.delete(emp);
         tx.commit();
         session.close();

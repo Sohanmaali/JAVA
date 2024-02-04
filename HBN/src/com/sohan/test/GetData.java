@@ -1,7 +1,7 @@
 package com.sohan.test;
 
 import com.sohan.pojo.Employee;
-import java.util.List;
+//import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
@@ -22,7 +22,7 @@ public class GetData {
         Transaction tx = session.beginTransaction();
 //        List<Employee> result = session.createQuery("FROM Employee", Employee.class).list();
 
-        Employee emp = (Employee) session.get(Employee.class, new Long(10));
+        Employee emp = (Employee) session.get(Employee.class, Long.valueOf(10));
         tx.commit();
         System.out.println(emp.getId());
         System.out.println(emp.getName());
