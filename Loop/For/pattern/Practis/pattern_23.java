@@ -12,7 +12,7 @@ class Pattern_23
 	public static void main(String[]args)
 	{
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter any num");
+		System.out.println("Enter Row num");
 		int row = sc.nextInt();
 		int a=1;
 		for(int i=1;i<=row;i++)
