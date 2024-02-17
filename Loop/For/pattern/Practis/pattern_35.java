@@ -12,7 +12,7 @@
 */
 
 import java.util.Scanner;
-class Pattern_35
+public class pattern_35
 {
 	public static void main(String[]args)
 	{
@@ -27,11 +27,11 @@ class Pattern_35
 			{
 				if(i<=row&&(j>=row-i+1)||((i>row)&&(j>=a&&j<=(row<<1)-a)))
 				{
-					System.out.print(x);
+					System.out.print(x+" ");
 				}
 				else
 				{
-					System.out.print(" ");
+					System.out.print("  ");
 				}
 				x = (j<row?--x:++x);
 			}
