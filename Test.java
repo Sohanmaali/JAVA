@@ -28,7 +28,7 @@ public class Test {
      public static void main(String[] args) {
           System.out.println("Enter any num");
           Scanner sc = new java.util.Scanner(System.in);
-          long i = sc.nextLong();
+          int i = sc.nextInt();
           switch (i) {
                case 10:
                     System.out.println("10");
@@ -41,5 +41,6 @@ public class Test {
                default:
                     break;
           }
+          sc.close();
      }
 }

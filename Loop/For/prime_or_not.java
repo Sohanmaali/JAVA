@@ -1,18 +1,18 @@
 //Prime or not
 
 import java.util.Scanner;
-class Prime
-{
-  public static void main(String[]args)
-	{
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter any  num");
-		int n = sc.nextInt();
-		
-		//first Way
-		
-		//int count=0,i;
-		/*for(i=1;i<=n;i++)
+
+class Prime {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter any  num");
+    int n = sc.nextInt();
+
+    //first Way
+
+    //int count=0,i;
+    /*for(i=1;i<=n;i++)
 		{
 			if(n%i==0)
 			{
@@ -28,10 +28,10 @@ class Prime
 			System.out.println("Not Prime number");
 		}
 		*/
-		
-		//Second Way
-		
-		/*
+
+    //Second Way
+
+    /*
 		int count=0,i;
 		for(i=2;i<n;i++)
 		{
@@ -50,10 +50,10 @@ class Prime
 		}
 		
 		*/
-		
-		//Third Way
-		
-		/* int i;
+
+    //Third Way
+
+    /* int i;
 		for(i=1;i<n;i++)
 		{
 			if(n%i==0)
@@ -69,9 +69,9 @@ class Prime
 		{
 			System.out.println("Not Prime number");
 		} */
-		
-		// Fourth Way
-		/* boolean flage  = false;
+
+    // Fourth Way
+    /* boolean flage  = false;
 		for(int i = 2;i<n/2;i++)
 		{
 			if(n%i==0)
@@ -87,21 +87,17 @@ class Prime
 		{
 			System.out.println("Not Prime number");
 		} */
-		
-		
-		int count =0;
-		for(int i=2;i<n/2;i++)
-		{
-			if(n%i==0)
-			{
-				System.out.println("not prime");
-				count++;
-				break;
-			}
-		}
-		if(count == 0&& n>1)
-		{
-			System.out.println("prime num prime");
-		}
-	}
-}		
+
+    int count = 0;
+    for (int i = 2; i < n / 2; i++) {
+      if (n % i == 0) {
+        System.out.println("not prime");
+        count++;
+        break;
+      }
+    }
+    if (count == 0 && n > 1) {
+      System.out.println("prime num prime");
+    }
+  }
+}

@@ -3,11 +3,11 @@
     <servlet>
         <servlet-name>OddNumberSerice</servlet-name>
         <servlet-class>OddNumberSerice</servlet-class>
-        <servlet-mapping>
-            <servlet-name>Calculatar</servlet-name>
-            <url-pattern>/Calculatar</url-pattern>
-        </servlet-mapping>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>Calculatar</servlet-name>
+        <url-pattern>/Calculatar</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>FoureValue1</servlet-name>
         <servlet-class>FoureValue1</servlet-class>

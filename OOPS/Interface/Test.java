@@ -1,41 +1,58 @@
+// @FunctionalInterface
+// interface A {
+//     // void m(double n);
+//     int x = 999;
 
-@FunctionalInterface
-interface A {
-    // void m(double n);
-    int x = 999;
+//     void m(int n);
 
-    void m(int n);
+//     private static void m2() {
+//         System.out.println("static");
+//     }
 
-    private static void m2() {
-        System.out.println("static");
-    }
+// }
 
-}
+// interface B {
+//     int x = 888;
+//     // void m(float x);
+// }
 
-interface B {
-    int x = 888;
-    // void m(float x);
-}
+// class Test implements A, B {
+//     // int add(int a,int b);
+//     public void m(int c) {
+//         System.out.println("int");
+//     }
 
-class Test implements A, B {
-    // int add(int a,int b);
-    public void m(int c) {
-        System.out.println("int");
-    }
+//     public void m(float c) {
+//         System.out.println("float");
 
-    public void m(float c) {
-        System.out.println("float");
+//     }
 
-    }
+//     public static void main(String[] args) {
+//         // System.out.println("hello");
+//         Test d = new Test();
+//         // d.m(10);
+//         // d.m(10);
+//         // System.out.println(d.x);
+//         // System.out.println(A.x);
+//         // System.out.println(B.x);
+//         A.m2();
+//     }
+// }
 
-    public static void main(String[] args) {
-        // System.out.println("hello");
-        Test d = new Test();
-        // d.m(10);
-        // d.m(10);
-        // System.out.println(d.x);
-        // System.out.println(A.x);
-        // System.out.println(B.x);
-        A.m2();
-    }
+/**
+ * Test
+ */
+
+public interface Test {
+  static int i = 20;
+
+  private void m() {}
+
+  //   protected void m1() {}
+
+  default void m2() {}
+
+  public static void main(String[] args) {
+    System.out.println("hello sohan from interface" + i);
+  }
 }
