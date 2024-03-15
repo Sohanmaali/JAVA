@@ -39,10 +39,8 @@ class TestMain {
 } */
 @FunctionalInterface
 interface Student {
-
-    void display();
-
-    // void d();
+  void display();
+  // void d();
 
 }
 
@@ -54,8 +52,6 @@ interface Student {
 // }
 
 class Test1 {
-    public static void main(String args[]) {
-        Student s = () -> System.out.println("hello");
-        s.display();
-    }
+
+  public static void main(String args[]) {}
 }
