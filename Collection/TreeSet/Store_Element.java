@@ -8,8 +8,10 @@ public class Store_Element {
     ts.add(new StringBuffer("D"));
     ts.add(new StringBuffer("C"));
     ts.add(new StringBuffer("B"));
+    ts.add(new String("f"));
 
     System.out.println(ts);
     // ts.
   }
 }
+ṅ
