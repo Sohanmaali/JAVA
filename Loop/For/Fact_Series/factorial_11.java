@@ -10,7 +10,7 @@ class Factorial_11
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter any num");
 		n = sc.nextInt();
-		
+		w
 		for(i=1,j=2;i<=n;i++,j++)
 		{
 			fact=fact*i;

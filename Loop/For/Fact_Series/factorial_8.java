@@ -11,6 +11,9 @@ class Factorial_8
 		System.out.println("Enter any num");
 		n = sc.nextInt();
 		
+		write a program to add two num
+
+
 		for(i=1,j=2;i<=n;i++,j++)
 		{
 			fact=fact*i;
