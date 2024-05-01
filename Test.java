@@ -26,20 +26,23 @@ public class Test {
   // sc.close();
   // }
 
+  // public static void main(String[] args) {
+  // System.out.println("Enter any num");
+  // Scanner sc = new java.util.Scanner(System.in);
+  // int i = sc.nextInt();
+  // switch (i) {
+  // case 10:
+  // System.out.println("10");
+  // break;
+  // case 20:
+  // System.out.println("20");
+  // break;
+  // default:
+  // break;
+  // }
+  // sc.close();
+  // }
   public static void main(String[] args) {
-    System.out.println("Enter any num");
-    Scanner sc = new java.util.Scanner(System.in);
-    int i = sc.nextInt();
-    switch (i) {
-      case 10:
-        System.out.println("10");
-        break;
-      case 20:
-        System.out.println("20");
-        break;
-      default:
-        break;
-    }
-    sc.close();
+    static int x = 10;
   }
 }
