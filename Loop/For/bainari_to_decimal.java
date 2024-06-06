@@ -1,3 +1,4 @@
+
 //bainari_to_decimal
 import java.util.Scanner;
 
@@ -8,7 +9,7 @@ public class Bainari_to_Decimal {
     System.out.println("Enter any num");
     int n = sc.nextInt();
     int decimal = 0;
-    int i, j;
+    int j;
     for (j = 0; n > 0; n /= 10, j++) {
       int rem = n % 10;
       int power = (int) Math.pow(2d, j);

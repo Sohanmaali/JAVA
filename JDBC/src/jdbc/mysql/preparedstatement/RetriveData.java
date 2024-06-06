@@ -17,6 +17,7 @@ class RetriveData {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData md = rs.getMetaData();
+            
             System.out.println(md.getColumnName(1) + "\t    " + md.getColumnName(2) + "\t    " + md.getColumnName(3) + "\t    " + md.getColumnName(4) + "\t    " + md.getColumnName(5));
             while (rs.next()) {
                 System.out.println(rs.getInt(1) + "\t    " + rs.getString(2) + "\t    " + rs.getString(3) + "\t    " + rs.getString(4) + "\t    " + rs.getInt(5));
