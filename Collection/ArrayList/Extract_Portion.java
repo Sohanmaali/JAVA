@@ -8,8 +8,7 @@ public class Extract_Portion {
 
   public static void main(String[] args) {
     ArrayList<Integer> arr = new ArrayList<Integer>(
-      Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    );
+        Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
     Scanner sc = new Scanner(System.in);
     System.out.println("Enter Starting Index");
     int start = sc.nextInt();
@@ -20,7 +19,7 @@ public class Extract_Portion {
     for (int i = start; i < end; i++) {
       System.out.print(arr.get(i) + "  ");
     }
-    //Using method
+    // Using method
     System.out.println(arr.subList(start, end));
     sc.close();
   }

@@ -9,8 +9,7 @@ public class Swap_Element {
 
   public static void main(String[] args) {
     ArrayList<Integer> arr = new ArrayList<Integer>(
-      Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    );
+        Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
     // Scanner sc = new Scanner(System.in);
     // System.out.println("Enter First Index");
     // int start = sc.nextInt();
@@ -23,7 +22,7 @@ public class Swap_Element {
     // arr.set(end, temp);
     // System.out.println(arr);
 
-    //using Method
+    // using Method
 
     Collections.swap(arr, 2, 4);
     System.out.println(arr);
